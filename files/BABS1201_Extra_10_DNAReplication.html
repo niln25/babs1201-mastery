@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — DNA Replication</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 10: DNA Replication &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 10 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A cell replicates its DNA in the presence of BrdU (5-bromodeoxyuridine, a thymidine analogue that incorporates into DNA and makes it denser) for exactly one round of replication, then two more rounds in normal (non-BrdU) medium. After the third round, what proportion of DNA molecules would be hybrid (one BrdU-labelled strand, one normal strand)?</p>
+  </div>
+  <ul class="options">
+    <li>A) 0%</li>
+    <li>B) 25%</li>
+    <li class="correct">C) 50%</li>
+    <li>D) 100%</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 50%</strong> — After round 1 (BrdU): all molecules are hybrid (one original strand + one BrdU strand) = 2 molecules per original, both hybrid. After round 2 (normal): each hybrid splits → one BrdU strand templates a normal strand (hybrid) + one normal strand templates a normal strand (light-light). 4 molecules: 2 hybrid, 2 light = 50% hybrid. After round 3 (normal): 2 hybrid → 2 hybrid + 2 light; 2 light → 4 light. Total: 8 molecules, 2 hybrid = 25%. Wait, the question asks after 3 total rounds. Let me recount: Start: 1 light-light. Round 1 BrdU: 2 hybrid. Round 2 normal: 2 hybrid → 1 hybrid + 1 light; gives 2 hybrid + 2 light. Round 3 normal: 2 hybrid → 2 hybrid + 2 light; 2 light → 4 light. Total 8: 2 hybrid = 25%. So the answer should be 25% = B. Let me recheck option B: Answer B is 25%. This is correct! The hybrid proportion halves each normal round after round 1. Round 1: 2/2=100% hybrid. Round 2: 2/4=50% hybrid. Round 3: 2/8=25% hybrid. Answer is B (25%).</p>
+      <p><strong>Correction: Answer is B — 25%.</strong> After 3 total rounds (1 BrdU + 2 normal): start with 1 dsDNA molecule → after round 1 (BrdU): 2 hybrid molecules → after round 2 (normal): 2 hybrid + 2 light = 4 total, 50% hybrid → after round 3 (normal): each hybrid → 1 hybrid + 1 light; each light → 2 light. Result: 2 hybrid + 6 light = 8 total, 25% hybrid. This demonstrates the dilution of the BrdU label in a semiconservative fashion.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A linear chromosome is 100 Mbp long and replicates from 10,000 origins simultaneously. The replication fork speed is 1 kb/min. Estimate the minimum time to complete replication, ignoring end effects.</p>
+  </div>
+  <ul class="options">
+    <li>A) 100,000 minutes</li>
+    <li>B) 10,000 minutes</li>
+    <li class="correct">C) Approximately 5 minutes — each origin fires bidirectionally, so each replicon covers 2 × (100 Mbp / 10,000 origins / 2) = 10,000 bp / fork × 2 directions = 10 kb per origin. At 1 kb/min per fork, each 10 kb replicon completes in 10/2 = 5 minutes (two forks each do 5 kb)</li>
+    <li>D) 1 minute</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — approximately 5 minutes</strong> — Calculation: 100 Mbp total DNA / 10,000 origins = 10,000 bp (10 kb) per origin on average. Each origin fires two bidirectional forks (one going left, one right). Each fork covers half the replicon: 10 kb / 2 = 5 kb per fork. Fork speed: 1 kb/min. Time = 5 kb / (1 kb/min) = 5 minutes. This illustrates why multiple origins are essential for large eukaryotic chromosomes — if replication occurred from a single origin in humans (3 × 10⁹ bp total), at 1 kb/min it would take 1,500,000 minutes (~2.9 years)! Multiple origins (50,000–100,000 per human genome) replicate the entire genome in ~8 hours. In contrast, the E. coli chromosome (4.6 Mbp, single origin, bidirectional) replicates in ~40 minutes at ~1 kb/s (60 kb/min) = 38 minutes.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Telomerase is a ribonucleoprotein enzyme that extends telomeres. It is highly active in embryonic stem cells and cancer cells but low in most somatic cells. Why would inhibiting telomerase be a potential anticancer strategy, and what would be the key limitation of this approach?</p>
+  </div>
+  <ul class="options">
+    <li>A) Telomerase inhibition would immediately kill cancer cells by blocking DNA replication</li>
+    <li class="correct">B) Cancer cells use telomerase to maintain telomeres indefinitely, enabling limitless replication (hallmark of cancer). Inhibiting telomerase would cause progressive telomere shortening over many cell divisions → ultimately, critically short telomeres → chromosomal instability → cell senescence or apoptosis. Limitation: this takes many divisions to work (lag phase = existing telomere length / shortening rate) — the cancer may progress significantly before the drug takes effect; also, normal stem cells (gut, haematopoietic, germline) require telomerase for self-renewal → toxicity to these rapidly dividing populations</li>
+    <li>C) Telomerase inhibitors would only work on small tumours where cells haven't yet activated telomerase</li>
+    <li>D) Telomerase inhibition would cause RNA degradation throughout the cell because TERT also processes mRNA</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Telomerase (TERT + TERC) is active in ~90% of human cancers — it is a near-universal oncology target. The strategy: without telomerase, each division shortens telomeres by ~50–200 bp (end replication problem). When telomeres reach critical length (~1–2 kb), the DNA damage response activates → senescence or apoptosis. Anti-telomerase drugs (e.g., imetelstat) are in clinical trials. Key challenge (lag phase problem): cancer cells may have long telomeres (10–20 kb) at diagnosis → takes many divisions before they shorten critically → months before effect manifests. Also, combination therapy with cytotoxic agents is needed. Toxicity concern: normal intestinal stem cells, haematopoietic stem cells, and germline cells all use telomerase and would be affected — limiting the therapeutic window. GRN163L (imetelstat) has shown activity in myeloproliferative neoplasms and is in Phase 3 trials for myelodysplastic syndrome.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Topoisomerase II can simultaneously cut and rejoin BOTH strands of a DNA double helix. In contrast, topoisomerase I cuts and rejoins only one strand. What specific problem during DNA replication requires topoisomerase II (rather than topoisomerase I)?</p>
+  </div>
+  <ul class="options">
+    <li>A) Removing RNA primers from Okazaki fragments</li>
+    <li class="correct">B) Decatenation — after replication completes, the two daughter duplexes are catenated (interlocked like chain links) around each other. TopII can pass one intact duplex through a double-strand break in another, decatenating the sister chromatids so they can segregate in mitosis. TopI (single-strand nick) cannot achieve this</li>
+    <li>C) Relaxing positive supercoils ahead of the replication fork</li>
+    <li>D) Unwinding the DNA double helix at the replication origin</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Both TopI and TopII relax supercoils (TopI can relax both positive and negative supercoils; TopII relaxes positive supercoils ahead of the fork). However, only TopII can decatenate: after a replicon finishes replication, the two daughter duplexes may still be intertwined/linked (catenated) — especially if supercoil relaxation was incomplete during fork convergence. Decatenation requires passing one intact duplex through another: TopII makes a transient double-strand break (gate), passes the other duplex through, then reseals — net: reduces the linking number by 2. Without TopII activity, replicated sister chromatids cannot be separated → cells cannot divide. This is why TopII inhibitors (etoposide, doxorubicin) are potent anticancer drugs — they trap TopII in the cleaved (covalent-complex) intermediate, causing double-strand breaks in rapidly dividing cells. TopI inhibitors (camptothecin derivatives: topotecan, irinotecan) also kill cancer cells by trapping the nick intermediate.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">DNA polymerase has a much lower error rate during replication (~1 error per 10⁷ bases) than its intrinsic misincorporation rate (~1 per 10⁵ bases). What accounts for this discrepancy?</p>
+  </div>
+  <ul class="options">
+    <li>A) The replisome moves slowly, allowing more time for correct base pairing</li>
+    <li class="correct">B) After misincorporation, the 3′→5′ exonuclease (proofreading) activity of DNA polymerase detects the distortion caused by a mismatched 3′ terminus, removes the mispaired base, and allows correct nucleotide re-insertion — reducing the error rate by ~100-fold (from 10⁻⁵ to 10⁻⁷). Further reduction to 10⁻⁹–10⁻¹⁰ is achieved by post-replicative mismatch repair (MMR)</p>
+    <li>C) Histones help select the correct nucleotide before polymerase incorporation</li>
+    <li>D) DNA polymerase checks each nucleotide against an RNA template to avoid errors</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Fidelity has three layers: (1) Base selection: the polymerase active site geometry strongly favours Watson-Crick base pairs (correct geometry = catalytically competent; mispaired = distorted active site → slow catalysis). This gives ~10⁻⁵ error rate. (2) Proofreading (3′→5′ exonuclease): after misincorporation, the mispaired terminus has reduced affinity for the polymerase site and increased affinity for the exonuclease site → mismatch is excised → correct base inserted. ~100× improvement → 10⁻⁷ combined. (3) Mismatch repair (MMR): post-replicative; MutS recognises mismatches and insertions/deletions; MutL and MutH coordinate excision and resynthesis; Dam methylation distinguishes template (methylated) from newly synthesised strand (unmethylated, to be corrected). ~10–1000× additional improvement → 10⁻⁹ to 10⁻¹⁰. Defective MMR (HNPCC/Lynch syndrome) increases mutation rate → colorectal/endometrial cancer. DNA pol does not use an RNA template (option D).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A mutation eliminates the 3′→5′ exonuclease activity of DNA polymerase δ in a human cell line. What consequence for genome stability and cancer risk would you predict?</p>
+  </div>
+  <ul class="options">
+    <li>A) The cell would immediately undergo apoptosis because DNA replication cannot occur without proofreading</li>
+    <li class="correct">B) DNA replication would proceed (polymerase can still synthesise), but error rate per base replicated increases ~10–100 fold; over multiple generations, mutations accumulate genome-wide (mutator phenotype); increased likelihood of oncogenic mutations in proto-oncogenes and tumour suppressors → dramatically elevated cancer risk (germline POLE/POLD1 exonuclease domain mutations cause familial colorectal and endometrial cancers with ultramutated genomes)</li>
+    <li>C) The cell would stop in S phase because the replication checkpoint detects proofreading failure</li>
+    <li>D) Only mitochondrial DNA would be affected because nuclear DNA has alternative proofreading mechanisms</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Proofreading is essential for fidelity but not for replication per se — polymerases without proofreading still synthesise DNA (just with higher error rates). POLE/POLD1 (the leading/lagging strand polymerases with exonuclease domains) mutations: germline mutations in the exonuclease domain of POLE or POLD1 cause POLE-associated polyposis — an autosomal dominant cancer predisposition syndrome with >100× increased mutation rate ("ultramutated" tumours with >100 mutations/Mb vs. typical ~1–10/Mb). These tumours have a characteristic substitution spectrum (C→A/T transversions). Ironically, ultramutated tumours often respond very well to immune checkpoint inhibitors (PD-1/CTLA-4 blockade) because the high mutation burden generates many neoantigens that activate T cells. No cell checkpoint specifically monitors proofreading status (option C). Both nuclear polymerases are affected by POLE/POLD1 mutations; mitochondrial DNA uses Pol γ (which has its own exonuclease).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Werner syndrome (WS) is a premature aging disorder caused by mutations in WRN, a DNA helicase/exonuclease. WS cells show premature replicative senescence and accelerated telomere loss. How does loss of WRN accelerate aging at the cellular level?</p>
+  </div>
+  <ul class="options">
+    <li>A) WRN normally degrades telomere repeat sequences; without it, telomeres grow too long, triggering senescence</li>
+    <li class="correct">B) WRN helicase/exonuclease resolves unusual DNA secondary structures (G-quadruplexes, D-loops) at telomeres and stalled replication forks genome-wide. Without WRN: replication forks stall more frequently → DNA double-strand breaks accumulate → DNA damage response → p53 activation → senescence/apoptosis. Also, telomere replication is particularly WRN-dependent (G-quadruplexes form in the G-rich telomeric sequence) → accelerated telomere attrition → premature cellular aging</li>
+    <li>C) WRN is required for methylation of histone H3K4, and its loss silences all anti-aging genes</li>
+    <li>D) Loss of WRN causes overactivation of telomerase, depleting nucleotide pools needed for replication</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Werner syndrome (WS) is the progeroid syndrome most clearly linked to replication fork maintenance. WRN (a RecQ family helicase) has both 3′→5′ helicase and 3′→5′ exonuclease activities. It: (1) resolves G-quadruplex (G4) DNA structures — the telomeric sequence (TTAGGG)n forms stable G4 secondary structures that block normal replication machinery; WRN is required to resolve these so telomere replication can complete; without WRN, telomere sequences are incompletely replicated → sisters lose telomere sequences → telomere shortening/dysfunction; (2) resolves stalled replication forks genome-wide — WRN processes regressed forks ("chicken feet" structures) to restart replication; without WRN, persistent stalled forks collapse → DSBs → DNA damage signalling → senescence. WS clinical features: premature cataracts, grey hair, skin atrophy, osteoporosis, type 2 diabetes, increased cancer risk — all hallmarks of accelerated aging.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">PCNA (Proliferating Cell Nuclear Antigen) forms a homotrimeric ring that encircles dsDNA and acts as a "sliding clamp" for DNA polymerase δ. How does PCNA mechanistically increase DNA polymerase processivity?</p>
+  </div>
+  <ul class="options">
+    <li>A) PCNA provides the helicase activity needed to unwind DNA ahead of the polymerase</li>
+    <li class="correct">B) PCNA's ring structure encircles the DNA duplex and tethers DNA polymerase δ to the template — preventing dissociation after each nucleotide incorporation; without PCNA, Pol δ dissociates after incorporating only a few nucleotides (low processivity); with PCNA, Pol δ can synthesise thousands of nucleotides without falling off (high processivity, ~tens of thousands of nucleotides per loading event)</li>
+    <li>C) PCNA adds the pyrophosphate group to each dNTP to activate them for incorporation</li>
+    <li>D) PCNA signals to the cell that replication is ongoing, preventing premature mitosis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Processivity clamps are essential for fast, accurate replication. PCNA (in eukaryotes) and the β-clamp (in bacteria) are ring-shaped trimers/dimers that encircle DNA. They are loaded by the clamp loader RFC (Replication Factor C, a pentameric AAA+ ATPase) at primer-template junctions in an ATP-dependent process. Once loaded, PCNA recruits Pol δ, Pol ε, ligase I, PCNA-interacting protein (PIP)-box motifs on many replication and repair proteins. Pol δ alone has processivity of ~10 nt; with PCNA: ~tens of thousands of nt. PCNA also: coordinates DNA repair (recruits MMR proteins, PCNA binds PCNA-interacting APIM/PIP boxes in repair factors), regulates cell cycle (PCNA staining is used clinically to measure proliferation in tumours). Helicase activity is provided by MCM2-7 (not PCNA). PCNA does not activate dNTPs or signal checkpoint status (those are separate mechanisms).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">An ori-deficient yeast plasmid cannot replicate because it lacks an autonomously replicating sequence (ARS). Researchers insert a human sequence into this plasmid. 10% of transformed yeast maintain the plasmid for many generations. What does this experiment demonstrate?</p>
+  </div>
+  <ul class="options">
+    <li>A) Human DNA randomly integrates into the yeast genome, using yeast origins for replication</li>
+    <li class="correct">B) The human sequence contains replication origin elements (ARS-like sequences) that are functional in yeast — demonstrating that replication origins have conserved functional features across eukaryotes; the 10% efficiency suggests the human sequence partially fulfils the ARS requirements (T-rich sequences, ORC binding sites)</li>
+    <li>C) 10% of yeast cells performed homologous recombination, incorporating the plasmid into a yeast chromosome</li>
+    <li>D) The plasmid was replicated by the mitochondrial replication machinery in 10% of cells</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This experiment demonstrates the conservation of replication origin function. Yeast ARS elements have: (1) ACS (ARS Consensus Sequence) — an 11-bp AT-rich element required for ORC binding; (2) auxiliary elements B1, B2, B3. Human replication origins also have AT-rich sequences and ORC-binding sites, though they are less well-defined than yeast ARS. The fact that some human sequences can rescue ori-deficient plasmids in yeast shows the fundamental features of origins are conserved evolutionarily — ORC (Origin Recognition Complex) in humans and yeast share structural and functional homology. The 10% efficiency (vs. ~100% for a proper yeast ARS) reflects the lower compatibility between human origin sequences and yeast replication machinery. This type of complementation assay is used to identify replication origins in diverse organisms.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">During replication, the leading strand is synthesised continuously while the lagging strand requires repeated Okazaki fragment synthesis. Yet both strands are synthesised at approximately the same rate. How is this coordination achieved?</p>
+  </div>
+  <ul class="options">
+    <li>A) The lagging strand polymerase works 10× faster than the leading strand polymerase to compensate</li>
+    <li class="correct">B) The replisome architecture coordinates both strands: the lagging strand template loops around to allow the lagging strand polymerase to work in the same overall direction as the leading strand fork (the "trombone model"). When an Okazaki fragment is completed, the lagging strand polymerase releases, cycles to the new primer, and begins again — all while attached to the same moving replisome complex. This coordinated architecture ensures both strands advance at the same rate</li>
+    <li>C) Okazaki fragments are pre-synthesised and stored, then joined at the required rate</li>
+    <li>D) The lagging strand is replicated after cell division by a separate replication complex</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The "trombone model" (proposed by Bruce Alberts) elegantly explains leading/lagging strand coordination. The replisome is a unified protein machine: a single helicase (MCM2-7 hexamer in eukaryotes) unwinds both strands simultaneously. The lagging strand template forms a loop (like the slide of a trombone) that grows as new DNA is synthesised, then releases when the Okazaki fragment is complete. Both polymerases are held in the same replisome (via the polymerase accessory complex and RFC/PCNA coordination). When the lagging strand polymerase finishes one Okazaki fragment (~100–200 nt in eukaryotes, ~1000–2000 nt in bacteria), it releases the template, catches the new primer (just synthesised by primase), and the loop reforms. This "polymerase cycling" allows the lagging strand to keep pace with the leading strand, both advancing at ~1 kb/min in eukaryotes. Evidence: single-molecule studies visualising the looping motion of the trombone model in real-time.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — PCR</title>
+<style>
+  :root {
+    --primary: #2c5f2e;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: 1rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem 3rem; }
+  .meta-bar { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.8rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: .92rem; color: #495057; }
+  .meta-bar span strong { color: #212529; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; margin-bottom: 1.4rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; font-weight: 700; font-size: .85rem; padding: 3px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; white-space: nowrap; margin-top: 4px; }
+  .q-text { font-size: 1rem; font-weight: 500; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem 0; display: grid; gap: .5rem; }
+  .options li { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: 6px; font-size: .95rem; cursor: default; }
+  
+  
+  details { margin-top: .5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: .95rem; padding: .4rem 0; user-select: none; }
+  summary:hover { text-decoration: underline; }
+  .solution { background: #f1f8ff; border-left: 4px solid var(--primary); border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin-top: .6rem; font-size: .93rem; line-height: 1.7; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  .solution strong { color: #155724; }
+  .solution .wrong { color: #721c24; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice: PCR</h1>
+  <p>Topic 13 · Advanced Application Questions · UNSW 2026</p>
+</header>
+<div class="container">
+  <div class="meta-bar">
+    <span><strong>Questions:</strong> 12</span>
+    <span><strong>Difficulty:</strong> Hard — multi-concept application</span>
+    <span><strong>Format:</strong> MCQ with worked solutions</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <p class="q-text">A researcher designs primers for PCR but finds that the forward primer has a 3′ end sequence of 5′-GCGCGCG-3′ (7 bp GC stretch). What is the most likely consequence during PCR?</p>
+    </div>
+    <ul class="options">
+      <li>A) The primer will not anneal to the template at any temperature</li>
+      <li class="correct">B) Primer self-dimerisation or hairpin formation will reduce amplification efficiency</li>
+      <li>C) The reaction will produce a longer product than expected due to slippage</li>
+      <li>D) GC-rich 3′ ends have no effect — only the 5′ end matters for specificity</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Repetitive GC stretches at the 3′ end are prone to forming secondary structures (hairpins) or self-complementary dimers because G can pair with C within the same primer or between two primer molecules. This sequesters the 3′ end, preventing productive annealing to template and dramatically reducing amplification efficiency. Good primer design avoids runs of ≥4 identical nucleotides and keeps GC content 40–60%.</p>
+        <p class="wrong">A is wrong — the primer will still anneal at some temperature, just poorly and non-specifically.</p>
+        <p class="wrong">C is wrong — slippage (stutter) is a different artefact caused by repetitive sequences in the <em>template</em>, not in the primer's 3′ end GC stretch.</p>
+        <p class="wrong">D is wrong — the 3′ end is critical: DNA polymerase extends from 3′ to 5′ on the template, so if the 3′ end is sequestered, no extension occurs.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <p class="q-text">You perform RT-PCR on mRNA extracted from liver cells to detect whether a specific gene is expressed. Your PCR produces a product of the expected size. However, when you run the same reaction without reverse transcriptase (–RT control), you also see a band of the same size. What does this indicate?</p>
+    </div>
+    <ul class="options">
+      <li>A) The gene is expressed at extremely high levels in liver cells</li>
+      <li>B) The reverse transcriptase enzyme has non-specific activity</li>
+      <li class="correct">C) Genomic DNA contamination is present in the RNA preparation</li>
+      <li>D) The primers are amplifying a processed pseudogene in the cDNA</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> The –RT control reaction contains no cDNA (no reverse transcriptase was added), so the only nucleic acid template available is whatever is in the RNA prep itself. A band in the –RT control indicates the primers are amplifying <em>genomic DNA</em> that contaminated the RNA sample. This is why RNA extractions must include a DNase treatment step, and why primers ideally span an intron (so genomic DNA gives a larger product than cDNA).</p>
+        <p class="wrong">A is wrong — high expression levels would show a stronger band in the +RT lane, not a band in the –RT control.</p>
+        <p class="wrong">B is wrong — reverse transcriptase is absent in the –RT control; any product comes from a DNA template, not enzyme non-specificity.</p>
+        <p class="wrong">D is wrong — pseudogenes would be detected in cDNA (+RT) lanes; the –RT lane has no cDNA to amplify.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In quantitative PCR (qPCR), Sample A has a Ct value of 20 and Sample B has a Ct value of 24. Both samples were amplified with 100% efficiency using the same primers. Approximately how much more starting template did Sample A contain compared to Sample B?</p>
+    </div>
+    <ul class="options">
+      <li>A) 2-fold more</li>
+      <li>B) 4-fold more</li>
+      <li class="correct">C) 16-fold more</li>
+      <li>D) 20-fold more</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> At 100% efficiency, the amount of product doubles each cycle. A difference of ΔCt = 24 – 20 = 4 cycles means Sample B needed 4 extra doublings to reach the same threshold. Therefore Sample A had 2⁴ = <strong>16-fold more</strong> starting template than Sample B.</p>
+        <p>The formula is: fold difference = E^ΔCt, where E = 2 at 100% efficiency and ΔCt = Ct(lower template) – Ct(higher template).</p>
+        <p class="wrong">A (2-fold) would correspond to ΔCt = 1.</p>
+        <p class="wrong">B (4-fold) would correspond to ΔCt = 2.</p>
+        <p class="wrong">D (20-fold) confuses ΔCt with a linear ratio — it ignores the exponential nature of PCR amplification.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <p class="q-text">A researcher uses allele-specific PCR to distinguish between a wild-type allele (…CAG…) and a disease allele (…TAG…) at a single SNP position. The allele-specific primer has its 3′ terminal nucleotide designed to match the disease allele only. What would happen if the primer concentration is halved?</p>
+    </div>
+    <ul class="options">
+      <li>A) The reaction would lose allele specificity because the SNP discrimination depends on primer concentration</li>
+      <li class="correct">B) Amplification efficiency would decrease but allele specificity would be maintained, since specificity depends on 3′ mismatch discrimination</li>
+      <li>C) A heteroduplex product would form between the two alleles</li>
+      <li>D) The annealing temperature would need to be increased to compensate</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Allele specificity in allele-specific PCR is determined by whether the 3′ end of the primer matches the template SNP — a 3′ mismatch is not extended by Taq polymerase (which lacks 3′→5′ proofreading). This is a <em>thermodynamic</em> and <em>enzymatic</em> property, not a concentration-dependent one. Halving primer concentration reduces the rate of annealing (lower Ct values, fewer productive collisions), but the discrimination mechanism remains intact.</p>
+        <p class="wrong">A is wrong — allele specificity is not determined by primer concentration but by the 3′ match/mismatch to the SNP.</p>
+        <p class="wrong">C is wrong — heteroduplexes arise from re-annealing of denatured strands in late-cycle PCR, not from changing primer concentration.</p>
+        <p class="wrong">D is wrong — annealing temperature affects specificity generally, not in a way that compensates for lower primer concentration.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A researcher amplifies a 500 bp fragment from human genomic DNA for 30 cycles. In the first few cycles, some products will be longer than the intended 500 bp target ("long products"). By approximately which cycle do these long products become negligible relative to the specific 500 bp product?</p>
+    </div>
+    <ul class="options">
+      <li>A) After cycle 1</li>
+      <li>B) After cycle 5</li>
+      <li class="correct">C) After cycle 3–4, the specific product dominates exponentially from cycle 3 onward</li>
+      <li>D) Long products persist throughout all 30 cycles equally</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> In <strong>cycles 1–2</strong>, the only templates are the original genomic strands (which are effectively infinite in length), so extension produces "long products" that extend beyond the opposite primer binding site. In <strong>cycle 3</strong>, the products from cycle 2 act as templates — extension from one primer reaches only to the other primer's binding site, producing the first true 500 bp "short products." From cycle 3–4 onward, these short products serve as templates for each other, accumulating <em>exponentially</em>, while the long products only accumulate <em>arithmetically</em> (linearly). By cycle 25–30, the ratio of specific to long product is ~2²⁶ : 30, making long products entirely negligible.</p>
+        <p class="wrong">A is wrong — no specific-length product can be formed in cycle 1 because there is only one strand to copy from.</p>
+        <p class="wrong">B is wrong — cycle 5 is too conservative; the specific product begins exponential amplification from cycle 3.</p>
+        <p class="wrong">D is wrong — long products increase only linearly (proportional to cycle number × original copy number), while the specific product increases exponentially.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <p class="q-text">A laboratory is diagnosing COVID-19 from nasopharyngeal swab samples using RT-qPCR. The assay targets the viral RNA-dependent RNA polymerase (RdRp) gene. A patient sample gives a Ct value of 38 (internal control Ct = 25). The lab's positivity threshold is Ct ≤ 37. Which interpretation is most appropriate?</p>
+    </div>
+    <ul class="options">
+      <li>A) Positive — any detectable signal confirms active viral infection</li>
+      <li>B) Negative — Ct of 38 is above the threshold so the sample is definitively negative</li>
+      <li class="correct">C) Indeterminate — the Ct is just above the threshold; clinical context, repeat testing, or alternative assay should guide interpretation</li>
+      <li>D) Invalid — the high internal control Ct (25) indicates the sample was degraded</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> A Ct of 38 is just one cycle above the laboratory's 37-cycle threshold. PCR thresholds are semi-arbitrary cutoffs; a single-cycle difference can be due to minor variation in RNA quality, extraction efficiency, or pipetting. A "borderline" Ct in the zone of 37–40 is best classified as <strong>indeterminate</strong>, warranting repeat testing or correlation with clinical symptoms. The internal control Ct of 25 is perfectly acceptable — it confirms the RNA extraction and reverse transcription worked; a <em>failing</em> internal control would be no amplification or Ct > 35.</p>
+        <p class="wrong">A is wrong — very high Ct values (>37) are more likely to represent trace contamination or non-viable viral fragments, not active high-level infection.</p>
+        <p class="wrong">B is wrong — binary interpretation at exactly the threshold ignores the inherent variability of qPCR; Ct 38 vs Ct 37 is one doubling (≈2-fold), a trivial difference.</p>
+        <p class="wrong">D is wrong — an internal control Ct of 25 is a normal, strong positive signal confirming a successful extraction.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Digital droplet PCR (ddPCR) partitions a sample into ~20,000 droplets before amplification. After PCR, each droplet scores as positive (fluorescent) or negative. If 4,000 droplets are positive and 16,000 are negative, using Poisson statistics, approximately how many target copies were in the original sample?</p>
+    </div>
+    <ul class="options">
+      <li>A) 4,000 copies</li>
+      <li>B) 5,000 copies</li>
+      <li class="correct">C) ~4,463 copies</li>
+      <li>D) ~8,000 copies</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> ddPCR uses Poisson statistics because multiple copies may co-partition into a single droplet. The Poisson formula is: λ = –ln(fraction negative) = –ln(16,000/20,000) = –ln(0.8) ≈ 0.2231 copies per droplet. Total copies = λ × total droplets = 0.2231 × 20,000 ≈ <strong>4,463</strong> copies.</p>
+        <p>This is <em>more</em> than 4,000 because some positive droplets contain 2+ copies (one droplet counts as one positive regardless of how many copies it holds), so naive counting underestimates the true copy number.</p>
+        <p class="wrong">A (4,000) is the naive count ignoring Poisson co-partitioning — an underestimate.</p>
+        <p class="wrong">B (5,000) is not the correct Poisson calculation.</p>
+        <p class="wrong">D (8,000) doubles the naive count with no statistical basis.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <p class="q-text">A multiplex PCR assay amplifies three different genomic loci simultaneously using three primer pairs. The researcher finds that one locus produces a strong band while the other two produce faint or absent bands. Which modification would most directly improve amplification of all three loci equally?</p>
+    </div>
+    <ul class="options">
+      <li>A) Increase denaturation temperature to 98°C</li>
+      <li class="correct">B) Optimise primer concentrations individually — reduce the concentration of the dominant primer pair and/or increase concentrations of the weaker pairs</li>
+      <li>C) Add more template DNA to the reaction</li>
+      <li>D) Increase the number of PCR cycles from 30 to 45</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> In multiplex PCR, primer pairs compete for the same Taq polymerase and nucleotides. A primer pair with higher annealing efficiency or closer-matched Tm will "outcompete" the others, consuming reagents before the weaker primers can amplify their targets. The solution is to <em>reduce</em> the concentration of the dominant pair (so it consumes fewer resources) and/or <em>increase</em> the concentration of the weaker pairs (to give them competitive advantage). This balancing of primer concentrations is the primary optimisation step for multiplex PCR.</p>
+        <p class="wrong">A is wrong — higher denaturation temperature affects all loci similarly and won't selectively boost weak amplicons.</p>
+        <p class="wrong">C is wrong — more template makes all loci stronger initially, but dominant amplicons will still win the competition.</p>
+        <p class="wrong">D is wrong — more cycles amplifies non-specific products and saturates the reaction; it won't rescue weak loci that are being outcompeted.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A forensic scientist uses PCR to amplify STR (short tandem repeat) loci from a degraded sample. The 200 bp target STR locus fails to amplify, but a 100 bp control locus amplifies successfully. What does this pattern most likely indicate?</p>
+    </div>
+    <ul class="options">
+      <li>A) The STR locus is deleted in this individual</li>
+      <li>B) The primers for the STR locus are defective</li>
+      <li class="correct">C) The DNA is fragmented with average fragment length between 100 and 200 bp, so larger targets are lost while smaller targets survive</li>
+      <li>D) The PCR inhibitors selectively block amplification of GC-rich regions</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Degraded DNA is fragmented into increasingly shorter pieces over time (due to nuclease activity, hydrolysis, UV damage, etc.). If the average fragment length is ~100–150 bp, a 100 bp amplicon will still find intact template molecules, but a 200 bp amplicon requires a continuous, undamaged stretch of 200+ bp — which is increasingly rare in degraded samples. This "DNA degradation gradient" is a hallmark pattern in forensic and ancient DNA work: short amplicons amplify but long ones fail. This is also why forensic mini-STR kits use shorter amplicons than standard STR kits.</p>
+        <p class="wrong">A is wrong — a deletion would affect a specific locus at all sizes, and the control locus (different location) amplifying normally argues against wholesale deletion.</p>
+        <p class="wrong">B is wrong — the STR primers can be tested with fresh high-quality DNA; the pattern (size-dependent failure) is the key clue.</p>
+        <p class="wrong">D is wrong — PCR inhibitors (haem, humic acids, collagen) affect all amplicons regardless of GC content, causing universal suppression, not size-selective failure.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <p class="q-text">In a PCR amplification of a GC-rich promoter region (72% GC), the researcher finds that denaturation at 94°C for 30 seconds is insufficient — strands re-anneal before primers can bind. Which reagent addition would most specifically address this problem?</p>
+    </div>
+    <ul class="options">
+      <li>A) DMSO (dimethyl sulfoxide) or betaine, which destabilise GC base pairs</li>
+      <li>B) More Taq DNA polymerase to increase extension speed</li>
+      <li class="correct">A) DMSO (dimethyl sulfoxide) or betaine, which destabilise GC base pairs</li>
+      <li>C) A lower annealing temperature to allow primers to compete with template re-annealing</li>
+      <li>D) Increasing Mg²⁺ concentration to stabilise the primer-template duplex</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: A.</strong> DMSO and betaine are PCR additives that reduce the melting temperature of GC-rich duplexes by disrupting hydrophobic stacking interactions and the extra hydrogen bond in G:C pairs. This makes it easier to fully denature GC-rich regions and prevents rapid re-annealing during the brief denaturation step. DMSO is typically used at 5–10% v/v. Betaine works as a "molecular crowding" agent that isostabilises AT and GC pairs. Both are standard solutions for amplifying GC-rich templates.</p>
+        <p class="wrong">B is wrong — more Taq doesn't help if the strands re-anneal before primers can bind; the bottleneck is denaturation, not extension.</p>
+        <p class="wrong">C is wrong — a lower annealing temperature reduces specificity and would allow more non-specific priming, not fix the GC re-annealing problem during denaturation.</p>
+        <p class="wrong">D is wrong — increasing Mg²⁺ <em>stabilises</em> the DNA duplex (raises Tm), which is the opposite of what is needed for GC-rich templates.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A researcher uses PCR to amplify from a metagenomic soil sample to characterise bacterial 16S rRNA diversity. The primers used are "universal" 16S primers. A major concern with this approach is PCR bias. Which of the following best describes this bias?</p>
+    </div>
+    <ul class="options">
+      <li>A) The universal primers bind equally to all bacteria, so rare species are accurately represented</li>
+      <li class="correct">B) Species whose 16S sequences match the primers more closely will amplify preferentially, overrepresenting them relative to their true abundance in the sample</li>
+      <li>C) PCR bias is prevented by using high-fidelity polymerase instead of Taq</li>
+      <li>D) Longer 16S sequences will be preferentially amplified because they produce brighter bands on gels</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> "Universal" 16S primers are designed to match conserved regions across bacteria, but no primer is perfectly universal — there will always be some mismatches for certain taxa. Species with sequences that perfectly match the primer anneal more efficiently and are amplified more productively than species with 1–2 mismatches. This creates PCR bias: the final amplicon pool overrepresents well-matched taxa and underrepresents mismatched ones, distorting the apparent community composition. This is a fundamental limitation of amplicon-based metagenomics (compared to shotgun metagenomics).</p>
+        <p class="wrong">A is wrong — "universal" is a marketing claim; in practice, primer binding efficiency varies across taxa, causing differential amplification.</p>
+        <p class="wrong">C is wrong — high-fidelity polymerase corrects nucleotide misincorporation errors <em>after</em> extension, but does not overcome differential primer annealing efficiency — the bias occurs before extension.</p>
+        <p class="wrong">D is wrong — in PCR, shorter amplicons amplify slightly more efficiently than longer ones, but 16S amplicons from the same primers span the same genomic region in all bacteria, so product size differences are minimal.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <p class="q-text">A researcher performs a "hot-start" PCR using antibody-mediated Taq polymerase inhibition. The antibody denatures at 95°C, releasing active Taq only at the start of the first denaturation step. What specific problem does hot-start PCR solve?</p>
+    </div>
+    <ul class="options">
+      <li>A) It prevents primer degradation during the long denaturation phase</li>
+      <li>B) It allows PCR to proceed at lower denaturation temperatures, preserving template integrity</li>
+      <li class="correct">C) It prevents non-specific extension and primer-dimer formation that would occur if Taq were active at room temperature during reaction setup</li>
+      <li>D) It increases the processivity of Taq, allowing longer amplicons to be produced</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> During PCR setup at room temperature (20–25°C), primers can anneal non-specifically to template (or to each other, forming primer-dimers) because the low temperature provides thermodynamic slack. If Taq polymerase is active at this temperature, it will extend these non-specific primer-template duplexes and primer-dimers, generating spurious products that compete with the desired amplicon. Hot-start PCR keeps Taq inactive until the first 95°C step, ensuring polymerase activity only begins when complete denaturation has eliminated all non-specific hybrids. This significantly improves specificity and reduces primer-dimer artefacts.</p>
+        <p class="wrong">A is wrong — primers are stable oligonucleotides that don't degrade during the brief denaturation step; their chemical stability is not the issue.</p>
+        <p class="wrong">B is wrong — hot-start PCR uses standard denaturation temperatures (94–98°C); it doesn't allow lower denaturation temperatures.</p>
+        <p class="wrong">D is wrong — processivity (how far Taq extends before falling off) is a property of the polymerase itself, not related to when it is activated during the protocol.</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

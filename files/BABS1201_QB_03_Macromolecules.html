@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 03: Macromolecules</title>
+<style>
+  :root { --primary: #1a3a5c; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-card.insta-q { border-left: 4px solid var(--insta); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .insta-header { background: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #721c24; }
+  .insta-header strong { color: var(--insta); }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 03: Macromolecules I, II &amp; III &nbsp;|&nbsp; Carbohydrates · Lipids · Proteins · Nucleic Acids · Dehydration &amp; Hydrolysis</p>
+</div>
+
+<div class="insta-header">
+  <strong>🐒 Monkey Monday (INSTA)</strong> — Questions 1, 2, and 3 are from the official BABS1201 INSTA series. Questions 4–19 are original practice questions.
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- INSTA Q1 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 1 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Purines (A, G) are _____, while pyrimidines (C, T) are _____.</div>
+  <ul class="options">
+    <li>A. One-carbon nitrogen ring bases; two-carbon nitrogen ring bases</li>
+    <li>B. One-carbon nitrogen square bases; two-carbon nitrogen square bases</li>
+    <li>C. One-hydrogen ring bases; two-hydrogen ring bases</li>
+    <li class="correct">D. Two-carbon nitrogen ring bases; one-carbon nitrogen ring bases</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: D — Purines have two fused rings; pyrimidines have one ring</strong></p>
+      <p><strong>Purines (Adenine, Guanine):</strong> double-ring structure consisting of a pyrimidine ring fused to an imidazole ring. The double ring makes purines larger.</p>
+      <p><strong>Pyrimidines (Cytosine, Thymine, Uracil):</strong> single six-membered nitrogen-containing ring. Smaller than purines.</p>
+      <p>A useful mnemonic: <strong>PURe As Gold</strong> (Purines = Adenine and Guanine). The description "two-ring" vs "one-ring" is correctly stated in option D as "two-carbon nitrogen ring bases" (double ring) vs "one-carbon nitrogen ring bases" (single ring).</p>
+      <p><strong>Why this matters in DNA:</strong> Base pairing always pairs a purine with a pyrimidine (A–T; G–C). This maintains consistent width of the double helix. A purine paired with a purine would be too wide; pyrimidine–pyrimidine would be too narrow.</p>
+      <p><strong>Why A is wrong:</strong> The numbers are reversed — purines have MORE rings (two), not fewer.</p>
+      <p><strong>Why B and C are wrong:</strong> "Square bases" and "hydrogen ring bases" are not real structural descriptions of nucleotide bases.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q2 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 2 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">The processes of polymer synthesis and breakdown are:</div>
+  <ul class="options">
+    <li>A. Hydrolysis and decarbonation</li>
+    <li>B. Active and passive transport</li>
+    <li>C. Hydrogenation and sublimation</li>
+    <li class="correct">D. Dehydration and hydrolysis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: D — Dehydration (synthesis) and Hydrolysis (breakdown)</strong></p>
+      <p><strong>Dehydration synthesis (condensation reaction):</strong> Monomers join together to form a polymer by releasing a water molecule (H₂O) per bond formed. Example: two glucose molecules → maltose + H₂O (glycosidic bond). Also applies to amino acid polymerisation (peptide bonds) and nucleotide polymerisation (phosphodiester bonds).</p>
+      <p><strong>Hydrolysis:</strong> The reverse reaction — water is used to break a polymer apart. A water molecule is added across each bond. Example: protein + H₂O → amino acids (catalysed by proteases).</p>
+      <p><strong>Why A is wrong:</strong> "Decarbonation" refers to the removal of CO₂ (e.g., in beer). This is not a process involved in polymer synthesis.</p>
+      <p><strong>Why B is wrong:</strong> Active and passive transport describe how molecules cross cell membranes — completely unrelated to polymer synthesis or breakdown.</p>
+      <p><strong>Why C is wrong:</strong> Hydrogenation (adding H₂ across double bonds) is used industrially to harden oils. Sublimation is the phase change from solid to gas. Neither applies to polymer biology.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q3 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 3 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">A key carbohydrate and its function within the body is:</div>
+  <ul class="options">
+    <li>A. Cholesterol → acts as a chemical messenger</li>
+    <li class="correct">B. Glycogen → excess glucose that is converted and stored for later use</li>
+    <li>C. Amino acids → monomers which form polypeptide chains</li>
+    <li>D. Thymine → one of the pyrimidines which comprises DNA</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B — Glycogen → stored glucose polymer</strong></p>
+      <p>Glycogen is a polysaccharide carbohydrate — a highly branched polymer of glucose (α-1,4 and α-1,6 glycosidic bonds). When blood glucose levels are high (after a meal), insulin stimulates the liver and skeletal muscle to convert excess glucose into glycogen (glycogenesis) for storage. When blood glucose falls, glucagon stimulates glycogen breakdown (glycogenolysis) back to glucose. Glycogen is the animal equivalent of starch (which plants use for glucose storage).</p>
+      <p><strong>Why A is wrong:</strong> Cholesterol is a lipid (sterol), not a carbohydrate. While some steroid hormones act as chemical messengers (cortisol, oestrogen), cholesterol itself is primarily a membrane component that regulates membrane fluidity.</p>
+      <p><strong>Why C is wrong:</strong> Amino acids are the monomers of proteins (polypeptides), not carbohydrates. This statement is correct about amino acids but amino acids are not carbohydrates.</p>
+      <p><strong>Why D is wrong:</strong> Thymine is a nitrogenous base (pyrimidine) found in nucleotides — it is part of nucleic acids, not a carbohydrate.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">Which of the following correctly matches a macromolecule with its monomer?</div>
+  <ul class="options">
+    <li>A. Protein → nucleotide; Nucleic acid → amino acid</li>
+    <li>B. Lipid → fatty acid; Polysaccharide → nucleotide</li>
+    <li class="correct">C. Protein → amino acid; Polysaccharide → monosaccharide; Nucleic acid → nucleotide</li>
+    <li>D. Protein → glucose; Lipid → amino acid; Polysaccharide → fatty acid</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The four major biological macromolecules and their monomers: (1) <strong>Proteins</strong> → monomers are amino acids (20 types); joined by peptide bonds. (2) <strong>Polysaccharides</strong> → monomers are monosaccharides (e.g., glucose, fructose, galactose); joined by glycosidic bonds. (3) <strong>Nucleic acids (DNA/RNA)</strong> → monomers are nucleotides (base + sugar + phosphate); joined by phosphodiester bonds. (4) <strong>Lipids</strong> — note that lipids are NOT true polymers built from repeated monomers in the same way. Triglycerides = glycerol + 3 fatty acids; phospholipids = glycerol + 2 fatty acids + phosphate head group.</p>
+      <p><strong>Why A is wrong:</strong> Proteins are built from amino acids; nucleic acids from nucleotides — option A reverses these.</p>
+      <p><strong>Why B is wrong:</strong> Polysaccharides are built from monosaccharides (sugars), not nucleotides.</p>
+      <p><strong>Why D is wrong:</strong> Proteins are made of amino acids, not glucose. Lipids are not polymers of amino acids.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">The biuret test is used to detect which type of macromolecule?</div>
+  <ul class="options">
+    <li>A. Simple sugars (monosaccharides and disaccharides)</li>
+    <li>B. Starch (complex carbohydrate)</li>
+    <li class="correct">C. Proteins (peptide bonds)</li>
+    <li>D. Lipids (fats and oils)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The biuret test detects peptide bonds (the bonds linking amino acids in proteins/polypeptides). In alkaline solution, Cu²⁺ ions (from CuSO₄ in NaOH) coordinate with four peptide nitrogen atoms, producing a purple/violet colour. A positive result indicates protein presence. The test does not work well for small dipeptides — it requires at least 2 peptide bonds.</p>
+      <p>Summary of macromolecule detection tests used in BABS1201:<br>
+      • <strong>Biuret</strong> → Protein (purple/violet)<br>
+      • <strong>Benedict's</strong> → Reducing sugars (monosaccharides, some disaccharides) (brick red/orange precipitate after heating)<br>
+      • <strong>Lugol's (iodine)</strong> → Starch (blue-black)<br>
+      • <strong>Sudan III/IV or Oil Red O</strong> → Lipids (red/orange)</p>
+      <p><strong>Why A is wrong:</strong> Simple sugars are detected by Benedict's reagent (tests for reducing sugars with a free aldehyde or ketone group).</p>
+      <p><strong>Why B is wrong:</strong> Starch is detected by Lugol's iodine solution (I₂ in KI).</p>
+      <p><strong>Why D is wrong:</strong> Lipids are detected by Sudan dyes (Sudan III, Sudan Red, Oil Red O).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">In a protein's primary, secondary, tertiary, and quaternary structure, which level of organisation is directly encoded by the DNA sequence?</div>
+  <ul class="options">
+    <li class="correct">A. Primary structure — the linear sequence of amino acids determined by the mRNA codon sequence</li>
+    <li>B. Secondary structure — the α-helix and β-sheet patterns specified by gene regulatory sequences</li>
+    <li>C. Tertiary structure — the 3D fold encoded by intron sequences</li>
+    <li>D. Quaternary structure — the assembly of subunits specified by separate regulatory genes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: A</strong></p>
+      <p>The hierarchy of protein structure: (1) <strong>Primary</strong> — amino acid sequence (encoded by DNA → mRNA codons → ribosome reads codons → inserts amino acids). All higher levels of structure emerge from this sequence. (2) <strong>Secondary</strong> — local folding (α-helices, β-sheets) driven by hydrogen bonds between backbone NH and C=O groups; not encoded separately, but emerges from the primary sequence. (3) <strong>Tertiary</strong> — overall 3D fold; driven by hydrophobic effect, disulfide bonds, ionic interactions, van der Waals — emerges from primary sequence. (4) <strong>Quaternary</strong> — assembly of multiple polypeptide subunits; emerges from complementary surfaces of subunits whose sequences are each encoded in DNA.</p>
+      <p><strong>Why B is wrong:</strong> Secondary structure (α-helix, β-sheet) is not separately encoded by gene regulatory sequences — it emerges spontaneously from the primary sequence based on physicochemical properties of amino acids.</p>
+      <p><strong>Why C is wrong:</strong> Introns are non-coding sequences that are spliced out of pre-mRNA. They do not encode tertiary structure.</p>
+      <p><strong>Why D is wrong:</strong> While each subunit's sequence is encoded in DNA, "separate regulatory genes" does not specifically encode quaternary structure assembly.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Saturated fatty acids differ from unsaturated fatty acids in that saturated fatty acids:</div>
+  <ul class="options">
+    <li>A. Contain one or more carbon-carbon double bonds (C=C) in their hydrocarbon chain</li>
+    <li class="correct">B. Contain only single bonds (C–C) in their hydrocarbon chain, allowing them to pack tightly and making them solid at room temperature</li>
+    <li>C. Have a polar head group that makes them soluble in water</li>
+    <li>D. Are found exclusively in plant cell membranes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Saturated fatty acids have no C=C double bonds — their carbon chain is "saturated" with hydrogen atoms. This allows the chains to pack tightly in parallel (van der Waals interactions), making saturated fats solid or semi-solid at room temperature (butter, lard, coconut oil). Unsaturated fatty acids have one (monounsaturated, e.g., oleic acid in olive oil) or more (polyunsaturated, e.g., linoleic acid) C=C double bonds. These introduce kinks (cis configuration) that prevent tight packing, making unsaturated fats liquid at room temperature (oils). In membranes, higher unsaturation = greater fluidity.</p>
+      <p><strong>Why A is wrong:</strong> This describes unsaturated fatty acids, not saturated ones.</p>
+      <p><strong>Why C is wrong:</strong> The polar head group applies to phospholipids (glycerophospholipids), not to fatty acids in general. Fatty acids themselves have a carboxyl group (–COOH) that can ionise, but the long hydrocarbon tail is non-polar.</p>
+      <p><strong>Why D is wrong:</strong> Saturated fatty acids are found in both animal and plant membranes. Animal cell membranes tend to have more saturated fatty acids and cholesterol; plant membranes tend to have more unsaturated fatty acids.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Cellulose and starch are both polysaccharides made of glucose. Why are these molecules so structurally and functionally different?</div>
+  <ul class="options">
+    <li>A. Cellulose uses ribose monomers; starch uses deoxyribose monomers</li>
+    <li class="correct">B. Cellulose has β-1,4-glycosidic bonds that create straight, rigid chains that cross-link via hydrogen bonds; starch has α-1,4 (and α-1,6) bonds that create coiled, branched structures</li>
+    <li>C. Starch contains nitrogen in its backbone; cellulose does not</li>
+    <li>D. Cellulose is made by animal cells; starch is made exclusively by photosynthetic bacteria</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The crucial difference is the anomeric configuration of the glycosidic bond: (1) <strong>Starch (amylose + amylopectin)</strong> uses α-glucose monomers joined by α-1,4 (and α-1,6 for branching) bonds → coiled helical structure (amylose) or branched (amylopectin) → function: energy storage, digestible by humans (salivary and pancreatic amylase). (2) <strong>Cellulose</strong> uses β-glucose monomers joined by β-1,4 bonds → straight, extended chains that hydrogen bond to adjacent chains, forming strong microfibrils → function: structural (plant cell wall). Humans lack cellulase and cannot digest cellulose.</p>
+      <p><strong>Why A is wrong:</strong> Both cellulose and starch are made of glucose (a hexose). Ribose and deoxyribose are pentoses found in nucleic acids.</p>
+      <p><strong>Why C is wrong:</strong> Neither cellulose nor starch contain nitrogen. Nitrogen-containing polysaccharides include chitin (in fungi and arthropod exoskeletons) and peptidoglycan.</p>
+      <p><strong>Why D is wrong:</strong> Cellulose is made by plants and some algae. Starch is also made by plants (and some algae) for energy storage — not by bacteria.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">A protein is denatured when:</div>
+  <ul class="options">
+    <li>A. Its primary structure (amino acid sequence) is permanently altered</li>
+    <li>B. The peptide bonds between amino acids are cleaved by hydrolysis</li>
+    <li class="correct">C. Its higher-order structure (secondary, tertiary, or quaternary) is disrupted — unfolding the protein — while the primary sequence remains intact</li>
+    <li>D. The protein is phosphorylated, changing its functional state</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Denaturation is the loss of native 3D structure (secondary, tertiary, quaternary) without breaking peptide bonds. Causes: high temperature (disrupts hydrophobic effect and hydrogen bonds), extreme pH (alters ionisation of charged side chains), reducing agents (break disulfide bonds), organic solvents (disrupt hydrophobic interactions). Result: protein unfolds and loses function. Example: boiling an egg denatures egg-white proteins (albumin) — the process is usually irreversible. Some proteins can refold (renature) if conditions are restored — demonstrating that the primary sequence contains all information needed for proper folding (Anfinsen's experiment).</p>
+      <p><strong>Why A is wrong:</strong> The primary sequence (amino acid sequence determined by DNA) is NOT altered during denaturation. Denaturation disrupts non-covalent interactions and some covalent modifications (disulfide bonds) but does not alter the amino acid sequence.</p>
+      <p><strong>Why B is wrong:</strong> Cleavage of peptide bonds is proteolysis (carried out by proteases), not denaturation.</p>
+      <p><strong>Why D is wrong:</strong> Phosphorylation is a post-translational modification that can activate or deactivate proteins but does not denature them — the protein's overall structure remains largely intact.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">Which of the following statements about phospholipids is correct?</div>
+  <ul class="options">
+    <li>A. Phospholipids consist of three fatty acid chains attached to a glycerol backbone</li>
+    <li>B. The fatty acid tails of phospholipids are hydrophilic and interact freely with water</li>
+    <li class="correct">C. Phospholipids are amphipathic — they have a hydrophilic phosphate head group and two hydrophobic fatty acid tails, which drives self-assembly into bilayers in aqueous environments</li>
+    <li>D. Phospholipids require ATP energy to assemble into bilayers in water</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Phospholipids are amphipathic molecules: hydrophilic (polar, water-loving) phosphate head group + hydrophobic (non-polar, water-fearing) fatty acid tails. In water, the hydrophobic effect drives spontaneous self-assembly: fatty acid tails aggregate away from water in the interior; phosphate heads face the aqueous environment. This creates a bilayer where two sheets of phospholipids face outward with tails sequestered internally — the fundamental structure of all biological membranes. This self-assembly requires no energy input (it's thermodynamically spontaneous, driven by entropy increase in the water molecules surrounding the tails).</p>
+      <p><strong>Why A is wrong:</strong> Triglycerides (fats/oils) have three fatty acid chains attached to glycerol. Phospholipids have two fatty acids + a phosphate group (and a head group like choline, serine, ethanolamine).</p>
+      <p><strong>Why B is wrong:</strong> The fatty acid tails are hydrophobic (non-polar). They do NOT interact freely with water — this is why bilayers form with tails pointing inward.</p>
+      <p><strong>Why D is wrong:</strong> Bilayer self-assembly is spontaneous and thermodynamically driven — no ATP is required.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">An enzyme accelerates a chemical reaction by:</div>
+  <ul class="options">
+    <li>A. Increasing the temperature of the reaction environment to provide activation energy</li>
+    <li class="correct">B. Lowering the activation energy required for the reaction, allowing more substrate molecules to reach the transition state at physiological temperatures</li>
+    <li>C. Shifting the equilibrium of a reaction toward products, making unfavourable reactions spontaneous</li>
+    <li>D. Providing energy from ATP hydrolysis to drive thermodynamically unfavourable reactions</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Enzymes are biological catalysts. They work by: (1) binding substrate(s) in their active site (induced fit/lock-and-key), (2) stabilising the transition state (the highest-energy intermediate) through precise positioning, charge stabilisation, and sometimes covalent intermediates, (3) thereby lowering the activation energy (Ea) required. More substrate molecules in the population have sufficient thermal energy to reach the lower transition state → faster reaction rate. Critically, enzymes do NOT change the thermodynamics (ΔG, Keq) of the reaction — only the kinetics (rate).</p>
+      <p><strong>Why A is wrong:</strong> Enzymes do not generate heat or change temperature. They operate at constant body temperature.</p>
+      <p><strong>Why C is wrong:</strong> Enzymes cannot change the equilibrium constant (Keq) — this is determined by the ΔG° of the reaction. Enzymes only speed up the approach to equilibrium in BOTH directions.</p>
+      <p><strong>Why D is wrong:</strong> Some enzymes do couple ATP hydrolysis to drive thermodynamically unfavourable reactions (e.g., kinases). However, this is a specific mechanism of some enzymes — not the general mechanism by which all enzymes accelerate reactions.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">DNA and RNA differ in which of the following ways?</div>
+  <ul class="options">
+    <li>A. DNA uses uracil instead of thymine; RNA uses thymine instead of uracil</li>
+    <li>B. DNA is single-stranded; RNA is double-stranded in cells</li>
+    <li class="correct">C. DNA contains deoxyribose (lacks 2'-OH); RNA contains ribose (has 2'-OH). DNA uses thymine; RNA uses uracil. DNA is typically double-stranded; RNA is typically single-stranded</li>
+    <li>D. DNA contains adenine and guanine; RNA contains cytosine and thymine only</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Key differences between DNA and RNA:<br>
+      <strong>Sugar:</strong> DNA = deoxyribose (no 2'-OH group); RNA = ribose (has 2'-OH group). The 2'-OH makes RNA more reactive and less stable.<br>
+      <strong>Bases:</strong> DNA uses Adenine, Guanine, Cytosine, Thymine. RNA uses Adenine, Guanine, Cytosine, Uracil (Uracil replaces Thymine — it lacks the 5-methyl group, making it cheaper to synthesise).<br>
+      <strong>Strandedness:</strong> DNA is typically double-stranded (dsDNA) in cells. RNA is typically single-stranded but can fold into complex secondary structures (tRNA cloverleaf, ribozymes).<br>
+      <strong>Function:</strong> DNA = long-term genetic storage; RNA = information transfer (mRNA), structural/catalytic (rRNA), adaptor (tRNA), regulatory (miRNA, siRNA).</p>
+      <p><strong>Why A is wrong:</strong> This exactly reverses the correct assignment of thymine and uracil between DNA and RNA.</p>
+      <p><strong>Why B is wrong:</strong> DNA is typically double-stranded; RNA is typically single-stranded — the description is reversed.</p>
+      <p><strong>Why D is wrong:</strong> Both DNA and RNA contain adenine, guanine, and cytosine. The difference is thymine (DNA) vs uracil (RNA).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Which functional group is responsible for the acidic properties of amino acids and the formation of peptide bonds?</div>
+  <ul class="options">
+    <li>A. The amino group (–NH₂) donates protons and forms peptide bonds with other amino groups</li>
+    <li class="correct">B. The carboxyl group (–COOH) provides the acidic proton; the peptide bond forms between the carboxyl group of one amino acid and the amino group of the next, releasing water</li>
+    <li>C. The R group (side chain) is always acidic and reacts with adjacent R groups to form peptide bonds</li>
+    <li>D. The phosphate group on each amino acid forms ester bonds in peptide chain formation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Amino acids have the general structure: H₂N–CHR–COOH. The carboxyl group (–COOH) can donate its proton (pKa ~2), making amino acids acidic. The amino group (–NH₂) can accept a proton (pKa ~9), making it a base. At physiological pH (~7.4), amino acids exist as zwitterions (–NH₃⁺, –COO⁻). The peptide bond is a covalent bond formed by dehydration synthesis between the carboxyl group (–COOH) of one amino acid and the amino group (–NH₂) of the next, releasing H₂O. The resulting bond: –CO–NH– (peptide bond) is planar and has partial double-bond character due to resonance.</p>
+      <p><strong>Why A is wrong:</strong> The amino group (–NH₂) is basic, not acidic — it accepts protons. Peptide bonds do not form between two amino groups.</p>
+      <p><strong>Why C is wrong:</strong> R groups (side chains) vary enormously (acidic, basic, non-polar, polar). R groups form the different interactions that determine secondary/tertiary structure but do NOT form the main-chain peptide bonds.</p>
+      <p><strong>Why D is wrong:</strong> Standard amino acids do not have phosphate groups. Phosphorylated amino acids (phosphoserine, phosphothreonine, phosphotyrosine) are post-translational modifications, and phosphate groups form phosphodiester bonds in nucleic acids — not in polypeptide backbones.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">Which of the following is an example of a reducing sugar that would give a positive Benedict's test?</div>
+  <ul class="options">
+    <li>A. Sucrose (table sugar)</li>
+    <li class="correct">B. Glucose</li>
+    <li>C. Starch</li>
+    <li>D. Cellulose</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>A reducing sugar has a free anomeric carbon (a free –CHO aldehyde or reducible –C=O ketone group). Glucose is an aldose monosaccharide with a free aldehyde — it reduces Cu²⁺ (blue) to Cu₂O (brick-red/orange precipitate) in heated Benedict's solution. Other reducing sugars include fructose, galactose, maltose, and lactose. <strong>Benedict's test requires heating.</strong></p>
+      <p><strong>Why A (sucrose) is wrong:</strong> Sucrose is a non-reducing sugar. It consists of glucose and fructose joined at their anomeric carbons (α-1,β-2 glycosidic bond), leaving no free anomeric carbon available to reduce Cu²⁺. Sucrose gives a negative Benedict's test.</p>
+      <p><strong>Why C (starch) is wrong:</strong> Starch is a polysaccharide — it does not give a positive Benedict's test under normal conditions. It gives a positive Lugol's (iodine) test instead.</p>
+      <p><strong>Why D (cellulose) is wrong:</strong> Cellulose is also a polysaccharide with very few free reducing ends. It does not give a significant positive Benedict's test.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">What is the role of disulfide bonds in protein structure?</div>
+  <ul class="options">
+    <li>A. They are the primary bonds that link amino acids in a polypeptide chain</li>
+    <li>B. They form between any two amino acids and stabilise secondary structure</li>
+    <li class="correct">C. They are covalent bonds formed between the thiol groups (–SH) of two cysteine residues, stabilising tertiary or quaternary structure — particularly important in extracellular and secreted proteins</li>
+    <li>D. They form in all proteins during denaturation, causing irreversible aggregation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Disulfide bonds (–S–S–) form by oxidation of two cysteine side chains (–SH + HS– → –S–S– + 2H⁺ + 2e⁻). They are covalent bonds (stronger than non-covalent interactions) and provide significant structural stability to proteins, especially those in oxidising extracellular environments (blood, intestinal lumen) where non-covalent interactions alone may be insufficient. Example: immunoglobulins (antibodies) use disulfide bonds to link heavy and light chains; insulin has disulfide bonds; many secreted enzymes rely on them. Intracellular proteins rarely have disulfide bonds because the cytoplasm is a reducing environment (maintained by glutathione).</p>
+      <p><strong>Why A is wrong:</strong> Peptide bonds link amino acids in the polypeptide backbone — not disulfide bonds.</p>
+      <p><strong>Why B is wrong:</strong> Disulfide bonds only form between cysteine residues (not any two amino acids). Secondary structure (α-helix, β-sheet) is stabilised primarily by hydrogen bonds.</p>
+      <p><strong>Why D is wrong:</strong> Disulfide bonds can be broken by reducing agents during denaturation (e.g., β-mercaptoethanol in gel electrophoresis). They form during normal protein folding and oxidation, not as a consequence of denaturation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="question-number">Question 16</div>
+  <div class="question-text">Which type of lipid is the primary structural component of biological membranes, and what is its key structural feature?</div>
+  <ul class="options">
+    <li>A. Triglyceride — three fatty acids attached to glycerol, forming a non-polar molecule ideal for membranes</li>
+    <li>B. Cholesterol — a sterol that forms the entire bilayer structure in animal membranes</li>
+    <li class="correct">C. Phospholipid — an amphipathic molecule with a polar phosphate head and two non-polar fatty acid tails, enabling spontaneous bilayer formation</li>
+    <li>D. Wax — a long-chain fatty acid esterified to a long-chain alcohol, forming the main membrane barrier</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Phospholipids are the primary structural components of biological membranes. Their amphipathic nature (hydrophilic phosphate head + hydrophobic fatty acid tails) drives spontaneous bilayer formation in aqueous environments. The hydrophobic core of the bilayer acts as a selective barrier — small non-polar molecules (O₂, CO₂, steroid hormones, small lipid-soluble drugs) can cross freely; large polar molecules and ions cannot cross without protein transporters.</p>
+      <p><strong>Why A is wrong:</strong> Triglycerides are the major energy storage lipid — found in fat droplets (adipose tissue). They are entirely non-polar and do not form bilayers. They would simply aggregate in water as oil droplets.</p>
+      <p><strong>Why B is wrong:</strong> Cholesterol is intercalated between phospholipids in animal cell membranes to modulate fluidity, but it does not form the bilayer itself.</p>
+      <p><strong>Why D is wrong:</strong> Waxes provide waterproofing in plant cuticles, animal skin (sebum), and honeycomb — they are not primary structural components of biological membranes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q17 -->
+<div class="question-card">
+  <div class="question-number">Question 17</div>
+  <div class="question-text">A nucleotide is composed of which three components?</div>
+  <ul class="options">
+    <li>A. Amino acid + phosphate + sugar</li>
+    <li class="correct">B. Nitrogenous base + pentose sugar + phosphate group</li>
+    <li>C. Nitrogenous base + hexose sugar + amino group</li>
+    <li>D. Fatty acid + glycerol + phosphate group</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>A nucleotide = nitrogenous base + pentose sugar + one (or more) phosphate group(s). The pentose sugar is ribose (in RNA and energy carriers like ATP, NAD⁺, FAD) or deoxyribose (in DNA). The nitrogenous base is either a purine (A, G) or pyrimidine (C, T/U). The phosphate group is attached to the 5' carbon of the sugar. When nucleotides are polymerised into nucleic acids, the 3'-OH of one sugar attacks the α-phosphate of the next nucleotide triphosphate, releasing pyrophosphate (PPi) and forming a phosphodiester bond.</p>
+      <p><strong>Note on nomenclature:</strong> A nucleoside = base + sugar (no phosphate). A nucleotide = nucleoside + phosphate. ATP is adenosine triphosphate (3 phosphates).</p>
+      <p><strong>Why A is wrong:</strong> Amino acids are components of proteins, not nucleotides.</p>
+      <p><strong>Why C is wrong:</strong> Nucleotides use a pentose (5-carbon) sugar, not a hexose (6-carbon) sugar like glucose. Also, nucleotides do not have amino groups as a distinct component (though the bases themselves contain nitrogen).</p>
+      <p><strong>Why D is wrong:</strong> Fatty acid + glycerol + phosphate describes a lysophospholipid or part of a phospholipid — not a nucleotide.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q18 -->
+<div class="question-card">
+  <div class="question-number">Question 18</div>
+  <div class="question-text">Which of the following best explains why the hydrophobic effect drives protein folding?</div>
+  <ul class="options">
+    <li>A. Non-polar amino acid side chains form hydrogen bonds with each other, releasing energy</li>
+    <li>B. Non-polar amino acid side chains repel water molecules, requiring external energy to fold</li>
+    <li class="correct">C. When non-polar side chains are buried in the protein interior away from water, the entropy of the surrounding water molecules increases (less ordered water "cage" around hydrophobic groups), which is thermodynamically favourable</li>
+    <li>D. Non-polar amino acids are positively charged and are attracted to the negatively charged protein backbone</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The hydrophobic effect is primarily entropic. When non-polar residues are exposed to water, surrounding water molecules are forced to form ordered "cage" (clathrate) structures to accommodate the non-polar surface — this costs entropy (ordered water = low entropy). When non-polar residues are buried in the protein interior, these ordered water cages are released — water entropy increases significantly. This thermodynamically favourable entropy gain drives the burial of hydrophobic residues. Additionally, van der Waals interactions between closely packed non-polar residues in the interior provide enthalpic stabilisation. Protein folding is therefore driven primarily by the hydrophobic effect + hydrogen bonds + van der Waals + electrostatic interactions.</p>
+      <p><strong>Why A is wrong:</strong> Non-polar side chains do not form hydrogen bonds with each other (they have no polar –OH, –NH, or –C=O groups for hydrogen bonding). Hydrophobic interactions are NOT hydrogen bonds.</p>
+      <p><strong>Why B is wrong:</strong> Protein folding is spontaneous and thermodynamically favourable — it does not require external energy input (though chaperones can assist in vivo).</p>
+      <p><strong>Why D is wrong:</strong> Non-polar amino acids are electrically neutral (uncharged). The backbone itself is also not uniformly charged at physiological pH.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

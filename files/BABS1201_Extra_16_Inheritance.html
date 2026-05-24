@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Mechanisms of Inheritance</title>
+<style>
+  :root {
+    --primary: #2c5f2e;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: 1rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem 3rem; }
+  .meta-bar { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.8rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: .92rem; color: #495057; }
+  .meta-bar span strong { color: #212529; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; margin-bottom: 1.4rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; font-weight: 700; font-size: .85rem; padding: 3px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; white-space: nowrap; margin-top: 4px; }
+  .q-text { font-size: 1rem; font-weight: 500; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem 0; display: grid; gap: .5rem; }
+  .options li { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: 6px; font-size: .95rem; cursor: default; }
+  
+  
+  details { margin-top: .5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: .95rem; padding: .4rem 0; user-select: none; }
+  summary:hover { text-decoration: underline; }
+  .solution { background: #f1f8ff; border-left: 4px solid var(--primary); border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin-top: .6rem; font-size: .93rem; line-height: 1.7; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  .solution strong { color: #155724; }
+  .solution .wrong { color: #721c24; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice: Mechanisms of Inheritance</h1>
+  <p>Topic 16 · Advanced Application Questions · UNSW 2026</p>
+</header>
+<div class="container">
+  <div class="meta-bar">
+    <span><strong>Questions:</strong> 12</span>
+    <span><strong>Difficulty:</strong> Hard — multi-concept application</span>
+    <span><strong>Format:</strong> MCQ with worked solutions</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <p class="q-text">A female carrier of an X-linked recessive condition (X^A X^a) has children with a normal male (X^A Y). What is the probability that their son is affected?</p>
+    </div>
+    <ul class="options">
+      <li>A) 0%</li>
+      <li class="correct">B) 50%</li>
+      <li>C) 25%</li>
+      <li>D) 100%</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> The carrier mother passes either X^A or X^a to each child. Sons receive the Y from their father, so their X chromosome always comes from the mother. P(son receives X^a) = 1/2. Therefore 50% of sons will be X^a Y (affected). Daughters receive X^A from the father and either X^A or X^a from the mother, so daughters are either X^A X^A (normal) or X^A X^a (carrier) — none are affected.</p>
+        <p>Among ALL children: 25% affected sons, 25% unaffected sons, 25% carrier daughters, 25% normal daughters.</p>
+        <p class="wrong">A — if the father were X^a Y (affected), sons cannot inherit the condition from him (he passes Y to sons), but daughters could be carriers or affected. Here the father is normal; affected sons come only from the mother's X^a.</p>
+        <p class="wrong">C (25%) — this is the probability among ALL children (sons + daughters combined) of being an affected son, not specifically the probability that a son is affected.</p>
+        <p class="wrong">D (100%) — this would be the case only if the mother were X^a X^a (affected, not a carrier).</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A gene on the X chromosome shows X-inactivation in female somatic cells. A heterozygous female (X^A X^a) has a patchy phenotype — some cells express X^A and others express X^a. This is an example of which phenomenon?</p>
+    </div>
+    <ul class="options">
+      <li>A) Epistasis — allele X^a suppresses allele X^A in some cells</li>
+      <li class="correct">B) Mosaicism arising from random X-inactivation — each somatic cell randomly silences one X, and all descendants of that cell maintain the same inactive X</li>
+      <li>C) Somatic mutation converting X^A to X^a in some cells during development</li>
+      <li>D) Incomplete penetrance — the X^A allele is not fully expressed in all cells</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> In female mammals, X-inactivation (lyonisation) occurs early in embryonic development. Each somatic cell randomly inactivates either the maternally or paternally derived X chromosome, coating it with Xist RNA and condensing it into a Barr body. This choice is then <strong>mitotically heritable</strong> — all daughter cells of that founder cell maintain the same inactive X throughout the organism's life. For a heterozygous female, this creates patches of cells expressing X^A and patches expressing X^a — a <strong>mosaic</strong> phenotype. The classic example is tortoiseshell cat colouration (O/o genotype at the X-linked orange locus).</p>
+        <p class="wrong">A — epistasis is a gene-gene interaction at different loci; X-inactivation is a within-cell epigenetic silencing mechanism.</p>
+        <p class="wrong">C — somatic mutation is random and would produce a different (potentially loss-of-function) allele, not preserve X^a. Somatic mutation also would not produce the precise patch pattern expected from X-inactivation.</p>
+        <p class="wrong">D — incomplete penetrance is a population-level phenomenon where some individuals carrying a genotype don't express the expected phenotype; it is not the same as cell-level mosaicism.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <p class="q-text">Two genes are located 20 cM apart on the same chromosome. A double heterozygote (AB/ab coupling configuration) is test-crossed with ab/ab. What proportion of offspring will show the recombinant phenotype?</p>
+    </div>
+    <ul class="options">
+      <li>A) 50%</li>
+      <li>B) 40%</li>
+      <li class="correct">C) 20%</li>
+      <li>D) 10%</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> The map distance of 20 cM means that 20% of meioses produce recombinant gametes (10% Ab + 10% aB). A test cross with ab/ab reveals gamete frequencies directly: 40% AB gametes (parental) + 40% ab gametes (parental) + 10% Ab (recombinant) + 10% aB (recombinant). The recombinant phenotype offspring = offspring receiving Ab or aB gametes from the heterozygous parent = <strong>20%</strong> (10% + 10%). Note: recombination frequency = map distance in Morgans (for distances < 50 cM).</p>
+        <p class="wrong">A (50%) — 50% recombinant would mean genes are unlinked (assort independently). 20 cM means they are linked.</p>
+        <p class="wrong">B (40%) — 40% is the frequency of each <em>parental</em> gamete type, not the total recombinant frequency.</p>
+        <p class="wrong">D (10%) — 10% is the frequency of each <em>individual</em> recombinant gamete type (Ab or aB), not the total recombinant phenotype frequency.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In Drosophila, the recombination frequencies between three linked genes are: A–B = 8 cM, B–C = 14 cM, A–C = 20 cM. Which gene is in the middle, and does the data show positive interference?</p>
+    </div>
+    <ul class="options">
+      <li>A) B is in the middle; positive interference present (CoC < 1)</li>
+      <li>B) C is in the middle; no interference (CoC = 1)</li>
+      <li class="correct">C) B is in the middle; the observed A–C distance (20 cM) is less than expected (22 cM), indicating positive interference (CoC < 1)</li>
+      <li>D) A is in the middle; negative interference present (CoC > 1)</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> First, determine gene order: A–B = 8 cM, B–C = 14 cM, A–C = 20 cM. If B is in the middle: expected A–C = A–B + B–C = 8 + 14 = 22 cM. Observed A–C = 20 cM. This is consistent with B in the middle (gene order A–B–C or C–B–A).</p>
+        <p>Coefficient of coincidence (CoC) = observed double crossovers / expected double crossovers = (1 – interference). Expected double crossovers = 0.08 × 0.14 × (total gametes). Observed A–C distance = 20 cM < expected 22 cM, meaning fewer double crossovers occurred than expected → CoC = 20/22 ≈ 0.91, but more precisely: interference = 1 – CoC > 0 (positive interference). Positive interference means one crossover <em>inhibits</em> a second nearby crossover.</p>
+        <p class="wrong">A is partially correct (B is in the middle) but incorrectly describes the interference calculation process.</p>
+        <p class="wrong">B — C cannot be in the middle because A–C (20 cM) > A–B (8 cM); if C were in the middle, A–B would need to be > A–C.</p>
+        <p class="wrong">D — if A were in the middle, A–B + A–C should equal B–C: 8 + 20 = 28 ≠ 14, so A cannot be in the middle.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <p class="q-text">Genomic imprinting is an epigenetic phenomenon where gene expression depends on whether the allele was inherited from the mother or father. The Igf2 gene is paternally imprinted (only the paternal copy is expressed). A heterozygous individual (Igf2+/Igf2–) inherits the mutant allele (Igf2–) from their father. What is their phenotype?</p>
+    </div>
+    <ul class="options">
+      <li>A) Normal — the wild-type allele from the mother compensates</li>
+      <li class="correct">B) Affected — the wild-type allele from the mother is silenced (imprinted), and only the mutant paternal allele is expressed</li>
+      <li>C) Affected — both alleles are expressed equally and the mutant is dominant</li>
+      <li>D) Normal — imprinting ensures that both alleles are expressed equally in heterozygotes</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Genomic imprinting means that only one parental allele is expressed, and which one depends on its parental origin — established by methylation or chromatin modifications in the germline. For Igf2 (paternally expressed), the maternal allele is always silenced by imprinting regardless of sequence. Therefore this individual expresses only the paternal allele (Igf2–). The maternal Igf2+ is irrelevant because it is epigenetically silenced. The individual has no functional Igf2 → affected phenotype. This non-Mendelian pattern (phenotype depends on parent of origin, not just genotype) is the hallmark of imprinting.</p>
+        <p class="wrong">A — in imprinting, the "compensating" logic of Mendelian heterozygosity does not apply; the maternal allele is transcriptionally silent.</p>
+        <p class="wrong">C — imprinting is not the same as dominance; the two alleles are not expressed equally — only one (the paternal copy) is active.</p>
+        <p class="wrong">D — imprinting specifically means NOT expressed equally; one parental allele is silenced.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A pedigree shows that a mitochondrial disease affects all children of affected mothers but no children of affected fathers. What does this inheritance pattern indicate?</p>
+    </div>
+    <ul class="options">
+      <li>A) X-linked dominant inheritance</li>
+      <li>B) Autosomal dominant with sex-limited expression</li>
+      <li class="correct">C) Maternal (mitochondrial) inheritance — mitochondria are transmitted through the egg cytoplasm, not the sperm</li>
+      <li>D) Y-linked inheritance</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Mitochondria are maternally inherited because the egg contributes almost all of the zygote's cytoplasm (and hence mitochondria), while the sperm contributes essentially only its nucleus. Therefore, mutations in mitochondrial DNA (mtDNA) are passed from affected mothers to ALL of their children (both sons and daughters), but an affected father passes nothing — his Y chromosome or autosomes go to children, but not his mitochondria. Examples: MELAS (mitochondrial encephalomyopathy), Leber's hereditary optic neuropathy (LHON).</p>
+        <p class="wrong">A — X-linked dominant would show that affected mothers pass to 50% of children (not all), and affected fathers pass to ALL daughters but NO sons.</p>
+        <p class="wrong">B — sex-limited autosomal dominant would still follow 50% transmission from either affected parent; the complete maternal-only transmission rules this out.</p>
+        <p class="wrong">D — Y-linked inheritance passes exclusively from fathers to sons; here the pattern is maternal transmission to all children (both sexes).</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <p class="q-text">Epistasis is observed in a 9:3:4 phenotype ratio from an AaBb × AaBb cross. Homozygosity for allele b (bb) masks the expression of gene A. Which term best describes this type of epistasis?</p>
+    </div>
+    <ul class="options">
+      <li>A) Dominant epistasis</li>
+      <li class="correct">B) Recessive epistasis (bb is epistatic to gene A)</li>
+      <li>C) Duplicate dominant epistasis</li>
+      <li>D) Suppressor epistasis</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> In recessive epistasis, homozygosity for a recessive allele at one locus (bb) masks the expression of a second locus. The 9:3:4 ratio arises as follows: 9 A_B_ (standard dominant phenotype) : 3 A_bb (gene A expressed but gene B epistatic — masked phenotype, same as aaB_ below) : 3 aaB_ (gene A recessive, gene B present) : 1 aabb. The bb class (3 A_bb + 1 aabb = 4) all show the same "masked" phenotype → 9:3:4. Because it takes <em>two</em> copies of b (homozygous recessive) to mask gene A, this is recessive epistasis. The classic example is coat colour in Labrador retrievers (black/chocolate/yellow).</p>
+        <p class="wrong">A — dominant epistasis requires only ONE copy of the epistatic allele (B_ masks aaBB genotype, giving 12:3:1 ratio), not homozygosity.</p>
+        <p class="wrong">C — duplicate dominant epistasis (15:1 ratio) occurs when either dominant allele at either locus produces the same phenotype.</p>
+        <p class="wrong">D — "suppressor epistasis" is not a standard Mendelian term; the mechanism described here is specifically recessive epistasis.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A lethal allele (A^Y) in mice causes death when homozygous (A^Y A^Y is lethal in utero) but gives a yellow coat colour when heterozygous. When A^Y/a mice (yellow) are crossed together, what is the expected ratio of phenotypes among LIVE offspring?</p>
+    </div>
+    <ul class="options">
+      <li>A) 3 yellow : 1 non-yellow (agouti)</li>
+      <li>B) 1 yellow : 1 agouti</li>
+      <li class="correct">C) 2 yellow : 1 agouti</li>
+      <li>D) All yellow</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Cross: A^Y/a × A^Y/a. Expected Mendelian genotype ratio: 1 A^Y A^Y : 2 A^Y/a : 1 aa. However, A^Y A^Y (1/4) die in utero. Among live offspring: 2 A^Y/a (yellow) + 1 aa (agouti) = ratio of <strong>2 yellow : 1 agouti</strong>. This is a modified 3:1 ratio where the "dead" class is the A^Y A^Y homozygote. Note that the expected ratio is only 3:1 when all genotypes are viable; here the lethality collapses the ratio to 2:1 among survivors.</p>
+        <p class="wrong">A (3:1) — the usual dominant ratio applies only if all genotypes are viable. A^Y A^Y lethal removes 1/4 of the total, shifting the ratio.</p>
+        <p class="wrong">B (1:1) — this would result from a test cross (A^Y/a × aa), not from two yellow mice crossed together.</p>
+        <p class="wrong">D (all yellow) — 1/4 of conceptuses are aa (agouti) and survive; they are not yellow.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <p class="q-text">A gene shows reduced penetrance: only 70% of individuals with genotype AA or Aa express the dominant trait. In a group of 100 individuals with genotype Aa, how many would be expected to express the trait?</p>
+    </div>
+    <ul class="options">
+      <li>A) 100</li>
+      <li>B) 50</li>
+      <li class="correct">C) 70</li>
+      <li>D) 35</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Penetrance is the proportion of individuals with a given genotype who actually express the expected phenotype. If penetrance is 70%, then 70% of Aa individuals will show the trait regardless of environmental or genetic modifiers. 70% × 100 = <strong>70 individuals</strong>. The remaining 30 have the Aa genotype but do not express the trait for various reasons (modifier genes, stochastic factors, environment). This is why apparent ratios in pedigrees may deviate from expected Mendelian ratios — reduced penetrance can make dominant alleles appear to "skip" generations.</p>
+        <p class="wrong">A (100) — assumes 100% penetrance (all Aa individuals express the trait), which is only the case for full penetrance.</p>
+        <p class="wrong">B (50) — confuses penetrance with heterozygote frequency; 50 would result from 50% penetrance, not 70%.</p>
+        <p class="wrong">D (35) — confuses penetrance with variable expressivity; 35 would be 70% × 50 (incorrectly halving the population first).</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In Drosophila, the white eye gene is X-linked. A white-eyed female (X^w X^w) is crossed with a red-eyed male (X^+ Y). What are the expected eye colours of F1 males and females?</p>
+    </div>
+    <ul class="options">
+      <li>A) All F1 (male and female) have red eyes</li>
+      <li class="correct">B) F1 females all have red eyes (X^+ X^w, carriers); F1 males all have white eyes (X^w Y)</li>
+      <li>C) F1 females have white eyes; F1 males have red eyes</li>
+      <li>D) 50% of each sex have red eyes; 50% have white eyes</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> The white-eyed mother (X^w X^w) can only contribute X^w alleles. The red-eyed father (X^+ Y) contributes X^+ to daughters and Y to sons. Therefore: all daughters are X^+ X^w — they have one functional red allele and show red eyes (red is dominant; they are carriers). All sons receive X^w from mother and Y from father → X^w Y → white-eyed. This is a criss-cross inheritance pattern: daughters' phenotype matches father's; sons' phenotype matches mother's. Morgan first used this cross to demonstrate X-linkage.</p>
+        <p class="wrong">A — males receive X^w from the mother and Y from the father, so they cannot have red eyes.</p>
+        <p class="wrong">C — this reverses the actual outcome; females are X^+ X^w (red, not white) and males are X^w Y (white, not red).</p>
+        <p class="wrong">D — 50/50 would be expected if one of the parents were heterozygous or hemizygous with a carrier genotype. Here all females are X^+ X^w (all red) and all males are X^w Y (all white) — no 50/50 split within either sex.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Polygenic traits (e.g., human height) are controlled by many genes each with a small additive effect. Which statistical distribution best describes the phenotypic variation expected in a large population for a purely polygenic trait?</p>
+    </div>
+    <ul class="options">
+      <li>A) A bimodal distribution (two distinct peaks) reflecting dominant and recessive classes</li>
+      <li>B) A discrete distribution with a small number of distinct phenotypic classes equal to the number of gene loci</li>
+      <li class="correct">C) A normal (bell-curve) distribution, because the additive effects of many alleles approximate a continuous range of phenotypes by the central limit theorem</li>
+      <li>D) A uniform distribution where all heights are equally probable</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> When many genes each contribute a small, additive effect to a trait, and environmental variation is added, the phenotype is the sum of many independent small contributions. By the <strong>central limit theorem</strong>, the sum of many independent random variables tends toward a normal distribution regardless of the distribution of each individual variable. This is why polygenic traits like height, skin colour, and intelligence show a continuous, bell-shaped phenotypic distribution in large populations. The more loci involved, the smoother and more normal the distribution.</p>
+        <p class="wrong">A — bimodal distributions suggest two distinct allele classes at a major-effect locus (e.g., a single dominant gene), not many additive loci.</p>
+        <p class="wrong">B — discrete classes (like 2n+1 classes for n loci) are only visible in small-scale laboratory crosses; in large natural populations with environmental variation, classes merge into a continuum.</p>
+        <p class="wrong">D — a uniform distribution would mean all heights are equally common; in reality, intermediate heights are most common (bell curve), not extremes.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <p class="q-text">Heritability (h²) of a trait is estimated to be 0.80 in a population. A student concludes that 80% of an individual's phenotype is due to their genes. Why is this interpretation incorrect?</p>
+    </div>
+    <ul class="options">
+      <li>A) It is correct — heritability directly tells us the genetic contribution to an individual's phenotype</li>
+      <li class="correct">B) Heritability is a population-level statistic describing the proportion of phenotypic variance attributable to genetic variance; it does not apply to individuals</li>
+      <li>C) Heritability of 0.80 means 80% of the trait is dominant, not additive</li>
+      <li>D) Heritability cannot exceed 0.75 in humans, so the estimate is invalid</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Heritability (h²) = V_G / V_P (genetic variance / total phenotypic variance). It is a <strong>population-level statistic</strong> that describes what proportion of the variation <em>between individuals in a specific population under specific environmental conditions</em> is attributable to genetic differences. It says nothing about individuals — you cannot say "80% of my height is genes." Furthermore, h² is population- and environment-specific: the same trait can have different heritability in different populations or environments. A classic example: heritability of height is ~0.8 in well-nourished populations but lower in populations with variable nutrition (more environmental variance).</p>
+        <p class="wrong">A — this is the common misconception being tested. Heritability applies to variance in populations, not to individual phenotypes.</p>
+        <p class="wrong">C — heritability has nothing to do with dominance vs. additivity; narrow-sense heritability (h²) uses only additive variance, but this distinction is separate from the statement about individual vs. population interpretations.</p>
+        <p class="wrong">D — there is no upper limit rule of 0.75 for human heritability; some traits (e.g., fingerprint ridge count) have heritability estimates approaching 1.0.</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

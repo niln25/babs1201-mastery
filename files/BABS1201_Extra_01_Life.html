@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Life</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 1: Life &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 12 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">In the Miller-Urey experiment, the apparatus was sealed and reducing gases (CH₄, NH₃, H₂, H₂O) were used. If researchers repeated this experiment with an oxidising atmosphere (N₂, CO₂, O₂ — similar to the modern atmosphere), which outcome is most predictable?</p>
+  </div>
+  <ul class="options">
+    <li>A) Amino acids would form more rapidly because O₂ provides extra energy</li>
+    <li class="correct">B) Amino acid synthesis would be greatly reduced or absent, as O₂ would oxidise organic intermediates before they can accumulate</li>
+    <li>C) The same amino acids would form because the electric spark provides sufficient energy regardless of gas composition</li>
+    <li>D) Only nucleotides would form because CO₂ is a better carbon source than CH₄</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The reducing atmosphere was essential. In a reducing atmosphere, molecules tend to gain hydrogen/electrons, allowing organic molecules to form and accumulate. In an oxidising (O₂-rich) atmosphere, organic intermediates are rapidly oxidised to CO₂ and H₂O before they can undergo further synthesis. This is also why abiogenesis could not have occurred once photosynthetic organisms began producing O₂ (~2.4 billion years ago during the Great Oxidation Event). The modern atmosphere would destroy the very molecules necessary for life's origin.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The RNA World hypothesis proposes RNA preceded both DNA and proteins. Which combination of RNA properties best supports this hypothesis?</p>
+  </div>
+  <ul class="options">
+    <li>A) RNA is double-stranded and can store information; RNA is transcribed from DNA</li>
+    <li>B) RNA contains thymine and is more stable than DNA under high-temperature conditions</li>
+    <li class="correct">C) RNA can both store genetic information (sequence) AND catalyse chemical reactions (ribozymes), allowing a single molecule to replicate and perform enzymatic functions before proteins evolved</li>
+    <li>D) RNA can be directly translated into proteins without ribosomes, providing a simple route to the first enzymes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The RNA World resolves the chicken-and-egg problem: DNA needs proteins to replicate; proteins need DNA to encode them. RNA solves this by doing both. Ribozymes (catalytic RNAs) are real — the ribosome's peptidyl transferase is an RNA ribozyme. Self-replicating RNA molecules could evolve independently of both DNA and protein. DNA later took over information storage (more chemically stable due to deoxyribose and no 2′-OH). Proteins replaced RNA catalysts (greater structural diversity via 20 amino acids vs 4 bases).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The three domains of life are Bacteria, Archaea, and Eukarya. Archaea and Bacteria are both prokaryotes, yet phylogenetic analysis based on rRNA sequences reveals that Archaea are more closely related to Eukarya than to Bacteria. Which cellular characteristic best supports this relationship?</p>
+  </div>
+  <ul class="options">
+    <li>A) Archaea have a nucleus like Eukarya</li>
+    <li>B) Both Archaea and Eukarya have circular chromosomes</li>
+    <li class="correct">C) Archaea and Eukarya share similar transcription and translation machinery (RNA polymerase subunit structure, initiation factors) unlike Bacteria</li>
+    <li>D) Archaea and Eukarya both produce peptidoglycan cell walls</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The molecular machinery of information processing places Archaea closer to Eukarya. Archaeal RNA polymerase is structurally similar to eukaryotic RNA Pol II (12+ subunits vs 5 in bacteria). Archaea use TATA-box-like promoters and TBP (TATA-binding protein), just like eukaryotes. Translation initiation factors in Archaea resemble eukaryotic eIFs. In contrast, archaea lack membrane-bound nuclei (ruling out A), have circular chromosomes (like bacteria, not eukarya — ruling out B), and do NOT produce peptidoglycan (ruling out D — their cell walls use pseudopeptidoglycan or glycoprotein S-layers).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Emergent properties arise from the interaction of components at one level of biological organisation and cannot be predicted from the properties of individual components alone. Which of the following is the BEST example of an emergent property?</p>
+  </div>
+  <ul class="options">
+    <li>A) Water being composed of hydrogen and oxygen atoms</li>
+    <li>B) A cell containing proteins, lipids, and nucleic acids</li>
+    <li class="correct">C) Consciousness arising from billions of neurons interacting — a property that cannot be detected in a single neuron or even small neural circuits</li>
+    <li>D) ATP having three phosphate groups, each contributing to its high energy content</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Emergent properties are qualitatively new features that appear at higher levels of organisation. Consciousness cannot be localised to a single neuron — it emerges from billions of neurons communicating. Similarly, life itself is an emergent property of molecular interactions: individual lipids, proteins, and nucleic acids are not alive, but their organised interaction in a cell produces life. Options A and B merely list components without describing an emergent property. ATP's energy content (option D) is predictable from its chemistry — not emergent.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Negative feedback is fundamental to homeostasis. A patient's blood calcium level drops. This triggers parathyroid hormone (PTH) release, which stimulates osteoclasts to resorb bone (releasing Ca²⁺), kidneys to retain Ca²⁺, and intestines to absorb Ca²⁺. This restores blood calcium. If a patient's parathyroid glands are surgically removed, which prediction is correct?</p>
+  </div>
+  <ul class="options">
+    <li>A) Blood calcium will become chronically elevated</li>
+    <li class="correct">B) Blood calcium will become chronically low (hypocalcaemia) because the PTH-mediated negative feedback loop can no longer be activated</li>
+    <li>C) The kidneys will compensate by excreting more calcium to maintain homeostasis</li>
+    <li>D) Calcitonin from the thyroid will take over all PTH functions, maintaining normal calcium levels</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Without PTH, the negative feedback loop for raising blood calcium is absent. When calcium falls, there is no hormonal signal to stimulate bone resorption, kidney reabsorption, or intestinal absorption. The result is chronic hypocalcaemia — seen in hypoparathyroidism. Calcitonin (option D) does the opposite: it is released when calcium is HIGH and acts to lower it (inhibits osteoclasts, promotes renal excretion). These two hormones are antagonistic; calcitonin cannot substitute for PTH. Kidney excreting MORE calcium (option C) would worsen hypocalcaemia, not compensate for it.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The second law of thermodynamics states that entropy (disorder) of a closed system tends to increase. Living organisms maintain high order (low entropy) internally. How do organisms reconcile this with the second law?</p>
+  </div>
+  <ul class="options">
+    <li>A) Living organisms are exempt from thermodynamic laws because they contain DNA</li>
+    <li>B) Living organisms violate the second law by using ATP to create order from disorder</li>
+    <li class="correct">C) Living organisms are open systems — they export disorder (heat, waste) to the surroundings, increasing overall entropy of the universe while maintaining local order at the cost of energy input</li>
+    <li>D) Living organisms achieve negative entropy by extracting it directly from the sun</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The second law applies to closed (isolated) systems. Living organisms are open systems: they take in energy (sunlight or chemical bonds in food) and matter, use them to build ordered structures, and release heat and waste products to the surroundings. The net result is a decrease in local entropy (the organism) at the cost of a larger increase in entropy in the surroundings (heat released exceeds order created). The total entropy of the universe increases — the second law is not violated. Erwin Schrödinger (in "What is Life?") described life as feeding on "negative entropy" (negentropy) — maintaining organisation by consuming energy.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Natural selection requires three conditions: variation, heritability, and differential reproductive success. A researcher proposes that natural selection is occurring in a bacterial population exposed to antibiotics. Which evidence would be LEAST sufficient to establish that selection is occurring?</p>
+  </div>
+  <ul class="options">
+    <li>A) Different bacteria in the population have different antibiotic resistance levels (variation exists)</li>
+    <li>B) Antibiotic-resistant bacteria survive and reproduce at higher rates (differential reproduction)</li>
+    <li class="correct">C) After antibiotic exposure, the proportion of resistant bacteria increases in the population (population-level change observed)</li>
+    <li>D) Resistance traits are transmitted to daughter cells during binary fission (heritability demonstrated)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — An increase in resistant bacteria after antibiotic exposure is consistent with selection but is NOT by itself sufficient. This observation is equally consistent with simple differential mortality (resistant ones didn't die) or even horizontal gene transfer (not heritable via reproduction). To establish that TRUE natural selection (requiring all three criteria) is occurring, you need to demonstrate variation (A), heritability (D), AND differential reproductive success (B) — not merely a change in proportion. The increase in resistant proportion is a CONSEQUENCE of selection but doesn't prove the mechanism. This is the most conceptually demanding option.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Water's high specific heat capacity and high heat of vaporisation are both a consequence of hydrogen bonding. How do these two properties work together to help a large mammal (like a horse) regulate body temperature?</p>
+  </div>
+  <ul class="options">
+    <li>A) High specific heat means water evaporates quickly; high heat of vaporisation means each gram of sweat removes very little heat</li>
+    <li class="correct">B) High specific heat means body water absorbs large amounts of heat without changing temperature significantly; high heat of vaporisation means evaporating each gram of sweat removes a large amount of heat from the body</li>
+    <li>C) Both properties reduce the amount of sweat needed but do not prevent overheating</li>
+    <li>D) High specific heat prevents sweating; high heat of vaporisation allows water to be stored at body temperature</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — These two properties complement each other: (1) High specific heat (4.18 J/g°C) means body water acts as a heat buffer — metabolic heat is absorbed without large temperature swings. This is the first line of defence, damping temperature fluctuations. (2) When the buffer is overwhelmed (sustained activity), sweating deploys water's high heat of vaporisation (~2.26 kJ/g). When sweat evaporates, it must break hydrogen bonds, removing a large amount of heat per gram from the skin surface. Together, these properties make water an excellent biological thermoregulator — far superior to if body fluids had low specific heat and low heat of vaporisation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Positive feedback amplifies a response. During childbirth, uterine contractions stimulate oxytocin release, which causes more contractions. How does birth itself "turn off" this positive feedback loop?</p>
+  </div>
+  <ul class="options">
+    <li>A) The uterus eventually adapts to oxytocin and becomes insensitive</li>
+    <li class="correct">B) Birth removes the stimulus (baby's head pressure on the cervix) that was triggering oxytocin release — without the stimulus, the feedback loop is broken</li>
+    <li>C) The newborn secretes anti-oxytocin molecules that block further contractions</li>
+    <li>D) Blood glucose drops during labour, inhibiting oxytocin synthesis in the hypothalamus</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Positive feedback loops must have a natural endpoint. In labour, the cervical stretch receptor signal to the brain (triggering oxytocin) persists and amplifies until delivery. Once the baby and placenta are expelled, the stretch receptor is no longer stimulated — the initial signal is gone. With no stimulus, the hypothalamus stops releasing oxytocin, and the loop terminates. This is a key insight: positive feedback doesn't run forever in biology — there is always a built-in termination event (delivery, blood clotting completing, etc.). This distinguishes biological positive feedback from truly runaway processes.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Researchers discover microfossils in 3.5-billion-year-old Australian rocks that resemble cyanobacteria. A sceptic argues these are abiotic mineral formations. What additional evidence would BEST support a biological origin for these structures?</p>
+  </div>
+  <ul class="options">
+    <li>A) The structures are the same size as modern cyanobacteria</li>
+    <li>B) The rocks are found in an aquatic environment where life might have existed</li>
+    <li class="correct">C) Isotopic analysis shows the carbon in the structures is enriched in ¹²C relative to ¹³C — the same pattern seen in biologically fractionated carbon, distinct from abiotic carbon signatures</li>
+    <li>D) The structures are located in layers with iron-rich sediments, consistent with photosynthetic oxygen production</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Carbon isotope fractionation is the strongest biochemical evidence. Living organisms preferentially fix ¹²C (lighter, faster) over ¹³C via RuBisCO and other carboxylases, depleting ¹³C in organic matter. The ¹²C/¹³C ratio (expressed as δ¹³C) in biological carbon is distinctly more negative than abiotic carbonate rocks. This isotopic signature is preserved over billions of years and is considered diagnostic of biological activity — it cannot be explained by mineral formation. Size (option A) and environment (option B) are circumstantial. Iron-rich sediments (option D) don't distinguish biological from abiotic processes for carbon itself.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A student argues: "Viruses are alive because they have DNA/RNA, they reproduce, and they evolve." A biologist counters this. What is the strongest counterargument?</p>
+  </div>
+  <ul class="options">
+    <li>A) Viruses do not have DNA — they only have RNA</li>
+    <li>B) Viruses do not evolve because they do not have mutation mechanisms</li>
+    <li class="correct">C) Viruses lack the cellular machinery for metabolism — they cannot maintain homeostasis, process nutrients, or replicate independently outside a host cell; all their "life functions" depend entirely on hijacking a living cell's machinery</li>
+    <li>D) Viruses are too small to be considered living organisms</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The debate about viral life is genuine, but the standard biology position is that viruses are not alive because they lack cells, metabolism, and independent self-maintenance. Outside a host cell, a virus is an inert particle (virion) incapable of any metabolic activity. It cannot respond to stimuli, maintain internal conditions, process energy, or reproduce without completely depending on host ribosomes, enzymes, and energy. The student is correct that viruses have nucleic acids, reproduce, and evolve — but these are insufficient for the full definition of life, which requires cellular organisation and metabolism. Viruses can have either DNA or RNA (option A is factually wrong).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">12</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The concept of a "last universal common ancestor" (LUCA) implies that all life on Earth shares a common origin. Which of the following is the strongest molecular evidence for a single LUCA?</p>
+  </div>
+  <ul class="options">
+    <li>A) All organisms use carbon as their structural backbone</li>
+    <li>B) All organisms have cell membranes</li>
+    <li class="correct">C) All organisms use the same genetic code (same codon → amino acid assignments), use ATP as an energy currency, and share highly conserved core molecular machinery (ribosomes, DNA replication enzymes) — an extraordinary coincidence if life arose multiple times independently</li>
+    <li>D) All organisms reproduce, either sexually or asexually</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The universality of the genetic code is the most compelling evidence. Of the 64 possible codon assignments, a completely different code could have worked equally well biologically. The fact that CAA means glutamine in bacteria, fungi, plants, animals, and archaea — essentially without exception — is most parsimoniously explained by descent from a single ancestor in which the code was established and then "frozen" (changes to the code would disrupt all proteins simultaneously — lethal). Similarly, all ribosomes share universally conserved rRNA sequences and core proteins. Carbon use (option A) is chemistry-dictated and expected even for multiple independent origins. Cell membranes (option B) could arise independently.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 05: Scientific Literature</title>
+<style>
+  :root { --primary: #1a3a5c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 05: Scientific Literature &nbsp;|&nbsp; Scientific Method · Experimental Design · Data Interpretation · Peer Review · Graph Analysis</p>
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="question-number">Question 1</div>
+  <div class="question-text">A researcher wants to test whether a new fertiliser increases plant growth. Which of the following experimental designs is most appropriate?</div>
+  <ul class="options">
+    <li>A. Grow all plants with the fertiliser and compare the results to a photograph of unfertilised plants from the internet</li>
+    <li>B. Grow plants with the fertiliser in summer and plants without fertiliser in winter, then compare growth rates</li>
+    <li class="correct">C. Grow two groups of identical plants under identical conditions (same soil, light, water, temperature), applying fertiliser to one group (experimental) and nothing to the other (control), then measure growth</li>
+    <li>D. Apply different amounts of fertiliser to each plant and rank their growth without a control group</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>A valid experiment requires a <strong>negative control</strong> (treated identically except for the variable being tested). This allows any observed difference to be attributed to the fertiliser, not confounding variables. Key elements of good experimental design: (1) <strong>Control group</strong> — same conditions but without the treatment. (2) <strong>Experimental group</strong> — identical conditions plus the independent variable (fertiliser). (3) <strong>Controlled variables</strong> — all other factors held constant (soil type, watering, light, temperature). (4) <strong>Replication</strong> — multiple plants per group to account for biological variation. (5) <strong>Randomisation</strong> — random assignment of plants to groups.</p>
+      <p><strong>Why A is wrong:</strong> Using a photograph from the internet is not a valid control — too many uncontrolled variables (different plant species, growth conditions, camera angles).</p>
+      <p><strong>Why B is wrong:</strong> Growing control and experimental groups in different seasons introduces a major confounding variable (temperature, day length). Any difference could be due to season, not fertiliser.</p>
+      <p><strong>Why D is wrong:</strong> Without a control (no fertiliser at all), there is no baseline for comparison. Also, applying different amounts tests dose-response but still needs a zero-dose control.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="question-number">Question 2</div>
+  <div class="question-text">In a scientific experiment, a "positive control" is:</div>
+  <ul class="options">
+    <li>A. A group that receives no treatment, used as a baseline for comparison</li>
+    <li class="correct">B. A group treated with something KNOWN to produce a positive result, used to confirm that the experimental method is working correctly</li>
+    <li>C. A group given the experimental treatment at the highest possible dose</li>
+    <li>D. Any result in the experimental group that supports the hypothesis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Controls in experiments: (1) <strong>Negative control</strong> — no treatment; establishes baseline. Should give a negative/null result. (2) <strong>Positive control</strong> — treated with something KNOWN to give a positive result; confirms the experimental method works. If the positive control fails to give a positive result, there is a problem with the assay/method — not the experimental treatment. Example in Benedict's test: positive control = tube with glucose (should turn orange-red). Negative control = tube with water (should remain blue). Without a positive control, a negative result could mean the treatment doesn't work OR that the assay is broken.</p>
+      <p><strong>Why A is wrong:</strong> This describes a negative control (no treatment, baseline comparison).</p>
+      <p><strong>Why C is wrong:</strong> The experimental group receives the treatment — a "positive control" is a separate validation group using a known positive.</p>
+      <p><strong>Why D is wrong:</strong> A "positive result" in the experimental group is an outcome, not the definition of a positive control.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">Which of the following correctly identifies the independent variable, dependent variable, and a controlled variable in the following experiment: "A scientist tests whether temperature affects enzyme activity by measuring the rate of hydrogen peroxide breakdown by catalase at 20°C, 37°C, and 60°C, keeping pH constant at 7.0."</div>
+  <ul class="options">
+    <li>A. Independent = rate of reaction; Dependent = temperature; Controlled = enzyme concentration</li>
+    <li class="correct">B. Independent = temperature; Dependent = rate of hydrogen peroxide breakdown; Controlled = pH (and others: enzyme concentration, H₂O₂ concentration)</li>
+    <li>C. Independent = pH; Dependent = temperature; Controlled = rate of reaction</li>
+    <li>D. Independent = enzyme concentration; Dependent = pH; Controlled = temperature</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Definitions: (1) <strong>Independent variable (IV)</strong> — the variable the experimenter deliberately changes. Here: temperature (20°C, 37°C, 60°C). (2) <strong>Dependent variable (DV)</strong> — the variable being measured; it "depends" on the IV. Here: rate of H₂O₂ breakdown (measured by gas production, colour change with a substrate like guaiacol, or O₂ sensor). (3) <strong>Controlled variables</strong> — all other variables held constant to ensure any change in DV is due ONLY to the IV. Here: pH (held at 7.0), enzyme concentration, H₂O₂ concentration, volume of solution, buffer composition, etc. A useful rule: the IV goes on the x-axis of a graph; the DV goes on the y-axis.</p>
+      <p><strong>Why A is wrong:</strong> The rate of reaction is what you MEASURE (dependent), not what you set (independent). Temperature is the independent variable.</p>
+      <p><strong>Why C is wrong:</strong> pH is a controlled variable (held constant), not the independent variable. The scientist is testing temperature, not pH.</p>
+      <p><strong>Why D is wrong:</strong> Enzyme concentration is a controlled variable; pH is also controlled. Temperature is the IV.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">What is the purpose of peer review in science?</div>
+  <ul class="options">
+    <li>A. To ensure that only studies with positive results are published</li>
+    <li>B. To allow scientists to profit from publishing their research</li>
+    <li class="correct">C. To critically evaluate research methodology, data analysis, and conclusions by independent experts before publication, improving the quality and reliability of published science</li>
+    <li>D. To rank scientists by their productivity and assign funding accordingly</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Peer review is the process by which submitted manuscripts are evaluated by independent experts in the relevant field (peers) before publication. Reviewers assess: (1) Validity of the experimental design and controls. (2) Appropriateness of statistical analysis. (3) Whether conclusions are supported by the data. (4) Whether methods are described clearly enough to allow replication. (5) Whether the work is original and significant. Peer review is not perfect (publication bias, reviewer bias, difficulty detecting fraud) — but it remains the primary quality filter in scientific publishing. Pre-prints (e.g., bioRxiv) are posted before peer review, allowing rapid dissemination but requiring reader scrutiny.</p>
+      <p><strong>Why A is wrong:</strong> "Publication bias" (tendency to publish positive results) is a recognised PROBLEM in science — not the purpose of peer review. Peer reviewers should evaluate methodology regardless of outcome.</p>
+      <p><strong>Why B is wrong:</strong> Most journals operate on a non-profit or society basis; authors often pay open-access fees. Reviewers typically receive no payment for reviewing.</p>
+      <p><strong>Why D is wrong:</strong> Peer review evaluates individual papers, not scientists' overall productivity. Grant funding decisions involve separate peer-review-like processes (study sections, grant panels).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">A scientific paper reports that drug X "significantly" reduced tumour size in mice (p < 0.05). What does p < 0.05 mean?</div>
+  <ul class="options">
+    <li>A. There is a 95% probability that drug X will work in humans</li>
+    <li>B. The drug is 95% effective at reducing tumour size</li>
+    <li class="correct">C. If there were truly no effect of the drug, the probability of observing a difference at least as extreme as this one by chance alone is less than 5%</li>
+    <li>D. The results will be replicated in 95% of all future experiments</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The p-value is the probability of obtaining results at least as extreme as observed, assuming the null hypothesis (no effect) is true. p < 0.05 means: if the drug had NO real effect, there would be less than a 5% chance of seeing a difference this large by random sampling variation. This is conventionally accepted as "statistically significant" — though this threshold is arbitrary. Important caveats: (1) p < 0.05 does NOT mean the effect is large or clinically meaningful (consider effect size). (2) It does NOT mean there is a 95% chance the result is true. (3) A result can be statistically significant but biologically trivial. (4) p-values are sensitive to sample size — large samples can make tiny, irrelevant differences "significant."</p>
+      <p><strong>Why A is wrong:</strong> Mouse results do not directly translate to human efficacy. p < 0.05 says nothing about cross-species translation.</p>
+      <p><strong>Why B is wrong:</strong> p < 0.05 is about the probability of the data under the null hypothesis — not the percentage effect size.</p>
+      <p><strong>Why D is wrong:</strong> Replication rate is not directly given by the p-value. Many p < 0.05 results fail to replicate (the "replication crisis").</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">A standard structure of a scientific research article follows which order?</div>
+  <ul class="options">
+    <li>A. Results → Introduction → Methods → Discussion → Abstract</li>
+    <li>B. Abstract → Results → Introduction → Methods → Discussion → References</li>
+    <li class="correct">C. Abstract → Introduction → Methods → Results → Discussion (± Conclusion) → References</li>
+    <li>D. Introduction → Abstract → Discussion → Methods → Results → References</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The standard IMRaD structure of scientific papers: (1) <strong>Abstract</strong> — brief summary of the entire paper (~150–300 words). (2) <strong>Introduction</strong> — background, rationale, research question, hypothesis. (3) <strong>Methods (Materials & Methods)</strong> — detailed description of how the experiment was conducted (enough detail for replication). (4) <strong>Results</strong> — data presentation (figures, tables, statistical analysis) without interpretation. (5) <strong>Discussion</strong> — interpretation of results, comparison to literature, limitations, implications. (6) <strong>References</strong> — all cited sources. Some journals also require a separate Conclusion section. Note: Authors typically write the Abstract LAST, but it appears FIRST in the published paper.</p>
+      <p><strong>Why A is wrong:</strong> Results don't come first; the abstract appears last in reading order after writing but should be the first section in the paper.</p>
+      <p><strong>Why B is wrong:</strong> Results come after Methods, not after Abstract. Introduction comes before Methods.</p>
+      <p><strong>Why D is wrong:</strong> The Abstract should appear before the Introduction; Discussion follows Results.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">A scatter plot shows a positive correlation (r = 0.82) between daily exercise (hours) and cardiovascular health score. A classmate concludes "exercise causes better cardiovascular health." Is this conclusion valid?</div>
+  <ul class="options">
+    <li>A. Yes — a correlation of 0.82 is very high, which proves causation</li>
+    <li class="correct">B. Not necessarily — correlation does not imply causation. Confounding variables (e.g., diet, genetics, socioeconomic status) may explain the relationship. Experimental evidence (randomised controlled trial) would be needed to establish causation</li>
+    <li>C. No — a correlation can only be used to disprove a hypothesis, never to support one</li>
+    <li>D. Yes — any correlation with r > 0.7 is considered causal in biological research</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Correlation ≠ Causation. A positive correlation (r = 0.82) means the two variables tend to increase together — but it cannot establish causation because: (1) <strong>Confounding variables</strong> — a third variable may cause both (e.g., healthy lifestyle generally leads to both exercise AND good diet → better cardiovascular health). (2) <strong>Reverse causation</strong> — people with better cardiovascular health may be more able to exercise (causation reversed). (3) <strong>Coincidence</strong> — some correlations are spurious (e.g., ice cream sales and shark attacks correlate because both increase in summer). To establish causation, a <strong>randomised controlled trial (RCT)</strong> is needed: randomly assign people to exercise or control group; measure cardiovascular health; compare groups. Classic epidemiological examples: smoking-lung cancer correlation was established before RCTs, through convergent evidence from multiple study designs.</p>
+      <p><strong>Why A is wrong:</strong> No correlation coefficient, regardless of magnitude, proves causation. Only experimental designs with appropriate controls can establish causation.</p>
+      <p><strong>Why C is wrong:</strong> Correlations can support hypotheses (they are consistent with causal hypotheses) — they simply cannot prove them.</p>
+      <p><strong>Why D is wrong:</strong> There is no threshold for r above which a correlation becomes "causal" in biological or any other research.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Error bars on a graph in a scientific paper typically represent:</div>
+  <ul class="options">
+    <li>A. The maximum and minimum values observed in the dataset</li>
+    <li class="correct">B. A measure of variability or uncertainty — such as standard deviation (SD), standard error of the mean (SEM), or confidence interval (CI) — showing how precise the measurements are</li>
+    <li>C. The experimental error made by the scientist in conducting the study</li>
+    <li>D. The p-value for each data point relative to the control</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Error bars visually represent variability/uncertainty in the data. Common types: (1) <strong>Standard Deviation (SD)</strong> — describes the spread of individual measurements around the mean. Wide SD = high biological variability. (2) <strong>Standard Error of the Mean (SEM)</strong> — estimates how close the sample mean is to the true population mean; SEM = SD/√n. SEM is always smaller than SD (narrows with larger n). (3) <strong>Confidence Interval (95% CI)</strong> — the range within which the true population mean lies with 95% confidence. The key is always to check what the error bars represent (papers should state this in the figure legend). Non-overlapping 95% CI error bars suggest statistical significance between two groups, but this is approximate.</p>
+      <p><strong>Why A is wrong:</strong> Range bars (min-max) are sometimes used but are not the same as standard error or confidence interval bars. Most scientific papers use SD, SEM, or CI.</p>
+      <p><strong>Why C is wrong:</strong> "Experimental error" in the sense of mistakes is not what error bars represent. Error bars show inherent variability and uncertainty in measurement.</p>
+      <p><strong>Why D is wrong:</strong> p-values are not graphed as error bars — they are reported in the text or on the graph as significance indicators (*, **, ***, ns).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">Which of the following best describes a hypothesis in the context of the scientific method?</div>
+  <ul class="options">
+    <li>A. A hypothesis is a proven fact supported by extensive experimental evidence</li>
+    <li>B. A hypothesis is a wild guess made before any background research is done</li>
+    <li class="correct">C. A hypothesis is a testable, falsifiable prediction about the expected outcome of an experiment, based on prior knowledge and observations</li>
+    <li>D. A hypothesis is the same as a scientific theory — both represent the highest level of certainty in science</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>A hypothesis must be: (1) <strong>Testable</strong> — can be evaluated through experiments or observations. (2) <strong>Falsifiable</strong> (Popper's criterion) — there must be possible evidence that could prove it wrong. A hypothesis that cannot possibly be disproven is not scientific. (3) Based on prior knowledge/observations. Example format: "If [independent variable] increases, then [dependent variable] will [increase/decrease], because [biological mechanism]." A hypothesis is NOT the same as a theory: a scientific theory is a well-substantiated explanation supported by extensive evidence (e.g., cell theory, evolution theory, germ theory). Theories are the strongest form of scientific explanation — "just a theory" is a common misconception.</p>
+      <p><strong>Why A is wrong:</strong> A hypothesis is a proposed explanation, not a proven fact. Proven facts come from accumulation of many replicated experiments — eventually contributing to theories.</p>
+      <p><strong>Why B is wrong:</strong> A hypothesis is informed by background research (observations, existing literature). It is not a random guess.</p>
+      <p><strong>Why D is wrong:</strong> Hypotheses and theories are different. A hypothesis is a specific, single testable prediction. A theory is a broad, well-supported framework that explains many observations and makes many predictions.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">A study uses a sample size of n = 5 per group. A sceptical reviewer recommends the study be repeated with n = 50 per group. What is the primary scientific reason for this recommendation?</div>
+  <ul class="options">
+    <li>A. Larger sample sizes always produce statistically significant results</li>
+    <li>B. A larger sample means more reagent costs, making the study appear more rigorous</li>
+    <li class="correct">C. Larger sample sizes increase statistical power (reducing Type II error / false negatives), give more precise estimates of the population mean, and reduce the influence of outliers on the results</li>
+    <li>D. With n = 5, the data cannot be graphed correctly</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Small sample sizes (n = 5) are problematic because: (1) <strong>Low statistical power</strong> — high risk of Type II error (missing a true effect; false negative). Power = probability of detecting a true effect if it exists; power increases with sample size. (2) <strong>Imprecise estimates</strong> — sample mean is a poor estimate of the population mean with few data points; SEM = SD/√n, so larger n → smaller SEM → more precise mean. (3) <strong>Outlier sensitivity</strong> — one anomalous data point in n=5 can completely change the result. (4) <strong>Non-normality</strong> — many statistical tests assume normally distributed data; this is reasonable with large n (Central Limit Theorem) but unreliable with small n. With n=50, all these problems are substantially reduced.</p>
+      <p><strong>Why A is wrong:</strong> Larger sample sizes do not GUARANTEE significance — if there is truly no effect, a large sample will correctly find no significance.</p>
+      <p><strong>Why B is wrong:</strong> Cost is a practical consideration, not a scientific justification for sample size.</p>
+      <p><strong>Why D is wrong:</strong> Data from n=5 can be graphed — the issue is statistical reliability and power, not graphical representation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">A researcher measures enzyme activity at different substrate concentrations and plots a Michaelis-Menten curve (hyperbolic curve). Which statement about interpreting this graph is correct?</div>
+  <ul class="options">
+    <li>A. The y-intercept gives the maximum velocity (Vmax) of the enzyme</li>
+    <li class="correct">B. The Km (Michaelis constant) is the substrate concentration at which reaction velocity is half of Vmax; lower Km indicates higher affinity of the enzyme for its substrate</li>
+    <li>C. The x-intercept gives the Km of the enzyme directly</li>
+    <li>D. The slope of the Michaelis-Menten curve directly gives the enzyme's catalytic rate constant (kcat)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The Michaelis-Menten equation: v = (Vmax × [S]) / (Km + [S]). Key parameters: (1) <strong>Vmax</strong> — maximum reaction velocity, achieved when all enzyme active sites are saturated. Approached asymptotically on the hyperbolic curve — never actually reached. Vmax is read from the plateau of the curve. (2) <strong>Km (Michaelis constant)</strong> = [S] when v = Vmax/2. It reflects binding affinity: lower Km = higher affinity (enzyme reaches half-max at lower substrate). Km ≈ Kd only when kcat << k₋₁. (3) The Lineweaver-Burk (double reciprocal) plot (1/v vs 1/[S]) linearises this relationship: x-intercept = -1/Km, y-intercept = 1/Vmax — useful for accurate determination of kinetic parameters.</p>
+      <p><strong>Why A is wrong:</strong> The y-intercept of a Michaelis-Menten curve is v = 0 (at [S] = 0). Vmax is the asymptote (horizontal plateau), not the y-intercept.</p>
+      <p><strong>Why C is wrong:</strong> The Michaelis-Menten hyperbola does not cross the x-axis (velocity is always positive). Km is read at v = Vmax/2, not the x-intercept.</p>
+      <p><strong>Why D is wrong:</strong> The Michaelis-Menten curve is not linear — it has no single slope. kcat (turnover number) = Vmax/[Etotal], calculated separately.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">Which of the following is an example of a confounding variable in a study investigating whether coffee consumption increases heart rate?</div>
+  <ul class="options">
+    <li>A. The amount of coffee consumed by each participant</li>
+    <li>B. Heart rate measured in beats per minute</li>
+    <li class="correct">C. Participants in the coffee group also happen to exercise more frequently than participants in the control group</li>
+    <li>D. The number of participants enrolled in the study</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>A confounding variable is a third variable that correlates with BOTH the independent variable (coffee) AND the dependent variable (heart rate), creating a spurious or distorted association. If coffee drinkers also exercise more → exercise increases heart rate → the observed increased heart rate might be due to exercise, not coffee. This is a classic confounder. Solutions: (1) <strong>Randomisation</strong> — randomly assign participants to coffee/control groups so exercise habits are equally distributed. (2) <strong>Matching</strong> — match participants by exercise level. (3) <strong>Statistical adjustment</strong> — include exercise as a covariate in multivariate analysis.</p>
+      <p><strong>Why A is wrong:</strong> Amount of coffee consumed is the independent variable (what is being manipulated).</p>
+      <p><strong>Why B is wrong:</strong> Heart rate is the dependent variable (what is being measured).</p>
+      <p><strong>Why D is wrong:</strong> Sample size affects statistical power but is not a confounding variable.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Which of the following graph types would be MOST appropriate to display the change in bacterial population size over 24 hours?</div>
+  <ul class="options">
+    <li>A. A pie chart showing the proportion of bacteria at each hour</li>
+    <li>B. A bar chart with bars for each individual bacterium measured</li>
+    <li class="correct">C. A line graph with time on the x-axis and population size (or log₁₀ of population) on the y-axis</li>
+    <li>D. A scatter plot with bacterial size on the x-axis and time on the y-axis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>A line graph is best for showing continuous change over time (time series data). Bacterial growth follows a characteristic S-curve (sigmoid/logistic): lag phase → exponential (log) phase → stationary phase → death phase. Plotting population size on a logarithmic y-axis (log₁₀ cells/mL) linearises the exponential phase, making growth rates easier to interpret and compare. Line graphs connect data points to show trends; each time point is a measurement, not a discrete category. The convention: independent variable (time) on x-axis; dependent variable (population size) on y-axis.</p>
+      <p><strong>Why A is wrong:</strong> Pie charts show proportions of a whole at ONE time point — not change over time.</p>
+      <p><strong>Why B is wrong:</strong> Bar charts are for comparing discrete categories (e.g., mean growth of different bacterial species). A bar chart for each individual bacterium would be impractical and uninformative.</p>
+      <p><strong>Why D is wrong:</strong> The axes are reversed from convention (time should be on x-axis). Also, bacterial "size" is not the variable being tracked in a growth curve — population NUMBER is.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">What does it mean for a scientific finding to be "reproducible"?</div>
+  <ul class="options">
+    <li>A. The same scientist gets the same result every time they repeat their own experiment</li>
+    <li class="correct">B. Independent researchers, following the same methods, obtain the same (or consistent) results, supporting the original finding's validity</li>
+    <li>C. The experiment produces results that confirm the scientist's original hypothesis</li>
+    <li>D. The finding has been published in multiple journals without significant change</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Reproducibility (or replicability) is a cornerstone of scientific validity. It means that independent researchers, using the same methods (described clearly in the Methods section), obtain the same results in different laboratories/settings. This eliminates the possibility that results were due to: (1) Specific quirks of one laboratory's equipment. (2) One researcher's unconscious bias. (3) Random chance (Type I error/false positive). The "replication crisis" in psychology, medicine, and social science has revealed that many published findings do not replicate — often due to small sample sizes, flexible data analysis ("p-hacking"), publication bias, and insufficient methods reporting.</p>
+      <p><strong>Why A is wrong:</strong> This describes repeatability (same lab, same scientist). Reproducibility requires INDEPENDENT replication by DIFFERENT researchers.</p>
+      <p><strong>Why C is wrong:</strong> Results confirming the hypothesis could still be a false positive. Reproducibility is about consistency across independent studies.</p>
+      <p><strong>Why D is wrong:</strong> Publication in multiple journals without new independent data is not reproducibility — it could simply be duplicate publication.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">A student reads a study claiming "Coffee prevents Alzheimer's disease" in a newspaper. What should the student consider before accepting this claim?</div>
+  <ul class="options">
+    <li>A. Whether the study was published on a Wednesday, as mid-week publications are more reliable</li>
+    <li class="correct">B. Whether the study was peer-reviewed, the sample size and study design, whether it was correlational or experimental, what confounders were controlled for, and whether independent studies have replicated the finding</li>
+    <li>C. Whether the journalist who wrote the article has a degree in biochemistry</li>
+    <li>D. Whether coffee is mentioned in other scientific studies, regardless of the research question</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Scientific literacy requires critical appraisal of health claims. Key questions to ask about any health claim: (1) <strong>Source</strong> — is it peer-reviewed? What journal? Published by a reputable institution? (2) <strong>Study design</strong> — RCT > prospective cohort study > case-control > cross-sectional > case report > anecdote. (3) <strong>Sample size</strong> — larger, diverse sample is more credible. (4) <strong>Confounders</strong> — were they controlled? (Coffee drinkers may differ in diet, sleep, lifestyle). (5) <strong>Effect size</strong> — is the association clinically meaningful? (6) <strong>Replication</strong> — have independent groups found the same result? (7) <strong>Biological plausibility</strong> — is there a mechanistic explanation? Newspaper health reporting often over-simplifies and overstates single study findings — "coffee prevents Alzheimer's" from one small observational study is very different from a consensus of evidence.</p>
+      <p><strong>Why A is wrong:</strong> Publication day is irrelevant to scientific quality.</p>
+      <p><strong>Why C is wrong:</strong> The journalist's qualifications do not determine the quality of the underlying study.</p>
+      <p><strong>Why D is wrong:</strong> The mere presence of coffee in other studies, regardless of topic, provides no information about its role in Alzheimer's prevention.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

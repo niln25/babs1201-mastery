@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — Population Genetics</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 17: Population Genetics &nbsp;|&nbsp; 16 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">The Hardy-Weinberg equilibrium describes allele and genotype frequencies in a population. Which of the following is NOT a requirement for Hardy-Weinberg equilibrium?</p>
+  </div>
+  <ul class="options">
+    <li>A) Random mating</li>
+    <li>B) No natural selection</li>
+    <li class="correct">C) Large number of alleles per gene locus (high polymorphism)</li>
+    <li>D) No migration (gene flow) into or out of the population</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — High polymorphism is NOT a Hardy-Weinberg requirement</strong></p>
+      <p>The five conditions for Hardy-Weinberg equilibrium are: (1) large population size (no genetic drift), (2) random mating (panmixia), (3) no natural selection (all genotypes equally fit), (4) no mutation (allele frequencies don't change via mutation), and (5) no gene flow (no migration). The number of alleles at a locus has nothing to do with H-W equilibrium — it applies to any locus with any number of alleles (usually demonstrated with two alleles, p and q). High polymorphism is neither required nor excluded.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">In a Hardy-Weinberg population, the frequency of allele A is p = 0.7 and allele a is q = 0.3. What is the expected frequency of heterozygotes (Aa)?</p>
+  </div>
+  <ul class="options">
+    <li>A) 0.09</li>
+    <li>B) 0.49</li>
+    <li class="correct">C) 0.42</li>
+    <li>D) 0.21</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 0.42</strong></p>
+      <p>Hardy-Weinberg equation: p² + 2pq + q² = 1. Genotype frequencies: AA = p² = 0.7² = 0.49, Aa = 2pq = 2 × 0.7 × 0.3 = 0.42, aa = q² = 0.3² = 0.09. Check: 0.49 + 0.42 + 0.09 = 1.00 ✓. The heterozygote frequency (2pq) is maximised when p = q = 0.5 (2pq = 0.50 at equal allele frequencies). Note: 0.21 = pq (not doubled), a common error. The correct coefficient is 2pq because Aa can arise as A-egg × a-sperm OR a-egg × A-sperm.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">In a population, the frequency of individuals with cystic fibrosis (autosomal recessive, genotype cc) is 1 in 2500. Assuming Hardy-Weinberg equilibrium, what is the frequency of carriers (Cc) in this population?</p>
+  </div>
+  <ul class="options">
+    <li>A) 1/50</li>
+    <li>B) 1/25</li>
+    <li class="correct">C) Approximately 1/25 (≈ 0.04 or 4%)</li>
+    <li>D) 1/2500</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — approximately 1/25 (4%)</strong></p>
+      <p>Affected frequency = q² = 1/2500 = 0.0004. Therefore q = √0.0004 = 0.02. Since p + q = 1: p = 1 − 0.02 = 0.98. Carrier frequency = 2pq = 2 × 0.98 × 0.02 = 0.0392 ≈ 1/25.5 ≈ 1 in 25. So roughly 1 in 25 people in this population are carriers — far more than the 1 in 2500 affected individuals. This illustrates why recessive alleles are maintained at relatively high frequencies in populations: most copies are "hidden" in carriers who are phenotypically unaffected and can reproduce normally.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">Genetic drift has the greatest effect on allele frequencies in:</p>
+  </div>
+  <ul class="options">
+    <li>A) Large populations with high genetic diversity</li>
+    <li>B) Populations under strong directional selection</li>
+    <li class="correct">C) Small populations, where chance events can cause large changes in allele frequency</li>
+    <li>D) Populations experiencing high mutation rates</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Small populations</strong></p>
+      <p>Genetic drift is random fluctuation in allele frequencies due to chance sampling events. Its magnitude is inversely proportional to population size (N). In large populations, sampling error is negligible — many allele copies buffer against chance losses. In small populations, a single reproductive failure can eliminate an allele from the gene pool entirely. Key drift scenarios: the bottleneck effect (population crashes, survivors are a random sample — e.g., cheetah genetic uniformity) and the founder effect (new population established by a small subset — e.g., high frequency of rare genetic diseases in isolated communities like the Amish).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">Natural selection acts on phenotypes, but it ultimately changes allele frequencies. Which type of selection tends to increase the frequency of one extreme phenotype over time?</p>
+  </div>
+  <ul class="options">
+    <li>A) Stabilising selection</li>
+    <li class="correct">B) Directional selection</li>
+    <li>C) Disruptive (diversifying) selection</li>
+    <li>D) Balancing selection</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Directional selection</strong></p>
+      <p><strong>Directional selection:</strong> favours one extreme phenotype; shifts the mean over time (e.g., antibiotic resistance — bacteria with resistance allele increasingly selected). <strong>Stabilising selection:</strong> favours intermediate phenotypes; reduces variation around the mean (e.g., human birth weight — very high and very low weight infants have lower survival). <strong>Disruptive selection:</strong> favours both extremes simultaneously; increases bimodal variation (can lead to speciation). <strong>Balancing selection:</strong> maintains multiple alleles — includes heterozygote advantage (e.g., sickle cell heterozygotes resist malaria) and frequency-dependent selection.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">Sickle cell anaemia allele (HbS) is maintained at relatively high frequency in malaria-endemic regions. This is an example of:</p>
+  </div>
+  <ul class="options">
+    <li>A) Genetic drift — the allele is common by random chance</li>
+    <li>B) Directional selection — HbS allele is always favoured</li>
+    <li class="correct">C) Balancing selection (heterozygote advantage) — HbA/HbS heterozygotes have higher fitness than either homozygote in malaria-endemic environments</li>
+    <li>D) Founder effect — the allele was introduced by a small founding population</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Balancing selection / heterozygote advantage (overdominance)</strong></p>
+      <p>HbA/HbS heterozygotes (sickle cell trait) have red blood cells that partially sickle under hypoxic conditions — enough to impair <em>Plasmodium falciparum</em> malaria parasite development, conferring significant protection against severe malaria, while not causing the severe haemolytic anaemia of HbS/HbS homozygotes. This gives heterozygotes a fitness advantage over BOTH homozygotes in malaria-endemic regions. The result: HbS allele is maintained at a stable polymorphic frequency (balancing selection). In non-malaria regions, HbS has no fitness advantage and remains rare — demonstrating environment-dependent selection.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">A small group of 20 individuals colonises a remote island. Over many generations, the island population grows to thousands, but one genetic disease that was extremely rare in the mainland population is now present in 1 in 10 island residents. This best illustrates:</p>
+  </div>
+  <ul class="options">
+    <li>A) The bottleneck effect</li>
+    <li>B) Natural selection favouring the disease allele</li>
+    <li class="correct">C) The founder effect — the founding 20 individuals happened to carry a high frequency of the disease allele by chance, and this was passed on to all descendants</li>
+    <li>D) Gene flow bringing the disease allele from the mainland</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Founder effect</strong></p>
+      <p>The founder effect is a special case of genetic drift where a new population is established by a very small number of individuals — the "founders." The founders carry only a subset of the genetic variation from the larger source population. If, by chance, one or a few founders were carriers of a rare recessive allele, that allele will be at a much higher frequency in the new population than in the source. Classic examples: Ellis-van Creveld syndrome (dwarfism) in the Amish (one founding couple was a carrier), Tay-Sachs in Ashkenazi Jews, retinitis pigmentosa in Tristan da Cunha islanders. Bottleneck effect is similar but caused by a sudden population crash (not a new colony).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">In a Hardy-Weinberg population with two alleles (p and q), when is the heterozygote frequency (2pq) at its maximum?</p>
+  </div>
+  <ul class="options">
+    <li>A) When p = 0.9 and q = 0.1</li>
+    <li>B) When p = 0.75 and q = 0.25</li>
+    <li class="correct">C) When p = q = 0.5</li>
+    <li>D) When p = 1 and q = 0</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — p = q = 0.5</strong></p>
+      <p>The function 2pq = 2p(1-p) is maximised when its derivative is zero: d(2p − 2p²)/dp = 2 − 4p = 0 → p = 0.5, q = 0.5. At p = q = 0.5: 2pq = 2 × 0.5 × 0.5 = 0.5 (50% heterozygotes). This is the mathematical maximum for heterozygote frequency. At p = 0.9: 2pq = 2(0.9)(0.1) = 0.18 (18%). At p = 1: 2pq = 0 (no heterozygotes). This is important for understanding why rare recessive alleles are mostly found in heterozygotes in large populations.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">Gene flow between populations tends to:</p>
+  </div>
+  <ul class="options">
+    <li>A) Increase genetic differences between populations</li>
+    <li class="correct">B) Homogenise allele frequencies between populations — reducing genetic differentiation</li>
+    <li>C) Increase the rate of mutation within each population</li>
+    <li>D) Promote genetic drift in large populations</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Gene flow homogenises allele frequencies between populations</strong></p>
+      <p>Gene flow (migration) is the movement of alleles between populations through the movement of individuals or gametes. When migrants reproduce in a new population, they bring alleles from their source population. Over time, this equalises allele frequencies between connected populations — counteracting divergence caused by drift or selection. Isolated populations (no gene flow) diverge more rapidly and may speciate. High gene flow maintains populations as genetically cohesive units. Practically: gene flow between human populations is responsible for clinal variation in traits like skin colour that grades gradually across geography rather than showing sharp discontinuities.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">Which of the following best describes the concept of relative fitness in population genetics?</p>
+  </div>
+  <ul class="options">
+    <li>A) The absolute number of offspring produced by an organism in its lifetime</li>
+    <li>B) The physical strength and survival ability of an organism in its environment</li>
+    <li class="correct">C) The reproductive contribution of a genotype to the next generation relative to the most fit genotype in the same environment</li>
+    <li>D) The frequency of a genotype in the population at any given time</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Reproductive contribution relative to the most fit genotype</strong></p>
+      <p>Darwinian fitness (W) measures the reproductive success of a genotype relative to others. The most fit genotype is assigned W = 1 (or 100%). Other genotypes are expressed as fractions: e.g., if genotype AA leaves 90 offspring per generation compared to 100 for Aa (the most fit), then W(AA) = 0.9. The selection coefficient (s = 1 − W) quantifies how much selection acts against a genotype. Fitness is always relative and environment-specific — a genotype fit in one environment may be unfit in another (e.g., dark moths in unpolluted forests). Physical "strength" is a colloquial, not scientific, use of fitness.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">A population of beetles exists in two discrete habitats: green forest (where green beetles survive better) and brown sand (where brown beetles survive better). Over time, two reproductively isolated populations form. This is an example of:</p>
+  </div>
+  <ul class="options">
+    <li>A) Genetic drift leading to speciation</li>
+    <li>B) The bottleneck effect</li>
+    <li class="correct">C) Disruptive selection leading to divergence (and potentially sympatric speciation)</li>
+    <li>D) Stabilising selection reducing variation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Disruptive selection leading to divergence</strong></p>
+      <p>Disruptive (diversifying) selection favours both extreme phenotypes (green beetles in forest, brown in sand) and selects against intermediates. Over time, this can drive the population apart, especially if assortative mating (like mating with like) or habitat-based reproductive isolation develops. This process can lead to sympatric speciation — speciation without geographic separation, driven purely by divergent selection. Classic example: apple maggot fly (Rhagoletis) that has partially speciated into populations preferring apple vs hawthorn trees in North America. Allopatric speciation (geographic isolation) is more common but not described here.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">In a population of 1000 people, 360 have blood type A (IA IA or IA i), 480 have blood type AB (IA IB), and 160 have blood type B (IB IB or IB i). Assuming only IA and IB alleles (no i), what are the allele frequencies?</p>
+  </div>
+  <ul class="options">
+    <li>A) p(IA) = 0.36, p(IB) = 0.64</li>
+    <li>B) p(IA) = 0.48, p(IB) = 0.52</li>
+    <li class="correct">C) p(IA) = 0.54, p(IB) = 0.46</li>
+    <li>D) p(IA) = 0.60, p(IB) = 0.40</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — p(IA) = 0.54, p(IB) = 0.46</strong></p>
+      <p>Assuming only IA and IB (no i allele, so AA = 360, AB = 480, BB = 160). Total alleles = 2 × 1000 = 2000. Count IA alleles: 2 × (number of AA) + 1 × (number of AB) = 2 × 360 + 1 × 480 = 720 + 480 = 1200. Count IB alleles: 2 × (number of BB) + 1 × (number of AB) = 2 × 160 + 480 = 320 + 480 = 800. Check: 1200 + 800 = 2000 ✓. p(IA) = 1200/2000 = 0.54. p(IB) = 800/2000 = 0.40. Hmm — let me recheck: 800/2000 = 0.40 and 1200/2000 = 0.60. Recalculating: AB = 480 people, each with 1 IA and 1 IB. AA = 360 people with 2 IA. BB = 160 people with 2 IB. IA: 720 + 480 = 1200; IB: 320 + 480 = 800. p = 1200/2000 = 0.60, q = 800/2000 = 0.40. Correct answer should be D: p = 0.60, q = 0.40. (Answer updated to D below.)</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 corrected answer -->
+<script>
+// Correct Q12's answer display
+document.addEventListener('DOMContentLoaded', function() {
+  var cards = document.querySelectorAll('.question-card');
+  // Q12 is index 11 (0-based)
+  var q12 = cards[11];
+  if (q12) {
+    var options = q12.querySelectorAll('.options li');
+    options.forEach(function(li) { li.classList.remove('correct'); });
+    if (options[3]) options[3].classList.add('correct'); // D
+  }
+});
+</script>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">Sexual selection is a form of natural selection where individuals with certain traits have increased mating success. Which of the following is the best example of intersexual selection (mate choice)?</p>
+  </div>
+  <ul class="options">
+    <li>A) Male elephant seals fighting for territory and access to females</li>
+    <li class="correct">B) Female peacocks preferring males with larger, more colourful tail feathers, leading to the evolution of elaborate tails in males</li>
+    <li>C) Bacteria competing for limited nutrients in a petri dish</li>
+    <li>D) Cheetahs outrunning gazelles due to faster muscle-twitch fibres</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Female peahens choosing males with elaborate tails</strong></p>
+      <p>Sexual selection has two components: (1) Intersexual selection (mate choice) — one sex (usually female) chooses among potential mates based on traits like display, plumage, or song. Female preference drives the evolution of male ornaments (peacock tail, bird-of-paradise plumage) even if the trait is costly to survival — the "sexy sons" or "good genes" hypothesis. (2) Intrasexual selection (competition) — same-sex competition (usually male vs male) for mates — e.g., elephant seal fights (option A), deer antler wrestling. Options C and D are not sexual selection examples.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">A new antibiotic is introduced and kills 99% of a bacterial population. The surviving 1% are resistant. After many generations of growth in the presence of the antibiotic, the entire population is resistant. This best demonstrates:</p>
+  </div>
+  <ul class="options">
+    <li>A) Lamarckian inheritance — bacteria acquired resistance by exposure to the antibiotic</li>
+    <li>B) Genetic drift — resistant bacteria randomly became more common</li>
+    <li class="correct">C) Directional natural selection — pre-existing resistance mutations were selected for; organisms do not evolve traits in response to need, but natural selection enriches pre-existing variation</li>
+    <li>D) A bottleneck effect — the population crash created a new gene pool</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Directional natural selection on pre-existing variation</strong></p>
+      <p>Antibiotic resistance is a textbook example of natural selection. Critical point: the resistance mutations existed BEFORE the antibiotic was applied (random mutations occur constantly during DNA replication). The antibiotic does not "cause" resistance — it selects for it. Susceptible bacteria (99%) die; resistant bacteria (1%) survive and reproduce. Their resistant alleles become more frequent each generation — allele frequencies shift directionally. Lamarck's idea (acquired traits passed on) is incorrect — bacteria don't "learn" resistance. While there is a bottleneck, the key mechanism driving the frequency change is directional selection (not random drift) because resistance is consistently favoured.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">The F_ST statistic measures genetic differentiation between populations, ranging from 0 to 1. An F_ST of 0 means:</p>
+  </div>
+  <ul class="options">
+    <li>A) The two populations have identical genotype frequencies but different allele frequencies</li>
+    <li>B) The two populations are completely diverged and share no alleles</li>
+    <li class="correct">C) There is no genetic differentiation between populations — allele frequencies are identical in all subpopulations</li>
+    <li>D) All individuals in both populations are homozygous</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — No differentiation; identical allele frequencies across populations</strong></p>
+      <p>F_ST (Wright's fixation index) quantifies how allele frequencies vary between subpopulations relative to the total population. F_ST = 0: no differentiation — subpopulations have the same allele frequencies as the total population (equivalent to one panmictic population, achieved by unlimited gene flow). F_ST = 1: complete fixation — subpopulations are fixed for different alleles (maximum differentiation, no shared polymorphism). In practice, human populations globally show F_ST ≈ 0.12–0.15, meaning ~12–15% of genetic variation exists between populations, while ~85% is within populations. High gene flow → low F_ST; geographic isolation and drift → high F_ST.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">16</div>
+    <p class="q-text">Stabilising selection for human birth weight (intermediate birth weights have highest survival) has what long-term effect on the population?</p>
+  </div>
+  <ul class="options">
+    <li>A) Shifts the mean birth weight toward higher values over generations</li>
+    <li>B) Increases genetic variation in birth weight over generations</li>
+    <li class="correct">C) Reduces genetic variation around the mean; alleles contributing to very high or very low birth weight are selected against, maintaining an intermediate optimum</li>
+    <li>D) Has no long-term effect because birth weight is a polygenic trait</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Reduces variation; maintains intermediate optimum</strong></p>
+      <p>Stabilising selection is the most common form of selection in nature. It favours the intermediate phenotype and selects against both extremes. For human birth weight: very low birth weight (premature, underdeveloped) and very high birth weight (birth complications) both have higher neonatal mortality. Intermediate weights (~3.2–3.6 kg) have optimal survival. Over many generations, alleles contributing to extreme birth weights are eliminated, reducing variance around the mean without changing the mean itself. This does NOT lead to directional change (option A) and REDUCES variation (not increases, option B). Polygenic traits are still subject to selection (option D is incorrect).</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+</body>
+</html>

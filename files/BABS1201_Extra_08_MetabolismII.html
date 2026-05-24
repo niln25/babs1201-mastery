@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Metabolism II</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 8: Metabolism II (Krebs &amp; ETC) &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 11 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A cell is treated with oligomycin (inhibits ATP synthase) and then with DNP (uncouples the proton gradient by allowing H⁺ back-flux through the lipid bilayer). Predict the relative proton gradient (ΔpH) and O₂ consumption rate before and after each treatment.</p>
+  </div>
+  <ul class="options">
+    <li>A) Oligomycin: ΔpH unchanged, O₂ unchanged. DNP on top: ΔpH rises further, O₂ drops</li>
+    <li class="correct">B) Oligomycin: ΔpH increases (protons pump but cannot flow back through ATP synthase → gradient builds up until ETC slows due to backpressure; O₂ consumption decreases due to thermodynamic backpressure on the ETC). DNP added on top: ΔpH collapses (protons flow back through membrane uncoupled), ETC can run again → O₂ consumption increases dramatically</li>
+    <li>C) Oligomycin: O₂ increases (ETC compensates). DNP: O₂ unchanged</li>
+    <li>D) Both inhibitors: O₂ consumption is zero because all ATP synthesis is blocked</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This tests understanding of chemiosmotic coupling. ETC and ATP synthase are normally coupled: ETC pumps H⁺ out → ΔpH builds → H⁺ flows back through ATP synthase (making ATP) → ΔpH reduced → ETC can pump more H⁺. Oligomycin blocks ATP synthase: H⁺ cannot re-enter via synthase → ΔpH/ΔΨ keeps building → high proton motive force (PMF) creates backpressure on ETC proton pumps → ETC slows dramatically → O₂ consumption falls. DNP (2,4-dinitrophenol, a lipid-soluble weak acid): carries H⁺ across the inner membrane independently → collapses PMF → ETC no longer inhibited by backpressure → O₂ consumption surges (electrons flow freely to O₂) but NO ATP is made (H⁺ bypass ATP synthase). This is why DNP was used as a diet pill in the 1930s (calories burned as heat) — but caused dangerous hyperthermia and deaths.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Isocitrate dehydrogenase is allosterically activated by ADP and inhibited by ATP and NADH. This enzyme is the first committed step of the Krebs cycle that produces CO₂. How does this regulation coordinate Krebs cycle activity with cellular energy status?</p>
+  </div>
+  <ul class="options">
+    <li>A) High ATP activates the Krebs cycle to keep producing more ATP in case demand increases</li>
+    <li class="correct">B) High ATP/NADH (energy replete state) inhibits isocitrate dehydrogenase — slowing the Krebs cycle when it isn't needed. High ADP (energy deficit) activates the enzyme — ramping up Krebs cycle when more NADH (and subsequent ATP via OXPHOS) is needed. This ensures Krebs cycle flux matches cellular ATP demand</li>
+    <li>C) NADH activates the enzyme because the Krebs cycle needs NADH as a substrate</li>
+    <li>D) This regulation is unique to liver cells; in muscle, the Krebs cycle is not regulated</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Multiple allosteric controls coordinate the Krebs cycle with energy status. Isocitrate dehydrogenase (IDH): isocitrate → α-ketoglutarate + CO₂ + NADH. Inhibited by: NADH (product inhibition — Krebs cycle already providing reducing equivalents) and ATP (energy sufficient — no need for more). Activated by: ADP (energy deficit — need more reducing equivalents for OXPHOS). Similarly: citrate synthase is inhibited by ATP, NADH, succinyl-CoA; pyruvate dehydrogenase complex (PDC) is inhibited by ATP, NADH, acetyl-CoA (products). Together these enzyme-level controls provide fine-tuned matching of carbon oxidation to ATP demand without requiring hormonal signals — the cell is autonomous in metabolic regulation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A patient ingests arsenic (As³⁺), which inhibits lipoic acid cofactors in α-ketoglutarate dehydrogenase and pyruvate dehydrogenase. What metabolic consequence would you expect?</p>
+  </div>
+  <ul class="options">
+    <li>A) Glycolysis would be completely blocked because pyruvate cannot be formed</li>
+    <li class="correct">B) Pyruvate would accumulate (cannot enter the Krebs cycle as acetyl-CoA); α-ketoglutarate would accumulate in the Krebs cycle (cannot be converted to succinyl-CoA); overall Krebs cycle flux and NADH production would plummet → OXPHOS and ATP synthesis would severely decrease; lactate would accumulate (pyruvate → lactate to regenerate NAD⁺)</li>
+    <li>C) Only gluconeogenesis would be affected; glycolysis and Krebs cycle would be unaffected</li>
+    <li>D) Fat oxidation would increase to fully compensate for the blocked pyruvate entry</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Both pyruvate dehydrogenase (PDC) and α-ketoglutarate dehydrogenase (α-KGDH) are lipoic acid-dependent enzyme complexes. Arsenic covalently binds dihydrolipoamide (the reduced form of lipoic acid), inhibiting both. Consequences: (1) Pyruvate cannot be decarboxylated to acetyl-CoA → accumulates → converted to lactate (lactic acidosis) and alanine; (2) α-ketoglutarate → succinyl-CoA blocked → Krebs cycle halts midway; (3) NADH production from Krebs severely reduced → OXPHOS falls → ATP depletion → multi-organ failure. This explains arsenic poisoning toxicity: lactic acidosis, neurological symptoms, cardiovascular collapse. Similar mechanisms apply to beriberi (thiamine/vitamin B1 deficiency) — B1 is a cofactor for both PDC and α-KGDH. Fat oxidation would generate acetyl-CoA, but if the Krebs cycle is blocked at α-KG, excess acetyl-CoA cannot be fully oxidised either.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The P/O ratio represents ATP molecules synthesised per atom of O (or per ½ O₂) reduced. NADH entering the ETC yields ~2.5 ATP; FADH₂ yields ~1.5 ATP. Why does FADH₂ yield fewer ATP than NADH?</p>
+  </div>
+  <ul class="options">
+    <li>A) FADH₂ carries fewer electrons than NADH</li>
+    <li class="correct">B) FADH₂ donates electrons directly to CoQ (Complex II/FADH₂-linked dehydrogenases), bypassing Complex I; since Complex I pumps 4H⁺ per 2 electrons transferred, bypassing it means fewer total protons pumped per pair of electrons → fewer protons available to drive ATP synthase → less ATP synthesised</li>
+    <li>C) FADH₂ electrons travel to a different cytochrome that requires more energy</li>
+    <li>D) FADH₂ is oxidised by a different ATP synthase subunit that is less efficient</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Electron carriers enter the ETC at different points. NADH: electrons enter at Complex I (NADH dehydrogenase), which pumps 4H⁺ out per 2 electrons. Electrons then go through CoQ → Complex III (2H⁺ pumped) → Cyt c → Complex IV (4H⁺ pumped). Total: 10H⁺ pumped per NADH; ~10/4 = 2.5 ATP (assuming 4H⁺ needed per ATP by ATP synthase). FADH₂ (from Complex II succinate dehydrogenase or ETF from β-oxidation): electrons enter at CoQ DIRECTLY, bypassing Complex I → only 6H⁺ pumped (Complex III + IV) → ~6/4 = 1.5 ATP. Both NADH and FADH₂ carry 2 electrons (option A is wrong). The same ATP synthase handles both (option D wrong). This is why β-oxidation of saturated fatty acids yields proportionally more FADH₂ per acetyl-CoA than glucose (one FADH₂ per cycle), slightly reducing the efficiency ratio.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Succinate dehydrogenase (Complex II) is unique among Krebs cycle enzymes in being embedded in the inner mitochondrial membrane. What is the significance of this?</p>
+  </div>
+  <ul class="options">
+    <li>A) It requires a membrane environment to fold correctly</li>
+    <li class="correct">B) Succinate dehydrogenase is both a Krebs cycle enzyme AND an ETC component — it directly oxidises succinate to fumarate (Krebs) while simultaneously reducing FAD to FADH₂ and immediately passing electrons to CoQ in the membrane (ETC), physically linking the two pathways without FADH₂ needing to diffuse free</li>
+    <li>C) Membrane embedding protects it from allosteric inhibition by citrate</li>
+    <li>D) It must face the matrix to access succinate from the cytoplasm</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Complex II (succinate dehydrogenase, SDH) is a 4-subunit complex: SDHA and SDHB face the matrix and contain the catalytic site + FAD and Fe-S clusters; SDHC and SDHD are membrane-spanning subunits that contain the CoQ binding site. When succinate is oxidised to fumarate, FAD is reduced to FADH₂ — but the FADH₂ is never released as a free molecule. Electrons are immediately transferred from FADH₂ through Fe-S clusters to CoQ in the membrane. This direct coupling means SDH is simultaneously: (1) a TCA enzyme (oxidising succinate) and (2) ETC Complex II (reducing CoQ). Clinically: SDH mutations cause hereditary paraganglioma/phaeochromocytoma — oncogenic because SDH normally degrades the HIF-1α stabiliser succinate, and SDH loss leads to succinate accumulation, HIF-1α stabilisation, and pseudo-hypoxic tumour growth.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">During prolonged fasting, the liver converts acetyl-CoA into ketone bodies (acetoacetate and β-hydroxybutyrate). These are exported to tissues including the brain. How does ketogenesis solve the problem of limited glucose availability for the brain?</p>
+  </div>
+  <ul class="options">
+    <li>A) Ketone bodies are converted directly to glucose by the brain</li>
+    <li>B) Ketone bodies stimulate the liver to increase gluconeogenesis</li>
+    <li class="correct">C) Ketone bodies are water-soluble, can cross the blood-brain barrier, and are converted by brain cells to acetyl-CoA (via β-hydroxybutyrate dehydrogenase and succinyl-CoA:acetoacetate-CoA transferase), which enters the Krebs cycle for ATP production — replacing glucose as the brain's energy source during fasting/ketosis</li>
+    <li>D) Ketone bodies directly activate NADH production in neurons without entering the Krebs cycle</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The brain normally depends on glucose but can adapt to ketone bodies during prolonged fasting, starvation, or ketogenic diets. Pathway: In liver: Acetyl-CoA × 2 → acetoacetyl-CoA → HMG-CoA → acetoacetate → β-hydroxybutyrate (BHB) or acetone. In brain/muscle: BHB → acetoacetate → acetoacetyl-CoA → 2 Acetyl-CoA → Krebs cycle → NADH → OXPHOS → ATP. The key property: ketone bodies are water-soluble (unlike fatty acids — long-chain fatty acids cannot cross the blood-brain barrier directly). After ~3 weeks of fasting, ketone bodies can supply ~70% of the brain's energy — reducing the glucose requirement and sparing muscle protein from being broken down for gluconeogenesis. Diabetic ketoacidosis (DKA): in uncontrolled T1DM, extreme ketone production → acidosis due to acetoacetate's pKa ~3.6.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The Krebs cycle is described as "amphibolic" — having both catabolic AND anabolic functions. Give an example where the Krebs cycle provides biosynthetic precursors rather than just generating energy.</p>
+  </div>
+  <ul class="options">
+    <li>A) The Krebs cycle is exclusively catabolic — it only oxidises carbon compounds to CO₂</li>
+    <li class="correct">B) Oxaloacetate (OAA) can leave the cycle for gluconeogenesis (OAA → PEP → glucose); α-ketoglutarate (α-KG) is transaminated to glutamate → other amino acids; succinyl-CoA is used for haem synthesis; citrate is exported to the cytoplasm for fatty acid synthesis (cytoplasmic citrate lyase cleaves it back to OAA + acetyl-CoA, providing the acetyl-CoA for lipogenesis)</li>
+    <li>C) The Krebs cycle anabolic function is to replenish ATP that is consumed during gluconeogenesis</li>
+    <li>D) The Krebs cycle intermediates provide amino acids directly without any transamination</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — "Amphibolic" means serving both catabolic and anabolic roles. Krebs cycle intermediates as biosynthetic precursors: (1) OAA → PEP (PEPCK) → gluconeogenesis; (2) OAA → aspartate (transamination); (3) α-KG → glutamate → glutamine, proline, arginine (transamination/amidation); (4) Succinyl-CoA → δ-aminolaevulinic acid (ALA) → haem (porphyrin ring synthesis); (5) Citrate → exported to cytoplasm → cleaved to acetyl-CoA + OAA by ATP-citrate lyase → acetyl-CoA for fatty acid and cholesterol synthesis. When intermediates are withdrawn ("cataplerosis"), they must be replenished by "anaplerotic" reactions — e.g., PC (pyruvate carboxylase): pyruvate + CO₂ + ATP → OAA, which restores OAA for continued cycle function. Without anaplerosis, the Krebs cycle would slow when intermediates are diverted to biosynthesis.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Rotenone (Complex I inhibitor) is used as an insecticide and fish poison. A person with chronic sub-lethal rotenone exposure develops Parkinson's-like symptoms. What is the mechanistic link between Complex I inhibition and dopaminergic neuron death?</p>
+  </div>
+  <ul class="options">
+    <li>A) Complex I inhibition raises cAMP, which over-activates dopamine receptors</li>
+    <li class="correct">B) Partial Complex I inhibition → decreased NADH oxidation → less ATP → dopaminergic neurons (which are particularly energy-demanding) are vulnerable to ATP depletion. Additionally, partially blocked ETC → electron leak → increased superoxide (O₂⁻) radical production → oxidative stress → mitochondrial damage → apoptosis in dopaminergic neurons of the substantia nigra (which already have limited antioxidant capacity and high iron content)</li>
+    <li>C) Rotenone directly acetylates dopamine, making it toxic to neurons</li>
+    <li>D) Complex I inhibition reduces ATP synthase efficiency, causing dopamine to leak from vesicles</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This mechanistic link between mitochondrial dysfunction and Parkinson's disease is well-established. Dopaminergic neurons of the substantia nigra are selectively vulnerable because: (1) High ATP demand (maintain membrane potential, fire action potentials, synthesise/transport dopamine); (2) Low antioxidant capacity relative to other neurons; (3) Dopamine itself is auto-oxidisable, generating H₂O₂ and quinones (redox stress); (4) High iron content (catalyst for Fenton chemistry → hydroxyl radicals). When Complex I is partially inhibited by rotenone: electron flow slows → electrons "leak" onto O₂ → superoxide → H₂O₂ → OH• → oxidative damage to mtDNA, proteins, lipids → mitochondrial dysfunction → ATP depletion → cell death. MPTP (another Parkinson's toxin) also inhibits Complex I. These observations drove the "mitochondrial hypothesis" of Parkinson's disease.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Mitochondrial DNA encodes only 13 proteins (all ETC/ATP synthase subunits) despite mitochondria containing ~1500 proteins. Why has evolution maintained mitochondrial DNA rather than transferring all genes to the nucleus?</p>
+  </div>
+  <ul class="options">
+    <li>A) Mitochondrial DNA replicates faster than nuclear DNA, allowing quicker mitochondrial proliferation</li>
+    <li class="correct">B) The retained genes encode highly hydrophobic core subunits of the ETC complexes — these cannot be efficiently imported post-translationally through the hydrophilic TOM/TIM import machinery; local translation of these hydrophobic proteins directly in the mitochondrial matrix (close to their site of assembly) avoids the import problem. Also, local redox-controlled gene expression allows individual mitochondria to adjust ETC stoichiometry independently</li>
+    <li>C) Mitochondrial DNA is protected from nuclear mutations by the inner membrane</li>
+    <li>D) Retaining mitochondrial DNA allows mitochondria to divide independently of the cell cycle</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The "co-location for redox regulation" (CoRR) hypothesis and the "import incompatibility" hypothesis both explain why some genes remain in mtDNA. The 13 mitochondrially encoded proteins are all core hydrophobic subunits of Complexes I, III, IV, and ATP synthase (e.g., ND1-6 of Complex I; Cyt b of Complex III; CO1-3 of Complex IV; ATP6, ATP8 of ATP synthase). These are extremely hydrophobic transmembrane proteins — their import from the cytoplasm would be problematic because they would aggregate or insert into wrong membranes before reaching the inner mitochondrial membrane. Additionally, the CoRR hypothesis: local gene expression allows individual mitochondria to adjust ETC component stoichiometry in response to local redox status (electron flow), optimising coupling efficiency. Most evidence favours the hydrophobicity/import incompatibility explanation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Brown adipose tissue (BAT) uses UCP1 (uncoupling protein 1) to generate heat instead of ATP. How does UCP1 mechanistically produce heat from substrate oxidation?</p>
+  </div>
+  <ul class="options">
+    <li>A) UCP1 directly catalyses ATP hydrolysis, converting ATP to ADP + Pᵢ + heat</li>
+    <li class="correct">B) UCP1 is a H⁺ transporter in the inner mitochondrial membrane — it allows protons to leak back into the matrix independently of ATP synthase; ETC continues to oxidise NADH/FADH₂ and pump H⁺, but the proton motive force is dissipated as heat rather than captured as ATP. Fatty acids activate UCP1; purine nucleotides (GDP, ADP) inhibit it</li>
+    <li>C) UCP1 blocks the ETC, forcing cells to use inefficient glycolysis which wastes energy as heat</li>
+    <li>D) UCP1 converts NADH directly to heat without involving the ETC</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Non-shivering thermogenesis in BAT: UCP1 (thermogenin) is a fatty acid-activated H⁺ carrier/channel in the inner mitochondrial membrane. Normally, the only way H⁺ re-enter the matrix is through ATP synthase. UCP1 provides an additional H⁺ pathway, uncoupling electron transport from ATP synthesis. The PMF is still generated by the ETC, but it's dissipated as heat by UCP1 instead of driving ATP synthesis. All the energy from substrate oxidation thus appears as heat. Regulation: long-chain fatty acids (liberated by lipolysis, stimulated by noradrenaline via β3-adrenoceptors) activate UCP1. GDP/ATP inhibit UCP1 (when energy is sufficient, no need for thermogenesis). BAT is important in neonates (large amounts) and hibernating mammals; adults have smaller amounts of metabolically active BAT. UCP1 activation is a target for anti-obesity therapies.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A cell has an intact ETC but all citrate synthase is inhibited. Predict the fate of: (a) pyruvate, (b) NADH regeneration, and (c) overall ATP yield from one glucose.</p>
+  </div>
+  <ul class="options">
+    <li>A) Pyruvate accumulates; no NADH from Krebs; ETC still generates ATP from cytoplasmic NADH</li>
+    <li class="correct">B) Pyruvate would accumulate (PDC produces acetyl-CoA, but acetyl-CoA cannot enter blocked Krebs cycle) → OAA cannot condense with acetyl-CoA → acetyl-CoA accumulates → feedback inhibits PDC; NADH from Krebs = 0 (Krebs not running); only 2 NADH from glycolysis + 2 NADH from PDC feed the ETC → very limited ATP (~6 ATP net instead of ~30); excess pyruvate/acetyl-CoA diverted to ketone bodies and fatty acid synthesis</li>
+    <li>C) ETC would stop completely because it requires Krebs cycle intermediates as substrates</li>
+    <li>D) Glycolysis would compensate fully, maintaining normal ATP yield</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Tracing the consequences: Citrate synthase (CS) catalyses: Acetyl-CoA + OAA → Citrate (the entry point of Krebs). Without CS: the Krebs cycle cannot turn. Acetyl-CoA accumulates. Feedback: acetyl-CoA inhibits PDC → less pyruvate converted. Pyruvate accumulates. NADH from Krebs: 0 (6 NADH per glucose from 2 turns = 0). Only NADH available: 2 NADH from glycolysis + 2 NADH from PDC (2 turns, one per pyruvate) = 4 NADH total. These enter ETC: 4 × 2.5 = 10 ATP from NADH + 2 ATP from glycolysis (substrate level) = ~12 ATP; minus investment phase = ~10 net. Compare to full aerobic respiration (~30 ATP). ETC itself still works (uses NADH from glycolysis/PDC). Excess acetyl-CoA: liver diverts to ketogenesis; adipose → fatty acid synthesis. This illustrates why "fat burns in the flame of carbohydrate" — OAA availability from Krebs is needed.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

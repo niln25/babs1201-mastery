@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — Mendel's Laws</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 15: Mendel's Laws &nbsp;|&nbsp; 16 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">Mendel's Law of Segregation states that:</p>
+  </div>
+  <ul class="options">
+    <li>A) Alleles for different genes are always inherited together</li>
+    <li>B) Dominant alleles always mask the phenotype of recessive alleles</li>
+    <li class="correct">C) The two alleles of a gene separate during gamete formation, so each gamete receives only one allele</li>
+    <li>D) Traits acquired during an organism's lifetime can be passed to offspring</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Alleles separate during gamete formation</strong></p>
+      <p>The Law of Segregation states that a diploid organism has two alleles for each gene (one on each homologous chromosome) and these alleles segregate (separate) during meiosis — each gamete receiving only one allele. At fertilisation, the diploid number is restored. This explains why an Aa individual produces A gametes and a gametes in a 1:1 ratio. It is the molecular basis of meiosis I (homolog separation) and meiosis II (chromatid separation).</p>
+      <p>Dominance/recessiveness describes phenotypic expression (Mendel's Law of Dominance, sometimes listed as a separate law). Lamarckian inheritance (option D) is incorrect. Option A describes the opposite of independent assortment.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">Two heterozygous parents (Aa × Aa) are crossed. Using a Punnett square, what is the expected phenotypic ratio of dominant to recessive offspring, assuming complete dominance?</p>
+  </div>
+  <ul class="options">
+    <li>A) 1:1</li>
+    <li>B) 1:2:1 (AA : Aa : aa)</li>
+    <li class="correct">C) 3:1 (dominant : recessive)</li>
+    <li>D) 2:1:1</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 3:1 phenotypic ratio</strong></p>
+      <p>Punnett square for Aa × Aa: AA (25%), Aa (25%), Aa (25%), aa (25%). Genotypic ratio = 1 AA : 2 Aa : 1 aa. With complete dominance, both AA and Aa show the dominant phenotype. Phenotypic ratio = 3 dominant (AA + Aa) : 1 recessive (aa) = 3:1. This is the classic monohybrid cross ratio — the F2 ratio Mendel observed (~3 round : 1 wrinkled seeds in peas, etc.). Note: option B gives the genotypic ratio, which is different from the phenotypic ratio.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">In a testcross, an organism of unknown genotype (showing the dominant phenotype) is crossed with a homozygous recessive individual. The offspring are 50% dominant phenotype and 50% recessive phenotype. What was the genotype of the unknown parent?</p>
+  </div>
+  <ul class="options">
+    <li>A) Homozygous dominant (AA)</li>
+    <li class="correct">B) Heterozygous (Aa)</li>
+    <li>C) Homozygous recessive (aa)</li>
+    <li>D) Cannot be determined from this cross</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Heterozygous (Aa)</strong></p>
+      <p>In a testcross (Genotype? × aa): If the unknown is AA: all offspring = Aa (all dominant phenotype — 100% dominant). If the unknown is Aa: offspring = Aa (50%) and aa (50%) — 1:1 ratio of dominant:recessive. The observed 50:50 ratio is diagnostic of a heterozygous parent. The testcross is the classic tool Mendel used to determine whether a dominant-phenotype plant was pure-breeding (AA) or a carrier (Aa). If unknown were aa, the parent would show the recessive phenotype — which contradicts the problem setup.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">Mendel's Law of Independent Assortment applies to genes located on:</p>
+  </div>
+  <ul class="options">
+    <li>A) The same chromosome, regardless of distance</li>
+    <li>B) Homologous chromosomes close to the centromere</li>
+    <li class="correct">C) Different (non-homologous) chromosomes, or genes far apart on the same chromosome where recombination effectively uncouples them</li>
+    <li>D) Both chromosomes of the same homologous pair only</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Different chromosomes or far-apart loci on the same chromosome</strong></p>
+      <p>Independent assortment holds when two gene loci assort independently during meiosis. This occurs when: (1) genes are on different (non-homologous) chromosomes — they are independently oriented at metaphase I; or (2) genes are so far apart on the same chromosome that crossing over between them is frequent enough to randomise their association (effectively acting as if unlinked, recombination frequency ≈ 50%). Genes that are physically close on the same chromosome tend to be inherited together (linked) and violate independent assortment.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">In a dihybrid cross between two individuals both heterozygous for two independently assorting genes (AaBb × AaBb), what proportion of offspring are expected to have the aabb genotype?</p>
+  </div>
+  <ul class="options">
+    <li>A) 1/4</li>
+    <li>B) 1/8</li>
+    <li class="correct">C) 1/16</li>
+    <li>D) 3/16</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 1/16</strong></p>
+      <p>Each gene segregates independently. Probability of aa from Aa × Aa = 1/4. Probability of bb from Bb × Bb = 1/4. Combined probability (both aa AND bb) = 1/4 × 1/4 = 1/16. The full dihybrid ratio is 9:3:3:1 (9 A_B_ : 3 A_bb : 3 aaB_ : 1 aabb) out of 16 offspring. The 1/16 for aabb represents the doubly recessive class. Note: 3/16 represents either A_bb or aaB_ separately.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">A garden plant with red flowers (RR) is crossed with a white-flowered plant (rr). The F1 offspring all have pink flowers. When F1 plants are intercrossed, the F2 generation shows red : pink : white = 1:2:1. This pattern of inheritance is called:</p>
+  </div>
+  <ul class="options">
+    <li>A) Complete dominance</li>
+    <li>B) Codominance</li>
+    <li class="correct">C) Incomplete dominance</li>
+    <li>D) Epistasis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Incomplete dominance</strong></p>
+      <p>Incomplete (partial) dominance occurs when the heterozygous phenotype is intermediate between the two homozygous phenotypes. Here, one R allele produces less pigment than two — so Rr (pink) is between RR (red) and rr (white). The F2 phenotypic ratio (1:2:1) mirrors the genotypic ratio, unlike complete dominance (3:1 phenotypic) because heterozygotes are distinguishable. Classic example: snapdragon or four o'clock flower colour.</p>
+      <p>Codominance: both alleles are simultaneously and fully expressed (e.g., AB blood type — both A and B antigens present). Complete dominance: Aa looks identical to AA. Epistasis involves interaction between two different gene loci.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">A plant breeder crosses a tall pea plant (unknown genotype) with a dwarf pea plant (tt). All F1 offspring are tall. What does this tell us about the tall parent?</p>
+  </div>
+  <ul class="options">
+    <li>A) The tall parent must be Tt (heterozygous)</li>
+    <li>B) The tall parent could be either TT or Tt, but we cannot distinguish</li>
+    <li class="correct">C) The tall parent must be TT (homozygous dominant), since all offspring show the dominant phenotype</li>
+    <li>D) The cross is a dihybrid cross — more information is needed</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Tall parent must be TT</strong></p>
+      <p>This is a testcross (unknown × tt). If the tall parent were Tt: offspring ratio = 1 Tt (tall) : 1 tt (dwarf) — 50% would be dwarf. Since ALL offspring are tall, no tt genotype was produced, meaning the tall parent did not contribute any t alleles — therefore the tall parent must be TT. All offspring receive T from the tall parent and t from the dwarf parent, producing all Tt (tall). This is the key reasoning behind the testcross: if any recessive offspring appear, the dominant parent was heterozygous.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">In pea plants, round (R) is dominant over wrinkled (r) and yellow (Y) is dominant over green (y). A plant with genotype RrYy is selfed. What fraction of offspring will show both recessive traits (wrinkled AND green)?</p>
+  </div>
+  <ul class="options">
+    <li>A) 1/4</li>
+    <li>B) 3/16</li>
+    <li class="correct">C) 1/16</li>
+    <li>D) 9/16</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 1/16</strong></p>
+      <p>For wrinkled (rr): probability from Rr × Rr = 1/4. For green (yy): probability from Yy × Yy = 1/4. Both recessive = 1/4 × 1/4 = 1/16. This is the doubly recessive class in the classic 9:3:3:1 ratio that Mendel observed. The full ratio: 9/16 round yellow : 3/16 round green : 3/16 wrinkled yellow : 1/16 wrinkled green. Note: these ratios assume the two genes are on different chromosomes and assort independently.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">Two true-breeding pea plant lines — one with round seeds and one with wrinkled seeds — are crossed. The F1 all have round seeds. The F1 are then intercrossed to produce F2. Which of the following F2 results would BEST support Mendel's Law of Segregation?</p>
+  </div>
+  <ul class="options">
+    <li>A) All F2 offspring have round seeds (1:0 ratio)</li>
+    <li>B) F2 offspring are 1:1 round:wrinkled</li>
+    <li class="correct">C) F2 offspring are approximately 3:1 round:wrinkled</li>
+    <li>D) F2 offspring are 2:1 round:wrinkled</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 3:1 ratio in F2</strong></p>
+      <p>P: RR (round) × rr (wrinkled). F1: all Rr (round — round is dominant). F1 intercross (Rr × Rr): produces 1 RR : 2 Rr : 1 rr. With complete dominance, RR and Rr are both round. Ratio = 3 round : 1 wrinkled = 3:1. This is precisely what Mendel observed and used to deduce segregation. The reappearance of the recessive trait (wrinkled) in F2 after it was "hidden" in F1 was the key observation that led Mendel to propose particulate inheritance (alleles that don't blend but segregate intact).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">What is the probability that a child born to two heterozygous parents (Aa × Aa) will be heterozygous (Aa)?</p>
+  </div>
+  <ul class="options">
+    <li>A) 25% (1/4)</li>
+    <li class="correct">B) 50% (1/2)</li>
+    <li>C) 75% (3/4)</li>
+    <li>D) 100%</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — 50% (1/2)</strong></p>
+      <p>Punnett square for Aa × Aa: AA (1/4), Aa (1/4), Aa (1/4), aa (1/4). Total Aa = 2/4 = 1/2 = 50%. Note: 75% (option C) is the proportion showing the dominant phenotype (AA + Aa combined), and 25% is the proportion that is homozygous dominant (AA). Students commonly confuse "probability of Aa genotype" (1/2) with "probability of dominant phenotype" (3/4).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">A chi-square (χ²) test is used to evaluate Mendelian ratios. If p > 0.05 for a monohybrid cross F2 result, this indicates that:</p>
+  </div>
+  <ul class="options">
+    <li>A) The data significantly deviate from the expected 3:1 ratio, supporting a different inheritance pattern</li>
+    <li class="correct">B) The data do not significantly deviate from the expected 3:1 ratio — the null hypothesis (Mendelian inheritance) is not rejected</li>
+    <li>C) There is a 5% chance the observed ratio is correct</li>
+    <li>D) The sample size was too small to draw any conclusions</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Null hypothesis not rejected; data consistent with 3:1</strong></p>
+      <p>The chi-square test compares observed vs expected frequencies. The null hypothesis (H₀) is that deviations from the expected Mendelian ratio are due to chance alone. If p > 0.05 (conventionally), there is insufficient evidence to reject H₀ — the deviation could reasonably arise by chance, and the data are consistent with Mendelian inheritance. If p ≤ 0.05, the deviation is statistically significant and suggests the data do not fit the expected ratio (perhaps a different model applies, or there are selection pressures, or the genes are linked).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">Which of the following is an example of a recessive lethal allele, and how is it detected in Mendelian crosses?</p>
+  </div>
+  <ul class="options">
+    <li>A) An allele that is lethal when heterozygous (Aa) — detected as a 1:0 ratio in crosses</li>
+    <li class="correct">B) An allele that is lethal when homozygous (aa) — detected as a 2:1 ratio (instead of 3:1) in Aa × Aa crosses because the aa class dies</li>
+    <li>C) An allele that only functions in one sex — detected as a sex-linked ratio</li>
+    <li>D) An allele that suppresses a second gene — detected as an epistatic 13:3 ratio</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Lethal when homozygous; detected as 2:1 ratio</strong></p>
+      <p>A recessive lethal allele causes death when homozygous (aa). In an Aa × Aa cross, the expected genotypic ratio 1 AA : 2 Aa : 1 aa becomes 1 AA : 2 Aa (because aa offspring die), giving a phenotypic ratio of 1:2 dominant (normal) among surviving offspring. This is sometimes written as 2:1 (Aa:AA). The Manx cat (tailless: MM is lethal before birth, Mm is tailless, mm has a tail) is a classic example — litters from two Manx cats show ~2 Manx : 1 normal instead of the expected 3:1.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">Mendel was successful in discovering the laws of inheritance partly because of his experimental design. Which of the following features of his work was MOST critical to his success?</p>
+  </div>
+  <ul class="options">
+    <li>A) He used a wide range of organisms including mice, flies, and plants</li>
+    <li>B) He observed continuous traits like height in humans, which provided clear ratios</li>
+    <li class="correct">C) He chose traits with clear-cut, discrete (qualitative) phenotypic differences in a model organism (peas) that was easy to control and had a short generation time</li>
+    <li>D) He conducted only two crosses per trait and scaled up statistically</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Discrete traits in a well-controlled model organism</strong></p>
+      <p>Key features of Mendel's success: (1) He chose <em>Pisum sativum</em> (garden pea) — easy to grow, short generation time, can self-fertilise or be cross-fertilised at will. (2) He selected 7 traits with clear, discrete (qualitative) phenotypic differences (round/wrinkled, yellow/green, etc.) — not quantitative traits like height that are polygenic and show continuous variation. (3) He started with true-breeding lines (pure genotypes). (4) He counted large numbers of offspring, enabling statistical analysis. (5) He tracked traits across multiple generations (P, F1, F2, backcross). Mendel only worked with peas (not multiple organisms).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">A cross of AaBb × aabb produces offspring in the following ratios: 40% AaBb, 10% Aabb, 10% aaBb, 40% aabb. What does this deviate from, and what is the likely explanation?</p>
+  </div>
+  <ul class="options">
+    <li>A) It deviates from a 1:1:1:1 ratio because one allele is lethal</li>
+    <li>B) It matches the expected 1:1:1:1 ratio for independent assortment — no deviation</li>
+    <li class="correct">C) It deviates from the expected 1:1:1:1 ratio because the two loci are genetically linked — parental combinations (AaBb and aabb) are more frequent than recombinant classes (Aabb and aaBb)</li>
+    <li>D) It deviates because the genes are on the same chromosome and recombination never occurs between them</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Genes are linked; parental classes are overrepresented</strong></p>
+      <p>An AaBb × aabb testcross expects 1:1:1:1 if the genes assort independently. The observed 40:10:10:40 shows parental combinations (AB and ab) are more frequent (~80% combined) than recombinant combinations (Ab and aB, ~20% combined). This is genetic linkage — the two genes are on the same chromosome and tend to be inherited together. The ~20% recombinants reflect the recombination frequency (map distance = 20 cM or 20 map units). If D were correct (no recombination), ratios would be 50:0:0:50, not 40:10:10:40.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">Cystic fibrosis is an autosomal recessive disorder. Two carrier parents (Cc × Cc) have four children. Three of them are unaffected. What is the probability that the fourth child has cystic fibrosis?</p>
+  </div>
+  <ul class="options">
+    <li>A) 0%, because three unaffected children have already been born</li>
+    <li>B) 75%</li>
+    <li class="correct">C) 25%, because each conception is an independent event</li>
+    <li>D) 100%, because the parents are obligate carriers and the "recessive debt" must be fulfilled</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 25% for each child independently</strong></p>
+      <p>Each conception is an independent event — the outcome of previous pregnancies does not affect future ones (the gambler's fallacy). From Cc × Cc, the probability of cc (affected) is always 1/4 = 25%, regardless of what previous children had. The probability that three previous children were unaffected does not "use up" the recessive alleles or make the next child more or less likely to be affected. This is a fundamental concept in probability: independent events have fixed individual probabilities, and past outcomes don't change future probabilities for independent processes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">16</div>
+    <p class="q-text">In Mendel's original experiments, crossing two true-breeding pea varieties (P generation) always produced uniform F1 offspring showing only the dominant trait. What does this observation directly demonstrate?</p>
+  </div>
+  <ul class="options">
+    <li>A) The dominant trait is determined by more than one gene</li>
+    <li class="correct">B) The F1 offspring are all heterozygous (Aa) — having received one dominant allele from one parent and one recessive allele from the other — demonstrating that alleles retain their identity and do not blend</li>
+    <li>C) Both parental traits are dominant, and neither is recessive</li>
+    <li>D) Blending inheritance correctly explains trait inheritance</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — F1 uniformity demonstrates heterozygosity and non-blending inheritance</strong></p>
+      <p>If inheritance were blending (the prevailing pre-Mendel view), crossing round × wrinkled would give intermediate (slightly wrinkled) F1. Instead, all F1 were round — showing dominant–recessive inheritance. The uniform dominant phenotype in F1 means all F1 are Aa. The reappearance of the recessive phenotype in F2 (1/4 of offspring) proved the recessive allele had not been destroyed or blended away — it was merely "hidden" in the Aa heterozygotes. This was Mendel's crucial insight: traits are determined by discrete, heritable particles (alleles) that segregate intact.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

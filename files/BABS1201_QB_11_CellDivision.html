@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — Cell Division & Reproduction</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 11: Cell Division &amp; Reproduction &nbsp;|&nbsp; 15 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">Which phase of the cell cycle is the longest and is dedicated primarily to cell growth and preparation for DNA replication?</p>
+  </div>
+  <ul class="options">
+    <li>A) S phase</li>
+    <li class="correct">B) G1 phase</li>
+    <li>C) G2 phase</li>
+    <li>D) M phase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — G1 phase</strong></p>
+      <p>G1 (Gap 1) is typically the longest phase of the cell cycle. During G1 the cell grows, synthesises proteins, and produces organelles in preparation for S phase. The G1/S checkpoint (restriction point) gates entry into DNA replication.</p>
+      <p>S phase: DNA synthesis occurs here. G2: short growth/repair phase between S and mitosis. M phase: shortest phase — mitosis + cytokinesis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">During which stage of mitosis do sister chromatids separate and move to opposite poles of the cell?</p>
+  </div>
+  <ul class="options">
+    <li>A) Prophase</li>
+    <li>B) Metaphase</li>
+    <li class="correct">C) Anaphase</li>
+    <li>D) Telophase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Anaphase</strong></p>
+      <p>At the metaphase-to-anaphase transition, cohesin holding sister chromatids together is cleaved by separase (activated when the spindle assembly checkpoint is satisfied). Each chromatid is pulled toward opposite poles by shortening kinetochore microtubules.</p>
+      <p>Prophase: chromosomes condense. Metaphase: chromosomes align on the plate. Telophase: nuclear envelopes reform around each chromosome set.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">A diploid cell undergoes meiosis. Which of the following best describes the ploidy and chromosome number of the resulting cells in a species where 2n = 46?</p>
+  </div>
+  <ul class="options">
+    <li>A) 4 diploid cells each with 46 chromosomes</li>
+    <li>B) 2 haploid cells each with 46 chromosomes</li>
+    <li class="correct">C) 4 haploid cells each with 23 chromosomes</li>
+    <li>D) 2 diploid cells each with 23 chromosomes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 4 haploid cells each with 23 chromosomes</strong></p>
+      <p>Meiosis consists of two sequential divisions (meiosis I and II) that reduce a 2n diploid cell to four n haploid cells. For humans (2n = 46), each gamete contains n = 23 chromosomes. This halving is essential so fertilisation restores the diploid number.</p>
+      <p>Mitosis (not meiosis) produces 2 diploid daughter cells. Meiosis I reduces ploidy; meiosis II separates sister chromatids — neither step restores diploidy.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">The spindle assembly checkpoint (SAC) prevents the cell from proceeding past metaphase unless:</p>
+  </div>
+  <ul class="options">
+    <li>A) DNA replication is complete</li>
+    <li>B) The cell has reached a minimum size threshold</li>
+    <li class="correct">C) Every kinetochore is attached to microtubules from opposite poles</li>
+    <li>D) Cyclin D levels have peaked</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Every kinetochore is attached to microtubules from opposite poles</strong></p>
+      <p>The SAC (also called the metaphase checkpoint) is satisfied only when all kinetochores are under bipolar tension — attached to microtubules from both spindle poles. Unattached kinetochores generate a "wait" signal via the mitotic checkpoint complex (MCC), which inhibits the APC/C and thus prevents separase activation.</p>
+      <p>DNA replication completeness is monitored by the G2/M checkpoint (not SAC). Cell size is partly monitored at G1/S. Cyclin D activates CDK4/6 at the G1/S transition — irrelevant to the metaphase-to-anaphase transition.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">Crossing over (homologous recombination) during meiosis occurs at which stage?</p>
+  </div>
+  <ul class="options">
+    <li>A) Anaphase I</li>
+    <li class="correct">B) Prophase I</li>
+    <li>C) Metaphase II</li>
+    <li>D) Telophase II</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Prophase I</strong></p>
+      <p>During prophase I, homologous chromosomes pair up in a process called synapsis, forming bivalents held together at chiasmata. At these junctions, non-sister chromatids exchange segments (crossing over). This generates new combinations of alleles on the same chromosome, increasing genetic diversity. The synaptonemal complex facilitates this process.</p>
+      <p>By anaphase I, crossing over is complete and homologs separate. Meiosis II has no crossing over — it resembles a haploid mitosis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">Cyclins and cyclin-dependent kinases (CDKs) regulate progression through the cell cycle. Which statement is most accurate?</p>
+  </div>
+  <ul class="options">
+    <li>A) CDK activity is constitutively high throughout the cell cycle</li>
+    <li>B) Cyclin levels remain constant and CDK levels fluctuate</li>
+    <li class="correct">C) Cyclins are synthesised and degraded periodically, activating CDKs at specific transitions</li>
+    <li>D) Cyclin–CDK complexes are activated by phosphorylation of the cyclin subunit</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Cyclins are synthesised and degraded periodically, activating CDKs at specific transitions</strong></p>
+      <p>CDK concentrations remain relatively constant; it is the cyclin partner that oscillates. When cyclin levels rise (e.g., cyclin B before mitosis), the cyclin-CDK complex forms and becomes active, phosphorylating target proteins to drive the cell cycle forward. Cyclins are then ubiquitinated by APC/C and degraded by the proteasome, inactivating the CDK.</p>
+      <p>CDK phosphorylation (of the CDK T-loop by CAK) is activating, but it is the cyclin that gates when this occurs. The cyclin subunit itself is not the phosphorylation target for activation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">A cell biologist observes that a cancer cell line fails to arrest at the G1/S checkpoint despite extensive DNA damage. Which of the following mutations would most likely explain this phenotype?</p>
+  </div>
+  <ul class="options">
+    <li>A) Loss of function of cyclin B1</li>
+    <li class="correct">B) Loss of function of p53</li>
+    <li>C) Gain of function of Rb (retinoblastoma protein)</li>
+    <li>D) Loss of function of cyclin-dependent kinase inhibitor p27</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Loss of function of p53</strong></p>
+      <p>p53 is the primary transcription factor that responds to DNA damage signals. Active p53 induces p21, a CDK inhibitor that blocks cyclin E–CDK2, preventing phosphorylation of Rb and halting the cell in G1. Loss of p53 (the most commonly mutated gene in human cancers) abolishes this checkpoint. Cells with damaged DNA proceed through S phase, replicating errors.</p>
+      <p>Cyclin B1 operates at G2/M. Gain-of-function Rb would hyperstabilise the G1 arrest (the opposite phenotype). Loss of p27 would reduce arrest but wouldn't specifically abolish the DNA-damage response.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">Independent assortment of homologous chromosomes during meiosis I directly contributes to genetic diversity by:</p>
+  </div>
+  <ul class="options">
+    <li>A) Introducing new mutations into each gamete</li>
+    <li>B) Repairing DNA double-strand breaks using the homolog as template</li>
+    <li class="correct">C) Randomly distributing maternally and paternally derived chromosomes into daughter cells</li>
+    <li>D) Ensuring identical chromosome sets in each gamete</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Randomly distributing maternally and paternally derived chromosomes into daughter cells</strong></p>
+      <p>During meiosis I, each pair of homologs lines up at the metaphase plate independently of other pairs. The orientation (which pole the maternal vs paternal chromosome migrates to) is random. For 23 pairs of chromosomes, this generates 2²³ ≈ 8.4 million possible chromosome combinations — before even considering crossing over.</p>
+      <p>New mutations arise from replication errors or mutagens (unrelated to independent assortment). DNA repair using the homolog occurs during crossing over (different mechanism). Identical chromosome sets describe mitosis, not meiosis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">Which of the following correctly distinguishes cytokinesis in animal cells from cytokinesis in plant cells?</p>
+  </div>
+  <ul class="options">
+    <li>A) Animal cells form a cell plate; plant cells form a cleavage furrow</li>
+    <li class="correct">B) Animal cells form a cleavage furrow via actomyosin contraction; plant cells form a cell plate via vesicle fusion</li>
+    <li>C) Both use an actomyosin ring to divide the cytoplasm</li>
+    <li>D) Plant cells divide by binary fission because they lack centrioles</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Animal cells form a cleavage furrow via actomyosin contraction; plant cells form a cell plate via vesicle fusion</strong></p>
+      <p>In animal cells, a contractile ring of actin and myosin II constricts inward (like a purse-string) to pinch the cell in two — the cleavage furrow. In plant cells the rigid cell wall makes this impossible; instead, Golgi-derived vesicles containing cell wall material fuse at the phragmoplast (along the former metaphase plate) to form a cell plate, which expands outward to complete division.</p>
+      <p>Plant cells do lack centrioles but still form a microtubule spindle from γ-tubulin ring complexes; binary fission is prokaryotic cell division.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">A researcher treats dividing cells with nocodazole, a drug that prevents microtubule polymerisation. At which stage of mitosis would cells be expected to arrest?</p>
+  </div>
+  <ul class="options">
+    <li>A) Late S phase, because DNA replication requires microtubule function</li>
+    <li>B) G2/M boundary, because microtubules are required to complete DNA repair</li>
+    <li class="correct">C) Metaphase, because the spindle assembly checkpoint cannot be satisfied without a mitotic spindle</li>
+    <li>D) Anaphase, because chromosome segregation is delayed without microtubules</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Metaphase, because the spindle assembly checkpoint cannot be satisfied without a mitotic spindle</strong></p>
+      <p>Without polymerised microtubules, kinetochores cannot be attached to a spindle. Unattached kinetochores continuously generate the MCC (mitotic checkpoint complex), which inhibits APC/C–Cdc20, preventing securin/cyclin B degradation. The cell arrests in prometaphase/metaphase indefinitely — this is the basis of nocodazole use in cell cycle synchronisation experiments.</p>
+      <p>DNA replication does not require microtubules. G2/M checkpoint monitors DNA integrity, not microtubule status. Cells never reach anaphase if the SAC is active.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">How many chromosomes does a human secondary oocyte contain at the start of meiosis II, assuming 2n = 46?</p>
+  </div>
+  <ul class="options">
+    <li>A) 46 chromosomes (each consisting of 2 chromatids)</li>
+    <li class="correct">B) 23 chromosomes (each consisting of 2 chromatids)</li>
+    <li>C) 23 chromosomes (each consisting of 1 chromatid)</li>
+    <li>D) 92 chromosomes (each consisting of 1 chromatid)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — 23 chromosomes (each consisting of 2 sister chromatids)</strong></p>
+      <p>After meiosis I, homologous chromosomes have separated. The secondary oocyte (and secondary spermatocyte) is haploid: n = 23 chromosomes. However, sister chromatids are still held together — each chromosome still consists of two chromatids joined at the centromere. DNA content = 2n (46C) but chromosome number = 23. Meiosis II will separate these sister chromatids to produce cells with 23 single-chromatid chromosomes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">Proto-oncogenes normally promote cell growth. A point mutation converts a proto-oncogene to an oncogene. This is best described as a:</p>
+  </div>
+  <ul class="options">
+    <li>A) Loss-of-function mutation in a tumour suppressor gene</li>
+    <li class="correct">B) Gain-of-function mutation that results in constitutively active cell proliferation signals</li>
+    <li>C) Loss-of-function mutation that removes a growth-promoting protein</li>
+    <li>D) Gain-of-function mutation in a DNA repair gene</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Gain-of-function mutation that results in constitutively active cell proliferation signals</strong></p>
+      <p>Proto-oncogenes (e.g., RAS, MYC) normally promote growth only when signalled. An activating (gain-of-function) mutation converts them to oncogenes — they are permanently "on," driving continuous proliferation regardless of external signals. Only one mutated allele is needed (dominant). Classic example: mutant RAS is locked in the GTP-bound active form.</p>
+      <p>Tumour suppressors (e.g., p53, Rb) are inactivated by loss-of-function mutations (recessive; both alleles must be lost — Knudson's two-hit hypothesis). DNA repair gene mutations increase mutation rate but are not themselves oncogenes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">What is the key difference between asexual and sexual reproduction in terms of genetic outcomes?</p>
+  </div>
+  <ul class="options">
+    <li>A) Asexual reproduction always uses meiosis; sexual reproduction always uses mitosis</li>
+    <li>B) Sexual reproduction produces fewer offspring; asexual reproduction produces genetically diverse offspring</li>
+    <li class="correct">C) Asexual reproduction produces genetically identical offspring; sexual reproduction generates genetic variation through meiosis and fertilisation</li>
+    <li>D) Asexual reproduction requires two parents; sexual reproduction requires only one</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Asexual reproduction produces genetically identical offspring; sexual reproduction generates genetic variation through meiosis and fertilisation</strong></p>
+      <p>Asexual reproduction (binary fission, budding, parthenogenesis, clonal propagation) uses mitosis and produces clones — genetically identical to the parent, barring mutations. Sexual reproduction involves meiosis (crossing over + independent assortment) and the fusion of two genetically distinct gametes at fertilisation, producing genetically unique offspring.</p>
+      <p>Asexual reproduction uses mitosis, not meiosis. Sexual reproduction does not always produce fewer offspring.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">During S phase of the cell cycle, a somatic human cell that began with 46 chromosomes will temporarily contain which of the following DNA contents?</p>
+  </div>
+  <ul class="options">
+    <li>A) 2C DNA content (46 chromosomes, each 1 chromatid)</li>
+    <li>B) 1C DNA content (23 chromosomes)</li>
+    <li class="correct">C) Between 2C and 4C DNA content (46 chromosomes being duplicated)</li>
+    <li>D) 4C DNA content only at the end of M phase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Between 2C and 4C DNA content during S phase</strong></p>
+      <p>DNA content (C value) is a measure of the amount of DNA per haploid genome. A diploid G1 cell has 2C DNA. During S phase, replication origins fire asynchronously across the genome — DNA content increases continuously from 2C toward 4C. The cell still has 46 chromosomes but each is progressively becoming a pair of sister chromatids. By the end of S (G2), the cell has 4C DNA (46 chromosomes, each with 2 chromatids).</p>
+      <p>The 4C state persists through G2 and mitosis (until anaphase). Meiosis I reduces to 2C; meiosis II to 1C.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">In oogenesis (but not spermatogenesis), meiosis produces one large functional cell and smaller, non-functional cells. What are the smaller cells called, and what is the evolutionary advantage of this asymmetric division?</p>
+  </div>
+  <ul class="options">
+    <li>A) Spermatids; they provide nutrients to surrounding cells</li>
+    <li>B) Oogonia; they allow faster meiotic division</li>
+    <li class="correct">C) Polar bodies; the unequal division concentrates cytoplasm and nutrients into one large egg capable of supporting early embryonic development</li>
+    <li>D) Blastomeres; they contribute to the placenta after fertilisation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Polar bodies; concentrating cytoplasm into one large nutrient-rich egg</strong></p>
+      <p>Oogenesis produces one large secondary oocyte (and later the ovum) plus up to three polar bodies. Cytokinesis is deliberately unequal: the spindle is positioned near the cell cortex so the cleavage furrow distributes almost all the cytoplasm, organelles, and yolk to the egg cell. The tiny polar bodies eventually degenerate. This ensures the egg has sufficient stored nutrients (lipids, mRNA, ribosomes) to sustain the zygote until it implants and establishes its own nutrient supply. Spermatogenesis produces 4 equal spermatids per primary spermatocyte.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

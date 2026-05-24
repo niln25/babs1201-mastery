@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Transport</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 6: Nutrient &amp; Ion Transport &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 11 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Ouabain inhibits the Na⁺/K⁺-ATPase. A neuron treated with ouabain eventually becomes unable to fire action potentials. Trace the chain of events from pump inhibition to loss of excitability.</p>
+  </div>
+  <ul class="options">
+    <li>A) Pump inhibition → K⁺ influx → Na⁺ efflux → hyperpolarisation → action potential threshold unreachable</li>
+    <li class="correct">B) Pump inhibition → intracellular Na⁺ accumulates, intracellular K⁺ depletes → Na⁺ gradient collapses → resting membrane potential depolarises toward 0 mV → voltage-gated Na⁺ channels inactivate (locked in inactivated state at depolarised potential) → action potentials cannot be generated</li>
+    <li>C) Pump inhibition → ATP depletion → voltage-gated channels cannot open without ATP</li>
+    <li>D) Pump inhibition → Ca²⁺ enters → neurotransmitter is released constitutively, depleting vesicles</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Step by step: (1) Na⁺/K⁺-ATPase stops → Na⁺ accumulates intracellularly (normally pumped out 3Na⁺ per cycle) and K⁺ decreases (normally pumped in 2K⁺ per cycle). (2) The electrochemical gradients (Na⁺ and K⁺) that maintain the ~−70 mV resting potential collapse. K⁺ equilibrium potential shifts; overall membrane depolarises toward 0 mV. (3) Voltage-gated Na⁺ channels have two gates: activation (opens at −55 mV threshold) and inactivation (closes ~1 ms after opening). At chronically depolarised potentials, channels remain in the inactivated state — they cannot be reactivated until the membrane repolarises. (4) No excitable channels → no action potential. This explains how cardiac glycosides (ouabain/digoxin) affect the heart — used therapeutically at low doses by increasing intracellular Ca²⁺ via Na⁺/Ca²⁺ exchanger (NCX).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The intestinal epithelium uses secondary active transport (SGLT1) to absorb glucose from the lumen even against a glucose concentration gradient. This process requires Na⁺ concentration and electrical gradients generated by the basolateral Na⁺/K⁺-ATPase. If a patient is prescribed a drug that specifically inhibits the Na⁺/K⁺-ATPase in intestinal epithelial cells only, what would happen to intestinal glucose absorption?</p>
+  </div>
+  <ul class="options">
+    <li>A) Glucose absorption would be unaffected because SGLT1 itself does not use ATP</li>
+    <li class="correct">B) Glucose absorption would decrease — without the Na⁺/K⁺-ATPase, the Na⁺ gradient across the apical membrane would collapse (intracellular Na⁺ would rise); SGLT1 co-transports glucose with Na⁺ down the Na⁺ gradient — without that gradient, SGLT1 cannot concentrate glucose intracellularly</li>
+    <li>C) Glucose absorption would increase because Na⁺ would accumulate inside the cell, pushing glucose absorption by mass action</li>
+    <li>D) GLUT2 on the basolateral membrane would compensate, absorbing glucose directly from the lumen</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — SGLT1 co-transports 2 Na⁺ + 1 glucose into the enterocyte using the energy stored in the Na⁺ electrochemical gradient (Na⁺ high outside, low inside; negative inside potential). This gradient is maintained by basolateral Na⁺/K⁺-ATPase pumping Na⁺ out. Without the pump: intracellular Na⁺ rises → Na⁺ gradient collapses → SGLT1 has no driving force to move glucose against its concentration gradient → glucose absorption fails. Note: SGLT1 doesn't directly use ATP (so option A seems reasonable at first), but it's "secondary" active transport — its driving force is the primary active transport Na⁺ gradient. GLUT2 (option D) is on the basolateral membrane facilitating glucose exit to blood — it cannot reverse to absorb from lumen.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">During intense exercise, skeletal muscle cells accumulate H⁺ (lactic acid production) and CO₂. A specific membrane transporter (AE1, anion exchanger 1) in red blood cells exchanges Cl⁻ for HCO₃⁻. How do these facts link to buffer and gas exchange physiology?</p>
+  </div>
+  <ul class="options">
+    <li>A) AE1 pumps H⁺ out of muscle cells to prevent acidosis</li>
+    <li class="correct">B) CO₂ enters RBCs and is converted to HCO₃⁻ + H⁺ by carbonic anhydrase; AE1 exchanges HCO₃⁻ (out) for Cl⁻ (in) — the "chloride shift" — increasing HCO₃⁻ in plasma for transport to lungs; at the lungs, the process reverses; this transport mechanism converts CO₂ from tissues into a buffered plasma form and delivers it to the lungs for exhalation</li>
+    <li>C) AE1 directly transports CO₂ across the RBC membrane</li>
+    <li>D) AE1 is only active in kidney cells, not in RBCs</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This integrates transport, enzyme function, and gas exchange. CO₂ from exercising muscles: (1) diffuses into RBCs; (2) carbonic anhydrase: CO₂ + H₂O → H₂CO₃ → HCO₃⁻ + H⁺; (3) AE1 (band 3 protein) facilitates electroneutral Cl⁻/HCO₃⁻ exchange — HCO₃⁻ exits into plasma (increasing plasma bicarbonate, a major CO₂ transport form; ~70% of CO₂ is transported as plasma HCO₃⁻); Cl⁻ enters RBC ("Hamburger/chloride shift"). At the lungs: process reverses — HCO₃⁻ re-enters RBCs, H⁺ + HCO₃⁻ → H₂CO₃ → CO₂ (released), CO₂ exhaled. AE1 is highly expressed in RBCs (band 3 is the most abundant RBC membrane protein, ~1.2 × 10⁶ copies/cell). It is also in kidney collecting duct cells for acid-base regulation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A cell needs to take up a large protein complex (too large for any channel or carrier). Which endocytic pathway is most appropriate, and what determines selectivity?</p>
+  </div>
+  <ul class="options">
+    <li>A) Pinocytosis (macropinocytosis) — non-selective fluid-phase uptake of all extracellular proteins</li>
+    <li class="correct">B) Receptor-mediated endocytosis (clathrin-coated pit) — specific cell-surface receptors bind the target protein with high affinity; ligand-receptor complexes cluster in clathrin-coated pits, which invaginate and pinch off as coated vesicles; selectivity is conferred by the receptor's binding specificity</li>
+    <li>C) Phagocytosis — the cell extends pseudopods to engulf any large particle</li>
+    <li>D) Simple diffusion — large proteins can pass through the lipid bilayer if they are hydrophobic enough</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Receptor-mediated endocytosis (RME) provides both capacity and specificity. The receptor selects the target ligand with high affinity; multiple receptor-ligand complexes cluster in clathrin-coated pits (via adaptor proteins like AP2 linking receptor cytoplasmic tails to clathrin triskelions). Dynamin GTPase pinches off the vesicle. Inside, the endosome acidifies, ligand and receptor dissociate (pH-sensitive), receptor recycles to the surface, ligand proceeds to lysosomes for processing. Classic examples: LDL receptor (cholesterol uptake), transferrin receptor (iron uptake), insulin receptor. Phagocytosis (option C) is for large pathogens/debris; pinocytosis (option A) is non-selective fluid uptake — neither is appropriate for specific large protein uptake. Large proteins are hydrophilic and cannot cross bilayers (option D).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Cystic fibrosis is caused by mutations in the CFTR (Cystic Fibrosis Transmembrane conductance Regulator) gene. CFTR is a Cl⁻ channel activated by cAMP/PKA phosphorylation. The most common mutation (ΔF508) causes CFTR protein misfolding and ER retention (it is degraded before reaching the cell surface). How does absence of apical Cl⁻ secretion lead to thick mucus in airways?</p>
+  </div>
+  <ul class="options">
+    <li>A) Without Cl⁻ channels, the airways cannot produce mucin glycoproteins</li>
+    <li class="correct">B) CFTR normally secretes Cl⁻ into the airway lumen; water follows osmotically, hydrating the mucus layer. Without CFTR: less Cl⁻ (and water) in the lumen → mucus becomes dehydrated and viscous → cilia cannot clear it → pathogens accumulate → chronic infection and inflammation</li>
+    <li>C) Without Cl⁻ flux, the pH of airway surface liquid becomes neutral, deactivating antimicrobial peptides</li>
+    <li>D) Cl⁻ channels are required for mast cell degranulation, so CF patients cannot mount allergic responses</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This integrates transport with disease pathophysiology. Normal airway surface liquid (ASL) is maintained by: CFTR secreting Cl⁻ into lumen (water follows via osmosis via aquaporins and paracellular routes), and ENaC (epithelial Na⁺ channel) reabsorbing Na⁺ (CFTR normally inhibits ENaC). In CF: CFTR absent → no Cl⁻ secretion → ENaC uninhibited → excess Na⁺ reabsorption → water reabsorbed from ASL → thick, dehydrated mucus. Mucociliary escalator fails. <em>P. aeruginosa</em> colonises. Chronic infection → neutrophilic inflammation → lung destruction → respiratory failure. Option C is partially true (acid kills microbes) but is a secondary effect, not the primary mechanism of mucus thickening.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A toxin selectively destroys all voltage-gated K⁺ channels in a neuron. What would be the effect on the action potential waveform?</p>
+  </div>
+  <ul class="options">
+    <li>A) The action potential threshold would be raised, requiring more depolarisation to fire</li>
+    <li>B) The action potential would be abolished because K⁺ channels are needed for depolarisation</li>
+    <li class="correct">C) The action potential would be prolonged — depolarisation phase (Na⁺ influx) would proceed normally, but the repolarisation and hyperpolarisation phases that depend on K⁺ efflux would be absent or slow; the cell would remain depolarised longer before passive leakage repolarises it</li>
+    <li>D) The resting membrane potential would become more positive (depolarised at rest)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — K⁺ channels are essential for repolarisation. Action potential phases: (1) Resting: −70 mV (mainly K⁺ leak channels). (2) Depolarisation: voltage-gated Na⁺ channels open → Na⁺ rushes in → reaches +40 mV. (3) Repolarisation: Na⁺ channels inactivate; voltage-gated K⁺ channels open → K⁺ rushes out → restores negative inside potential. (4) Hyperpolarisation (undershoot): K⁺ channels slow to close → briefly below −70 mV → refractory period. Without voltage-gated K⁺ channels: phases 1 and 2 are normal (Na⁺ channels intact → normal depolarisation). Phases 3 and 4 are abolished — the cell repolarises only slowly via Na⁺ channel inactivation and passive K⁺ leak. The action potential is greatly prolonged (wide spike). Resting potential (option D) is set mainly by K⁺ LEAK channels (always open), not voltage-gated K⁺ channels (only open after depolarisation threshold is reached).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Insulin is a peptide hormone synthesised in the rough ER of pancreatic β-cells, packaged into secretory granules, and released by exocytosis in response to elevated blood glucose. Which transport events occur in the CORRECT order?</p>
+  </div>
+  <ul class="options">
+    <li>A) Translation in cytoplasm → into Golgi → into ER → exocytosis</li>
+    <li class="correct">B) Co-translational insertion into rER lumen → ER → COPII vesicles → cis-Golgi → processing through Golgi cisternae → trans-Golgi network → clathrin/adaptor-coated secretory vesicles → secretory granule maturation → Ca²⁺-triggered exocytosis at plasma membrane</li>
+    <li>C) Translation in cytoplasm → lysosome processing → Golgi → exocytosis</li>
+    <li>D) Translation in mitochondria → exported by Tom/Tim complex → Golgi → exocytosis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The secretory pathway: preproinsulin is synthesised by rER-bound ribosomes (signal sequence targets it to the Sec61 translocon co-translationally). Signal peptide cleaved in the ER → proinsulin. In the ER: disulfide bond formation, proper folding. COPII vesicles transport to Golgi. In the Golgi: further glycosylation, sorting. In trans-Golgi network (TGN): clathrin coats + adaptor proteins (carboxypeptidase E) concentrate proinsulin into immature secretory vesicles. During granule maturation: C-peptide cleaved from proinsulin by PC1/3 and PC2 → mature insulin + C-peptide stored in dense-core granules. Glucose stimulus → Ca²⁺ rise → SNARE protein-mediated exocytosis. C-peptide is secreted in equimolar amounts with insulin (clinically used to measure endogenous insulin secretion in diabetics on exogenous insulin).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">V-type H⁺-ATPases acidify intracellular compartments. They are found in lysosomes, endosomes, and synaptic vesicles. What would happen if V-ATPase were blocked in synaptic vesicles specifically?</p>
+  </div>
+  <ul class="options">
+    <li>A) Synaptic vesicles would lyse due to osmotic imbalance</li>
+    <li>B) Vesicles would fuse with the plasma membrane constitutively</li>
+    <li class="correct">C) Neurotransmitter loading into vesicles would fail — the vesicular lumen acidification (proton gradient) is required for vesicular neurotransmitter transporters (VMATs, VAChT, VGAT) which co-transport neurotransmitters into the lumen using the proton gradient as the driving force (antiport or symport with H⁺); without loading, vesicles would be empty and synaptic transmission would fail</li>
+    <li>D) Vesicles would become too acidic, denaturing neurotransmitters</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Vesicular neurotransmitter transporters depend on the proton electrochemical gradient (ΔpH + Δψ) generated by V-ATPase to actively concentrate neurotransmitters against their concentration gradient: VMAT (vesicular monoamine transporter) for dopamine/serotonin/noradrenaline, VAChT for acetylcholine, VGAT for GABA/glycine. They exchange H⁺ (flowing out down the gradient) for neurotransmitter (moving in). Without V-ATPase: no proton gradient → these transporters cannot load neurotransmitters. Vesicles reach the membrane (Ca²⁺-triggered SNARE machinery is separate) but release little or no transmitter. Reserpine (used historically as an antihypertensive) inhibits VMAT2 — this depletes monoamine stores, treating hypertension but causing depression as a side effect.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The resting membrane potential is −70 mV. If we selectively increase membrane permeability to Na⁺ only (open extra Na⁺ channels), the potential will shift toward the Na⁺ equilibrium potential (E_Na ≈ +60 mV). Using the Goldman equation conceptually, what will happen to the membrane potential if we simultaneously and equally increase permeability to BOTH Na⁺ and K⁺?</p>
+  </div>
+  <ul class="options">
+    <li>A) The potential will become more positive, approaching +60 mV</li>
+    <li>B) The potential will become more negative, approaching −90 mV (E_K)</li>
+    <li class="correct">C) The potential will move toward an intermediate value between E_K (−90 mV) and E_Na (+60 mV), approximately 0 mV, as the two opposing driving forces cancel (weighted average of the two equilibrium potentials when permeabilities are equal)</li>
+    <li>D) The potential will remain at −70 mV because the two effects cancel completely</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Goldman equation: V_m = (RT/F) × ln[(P_K[K⁺]_o + P_Na[Na⁺]_o + P_Cl[Cl⁻]_i) / (P_K[K⁺]_i + P_Na[Na⁺]_i + P_Cl[Cl⁻]_o)]. If P_Na = P_K and both are increased equally, the membrane potential moves to a weighted average between E_K and E_Na. Since E_K ≈ −90 mV and E_Na ≈ +60 mV, the weighted average (equal weights) ≈ (−90 + 60)/2 = −15 mV (the exact value depends on actual ion concentrations). The membrane depolarises but does not reach E_Na or remain at −70 mV. This is conceptually why the action potential peak doesn't reach +60 mV — by the time Na⁺ channels are open, K⁺ channels are beginning to open, pulling the potential back. The potential remains ~+40 mV (compromise between E_Na and E_K weighted by their permeabilities).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A patient is diagnosed with hyperaldosteronism (excess aldosterone). Aldosterone increases expression of ENaC (epithelial Na⁺ channel) and Na⁺/K⁺-ATPase in kidney collecting duct cells. What electrolyte and cardiovascular consequences would be expected?</p>
+  </div>
+  <ul class="options">
+    <li>A) Hyponatraemia, hyperkalaemia, low blood pressure</li>
+    <li class="correct">B) Hypernatraemia (Na⁺ retention → water retention → high blood volume and pressure), hypokalaemia (increased K⁺ excretion via enhanced Na⁺/K⁺-ATPase activity), and metabolic alkalosis (H⁺ also excreted by aldosterone-stimulated H⁺-ATPase)</li>
+    <li>C) Hyperkalaemia and hypernatraemia with low blood pressure</li>
+    <li>D) No electrolyte changes — aldosterone only affects protein synthesis, not transport</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Aldosterone acts on the principal cells of the collecting duct: ENaC ↑ → more Na⁺ reabsorbed from urine into cell → more water follows osmotically → expanded blood volume → hypertension. Na⁺/K⁺-ATPase ↑ → more K⁺ pumped into cell from blood → excess K⁺ secreted into urine via K⁺ channels (ROMK) → hypokalaemia. Aldosterone also increases H⁺ excretion (alpha-intercalated cells) → metabolic alkalosis. This is Conn's syndrome: hypertension + hypokalaemia + metabolic alkalosis + high aldosterone. Addison's disease (adrenal insufficiency, low aldosterone): opposite — hyponatraemia, hyperkalaemia, hypotension. Classic exam scenario connecting membrane transport to systemic physiology.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Transcytosis allows macromolecules to cross entire epithelial cell layers from one side to the other. Which cell type most depends on transcytosis, and what is its physiological significance?</p>
+  </div>
+  <ul class="options">
+    <li>A) Erythrocytes — to transport oxygen across the capillary wall</li>
+    <li class="correct">B) Intestinal and endothelial cells — neonatal Fc receptor (FcRn) mediates IgG transcytosis across intestinal epithelium (mother's antibodies in breast milk transferred to infant's bloodstream); endothelial cells use transcytosis to transport albumin, lipoproteins, and other plasma proteins across capillary walls to tissue interstitium</li>
+    <li>C) Neurons — to transport neurotransmitters from presynaptic to postsynaptic membrane</li>
+    <li>D) Muscle cells — to exchange metabolites with surrounding connective tissue</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Transcytosis = endocytosis on one face + exocytosis on the opposite face, allowing transport across a cell monolayer. Key examples: (1) Intestinal neonatal FcRn transcytosis: maternal IgG in breast milk binds FcRn on intestinal epithelium at acidic endosomal pH, is transcytosed, and released into the infant's bloodstream (pH 7.4, FcRn releases IgG). This transfers passive immunity from mother to infant. (2) Endothelial transcytosis (caveolae-mediated): albumin and other plasma macromolecules cross continuous capillary walls. Highly important in the blood-brain barrier where tight junctions prevent paracellular transport and transcytosis is the main route. (3) Polymeric IgA secretion across mucosal epithelium in the opposite direction (blood → lumen).</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

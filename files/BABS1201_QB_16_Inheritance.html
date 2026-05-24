@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — Mechanisms of Inheritance</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 16: Mechanisms of Inheritance &nbsp;|&nbsp; 16 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">In humans, sex is determined by which chromosomal mechanism?</p>
+  </div>
+  <ul class="options">
+    <li>A) XX = male; XY = female</li>
+    <li>B) Females have one X chromosome; males have two X chromosomes</li>
+    <li class="correct">C) XX = female; XY = male — the Y chromosome carries the SRY gene that initiates male development</li>
+    <li>D) Sex is determined by the ratio of autosomes to sex chromosomes, not by the Y chromosome</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — XX = female, XY = male; Y carries SRY</strong></p>
+      <p>In mammals, XX individuals develop as female and XY as male. The Y chromosome carries the SRY (Sex-determining Region Y) gene, which encodes a transcription factor (TDF — testis-determining factor) that directs bipotential gonads to develop as testes. Without SRY, ovaries develop by default. Note: in <em>Drosophila</em>, sex is determined by the X:autosome ratio (option D applies there, not humans). XO individuals are female in humans (Turner syndrome) but male in Drosophila — illustrating species differences.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">Haemophilia A is an X-linked recessive disorder affecting blood clotting. A carrier mother (X^H X^h) and an unaffected father (X^H Y) have children. What is the probability that a son has haemophilia?</p>
+  </div>
+  <ul class="options">
+    <li>A) 0%</li>
+    <li>B) 25%</li>
+    <li class="correct">C) 50%</li>
+    <li>D) 100%</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 50% of sons are affected</strong></p>
+      <p>The mother contributes either X^H or X^h (equal probability). The father contributes either X^H (→ daughter) or Y (→ son). Sons receive only one X chromosome (from their mother) — they cannot compensate with a second X. So if a son receives X^h from the mother, he has haemophilia (X^h Y). Sons receiving X^H (50%) are unaffected. Therefore 50% of all sons are affected. Daughters receiving X^h from the mother will receive X^H from the father — they are carriers (unaffected). Importantly, fathers NEVER transmit X-linked traits to sons (they give the Y).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">ABO blood type is controlled by the IA, IB, and i alleles. A person with blood type AB has which genotype, and what does this illustrate?</p>
+  </div>
+  <ul class="options">
+    <li>A) Genotype IA IA; illustrates complete dominance</li>
+    <li>B) Genotype IA i; illustrates incomplete dominance</li>
+    <li class="correct">C) Genotype IA IB; illustrates codominance — both alleles are fully expressed simultaneously</li>
+    <li>D) Genotype IB i; illustrates epistasis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — IA IB genotype; codominance</strong></p>
+      <p>In the ABO system, IA produces A antigens on red blood cells, IB produces B antigens, and i produces neither. Both IA and IB are dominant over i, but IA and IB are codominant with each other. In an IA IB individual, BOTH A and B antigens are expressed simultaneously on red blood cells — producing blood type AB. This is codominance: two alleles are both fully expressed in the heterozygote, unlike incomplete dominance where the phenotype is intermediate. ABO blood type is also an example of multiple alleles (three possible alleles in the population, though any individual has only two).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">In chickens, rose comb (RR or Rr) and pea comb (PP or Pp) interact to produce walnut comb (R_P_), and rrpp produces single comb. This is an example of:</p>
+  </div>
+  <ul class="options">
+    <li>A) Incomplete dominance between two genes</li>
+    <li>B) Pleiotropy — one gene affecting multiple traits</li>
+    <li class="correct">C) Epistasis — the interaction of two different gene loci producing a novel phenotype not seen with either locus alone</li>
+    <li>D) Codominance between R and P alleles</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Epistasis (gene interaction)</strong></p>
+      <p>Epistasis describes the interaction between genes at different loci where one gene's expression masks or modifies another's. Here, R and P interact: R_P_ = walnut (neither rose nor pea — a new phenotype). R_pp = rose, rrP_ = pea, rrpp = single. This interaction modifies the expected 9:3:3:1 dihybrid ratio into 9:3:3:1 walnut:rose:pea:single. It is not codominance (that applies within a single locus with two alleles). Pleiotropy is one gene affecting multiple traits. The walnut phenotype doesn't exist without both loci interacting — classic epistasis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">A mother has type A blood (IA i) and the father has type B blood (IB i). Which blood types are POSSIBLE in their children?</p>
+  </div>
+  <ul class="options">
+    <li>A) A and B only</li>
+    <li>B) A, B, and AB only</li>
+    <li class="correct">C) A, B, AB, and O</li>
+    <li>D) AB only</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — A, B, AB, and O are all possible</strong></p>
+      <p>Cross: IA i × IB i. Possible offspring genotypes: IA IB (type AB) = 1/4, IA i (type A) = 1/4, IB i (type B) = 1/4, ii (type O) = 1/4. All four ABO blood types are possible in equal proportions! This is a key ABO example: two parents with different "pure" blood types (A and B, but both heterozygous with i) can produce an O-blood-type child — which surprises people who incorrectly think AB parents should only have AB children, or that O must come from two O parents.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">Duchenne muscular dystrophy (DMD) is X-linked recessive. An unaffected woman whose father had DMD marries an unaffected man. What is the probability their first son will have DMD?</p>
+  </div>
+  <ul class="options">
+    <li>A) 0% — the father was affected, not the mother</li>
+    <li>B) 25% of all children</li>
+    <li class="correct">C) 50% of their sons</li>
+    <li>D) 100% of their sons</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 50% of sons</strong></p>
+      <p>The woman's father had DMD (X^d Y). He must have given her his only X chromosome (X^d). Since she is unaffected, she is a carrier: X^D X^d. Her husband is unaffected (X^D Y). Cross: X^D X^d × X^D Y. Sons receive Y from father and either X^D or X^d from mother. 50% of sons receive X^d and have DMD; 50% receive X^D and are unaffected. Note: if the question asked about all children (not just sons): 25% of all children will be affected sons. Daughters will all be unaffected (either X^D X^D or carrier X^D X^d).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">Huntington's disease is autosomal dominant. A person with Huntington's (Hh, heterozygous) has children with an unaffected partner (hh). What proportion of children will develop the disease?</p>
+  </div>
+  <ul class="options">
+    <li>A) 0% — Huntington's always skips a generation</li>
+    <li class="correct">B) 50%</li>
+    <li>C) 75%</li>
+    <li>D) 100%</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — 50%</strong></p>
+      <p>Cross: Hh × hh. Offspring: 1/2 Hh (affected, will develop HD) and 1/2 hh (unaffected). Huntington's is a late-onset autosomal dominant disorder caused by CAG repeat expansion in the HTT gene. Even ONE copy of the expanded allele causes disease (dominant). There is no "skipped generation" — affected individuals have a 50% chance of passing the allele to each child. Note: HH (homozygous dominant) is very rare and slightly more severe but not the situation here. Huntington's contrasts with recessive disorders — it appears in every generation (vertical transmission) if the affected person reproduces.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">Lyon's hypothesis (X-inactivation) explains why females who are heterozygous for an X-linked trait often show a mosaic phenotype. Which of the following best describes X-inactivation?</p>
+  </div>
+  <ul class="options">
+    <li>A) One X chromosome is destroyed in each female somatic cell</li>
+    <li>B) The paternal X chromosome is always inactivated in female somatic cells</li>
+    <li class="correct">C) One X chromosome is randomly inactivated in each cell early in embryonic development, resulting in patches of cells expressing either the maternal or paternal X, which is maintained clonally</li>
+    <li>D) Both X chromosomes are inactivated in female germ cells to prevent excess gene expression</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Random inactivation early in development, maintained clonally</strong></p>
+      <p>X-inactivation (lyonisation) in female somatic cells ensures dosage compensation — females have two X chromosomes while males have one, yet most X-linked genes are expressed at similar levels. In each embryonic cell (around day 6–7), one X is randomly inactivated (condensed into a Barr body) via XIST RNA coating. All daughter cells maintain the same inactive X (clonal inheritance). In a carrier female (X^A X^a), some patches express X^A, others X^a — producing a mosaic phenotype (e.g., tortoiseshell cats: orange patches from one X, black from the other). In placental mammals, inactivation is random; in marsupials, the paternal X is always inactivated.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">Which of the following patterns in a pedigree is MOST consistent with autosomal dominant inheritance?</p>
+  </div>
+  <ul class="options">
+    <li>A) The trait skips generations; only affected individuals have two affected parents</li>
+    <li>B) The trait primarily affects males; carrier females are unaffected</li>
+    <li class="correct">C) The trait appears in every generation; affected individuals have at least one affected parent; approximately 50% of offspring of an affected parent are affected</li>
+    <li>D) The trait is seen equally in males and females but only in siblings with two unaffected parents</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Every generation, affected parent, ~50% offspring affected</strong></p>
+      <p>Hallmarks of autosomal dominant inheritance: (1) Trait appears in every generation — vertical transmission. (2) Affected individuals typically have at least one affected parent (unless new mutation). (3) ~50% of offspring of an Aa × aa cross are affected. (4) Males and females affected equally. (5) Unaffected individuals do not transmit the trait. Contrasts: autosomal recessive — skips generations, both parents unaffected (carriers). X-linked recessive — primarily affects males, carrier females unaffected (option B). Option D describes autosomal recessive.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">Genomic imprinting is an epigenetic phenomenon where the expression of a gene depends on which parent it was inherited from. Prader-Willi syndrome is caused by loss of the paternally expressed region on chromosome 15. What would happen if a person inherited a deletion of this region from their MOTHER?</p>
+  </div>
+  <ul class="options">
+    <li>A) They would develop Prader-Willi syndrome because the maternal copy is always expressed</li>
+    <li class="correct">B) They would be unaffected because the maternally derived allele in this region is normally imprinted (silenced), so it is not expressed anyway</li>
+    <li>C) They would develop Angelman syndrome</li>
+    <li>D) They would have double the normal expression of the imprinted genes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Unaffected because the maternal copy is normally silenced</strong></p>
+      <p>Genomic imprinting means some genes are expressed only from the paternal allele and others only from the maternal allele. In chromosome 15q11-13: the region including <em>SNRPN</em> and related genes is paternally expressed (maternally imprinted/silenced). If the paternal copy is deleted → Prader-Willi syndrome (no expression of paternally expressed genes). If the maternal copy is deleted → the individual is unaffected here, because the maternal copy was silenced anyway. Contrast: Angelman syndrome results from loss of the <em>UBE3A</em> gene, which is maternally expressed (paternally imprinted). Deletion of the maternal 15q11-13 → Angelman syndrome.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">In humans, red-green colour blindness is X-linked recessive. A colour-blind woman (X^c X^c) has children with a man with normal vision (X^C Y). What are the expected phenotypes of their daughters and sons?</p>
+  </div>
+  <ul class="options">
+    <li>A) All daughters normal vision; all sons colour blind</li>
+    <li class="correct">B) All daughters carriers (normal vision); all sons colour blind</li>
+    <li>C) Half daughters colour blind; half sons colour blind</li>
+    <li>D) All children colour blind regardless of sex</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — All daughters carriers; all sons colour blind</strong></p>
+      <p>Mother: X^c X^c (colour blind). Father: X^C Y. Daughters receive X^c from mother and X^C from father → all daughters are X^C X^c (carriers, normal phenotype). Sons receive X^c from mother and Y from father → all sons are X^c Y (colour blind). This cross illustrates "criss-cross inheritance" — the mother (affected) transmits the trait to ALL sons but NO daughters show the trait (though all are carriers). If the affected parent were the father, daughters would be carriers and sons would be unaffected.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">Pleiotropy is when a single gene affects multiple seemingly unrelated phenotypic traits. Which of the following is the best example of pleiotropy?</p>
+  </div>
+  <ul class="options">
+    <li>A) The ABO gene controlling blood type depends on allele combinations from two parents</li>
+    <li>B) Two genes (R and P) together controlling comb shape in chickens</li>
+    <li class="correct">C) The CFTR gene mutation causing cystic fibrosis — affecting lungs, pancreas, sweat glands, and reproductive organs simultaneously</li>
+    <li>D) The interaction of multiple polygenic loci determining skin colour</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — CFTR mutation affecting multiple organ systems simultaneously</strong></p>
+      <p>Pleiotropy: one gene → multiple phenotypic effects. CFTR (Cystic Fibrosis Transmembrane conductance Regulator) is a chloride channel expressed in epithelial cells throughout the body. A single loss-of-function mutation in CFTR disrupts chloride transport everywhere: thick mucus in lungs (→ chronic infections, bronchiectasis), pancreatic duct blockage (→ enzyme deficiency, malabsorption), elevated sweat chloride (diagnostic test), and male infertility (vas deferens obstruction). One gene — many organ systems affected. This is pleiotropy. Options A, B, and D describe multiple genes affecting one trait (or related phenomena) — the opposite concept.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">In a pedigree, two unaffected parents have an affected child. The affected child is a son. Which of the following inheritance patterns CANNOT explain this pedigree?</p>
+  </div>
+  <ul class="options">
+    <li>A) Autosomal recessive</li>
+    <li>B) X-linked recessive</li>
+    <li class="correct">C) Autosomal dominant</li>
+    <li>D) X-linked recessive, where the mother is a carrier</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Autosomal dominant (cannot explain unaffected parents having an affected child)</strong></p>
+      <p>For autosomal dominant: if the trait is dominant, an affected individual (Aa) must have received the dominant allele from at least one parent. If both parents are unaffected (aa × aa), all children would be aa — unaffected. An affected child from two unaffected parents is impossible under autosomal dominant inheritance (unless a new de novo mutation occurred — rare, but not the default assumption in standard Mendelian problems). Autosomal recessive (Aa × Aa → 1/4 aa affected) and X-linked recessive (carrier mother × unaffected father → 50% of sons affected) both readily explain affected children from unaffected parents.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">Polygenic traits are controlled by multiple genes. Which of the following is a characteristic of polygenic inheritance?</p>
+  </div>
+  <ul class="options">
+    <li>A) Phenotypes show distinct, discrete categories (like Mendelian traits)</li>
+    <li>B) Each individual gene locus shows complete dominance with no environmental influence</li>
+    <li class="correct">C) Traits show continuous (quantitative) variation in a population, often approximating a normal distribution; more gene loci → more intermediate phenotypic classes</li>
+    <li>D) The trait is encoded by one gene with multiple alleles</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Continuous variation approximating a normal distribution</strong></p>
+      <p>Polygenic traits (e.g., human height, skin colour, intelligence, blood pressure) are determined by many gene loci, each contributing a small additive effect. With many loci, many intermediate phenotypes are possible, and combined with environmental variation, the trait distribution is continuous (bell-shaped). Examples: skin colour is determined by ~6+ loci (melanin production genes); each dark allele contributes additional pigmentation additively. Neither parent phenotype nor Mendelian ratios can predict offspring phenotypes precisely. "Multiple alleles" (option D) refers to many alleles at a single locus (like ABO), not multiple loci.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">Recombination frequency between two linked genes is measured at 20 cM (centimorgans). What does this mean, and how does it relate to map distance?</p>
+  </div>
+  <ul class="options">
+    <li>A) The two genes are 20 chromosome lengths apart</li>
+    <li>B) Crossing over occurs in every cell between these loci</li>
+    <li class="correct">C) 20% of gametes produced are recombinant (non-parental) for these two loci; 1 cM = 1% recombination frequency, and corresponds roughly to 1 megabase in humans</li>
+    <li>D) The genes will always be on separate chromosomes if the recombination frequency exceeds 10 cM</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 20% recombinant gametes; 1 cM = 1% recombination</strong></p>
+      <p>Recombination frequency (or crossover frequency) = (number of recombinant offspring) / (total offspring) × 100%. 1 centimorgan (cM) = 1 map unit = 1% recombination. Genes 20 cM apart produce 20% recombinant gametes. Genes >50 cM apart behave as if unlinked (appear to assort independently) because recombination effectively randomises their association — 50 cM is the maximum measurable recombination frequency between loci on the same chromosome. In humans, 1 cM ≈ 1 Mb of DNA on average, though this varies by chromosomal region (recombination hotspots exist).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">16</div>
+    <p class="q-text">Mitochondrial DNA is inherited maternally. A woman with a mitochondrial disease has children with an unaffected man. Which of the following best predicts the inheritance of this disease?</p>
+  </div>
+  <ul class="options">
+    <li>A) 50% of children will be affected, regardless of sex</li>
+    <li>B) Only sons will be affected</li>
+    <li class="correct">C) All children (sons and daughters) are likely to be affected if the mutation is present in most/all of the mother's mitochondria (homoplasmy)</li>
+    <li>D) The disease will only manifest if the father also carries mitochondrial mutations</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — All children likely affected if mother has homoplasmic mutation</strong></p>
+      <p>Mitochondria are transmitted almost exclusively through the maternal egg (sperm have few mitochondria and these are typically degraded after fertilisation). A mother with a mitochondrial mutation will transmit it to ALL children — sons and daughters alike. If the mutation is homoplasmic (all mitochondria carry the mutation), all children will likely be affected. If heteroplasmic (mixture of normal and mutant mitochondria), the proportion transmitted varies (mitochondrial bottleneck during oogenesis), so phenotypic severity varies among children. Neither sex nor paternal genotype affects mitochondrial transmission. Key mitochondrial diseases: MELAS, Leber hereditary optic neuropathy.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

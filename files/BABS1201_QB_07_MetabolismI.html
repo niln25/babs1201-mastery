@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 07: Metabolism I</title>
+<style>
+  :root { --primary: #1a3a5c; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-card.insta-q { border-left: 4px solid var(--insta); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .insta-header { background: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #721c24; }
+  .insta-header strong { color: var(--insta); }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 07: Metabolism I &nbsp;|&nbsp; ATP · Redox Reactions · Glycolysis · Fermentation · Metabolic Pathways · Anabolism vs Catabolism</p>
+</div>
+
+<div class="insta-header">
+  <strong>🐒 Monkey Monday (INSTA)</strong> — Questions 1 and 2 are from the official BABS1201 INSTA series. Questions 3–18 are original practice questions.
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- INSTA Q1 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 1 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">What is the function of redox reactions?</div>
+  <ul class="options">
+    <li>A. Flow of molecules creates a charge needed to release energy</li>
+    <li>B. Proteins and fats can only be broken down through redox reactions</li>
+    <li class="correct">C. Flow of electrons between redox reactions provides usable energy for the cell</li>
+    <li>D. Allows for complete breakdown of sugar without oxygen (slower energy release)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C — Flow of electrons provides usable energy</strong></p>
+      <p>Redox reactions (reduction-oxidation) involve the transfer of electrons between molecules. <strong>Oxidation</strong> = loss of electrons (OIL — Oxidation Is Loss). <strong>Reduction</strong> = gain of electrons (RIG — Reduction Is Gain). They always occur together (OIL RIG). In cellular metabolism: (1) Organic fuel molecules (glucose, fatty acids) are OXIDISED — they donate electrons (and H⁺) to electron carriers NAD⁺ and FAD, forming NADH and FADH₂. (2) These electron carriers then pass electrons to the <strong>electron transport chain (ETC)</strong> in the mitochondrial inner membrane. (3) As electrons flow "downhill" through the ETC to O₂ (the final electron acceptor), energy is released and captured as ATP via oxidative phosphorylation.</p>
+      <p><strong>Why A is wrong:</strong> "Flow of molecules" is too vague and incorrect. It is specifically the flow of ELECTRONS through the ETC that releases energy — not just any molecules.</p>
+      <p><strong>Why B is wrong:</strong> While proteins and fats do undergo redox reactions when catabolised, they can also be broken down by hydrolysis (proteases for proteins, lipases for fats). Redox reactions are not the ONLY way proteins and fats are broken down.</p>
+      <p><strong>Why D is wrong:</strong> This describes ANAEROBIC respiration or fermentation — which occurs WITHOUT oxygen and provides less energy. The function of redox reactions broadly is the provision of usable energy (not just anaerobic energy release).</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q2 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 2 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Choose the best definition and function of Acetyl Coenzyme A (Acetyl-CoA):</div>
+  <ul class="options">
+    <li>A. Various enzymes which catalyze transfer of phosphate groups from a high-energy phosphate-containing molecule (such as ATP) to a substrate</li>
+    <li class="correct">B. The entry compound for the citric acid cycle in cellular respiration, formed from a two-carbon fragment of pyruvate attached to a coenzyme</li>
+    <li>C. A four-carbon fragment of pyruvate needed for the production of ATP using energy from the redox reactions of an electron transport chain</li>
+    <li>D. A complex compound molecule that binds to protein/enzyme to facilitate redox reaction produced in oxidative phosphorylation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B — Acetyl-CoA is the 2-carbon entry compound for the Krebs cycle</strong></p>
+      <p>Acetyl-CoA (Acetyl Coenzyme A) is formed during pyruvate oxidation in the mitochondrial matrix: Pyruvate (3C) → [pyruvate dehydrogenase complex] → Acetyl group (2C) + CO₂. The 2-carbon acetyl group is attached to Coenzyme A (CoA) via a high-energy thioester bond → Acetyl-CoA. Acetyl-CoA then enters the citric acid cycle (Krebs cycle) by condensing with oxaloacetate (4C) to form citrate (6C). This is the "entry point" for the 2-carbon acetyl group into the cycle. Acetyl-CoA is also produced from fatty acid β-oxidation and amino acid catabolism — it is a central metabolic hub linking multiple catabolic pathways to the citric acid cycle.</p>
+      <p><strong>Why A is wrong:</strong> This describes kinases — enzymes that transfer phosphate groups from ATP. Not Acetyl-CoA.</p>
+      <p><strong>Why C is wrong:</strong> The acetyl group is a 2-carbon fragment, not four-carbon. Oxaloacetate is the 4-carbon molecule that acetyl-CoA condenses with.</p>
+      <p><strong>Why D is wrong:</strong> This vaguely describes a coenzyme, but it's incorrect to say Acetyl-CoA is produced in oxidative phosphorylation. Oxidative phosphorylation produces ATP, not Acetyl-CoA.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">What is the difference between anabolism and catabolism?</div>
+  <ul class="options">
+    <li>A. Anabolism breaks down large molecules to release energy; catabolism builds large molecules using energy</li>
+    <li class="correct">B. Anabolism builds complex molecules from simpler ones, requiring energy (ATP); catabolism breaks down complex molecules into simpler ones, releasing energy (producing ATP)</li>
+    <li>C. Anabolism occurs only in plants; catabolism occurs only in animals</li>
+    <li>D. Anabolism uses oxygen; catabolism does not require oxygen</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p><strong>Catabolism</strong> = breakdown reactions; complex molecules → simpler molecules + energy (ATP). Examples: glycolysis (glucose → pyruvate), citric acid cycle, β-oxidation of fatty acids, proteolysis. <strong>Anabolism</strong> = biosynthetic reactions; simple molecules → complex molecules, consuming energy. Examples: protein synthesis (translation), DNA replication, gluconeogenesis (glucose synthesis), fatty acid synthesis. Together, anabolism and catabolism constitute <strong>metabolism</strong>. Catabolic and anabolic pathways are often spatially and temporally regulated to avoid futile cycles — e.g., fatty acid synthesis and β-oxidation are not active simultaneously in the same compartment.</p>
+      <p><strong>Why A is wrong:</strong> The definitions of anabolism and catabolism are exactly reversed in option A.</p>
+      <p><strong>Why C is wrong:</strong> Both anabolism and catabolism occur in all living organisms — plants and animals.</p>
+      <p><strong>Why D is wrong:</strong> Oxygen use is not what distinguishes anabolism from catabolism. Some catabolic reactions are anaerobic (glycolysis, fermentation); some anabolic reactions also require oxygen.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">Glycolysis occurs in which cellular compartment and produces which net outputs per glucose molecule?</div>
+  <ul class="options">
+    <li>A. Mitochondrial matrix; 4 ATP, 2 NADH, 2 pyruvate</li>
+    <li>B. Nucleus; 2 ATP, 4 NADH, 4 pyruvate</li>
+    <li class="correct">C. Cytoplasm (cytosol); net 2 ATP, 2 NADH, 2 pyruvate</li>
+    <li>D. Mitochondrial intermembrane space; 6 ATP, 2 FADH₂, 2 acetyl-CoA</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Glycolysis = "splitting of sugar" — occurs in the CYTOPLASM (no mitochondria required, all organisms can do it). The 10-step pathway: glucose (6C) → 2 pyruvate (3C). ATP accounting: Phase 1 (energy investment): 2 ATP consumed (hexokinase, phosphofructokinase-1 steps). Phase 2 (energy payoff): 4 ATP produced by substrate-level phosphorylation (phosphoglycerate kinase, pyruvate kinase steps). NET per glucose = 4 − 2 = <strong>2 ATP</strong>. Also produced: 2 NADH (from glyceraldehyde-3-phosphate dehydrogenase step) — these NADH must be re-oxidised for glycolysis to continue. Under aerobic conditions: NADH electrons are transferred to ETC. Under anaerobic conditions: fermentation re-oxidises NADH.</p>
+      <p><strong>Why A is wrong:</strong> Glycolysis is in the cytoplasm, not the mitochondrial matrix. The mitochondrial matrix is where pyruvate oxidation and the citric acid cycle occur. The gross output is 4 ATP but NET is 2 ATP.</p>
+      <p><strong>Why B is wrong:</strong> Glycolysis is not in the nucleus. 4 NADH and 4 pyruvate would require 2 glucose molecules, not 1.</p>
+      <p><strong>Why D is wrong:</strong> The intermembrane space is not a site of metabolic reactions (it contains the proton gradient used by ATP synthase). Acetyl-CoA is produced in the mitochondrial matrix, not during glycolysis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">NAD⁺ is described as an electron carrier in metabolism. What happens to NAD⁺ when it acts as an electron carrier in glycolysis?</div>
+  <ul class="options">
+    <li>A. NAD⁺ is reduced to NADP⁺ by gaining a phosphate group</li>
+    <li>B. NAD⁺ is oxidised to NAD when it donates electrons to a substrate</li>
+    <li class="correct">C. NAD⁺ is REDUCED to NADH when it accepts electrons (and a proton, H⁺) from glyceraldehyde-3-phosphate — it gains electrons, becoming the reduced form</li>
+    <li>D. NAD⁺ is broken down into nicotinamide and adenine, releasing energy for ATP synthesis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>NAD⁺ (Nicotinamide Adenine Dinucleotide, oxidised form) is a coenzyme that shuttles electrons: NAD⁺ + 2H⁺ + 2e⁻ → NADH + H⁺. In glycolysis: At the glyceraldehyde-3-phosphate (G3P) dehydrogenase step, G3P is oxidised → NAD⁺ gains 2 electrons and one H⁺ → becomes NADH. Reduction means gaining electrons. NADH carries the electrons to the mitochondria where they are donated to the ETC (NADH → NAD⁺ at Complex I, releasing electrons that power proton pumping). NAD⁺ is regenerated and recycled. Without NAD⁺ regeneration, glycolysis stalls. NADP⁺ is a related molecule used in anabolic reactions (e.g., in the Calvin cycle of photosynthesis, NADPH is used as a reductant).</p>
+      <p><strong>Why A is wrong:</strong> NADP⁺ is a separate coenzyme. NAD⁺ is not converted to NADP⁺ by phosphorylation during glycolysis.</p>
+      <p><strong>Why B is wrong:</strong> When NAD⁺ accepts electrons, it is REDUCED to NADH (gains electrons). Oxidation is the LOSS of electrons.</p>
+      <p><strong>Why D is wrong:</strong> NAD⁺ is not broken down during electron transfer. It is reduced to NADH (a stable, intact molecule) and then re-oxidised in the ETC.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">Fermentation allows glycolysis to continue under anaerobic conditions. What is the purpose of fermentation in this context?</div>
+  <ul class="options">
+    <li>A. To produce additional ATP by anaerobically oxidising pyruvate</li>
+    <li>B. To convert pyruvate into acetyl-CoA for entry into the Krebs cycle without oxygen</li>
+    <li class="correct">C. To regenerate NAD⁺ from NADH — allowing glycolysis to continue producing ATP when the electron transport chain cannot accept electrons (no oxygen)</li>
+    <li>D. To directly synthesise ATP from NADH molecules using fermentation enzymes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Fermentation's KEY function is NAD⁺ regeneration. Recall: glycolysis requires NAD⁺ (at the G3P dehydrogenase step). Under aerobic conditions, NADH delivers electrons to the ETC → NAD⁺ regenerated. Under anaerobic conditions, no ETC activity → NADH builds up → NAD⁺ exhausted → glycolysis halts. Fermentation solves this by using pyruvate (or another organic molecule) as the electron acceptor to re-oxidise NADH back to NAD⁺: (1) <strong>Lactic acid fermentation</strong> (muscle, RBCs, Lactobacillus): Pyruvate + NADH → Lactate + NAD⁺ (lactate dehydrogenase). (2) <strong>Alcohol (ethanol) fermentation</strong> (yeast, some bacteria): Pyruvate → Acetaldehyde + CO₂ (pyruvate decarboxylase) → Ethanol + NAD⁺ (alcohol dehydrogenase). No additional ATP is produced in fermentation — only 2 net ATP from glycolysis.</p>
+      <p><strong>Why A is wrong:</strong> Fermentation does NOT produce additional ATP. The 2 net ATP per glucose come entirely from glycolysis. Fermentation only regenerates NAD⁺.</p>
+      <p><strong>Why B is wrong:</strong> Pyruvate oxidation to Acetyl-CoA requires the pyruvate dehydrogenase complex and OXYGEN — it does not occur under anaerobic conditions.</p>
+      <p><strong>Why D is wrong:</strong> ATP is not synthesised from NADH in fermentation. NADH donates electrons to pyruvate/acetaldehyde; this regenerates NAD⁺ but does not produce ATP.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Which enzyme is considered the "rate-limiting step" enzyme of glycolysis, and how is it regulated?</div>
+  <ul class="options">
+    <li>A. Hexokinase — inhibited by high glucose concentrations</li>
+    <li class="correct">B. Phosphofructokinase-1 (PFK-1) — inhibited by high ATP and citrate (signals that energy is sufficient); activated by AMP and ADP (signals that energy is needed)</li>
+    <li>C. Pyruvate kinase — activated by high concentrations of fructose-2,6-bisphosphate</li>
+    <li>D. Glyceraldehyde-3-phosphate dehydrogenase — regulated solely by NAD⁺ availability</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>PFK-1 (phosphofructokinase-1) catalyses the irreversible phosphorylation of fructose-6-phosphate → fructose-1,6-bisphosphate. It is the main rate-limiting and committed step of glycolysis. Key allosteric regulation: <strong>Inhibitors</strong>: High ATP (energy sufficient — inhibits via allosteric site), citrate (Krebs cycle is running well — inhibit glycolysis), low pH (high H⁺ signals anaerobic conditions → inhibit lactic acid production). <strong>Activators</strong>: AMP, ADP (low energy charge → accelerate glycolysis), fructose-2,6-bisphosphate (F-2,6-BP — a major activator; produced by PFK-2 when insulin is high and glucagon is low → signals fed state). This regulation ensures glycolysis matches energy demand.</p>
+      <p><strong>Why A is wrong:</strong> Hexokinase is inhibited by its own product glucose-6-phosphate (product inhibition) — not by high glucose. Hexokinase is not the rate-limiting step in the sense that PFK-1 is the primary regulatory control point.</p>
+      <p><strong>Why C is wrong:</strong> Pyruvate kinase is regulated differently; fructose-2,6-bisphosphate is an activator of PFK-1, not pyruvate kinase. PFK-2 is the enzyme that makes F-2,6-BP.</p>
+      <p><strong>Why D is wrong:</strong> G3P dehydrogenase is regulated by NAD⁺ availability, but it's not the primary rate-limiting step of glycolysis. PFK-1 is the primary control point.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Substrate-level phosphorylation differs from oxidative phosphorylation in that:</div>
+  <ul class="options">
+    <li>A. Substrate-level phosphorylation occurs only in mitochondria; oxidative phosphorylation occurs only in the cytoplasm</li>
+    <li class="correct">B. Substrate-level phosphorylation directly transfers a phosphate group from a high-energy substrate intermediate to ADP without requiring an electron transport chain; oxidative phosphorylation uses the proton gradient generated by the ETC to drive ATP synthesis</li>
+    <li>C. Both produce the same amount of ATP per reaction event</li>
+    <li>D. Oxidative phosphorylation requires no oxygen; substrate-level phosphorylation requires oxygen</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p><strong>Substrate-level phosphorylation (SLP):</strong> A phosphate group is transferred from a high-energy phosphorylated substrate directly to ADP → ATP. No ETC or proton gradient needed. Occurs in: glycolysis (phosphoglycerate kinase, pyruvate kinase) and citric acid cycle (succinyl-CoA synthetase → GTP → ATP). Produces small amounts of ATP. <strong>Oxidative phosphorylation (OxPhos):</strong> NADH and FADH₂ deliver electrons to the ETC → proton pumping creates H⁺ gradient across inner mitochondrial membrane → H⁺ flows back through ATP synthase (chemiosmosis) → ATP synthesis. Requires O₂ as final electron acceptor. Produces ~32–34 ATP per glucose. OxPhos produces the majority of ATP in aerobic organisms. Chemiosmotic theory was proposed by Peter Mitchell (Nobel Prize, 1978).</p>
+      <p><strong>Why A is wrong:</strong> Glycolysis (cytoplasm) uses substrate-level phosphorylation. The Krebs cycle (mitochondrial matrix) uses SLP too. Oxidative phosphorylation occurs at the inner mitochondrial membrane — not the cytoplasm.</p>
+      <p><strong>Why C is wrong:</strong> OxPhos produces far more ATP (~34) than SLP (~4) per glucose. They are not equivalent.</p>
+      <p><strong>Why D is wrong:</strong> Oxidative phosphorylation requires oxygen (as final electron acceptor). Substrate-level phosphorylation does NOT require oxygen (glycolysis works anaerobically).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">ATP is described as the "energy currency" of the cell. Which chemical feature of ATP enables it to release energy when hydrolysed?</div>
+  <ul class="options">
+    <li>A. ATP's adenine base contains high-energy electrons that are released when ATP is hydrolysed</li>
+    <li class="correct">B. ATP has two high-energy phosphoanhydride bonds. Hydrolysis of the terminal phosphate releases ~30.5 kJ/mol due to relief of charge repulsion between phosphate groups, resonance stabilisation of the products, and hydration of the phosphate groups</li>
+    <li>C. ATP hydrolysis breaks the ribose sugar ring, releasing all its stored energy at once</li>
+    <li>D. ATP is a large molecule with high molecular weight — the energy released is proportional to its mass</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>ATP (adenosine triphosphate) = adenine + ribose + 3 phosphate groups linked by phosphoanhydride bonds (P–O–P). The hydrolysis reaction: ATP + H₂O → ADP + Pᵢ (inorganic phosphate); ΔG°' = −30.5 kJ/mol. Why so much energy? (1) <strong>Charge repulsion</strong> — the negatively charged phosphate groups electrostatically repel each other at physiological pH; in ATP they are held together under tension. Hydrolysis relieves this. (2) <strong>Resonance stabilisation</strong> — phosphate and ADP products have more resonance structures than ATP → products more stable. (3) <strong>Solvation</strong> — the products (ADP, Pᵢ) are better hydrated by water than ATP. ATP ↔ ADP + Pᵢ is the fundamental energy currency cycle: energy-releasing reactions (catabolism) regenerate ATP from ADP; ATP is used in energy-consuming reactions (anabolism, active transport, muscle contraction).</p>
+      <p><strong>Why A is wrong:</strong> The energy is not in the adenine base's electrons — it is in the phosphoanhydride bonds of the triphosphate portion.</p>
+      <p><strong>Why C is wrong:</strong> ATP hydrolysis breaks the phosphate ester bond (ATP + H₂O → ADP + Pᵢ), not the ribose ring.</p>
+      <p><strong>Why D is wrong:</strong> Molecular weight is irrelevant to chemical energy content. Small molecules can release large amounts of energy (e.g., trinitrotoluene).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">A cell is treated with a drug that specifically blocks pyruvate entry into mitochondria. What would be the most likely consequence under aerobic conditions?</div>
+  <ul class="options">
+    <li>A. The cell would switch to photosynthesis to compensate for reduced ATP production</li>
+    <li>B. The electron transport chain would use glucose directly as a fuel source instead</li>
+    <li class="correct">C. Pyruvate would accumulate in the cytoplasm; the cell would switch to lactic acid fermentation; only 2 ATP per glucose would be produced; aerobic respiration (Krebs cycle, ETC) would cease</li>
+    <li>D. Glycolysis would immediately stop because it requires pyruvate transport as a feedback signal</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The consequences of blocking pyruvate transport into mitochondria (via the Mitochondrial Pyruvate Carrier, MPC): (1) Glycolysis continues (it's cytoplasmic) → pyruvate builds up in cytoplasm. (2) No pyruvate oxidation → no acetyl-CoA → Krebs cycle halts → no NADH/FADH₂ from Krebs → ETC dramatically reduced → oxidative phosphorylation falls. (3) NADH from glycolysis cannot be processed by ETC → NAD⁺ regenerated by lactic acid fermentation instead. (4) Net ATP production falls from ~36–38 to just 2 per glucose. (5) The cell becomes dependent on glycolysis alone — this is relevant to cancer cells (Warburg effect: many cancer cells preferentially use glycolysis even in the presence of O₂, partly due to altered mitochondrial function).</p>
+      <p><strong>Why A is wrong:</strong> Animal cells do not perform photosynthesis — they lack chloroplasts.</p>
+      <p><strong>Why B is wrong:</strong> The ETC accepts electrons from NADH and FADH₂ — not directly from glucose. Glucose must be broken down through glycolysis → pyruvate → acetyl-CoA before its energy can reach the ETC.</p>
+      <p><strong>Why D is wrong:</strong> Glycolysis does not require a pyruvate "feedback signal" to proceed. It uses glucose as its substrate and continues as long as glucose and NAD⁺ are available.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">In a redox reaction, which of the following correctly identifies the reducing agent and the oxidising agent?</div>
+  <ul class="options">
+    <li>A. The reducing agent gains electrons (is oxidised); the oxidising agent loses electrons (is reduced)</li>
+    <li class="correct">B. The reducing agent LOSES electrons (is itself oxidised) and causes the reduction of something else; the oxidising agent GAINS electrons (is itself reduced) and causes the oxidation of something else</li>
+    <li>C. The reducing agent and oxidising agent both lose electrons simultaneously</li>
+    <li>D. The reducing agent must be a metal ion; the oxidising agent must be O₂</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>This is a classic point of confusion. The mnemonic OIL RIG helps: Oxidation Is Loss (of electrons); Reduction Is Gain (of electrons). The <strong>reducing agent</strong> donates (loses) electrons → it gets oxidised in the process → it "reduces" the other reactant. The <strong>oxidising agent</strong> accepts (gains) electrons → it gets reduced in the process → it "oxidises" the other reactant. Biological example: NADH is a reducing agent in the ETC — NADH donates electrons (NADH → NAD⁺ = NADH is oxidised) → O₂ gains electrons (O₂ → H₂O = O₂ is reduced) = O₂ is the oxidising agent. Think of it: the agent that REDUCES the other is itself getting OXIDISED (and vice versa).</p>
+      <p><strong>Why A is wrong:</strong> Option A has the definitions exactly backwards — it states the reducing agent gains electrons and the oxidising agent loses electrons, which is the opposite of correct.</p>
+      <p><strong>Why C is wrong:</strong> In a redox reaction, one species loses electrons (is oxidised) and another gains electrons (is reduced). They cannot both lose electrons simultaneously — charge must be conserved.</p>
+      <p><strong>Why D is wrong:</strong> Reducing agents can be many types of molecules (NADH, FADH₂, glucose, Fe²⁺). Oxidising agents can also vary (NAD⁺, FAD, O₂, Fe³⁺, cytochromes). No restriction to metals or O₂.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">Why does aerobic cellular respiration produce significantly more ATP per glucose than anaerobic fermentation?</div>
+  <ul class="options">
+    <li>A. Aerobic respiration uses glucose more efficiently because it produces fewer waste products</li>
+    <li class="correct">B. Aerobic respiration fully oxidises glucose to CO₂ and H₂O, generating large amounts of NADH and FADH₂ that drive ATP production via the electron transport chain and chemiosmosis (~32–38 ATP total). Anaerobic fermentation produces only 2 ATP from glycolysis and cannot use the ETC</li>
+    <li>C. The presence of oxygen directly catalyses the conversion of glucose to ATP without intermediate steps</li>
+    <li>D. Anaerobic fermentation uses more glucose per cycle, reducing the total yield</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>ATP yield comparison: <br>
+      <strong>Anaerobic fermentation</strong>: Glycolysis only → 2 net ATP per glucose. NADH is re-oxidised by fermentation (no additional ATP). <br>
+      <strong>Aerobic respiration</strong>: Glycolysis (2 ATP + 2 NADH) + Pyruvate oxidation (2 NADH) + Krebs cycle (2 ATP/GTP + 6 NADH + 2 FADH₂) + ETC/OxPhos (NADH ≈ 2.5 ATP each; FADH₂ ≈ 1.5 ATP each) = approximately 30–32 ATP total (updated estimate from P/O ratios) or 36–38 ATP (older estimate). The critical difference is the <strong>electron transport chain</strong>: only possible with O₂ as the terminal electron acceptor. O₂ is the key to using the energy in NADH/FADH₂. Without O₂, the ETC backs up, NADH cannot be re-oxidised by the chain, and all that energy in NADH is wasted (from an ATP production standpoint).</p>
+      <p><strong>Why A is wrong:</strong> While CO₂ and H₂O are waste products of aerobic respiration, this is not WHY aerobic respiration makes more ATP. The reason is the ETC/chemiosmosis using O₂.</p>
+      <p><strong>Why C is wrong:</strong> Oxygen is the terminal electron acceptor, not a catalyst for direct ATP synthesis from glucose. The pathway involves many enzymatic steps.</p>
+      <p><strong>Why D is wrong:</strong> The amount of glucose used per cycle is the same (1 glucose). The difference is in the yield per glucose, not glucose consumption rate.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Which of the following is the CORRECT sequence of stages in aerobic cellular respiration?</div>
+  <ul class="options">
+    <li>A. Krebs cycle → Glycolysis → Pyruvate oxidation → Electron transport chain</li>
+    <li>B. Glycolysis → Electron transport chain → Pyruvate oxidation → Krebs cycle</li>
+    <li class="correct">C. Glycolysis (cytoplasm) → Pyruvate oxidation (mitochondrial matrix) → Krebs/Citric Acid Cycle (mitochondrial matrix) → Electron transport chain + Oxidative phosphorylation (inner mitochondrial membrane)</li>
+    <li>D. Pyruvate oxidation → Glycolysis → Krebs cycle → Oxidative phosphorylation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The four stages and their locations: (1) <strong>Glycolysis</strong> — CYTOPLASM. Glucose (6C) → 2 Pyruvate (3C) + 2 ATP net + 2 NADH. (2) <strong>Pyruvate oxidation</strong> — MITOCHONDRIAL MATRIX (inner membrane transport). Pyruvate → Acetyl-CoA + CO₂ + NADH (x2 per glucose; 1 per pyruvate). Pyruvate dehydrogenase complex. (3) <strong>Krebs (Citric Acid) Cycle</strong> — MITOCHONDRIAL MATRIX. Acetyl-CoA + Oxaloacetate → Citrate → ... → Oxaloacetate. Per cycle (×2 for glucose): 3 NADH, 1 FADH₂, 1 GTP/ATP, 2 CO₂. (4) <strong>ETC + Oxidative Phosphorylation</strong> — INNER MITOCHONDRIAL MEMBRANE. NADH/FADH₂ donate electrons → proton gradient → ATP synthase → ~28–34 ATP. O₂ is reduced to H₂O at Complex IV.</p>
+      <p><strong>Why A, B, D are wrong:</strong> All three options have the stages in incorrect order. Glycolysis MUST come first (it produces pyruvate). Pyruvate oxidation must come before the Krebs cycle (it generates Acetyl-CoA). The ETC comes last, using the electron carriers generated in the earlier stages.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">An athlete's muscle cells run out of oxygen during a sprint. Which of the following accurately describes the metabolic consequence?</div>
+  <ul class="options">
+    <li>A. The cells switch to fat oxidation, which provides more ATP without oxygen</li>
+    <li>B. Glycolysis stops immediately because it requires oxygen as a cofactor</li>
+    <li class="correct">C. The cells switch to lactic acid fermentation — glycolysis continues, pyruvate is converted to lactate by lactate dehydrogenase, regenerating NAD⁺. ATP production falls to 2 per glucose; lactate accumulates (contributing to muscle fatigue)</li>
+    <li>D. The cells import extra glucose from the bloodstream to compensate for reduced ATP production efficiency</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>When O₂ is insufficient for oxidative phosphorylation (intense exercise), muscle cells switch to lactic acid fermentation: Pyruvate + NADH + H⁺ → Lactate + NAD⁺ (catalysed by lactate dehydrogenase, LDH). This regenerates NAD⁺ → glycolysis continues → 2 ATP per glucose. Lactate is released into the blood → transported to the liver → converted back to glucose (Cori cycle) or oxidised when O₂ becomes available post-exercise ("oxygen debt" / excess post-exercise oxygen consumption, EPOC). The "burn" felt in muscles during intense exercise was classically attributed to lactate accumulation, though current research suggests H⁺ (acidosis from ATP hydrolysis) is more directly responsible for fatigue.</p>
+      <p><strong>Why A is wrong:</strong> β-oxidation of fatty acids (fat oxidation) ALSO requires oxygen — it enters the aerobic pathway via acetyl-CoA → Krebs cycle → ETC. It cannot be used anaerobically.</p>
+      <p><strong>Why B is wrong:</strong> Glycolysis is an ANAEROBIC process — it does not require oxygen. This is why it's the first metabolic pathway to have evolved.</p>
+      <p><strong>Why D is wrong:</strong> While cells may upregulate glucose import (by increasing GLUT4 on the membrane in response to exercise), this does not compensate for the reduced ATP production per glucose — it just increases glycolysis rate.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">During glycolysis, the conversion of phosphoenolpyruvate (PEP) to pyruvate is catalysed by pyruvate kinase. This step is important because:</div>
+  <ul class="options">
+    <li>A. It consumes one ATP to phosphorylate PEP, activating it for the next step</li>
+    <li class="correct">B. It is an irreversible reaction that transfers a phosphate group from PEP to ADP, producing ATP by substrate-level phosphorylation — and it generates one of the 2 net ATP molecules per glucose in glycolysis (4 produced, 2 consumed earlier)</li>
+    <li>C. It allows pyruvate to enter the nucleus for transcription of metabolic genes</li>
+    <li>D. It is the committed step of glycolysis that determines the overall flux</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Pyruvate kinase (PK) catalyses: PEP (phosphoenolpyruvate) + ADP → Pyruvate + ATP. This is substrate-level phosphorylation — the phosphate from PEP (a very high-energy molecule) is directly transferred to ADP. This step occurs twice per glucose molecule (once for each triose phosphate from the original hexose). So: 2 × ATP = 2 ATP from this step. Combined with 2 ATP from the phosphoglycerate kinase step = 4 gross ATP. Minus 2 ATP consumed in Phase 1 (hexokinase + PFK-1) = 2 net ATP. Pyruvate kinase is an irreversible step (committed to pyruvate production). Allosteric regulation: activated by fructose-1,6-bisphosphate (feedforward activation from PFK-1); inhibited by ATP and alanine; regulated by insulin/glucagon (phosphorylation in liver).</p>
+      <p><strong>Why A is wrong:</strong> Pyruvate kinase PRODUCES ATP (not consumes it). PEP → Pyruvate releases energy that drives phosphorylation of ADP → ATP.</p>
+      <p><strong>Why C is wrong:</strong> Pyruvate does not enter the nucleus. It enters the mitochondrial matrix (under aerobic conditions) or is reduced to lactate/ethanol (under anaerobic conditions).</p>
+      <p><strong>Why D is wrong:</strong> The committed (rate-limiting) step of glycolysis is PFK-1 (phosphofructokinase-1), not pyruvate kinase. PFK-1 is the primary allosteric control point.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

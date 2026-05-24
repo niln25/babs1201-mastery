@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 10: DNA Replication</title>
+<style>
+  :root { --primary: #1a3a5c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 10: DNA Replication &nbsp;|&nbsp; DNA Structure · Semiconservative Replication · Replication Enzymes · Leading/Lagging Strand · Proofreading</p>
+</div>
+<h2 class="section-title">Questions</h2>
+
+<div class="question-card">
+  <div class="question-number">Question 1</div>
+  <div class="question-text">DNA replication is described as "semiconservative." What does this mean?</div>
+  <ul class="options">
+    <li>A. Each new DNA molecule is entirely new — neither strand is from the original molecule</li>
+    <li>B. Only half of the DNA molecule is replicated; the other half is conserved for use in transcription</li>
+    <li class="correct">C. Each new double-stranded DNA molecule contains one original (parental) strand and one newly synthesised strand</li>
+    <li>D. Each strand is cut in half, and each half is used as a template for a new DNA molecule</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: C</strong></p>
+    <p>Semiconservative replication (proposed by Watson and Crick, 1953; demonstrated by Meselson-Stahl experiment, 1958) means: the two parental strands separate; each serves as a template for a new complementary strand; each resulting daughter DNA molecule has one old (conserved) strand + one new strand. The Meselson-Stahl experiment used ¹⁵N/¹⁴N labelling of E. coli DNA. After one generation in ¹⁴N medium, all DNA was intermediate density (one ¹⁵N strand + one ¹⁴N strand) — proving semiconservative replication. After two generations: equal amounts of intermediate and light DNA — consistent only with semiconservative (not conservative or dispersive) replication.</p>
+    <p><strong>Why A is wrong:</strong> This describes conservative replication (entirely new molecules) — the Meselson-Stahl experiment ruled this out.</p>
+    <p><strong>Why B is wrong:</strong> The whole DNA molecule is replicated during S phase. There is no "reserved half" for transcription.</p>
+    <p><strong>Why D is wrong:</strong> Strands are not physically cut in half. They separate at the replication fork by helicase unwinding.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 2</div>
+  <div class="question-text">Why does DNA polymerase require a primer to begin synthesis?</div>
+  <ul class="options">
+    <li>A. The primer provides the template sequence that DNA polymerase reads</li>
+    <li class="correct">B. DNA polymerase can only ADD nucleotides to a pre-existing 3'-OH group — it cannot initiate a new strand de novo. The RNA primer (made by primase) provides the free 3'-OH that DNA polymerase extends</li>
+    <li>C. The primer supplies extra energy (as ATP) needed by DNA polymerase for synthesis</li>
+    <li>D. The primer prevents helicase from re-annealing the separated strands before polymerase arrives</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>DNA polymerases III (prokaryotes) and δ/ε (eukaryotes) can only extend a pre-existing strand — they cannot start a new strand from scratch (de novo). Reason: The polymerase active site performs a nucleophilic attack of the 3'-OH on the incoming dNTP's α-phosphate. No 3'-OH = no attack = no synthesis. Solution: Primase (an RNA polymerase that CAN initiate de novo) synthesises a short RNA primer (~10 nt) complementary to the template. This primer has a free 3'-OH → DNA polymerase extends it with DNA nucleotides. The RNA primer is later removed: (Prokaryotes) by DNA polymerase I's 5'→3' exonuclease + gap filling. (Eukaryotes) by RNase H and FEN1 + gap filling by DNA pol δ. The remaining nick is sealed by DNA ligase.</p>
+    <p><strong>Why A is wrong:</strong> The template is the parental DNA strand — not the primer. The primer provides the 3'-OH initiation point.</p>
+    <p><strong>Why C is wrong:</strong> Energy for DNA synthesis comes from the hydrolysis of dNTP pyrophosphate (PPᵢ released when each dNTP is incorporated) — not from the primer.</p>
+    <p><strong>Why D is wrong:</strong> SSBs (single-strand binding proteins) prevent re-annealing of template strands — not the primer.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">Why is one new DNA strand synthesised continuously (leading strand) while the other is synthesised in fragments (lagging strand)?</div>
+  <ul class="options">
+    <li>A. The leading strand uses DNA polymerase I; the lagging strand uses DNA polymerase III</li>
+    <li class="correct">B. DNA polymerase can only synthesise in the 5'→3' direction. The leading strand template runs 3'→5' (same direction as fork movement) so synthesis is continuous. The lagging strand template runs 5'→3' (opposite to fork movement), so synthesis must proceed in short 5'→3' fragments (Okazaki fragments) away from the fork</li>
+    <li>C. The leading strand has more GC base pairs, making it easier to synthesise continuously</li>
+    <li>D. The lagging strand is not a real DNA strand — it is an RNA molecule that is eventually converted to DNA after synthesis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>DNA polymerase is directionally constrained — it can only add nucleotides to the 3' end of a growing strand (5'→3' synthesis). At the replication fork, one template strand runs 3'→5' in the direction of fork movement → its complementary strand can be synthesised continuously toward the fork = leading strand. The other template strand runs 5'→3' in the direction of fork movement → to synthesise 5'→3', polymerase must move AWAY from the fork in short segments = Okazaki fragments (~100–200 nt in eukaryotes, ~1000–2000 nt in prokaryotes). Each Okazaki fragment requires: (1) new primer by primase, (2) DNA polymerase extension, (3) primer removal, (4) gap filling, (5) nick sealing by ligase. This makes lagging strand synthesis complex and discontinuous.</p>
+    <p><strong>Why A is wrong:</strong> Both strands use DNA polymerase III (in prokaryotes). The difference in continuity is due to directionality, not enzyme type.</p>
+    <p><strong>Why C is wrong:</strong> The GC content of leading vs lagging strand templates is not systematically different. The directionality constraint, not base composition, determines continuity.</p>
+    <p><strong>Why D is wrong:</strong> The lagging strand IS a real DNA strand. The RNA components are the primers, which are later replaced with DNA.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">Helicase plays which role in DNA replication?</div>
+  <ul class="options">
+    <li>A. It synthesises the RNA primer needed to initiate DNA synthesis</li>
+    <li>B. It seals the nicks in the sugar-phosphate backbone after Okazaki fragment ligation</li>
+    <li class="correct">C. It unwinds the double helix at the replication fork by breaking hydrogen bonds between base pairs, using ATP, to expose single-stranded template for polymerase</li>
+    <li>D. It removes the RNA primer from Okazaki fragments on the lagging strand</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: C</strong></p>
+    <p>Replication fork enzymes: <strong>Helicase</strong> (DnaB in E. coli; MCM complex in eukaryotes) — unwinds the double helix by hydrolyzing ATP to break hydrogen bonds. Moves along the DNA, opening the helix at ~1,000 bp/sec. <strong>Primase</strong> (DnaG) — synthesises RNA primers. <strong>SSB proteins</strong> (single-strand binding) — stabilise unwound template strands. <strong>Topoisomerase II (DNA gyrase)</strong> — relieves positive supercoiling ahead of the fork (introduces negative supercoils/cuts both strands). <strong>DNA Polymerase III</strong> — extends primers with DNA. <strong>DNA Polymerase I</strong> (prokaryotes) — removes RNA primers and fills gaps. <strong>DNA Ligase</strong> — seals nicks. <strong>Primase</strong> synthesises RNA primers; ligase seals nicks — these are NOT helicase functions.</p>
+    <p><strong>Why A is wrong:</strong> Primase synthesises RNA primers — not helicase.</p>
+    <p><strong>Why B is wrong:</strong> DNA ligase seals nicks (covalent phosphodiester bond formation) after gap filling.</p>
+    <p><strong>Why D is wrong:</strong> RNA primer removal is carried out by DNA polymerase I's 5'→3' exonuclease activity (prokaryotes) or by RNase H/FEN1 (eukaryotes).</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">The "end replication problem" refers to:</div>
+  <ul class="options">
+    <li>A. The difficulty of initiating replication at origins of replication in large eukaryotic chromosomes</li>
+    <li class="correct">B. The inability of DNA polymerase to fully replicate the ends of linear chromosomes — because the RNA primer at the 3' end of the lagging strand template cannot be replaced with DNA, causing progressive shortening of chromosomes with each cell division (addressed by telomerase in germ cells and stem cells)</li>
+    <li>C. The challenge of ligating the leading and lagging strands at the replication fork terminus</li>
+    <li>D. The problem of the two daughter chromosomes remaining intertwined after replication</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>Linear eukaryotic chromosomes have a problem at their ends (telomeres): When the final RNA primer on the lagging strand (at the very end of the chromosome) is removed, there is no upstream 3'-OH for DNA polymerase to fill the gap (nothing upstream of the end). Result: the 5' end of the newly synthesised strand is shorter than the template → progressive shortening of telomeres with each mitotic division. In normal somatic cells, telomeres shorten with age → eventually reach a critical length → triggers senescence or apoptosis. <strong>Telomerase</strong> (a reverse transcriptase with an internal RNA template) extends the 3' end of the parental strand, providing a template for lagging strand completion. Telomerase is active in germ cells, stem cells, and most cancer cells (telomere maintenance enables unlimited division).</p>
+    <p><strong>Why A is wrong:</strong> Eukaryotes have multiple origins of replication (origins of replication, ORC complexes) — this is not the "end replication problem." Having many origins speeds up eukaryotic replication.</p>
+    <p><strong>Why C is wrong:</strong> Leading and lagging strands are synthesised on separate template strands — they don't "meet" and require ligation at the terminus in this way.</p>
+    <p><strong>Why D is wrong:</strong> Intertwined chromosomes after replication (catenanes) are resolved by Topoisomerase II (decatenation) — this is a separate issue from the end replication problem.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">DNA polymerase has proofreading activity. What does this mean, and why is it important?</div>
+  <ul class="options">
+    <li>A. DNA polymerase can read the finished DNA strand to check it matches the template — this occurs after replication is complete</li>
+    <li class="correct">B. DNA polymerase III has a 3'→5' exonuclease activity that can remove a misincorporated nucleotide from the 3' end of the growing strand immediately after insertion, before continuing synthesis — reducing the error rate from ~1 in 10⁵ to ~1 in 10⁷</li>
+    <li>C. DNA polymerase uses proofreading to remove the RNA primer after Okazaki fragment synthesis</li>
+    <li>D. Proofreading is performed by a separate enzyme (exonuclease III) that checks the new strand after polymerase has moved on</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>Fidelity of DNA replication: Base selection alone by Watson-Crick base pairing: ~1 error per 10⁵ bases. With 3'→5' proofreading exonuclease: ~1 per 10⁷. With mismatch repair (post-replication): ~1 per 10⁹–10¹⁰. Mechanism: when a wrong nucleotide is inserted, the mismatched base pair is thermodynamically unstable → polymerase pauses → 3'→5' exonuclease removes the mismatched nucleotide from the 3' end → polymerase reinserts the correct nucleotide and continues. This real-time proofreading is intrinsic to the polymerase enzyme (same polypeptide, different domain). The human genome is ~3 × 10⁹ bp — overall error rate of ~1 per 10¹⁰ means roughly 0.3 errors per genome per replication.</p>
+    <p><strong>Why A is wrong:</strong> Proofreading occurs DURING synthesis (not after). The polymerase checks each nucleotide as it is added.</p>
+    <p><strong>Why C is wrong:</strong> RNA primer removal is by 5'→3' exonuclease activity (DNA pol I) or RNase H — not the 3'→5' proofreading exonuclease.</p>
+    <p><strong>Why D is wrong:</strong> The 3'→5' proofreading exonuclease is an intrinsic domain of DNA polymerase III (same protein) — not a separate enzyme. Mismatch repair IS a separate system that catches errors post-replication, but proofreading is the term specifically for the real-time 3'→5' exonuclease within pol III.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Which of the following correctly describes the antiparallel orientation of the two strands in a DNA double helix?</div>
+  <ul class="options">
+    <li>A. Both strands run in the same 5'→3' direction parallel to each other</li>
+    <li class="correct">B. One strand runs 5'→3' in one direction; the complementary strand runs 5'→3' in the opposite direction (i.e., 3'→5' relative to the first strand) — their sugar-phosphate backbones run antiparallel</li>
+    <li>C. The two strands are parallel but twisted in opposite directions around the helix axis</li>
+    <li>D. One strand is DNA; the other strand is RNA, which is why they run in opposite orientations</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>The antiparallel nature of DNA is fundamental. Strand 1: 5'—ATCGGATC—3'. Strand 2: 3'—TAGCCTAG—5' (= 5'—GATCCGAT—3' read in the other direction). The two strands run in antiparallel directions: the 3' end of one strand is paired with the 5' end of the other. This antiparallel arrangement allows proper Watson-Crick base pairing (A–T, G–C) and is required for DNA polymerase function (which only synthesises 5'→3'). The phosphate group connects the 3' carbon of one sugar to the 5' carbon of the next sugar in the chain. The 5' end has a free phosphate; the 3' end has a free hydroxyl group.</p>
+    <p><strong>Why A is wrong:</strong> If both strands ran parallel, Watson-Crick base pairing would be sterically impossible.</p>
+    <p><strong>Why C is wrong:</strong> The strands are antiparallel — one 5'→3' left to right, one 3'→5' left to right. They are both wound in the same handedness (right-handed B-form helix), not in opposite twist directions.</p>
+    <p><strong>Why D is wrong:</strong> In the DNA double helix, both strands are DNA. (RNA-DNA hybrids do exist during transcription and replication, but the double helix Watson and Crick described is dsDNA.)</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Which of the following base pairings is correct for DNA?</div>
+  <ul class="options">
+    <li>A. Adenine pairs with Cytosine (via 3 hydrogen bonds); Guanine pairs with Thymine (via 2 hydrogen bonds)</li>
+    <li class="correct">B. Adenine pairs with Thymine (via 2 hydrogen bonds); Guanine pairs with Cytosine (via 3 hydrogen bonds)</li>
+    <li>C. Adenine pairs with Guanine (both purines); Cytosine pairs with Thymine (both pyrimidines)</li>
+    <li>D. Adenine pairs with Uracil (via 2 hydrogen bonds); Guanine pairs with Cytosine (via 3 hydrogen bonds)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>Chargaff's rules (1950): In DNA, [A] = [T] and [G] = [C]. This is because A always pairs with T and G always pairs with C (complementary base pairing). Hydrogen bonds: A–T: 2 H-bonds. G–C: 3 H-bonds. This is why G–C rich DNA is more thermally stable (higher melting temperature Tm) than A–T rich DNA. The base pairs are also complementary in terms of purine-pyrimidine pairing: A (purine) + T (pyrimidine); G (purine) + C (pyrimidine). This maintains consistent width of the double helix. In RNA: U replaces T, so base pairing is A–U (2 H-bonds) and G–C (3 H-bonds).</p>
+    <p><strong>Why A is wrong:</strong> A pairs with T (not C); G pairs with C (not T). Also, the H-bond numbers are correct for the wrong pairings.</p>
+    <p><strong>Why C is wrong:</strong> Purine-purine pairing (A–G) and pyrimidine-pyrimidine pairing (C–T) would not fit in the double helix — the distance would be wrong.</p>
+    <p><strong>Why D is wrong:</strong> Uracil is the base in RNA, not DNA. In DNA, Thymine (not Uracil) pairs with Adenine.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">What is the function of DNA ligase in DNA replication?</div>
+  <ul class="options">
+    <li>A. DNA ligase unwinds the double helix to expose the template for replication</li>
+    <li>B. DNA ligase synthesises RNA primers at the start of each Okazaki fragment</li>
+    <li class="correct">C. DNA ligase catalyses the formation of a phosphodiester bond between the 3'-OH of one DNA fragment and the 5'-phosphate of the adjacent fragment, sealing nicks in the sugar-phosphate backbone after Okazaki fragment assembly</li>
+    <li>D. DNA ligase removes misincorporated nucleotides from the 3' end of the growing strand</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: C</strong></p>
+    <p>After RNA primers are removed and gaps filled by DNA pol I (prokaryotes) or pol δ (eukaryotes), a "nick" remains — a break in the phosphodiester backbone where the 3'-OH of one fragment abuts the 5'-phosphate of the next, but they are not covalently joined. DNA ligase uses NAD⁺ (in prokaryotes) or ATP (in eukaryotes) as a cofactor to seal this nick: it attacks the 5'-phosphate with the 3'-OH, forming a phosphodiester bond and releasing NAD⁺/AMP. Ligase is also essential for: DNA repair (base excision repair, nucleotide excision repair, mismatch repair), recombination, and in molecular biology/biotechnology (joining restriction fragments in cloning).</p>
+    <p><strong>Why A is wrong:</strong> Helicase unwinds the double helix at the replication fork.</p>
+    <p><strong>Why B is wrong:</strong> Primase (a type of RNA polymerase) synthesises RNA primers.</p>
+    <p><strong>Why D is wrong:</strong> 3'→5' proofreading exonuclease activity removes misincorporated nucleotides — an intrinsic activity of DNA polymerase III, not DNA ligase.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">In eukaryotic cells, why is DNA replication faster overall despite eukaryotic cells having much more DNA than prokaryotes?</div>
+  <ul class="options">
+    <li>A. Eukaryotic DNA polymerases are faster than prokaryotic polymerases</li>
+    <li class="correct">B. Eukaryotic chromosomes have multiple origins of replication (thousands per chromosome) that fire simultaneously, allowing parallel replication from many start points across the genome</li>
+    <li>C. Eukaryotic cells replicate DNA in the nucleus where it is more concentrated, increasing local enzyme concentration and speed</li>
+    <li>D. Eukaryotes use RNA polymerase to replicate DNA, which is faster than DNA polymerase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>Replication rate comparison: E. coli DNA pol III: ~1,000 nt/sec; one origin of replication (oriC) on the circular chromosome (~4.6 Mbp); replication time ~40 min. Human cells: ~3,000 Mbp total DNA; if replicated from one origin at 1,000 nt/sec would take ~800 hours. In reality: ~30,000–50,000 origins per haploid genome fire across all chromosomes; each replication bubble extends bidirectionally; S phase takes ~8 hours. Origins are licensed by ORC (Origin Recognition Complex) → pre-replication complex assembly (Mcm2-7 helicase loading) → firing triggered by CDK and DDK kinases. Not all origins fire in every S phase; some fire early, some late.</p>
+    <p><strong>Why A is wrong:</strong> Eukaryotic DNA polymerases are actually SLOWER (~100 nt/sec for pol δ) than prokaryotic DNA pol III (~1,000 nt/sec). Speed per polymerase is not the reason for faster overall replication.</p>
+    <p><strong>Why C is wrong:</strong> Concentration effects in the nucleus are not the primary reason for faster replication. Multiple origins are the explanation.</p>
+    <p><strong>Why D is wrong:</strong> DNA replication in all organisms uses DNA polymerases. RNA polymerase is for transcription, not replication.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">What is the function of topoisomerase during DNA replication?</div>
+  <ul class="options">
+    <li>A. It adds methyl groups to DNA to distinguish parental strands from new strands during mismatch repair</li>
+    <li class="correct">B. It relieves torsional stress (positive supercoiling) that builds up ahead of the replication fork as helicase unwinds the double helix — by transiently cutting and rejoining DNA strands</li>
+    <li>C. It recruits primase to the replication fork to synthesise RNA primers</li>
+    <li>D. It phosphorylates the 3'-OH of the growing strand to activate it for nucleotide addition</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>As helicase unwinds the helix at the replication fork (rotating the two strands apart), the region ahead of the fork becomes overwound/positively supercoiled (torsional stress). If not relieved, this would stop helicase in its tracks. Topoisomerase II (DNA gyrase in prokaryotes) relieves this by: (1) Cutting both strands, (2) passing a segment of DNA through the break, (3) religating. This introduces negative supercoils that cancel the positive ones. Topoisomerase I cuts one strand, allows rotation, re-ligates — also relieves supercoiling. Topoisomerase II is also required at the end of replication to decatenate (unlink) the interlocked daughter chromosomes. Target of antibiotics (fluoroquinolones inhibit bacterial gyrase) and anticancer drugs (camptothecin inhibits Topo I; etoposide inhibits Topo II).</p>
+    <p><strong>Why A is wrong:</strong> DNA methylation for mismatch repair is performed by Dam methylase (prokaryotes) or other methyltransferases — not topoisomerase.</p>
+    <p><strong>Why C is wrong:</strong> Primase recruitment is coordinated by other components of the replisome (primase-helicase interactions) — not topoisomerase.</p>
+    <p><strong>Why D is wrong:</strong> DNA polymerase itself has the active site for nucleotide addition. The energy for synthesis comes from dNTP hydrolysis, not a separate phosphorylation step.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">During DNA replication, the sequence 5'-ATCGCG-3' acts as a template. What is the sequence of the newly synthesised complementary strand?</div>
+  <ul class="options">
+    <li>A. 5'-ATCGCG-3' (identical to the template)</li>
+    <li>B. 3'-TAGCGC-5' (complement, same polarity)</li>
+    <li class="correct">C. 5'-CGCGAT-3' (complement, antiparallel — written 5'→3')</li>
+    <li>D. 5'-UAGCGC-3' (complement using RNA bases)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: C</strong></p>
+    <p>Template: 5'-A T C G C G-3'. Complementary bases (A↔T, T↔A, C↔G, G↔C): T A G C G C. But the new strand is antiparallel — reads 3'→5' aligned with the template 5'→3'. Written 5'→3', the new strand is: 5'-C G C G A T-3'. Let's check: Template 5'→3': A-T-C-G-C-G. New strand 3'→5': T-A-G-C-G-C = 5'→3' read backwards: C-G-C-G-A-T. So 5'-CGCGAT-3' is correct.</p>
+    <p><strong>Why A is wrong:</strong> The new strand is complementary to the template, not identical.</p>
+    <p><strong>Why B is wrong:</strong> 3'-TAGCGC-5' is the complement, but the convention is always to write sequences 5'→3'. The same sequence written 5'→3' = CGCGAT (option C).</p>
+    <p><strong>Why D is wrong:</strong> Uracil (U) is found in RNA, not in newly synthesised DNA. The new DNA strand uses thymine (T).</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Mismatch repair (MMR) corrects errors that escape DNA polymerase proofreading. Which of the following describes how MMR distinguishes the new (error-containing) strand from the parental (template) strand?</div>
+  <ul class="options">
+    <li>A. The new strand is recognised because it has a 5'-triphosphate, indicating recent synthesis</li>
+    <li class="correct">B. In prokaryotes, the parental strand is methylated (Dam methylase methylates GATC sequences). After replication, the new strand is temporarily unmethylated → MMR proteins (MutS, MutL, MutH) nick the unmethylated (new) strand and repair the mismatch</li>
+    <li>C. RNA primers attached to the new strand signal MMR enzymes to repair that strand</li>
+    <li>D. The new strand has shorter telomeres, which MMR enzymes use to identify it</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>In E. coli MMR: (1) Dam methylase methylates the adenine in GATC sequences on both strands AFTER replication. (2) Immediately after replication, the new strand is unmethylated (hemi-methylated DNA). (3) MutS detects the mismatch. MutL recruits MutH. MutH nicks the unmethylated (new) strand near the GATC site. (4) The mismatched region of the new strand is removed (by UvrD helicase + exonucleases) → gap filled by DNA pol III → sealed by ligase. In eukaryotes (no methylation system): the discrimination is less well-understood — may involve strand discontinuities (nicks, gaps) in the newly synthesised strand and PCNA interactions. Human MMR genes: MSH2, MLH1, MSH6, PMS2. Mutations → Lynch syndrome (hereditary colorectal cancer).</p>
+    <p><strong>Why A is wrong:</strong> By the time MMR acts, the primer has been removed and the 5' triphosphate is not available as a signal.</p>
+    <p><strong>Why C is wrong:</strong> RNA primers are removed before or concurrently with MMR activity — they are not used as a strand-discrimination signal in MMR.</p>
+    <p><strong>Why D is wrong:</strong> Telomere length is not a mechanism for MMR to distinguish new from parental strands — especially at internal chromosomal regions far from telomeres.</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">Histones are essential for the packaging of DNA in eukaryotic nuclei. Which of the following correctly describes the nucleosome?</div>
+  <ul class="options">
+    <li>A. A nucleosome is a segment of bare double-stranded DNA between histone protein clusters</li>
+    <li class="correct">B. A nucleosome is the basic unit of chromatin consisting of ~146 bp of DNA wound ~1.65 times around an octamer of histone proteins (2 each of H2A, H2B, H3, H4), connected by linker DNA associated with histone H1</li>
+    <li>C. A nucleosome contains a single histone (H1) surrounded by ~200 bp of DNA</li>
+    <li>D. Nucleosomes are found only in heterochromatin (transcriptionally silent regions) and not in euchromatin</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>The nucleosome is the fundamental unit of eukaryotic chromatin packaging. Structure: "10 nm fibre" = "beads on a string." Each "bead" = nucleosome core particle = 146 bp DNA wrapped 1.65× around a histone octamer (H2A×2 + H2B×2 + H3×2 + H4×2). Nucleosomes are connected by linker DNA (~10–80 bp; ~20 bp average). Histone H1 binds the linker DNA and the core particle, sealing the DNA wrapping and enabling higher-order compaction (~30 nm chromatin fibre). This packaging achieves: ~40-fold compaction at the nucleosome level, and ultimately ~10,000-fold compaction in mitotic chromosomes. Histone tails (N-terminal) are sites of post-translational modifications (acetylation, methylation, phosphorylation, ubiquitination) that regulate chromatin state and gene expression.</p>
+    <p><strong>Why A is wrong:</strong> "Linker DNA" (the DNA BETWEEN nucleosomes) is the bare region — the nucleosome itself is the histone-DNA complex.</p>
+    <p><strong>Why C is wrong:</strong> The nucleosome core has an octamer of 4 histone types (8 histones total). H1 is the linker histone, not the core.</p>
+    <p><strong>Why D is wrong:</strong> Nucleosomes are present in both heterochromatin and euchromatin — they are universal. The difference is in how tightly the nucleosomes are packed and the modification state of the histones (acetylation loosens; methylation can tighten or loosen depending on residue).</p>
+  </div></details>
+</div>
+
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">An experiment uses bromodeoxyuridine (BrdU), a thymidine analogue that incorporates into newly synthesised DNA and can be detected by antibody staining. Cells are grown in BrdU for one round of replication, then transferred to normal medium for a second round. After the second round, what proportion of chromosomes would be expected to have BrdU in both strands?</div>
+  <ul class="options">
+    <li>A. All chromosomes (100%) — BrdU spreads throughout all newly synthesised DNA</li>
+    <li class="correct">B. 50% — after the second round in normal medium, one daughter cell gets the BrdU-containing strand + a new non-BrdU strand (one BrdU strand), and one gets two non-BrdU strands; so 50% of chromosomes have BrdU in one strand only, 50% have no BrdU — and 0% have BrdU in both strands</li>
+    <li>C. 25% — only a quarter of chromosomes contain any BrdU after two rounds</li>
+    <li>D. 0% — BrdU is diluted out entirely after the second round in normal medium</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Show Worked Solution</summary>
+  <div class="solution-body">
+    <p><strong>Correct Answer: B</strong></p>
+    <p>This is the Meselson-Stahl logic applied to BrdU. After round 1 (in BrdU): all chromosomes are BrdU/non-BrdU (one strand BrdU, one non-BrdU) — analogous to hybrid density in Meselson-Stahl. After round 2 (in normal Thymidine): Each BrdU/non-BrdU chromosome gives: one BrdU-strand + new non-BrdU strand = BrdU in one strand (hemi-labelled), one non-BrdU strand + new non-BrdU strand = no BrdU. Result: 50% hemi-labelled (BrdU in one strand only), 50% completely unlabelled. <strong>0% have BrdU in BOTH strands</strong> — this would only be possible if cells had gone through TWO rounds entirely in BrdU. This experiment demonstrates semiconservative replication.</p>
+    <p><strong>Why A is wrong:</strong> After the second round, BrdU is diluted — only half the chromosomes retain BrdU (in one strand).</p>
+    <p><strong>Why C is wrong:</strong> 50% (not 25%) of chromosomes retain BrdU after the second round.</p>
+    <p><strong>Why D is wrong:</strong> 50% of chromosomes still contain BrdU (in one strand) after the second round — BrdU is not completely diluted.</p>
+  </div></details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

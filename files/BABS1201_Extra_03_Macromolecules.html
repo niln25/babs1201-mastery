@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Macromolecules</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 3: Macromolecules I, II &amp; III &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 12 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A protein is denatured by high temperature but rapidly refolds to its native conformation when cooled. What does this demonstrate about protein folding?</p>
+  </div>
+  <ul class="options">
+    <li>A) Refolding requires ATP and molecular chaperones in all cases</li>
+    <li class="correct">B) The native tertiary structure is thermodynamically the most stable conformation under physiological conditions; the primary sequence encodes sufficient information to specify the 3D structure (Anfinsen's principle)</li>
+    <li>C) The protein folded randomly until it found a stable conformation</li>
+    <li>D) Denaturation permanently destroys secondary structure and refolding creates a new protein</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Christian Anfinsen demonstrated (Nobel 1972) that RNase A denatured with urea/β-mercaptoethanol spontaneously refolded to its active native state upon removal of denaturants. This shows the 3D structure is encoded in the amino acid sequence — the primary structure contains all the information needed. The native state is the thermodynamic minimum (lowest free energy). Chaperones (option A) assist in vivo (preventing aggregation in the crowded cellular environment) but many small proteins fold unaided in vitro. Denaturation unfolds secondary/tertiary structure but does NOT break covalent peptide bonds — the primary structure is intact for refolding.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">An enzyme has a Km of 0.1 mM and a Vmax of 100 μmol/min. A competitive inhibitor increases the apparent Km to 0.5 mM without changing Vmax. A non-competitive inhibitor halves the Vmax without changing Km. If both inhibitors are present at equal concentrations, what best describes the enzyme activity at [S] = 0.1 mM?</p>
+  </div>
+  <ul class="options">
+    <li>A) Activity equals 50% of Vmax because the competitive inhibitor has no effect at [S] = Km</li>
+    <li class="correct">B) Activity is less than 50% of uninhibited Vmax — the competitive inhibitor raises apparent Km above [S], reducing activity below Vmax/2; the non-competitive inhibitor further halves whatever activity remains</li>
+    <li>C) Activity is zero because both inhibitors together completely block all active sites</li>
+    <li>D) Activity equals Vmax because substrate and inhibitor compete, with substrate winning at [S] = Km</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Using Michaelis-Menten: v = Vmax[S]/(Km(app) + [S]). With competitive inhibitor alone: apparent Km = 0.5 mM. At [S] = 0.1 mM: v = 100 × 0.1/(0.5 + 0.1) = 10/0.6 ≈ 16.7 μmol/min (not 50% of Vmax). With non-competitive inhibitor also present: Vmax is halved to 50 μmol/min. New activity ≈ 50 × 0.1/0.6 ≈ 8.3 μmol/min — roughly 8% of uninhibited Vmax. The key insight: at [S] = original Km = 0.1 mM, you'd normally be at 50% Vmax — but the competitive inhibitor raises apparent Km so you're now at much less than 50%, and non-competitive halves that further.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Starch and cellulose are both glucose polymers, yet one is digestible by humans and the other is not. The molecular explanation is:</p>
+  </div>
+  <ul class="options">
+    <li>A) Starch uses glucose monomers; cellulose uses fructose monomers</li>
+    <li>B) Cellulose is more branched than starch, making enzyme access difficult</li>
+    <li class="correct">C) Starch uses α(1→4) glycosidic bonds (with α(1→6) at branch points), which human amylase hydrolyses; cellulose uses β(1→4) glycosidic bonds, creating a straight, hydrogen-bonded fibrous structure that human digestive enzymes cannot break down</li>
+    <li>D) Cellulose is insoluble; starch forms micelles that enzymes can access more easily</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The difference is stereochemistry at the anomeric carbon. α-glucose has the C1-OH below the ring; β-glucose has it above. α(1→4) linkages (starch/glycogen) cause the polymer to coil into helices. β(1→4) linkages (cellulose) place alternate glucose monomers upside-down — creating flat, extended chains that hydrogen-bond laterally into rigid, insoluble microfibrils. Human amylase and glucosidases specifically recognise α-linkages; no human enzyme can cleave β-glycosidic bonds. Only organisms with cellulase (fungi, bacteria, termite gut bacteria) can digest cellulose. Chitin is similarly β-linked but uses N-acetylglucosamine.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A patient with PKU (phenylketonuria) cannot hydroxylate phenylalanine to tyrosine. This is caused by a mutation in phenylalanine hydroxylase, requiring a co-factor tetrahydrobiopterin (BH4). This example illustrates which level of protein structure-function relationship?</p>
+  </div>
+  <ul class="options">
+    <li>A) Primary structure only — a single amino acid change disrupts the enzyme</li>
+    <li>B) Secondary structure — loss of an alpha helix near the active site</li>
+    <li class="correct">C) All levels are involved — the primary sequence mutation alters tertiary folding of the active site, preventing co-factor (BH4) binding; prosthetic group/co-factor interaction is a quaternary/tertiary level phenomenon</li>
+    <li>D) Quaternary structure — loss of the active tetramer</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — PKU involves a cascade through structural levels. The primary sequence mutation (e.g., R408W, the most common in Europeans) alters the amino acid at a critical position. This disrupts the tertiary folding of the catalytic domain, preventing proper binding of BH4 co-factor and/or the iron cofactor. While phenylalanine hydroxylase is a tetramer (quaternary structure), the primary enzyme defect is in co-factor binding at the tertiary level. This question tests understanding that function emerges from all structural levels — a primary change ripples through secondary, tertiary, and ultimately functional consequences. This is a better synthesis question than asking about only one level.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Nucleotides are the monomers of nucleic acids but also have other vital cellular roles. Which statement correctly links nucleotide structure to a non-nucleic-acid function?</p>
+  </div>
+  <ul class="options">
+    <li>A) GTP is used in glycolysis to phosphorylate glucose at step 1</li>
+    <li class="correct">B) ATP's hydrolysis of the β–γ phosphoanhydride bond releases ~30 kJ/mol free energy that drives endergonic reactions; NAD⁺/NADH (a nucleotide-based coenzyme) carries electrons in redox reactions; cAMP (adenosine 3',5'-cyclic monophosphate) acts as a second messenger</li>
+    <li>C) Cytidine triphosphate (CTP) is the universal energy currency in all eukaryotes</li>
+    <li>D) Thymine nucleotide (TTP) functions as a coenzyme in amino acid metabolism</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Nucleotides perform multiple cellular roles beyond nucleic acid synthesis: ATP is the primary energy currency; GTP drives tubulin polymerisation and signal transduction (Ras GTPase); NAD⁺/NADH and FAD/FADH₂ are electron carriers (dinucleotide structure — two nucleosides); CoA (coenzyme A) contains an adenosine nucleotide core; cAMP and cGMP are second messengers. ATP is not used at glycolysis step 1 for glucose phosphorylation — hexokinase uses ATP as a phosphate donor. CTP is used in phospholipid synthesis, not as the universal energy currency (that's ATP). TTP is not a known coenzyme in amino acid metabolism.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A biochemist is testing an unknown macromolecule. Biuret test: positive (purple). Lugol's test: negative. Sudan IV test: negative. Benedict's test: negative. Based solely on these results, what can be concluded?</p>
+  </div>
+  <ul class="options">
+    <li>A) The sample contains a reducing sugar</li>
+    <li>B) The sample contains a polysaccharide</li>
+    <li class="correct">C) The sample contains protein (peptide bonds give a positive Biuret); starch/glycogen, lipids, and reducing sugars are absent</li>
+    <li>D) The sample contains a nucleic acid</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Systematically: Biuret reagent (Cu²⁺ in NaOH) turns purple/violet in the presence of peptide bonds (≥2 peptide bonds needed) — positive → protein present. Lugol's iodine turns blue-black with starch — negative → no starch. Sudan IV/III stains lipid droplets red — negative → no lipids. Benedict's reagent (Cu²⁺) is reduced to Cu₂O (red/orange precipitate) by reducing sugars (free aldehyde or ketone) — negative → no reducing sugars (though sucrose and starch are not detected here, only reducing sugars). Conclusion: protein is present; no starch, lipids, or reducing sugars detected. Nucleic acids are not tested by any of these four reagents.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">DNA is a more stable information storage molecule than RNA. Which two structural features of DNA contribute most to its greater chemical stability compared to RNA?</p>
+  </div>
+  <ul class="options">
+    <li>A) DNA is double-stranded; RNA is single-stranded — double-strandedness provides repair template</li>
+    <li class="correct">B) DNA uses deoxyribose (lacking the 2′-OH) — the 2′-OH in RNA makes it susceptible to alkaline hydrolysis via 2′,3′-cyclic phosphate intermediate; DNA uses thymine instead of uracil, which is less prone to spontaneous deamination-caused errors being "invisible"</li>
+    <li>C) DNA is found in the nucleus; RNA is in the cytoplasm — the nucleus is more protected from RNases</li>
+    <li>D) DNA has more hydrogen bonds per base pair (A-T = 2, G-C = 3) giving greater overall stability</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Two key chemical stability features: (1) The 2′-H (deoxyribose) in DNA: the 2′-OH in RNA can attack the adjacent 3′ phosphate, forming a 2′,3′-cyclic phosphate and cleaving the backbone — RNA is therefore ~100,000× more susceptible to alkaline hydrolysis than DNA. (2) Thymine vs uracil: cytosine spontaneously deaminates to uracil (a common mutation). In DNA, this is repaired by uracil-DNA glycosylase (recognises uracil as "wrong" in DNA). In RNA, uracil is normal — deamination of cytosine to uracil is undetectable and uncorrectable. Using thymine (methylated uracil) in DNA makes the deamination event recognisable and repairable. Double-strandedness (option A) allows repair but is not a chemical stability feature per se.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Prions are misfolded proteins (PrPSc) that convert normal proteins (PrPC) to the misfolded form. No nucleic acid is involved. This challenges the central dogma. Why do prion diseases violate the usual protein-disease paradigm?</p>
+  </div>
+  <ul class="options">
+    <li>A) Prions replicate by transcription — producing prion mRNA that is then translated</li>
+    <li class="correct">B) Prions demonstrate that disease can be transmitted purely by a protein conformation — the misfolded PrPSc acts as a template for converting PrPC, propagating without any nucleic acid; this challenges "information flows only DNA→RNA→Protein"</li>
+    <li>C) Prions integrate into the host genome and hijack normal gene expression</li>
+    <li>D) Prion disease is caused by RNA viruses that resemble proteins structurally</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Prions (PrPSc) are the same amino acid sequence as normal PrPC but have a fundamentally different 3D structure (more β-sheet, less α-helix). When PrPSc contacts PrPC, it catalyses a conformational change, converting PrPC to PrPSc — the misfolded form aggregates into amyloid plaques in the brain. There is no nucleic acid involved. This violates the central dogma's implicit assumption that "information" (in the sense of determining structure) flows from sequence to conformation only in one direction. Here, a protein conformation acts as "information" that propagates itself. Prion diseases (CJD, BSE/"mad cow", kuru, scrapie) are invariably fatal and neurodegenerative.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Saturated fatty acids have higher melting points than unsaturated fatty acids of the same chain length. If a poikilothermic organism (cold-blooded, e.g., a fish) moves from warm to cold water, how would you predict its membrane lipid composition to change to maintain fluidity?</p>
+  </div>
+  <ul class="options">
+    <li>A) Increase the proportion of saturated fatty acids to raise the melting point</li>
+    <li class="correct">B) Increase the proportion of unsaturated (especially polyunsaturated) fatty acids to lower the melting point of membrane lipids, maintaining fluidity at lower temperatures</li>
+    <li>C) Increase cholesterol content to stiffen the membrane and prevent cold-induced expansion</li>
+    <li>D) Replace phospholipids with triglycerides to reduce membrane melting point</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This is homeoviscous adaptation. In the cold, membranes with saturated fatty acids would become too rigid (gel phase), impeding membrane protein function and cell processes. To maintain liquid-crystal (fluid) state membranes, poikilotherms increase the proportion of unsaturated fatty acids — cis double bonds create kinks that prevent tight packing of acyl chains, lowering Tm. Cold-water fish membranes are enriched in polyunsaturated fatty acids (PUFAs) like EPA and DHA (omega-3s). In warm conditions, more saturated fatty acids are added to prevent excessive membrane fluidity. Cholesterol in mammals buffers fluidity bidirectionally but is less prominent in fish. Triglycerides are storage lipids, not membrane components.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Peptide bond formation during translation releases water and is thermodynamically unfavourable (endergonic). How does the ribosome drive this reaction forward?</p>
+  </div>
+  <ul class="options">
+    <li>A) ATP hydrolysis directly provides energy for each peptide bond formed</li>
+    <li>B) GTP hydrolysis by EF-Tu directly provides energy for peptide bond formation</li>
+    <li class="correct">C) The amino acid substrates are pre-activated as aminoacyl-tRNAs (amino acid + tRNA, formed by ATP hydrolysis); the energy stored in the aminoacyl-tRNA ester bond drives the peptidyl transferase reaction thermodynamically; the peptide bond itself is catalysed by rRNA</li>
+    <li>D) The negative entropy of forming a peptide bond is offset by the positive entropy of water release at room temperature</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Pre-activation is the key. Aminoacyl-tRNA synthetase (AARS) activates amino acids in a two-step reaction: (1) amino acid + ATP → aminoacyl-AMP + PPi (pyrophosphate); PPi is hydrolysed to 2Pi, pulling the reaction forward; (2) aminoacyl-AMP + tRNA → aminoacyl-tRNA + AMP. The energy stored in the aminoacyl-tRNA ester bond (~29 kJ/mol) exceeds that needed for peptide bond formation. During translation, the acyl group is transferred from tRNA to the growing chain — the energy of the ester bond drives peptide bond formation. GTP (by EF-Tu) is used for tRNA delivery/accommodation and translocation — not directly for peptide bond chemistry. The ribosome (rRNA) is a ribozyme that lowers activation energy but does not supply energy.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The Michaelis-Menten model assumes one substrate, rapid equilibrium, and steady-state conditions. Which enzyme MOST violates Michaelis-Menten kinetics, and why?</p>
+  </div>
+  <ul class="options">
+    <li>A) Hexokinase — because it has two substrates (glucose and ATP)</li>
+    <li class="correct">B) Haemoglobin (oxygen binding) — because its sigmoidal O₂-binding curve reflects cooperative binding between four subunits; adding O₂ to one subunit increases affinity of others (allosteric cooperativity), producing an S-shaped rather than hyperbolic curve</li>
+    <li>C) Lactate dehydrogenase — because it operates near equilibrium in muscle</li>
+    <li>D) Carbonic anhydrase — because it operates faster than diffusion limit</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Haemoglobin is not technically an enzyme but is the paradigm case of cooperative binding that violates Michaelis-Menten. Its tetrameric (α₂β₂) structure undergoes T→R state transition: binding of one O₂ increases affinity of remaining subunits. The O₂ binding curve is sigmoidal (S-shaped) — described by the Hill equation (n_H ≈ 2.8 for Hb), not the hyperbolic Michaelis-Menten equation. Allosteric enzymes (e.g., ATCase, PFK) similarly show sigmoidal kinetics. Hexokinase (two substrates) follows bi-substrate kinetics but can still be hyperbolic for each substrate independently. Carbonic anhydrase is fast but follows standard Michaelis-Menten kinetics.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">12</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A drug is designed to mimic the shape of the transition state of a specific enzyme's reaction. Why would a transition-state analogue be an especially effective enzyme inhibitor?</p>
+  </div>
+  <ul class="options">
+    <li>A) Transition-state analogues bind irreversibly to the active site by forming covalent bonds</li>
+    <li>B) Transition-state analogues are larger than substrates and block the active site sterically</li>
+    <li class="correct">C) Enzymes evolved to bind the transition state very tightly — more tightly than the substrate or product. A transition-state analogue exploits this extraordinarily high affinity (typically 10⁶–10¹⁰-fold greater than substrate) and binds essentially irreversibly under physiological conditions, maximally inhibiting the enzyme</li>
+    <li>D) Transition-state analogues act as alternative substrates that are slowly processed, tying up the enzyme</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The key insight from Pauling: enzymes work by binding the transition state (highest-energy intermediate) much more tightly than the substrate. This lowers the activation energy (Ea). The active site is geometrically and electrostatically complementary to the transition state — not the substrate. A molecule that mimics the transition state will bind with extraordinary affinity (Kd in the picomolar to femtomolar range). Examples: proline analogues for proline racemase; PALA (N-phosphonacetyl-L-aspartate) for ATCase; many successful drugs including HIV protease inhibitors are transition-state analogues. They are not necessarily covalent (although some natural enzyme inhibitors are).</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

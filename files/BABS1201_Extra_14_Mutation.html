@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Mutation</title>
+<style>
+  :root {
+    --primary: #2c5f2e;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: 1rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem 3rem; }
+  .meta-bar { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.8rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: .92rem; color: #495057; }
+  .meta-bar span strong { color: #212529; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; margin-bottom: 1.4rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; font-weight: 700; font-size: .85rem; padding: 3px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; white-space: nowrap; margin-top: 4px; }
+  .q-text { font-size: 1rem; font-weight: 500; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem 0; display: grid; gap: .5rem; }
+  .options li { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: 6px; font-size: .95rem; cursor: default; }
+  
+  
+  details { margin-top: .5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: .95rem; padding: .4rem 0; user-select: none; }
+  summary:hover { text-decoration: underline; }
+  .solution { background: #f1f8ff; border-left: 4px solid var(--primary); border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin-top: .6rem; font-size: .93rem; line-height: 1.7; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  .solution strong { color: #155724; }
+  .solution .wrong { color: #721c24; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice: Mutation</h1>
+  <p>Topic 14 · Advanced Application Questions · UNSW 2026</p>
+</header>
+<div class="container">
+  <div class="meta-bar">
+    <span><strong>Questions:</strong> 12</span>
+    <span><strong>Difficulty:</strong> Hard — multi-concept application</span>
+    <span><strong>Format:</strong> MCQ with worked solutions</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <p class="q-text">A coding sequence contains the mutation c.468G>A. The codon at position 156 changes from GAG (Glu) to AAG (Lys). What type of mutation is this, and what is the most likely effect on protein function?</p>
+    </div>
+    <ul class="options">
+      <li>A) Nonsense mutation — truncates the protein at position 156</li>
+      <li class="correct">B) Missense mutation — replaces a negatively charged residue with a positively charged residue; effect depends on whether position 156 is functionally critical</li>
+      <li>C) Silent mutation — the amino acid change is conservative so function is preserved</li>
+      <li>D) Frameshift mutation — the single base change shifts the reading frame</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> A missense mutation changes one amino acid to a <em>different</em> amino acid. Here, glutamic acid (Glu, negatively charged, acidic) is replaced by lysine (Lys, positively charged, basic) — a charge reversal. This is a <em>non-conservative</em> substitution. Whether it impairs function depends on whether position 156 is in the active site, a binding interface, or structurally important. The mutation may be neutral (tolerated position), hypomorphic (reduced function), or loss-of-function (critical site).</p>
+        <p class="wrong">A is wrong — a nonsense mutation creates a premature stop codon (UAA, UAG, UGA). AAG codes for Lys, not a stop codon.</p>
+        <p class="wrong">C is wrong — a silent (synonymous) mutation changes the codon but not the amino acid. Here the amino acid <em>does</em> change (Glu → Lys), and this is not conservative (opposite charges).</p>
+        <p class="wrong">D is wrong — a frameshift requires an insertion or deletion of a number of nucleotides not divisible by 3. A single base <em>substitution</em> (G→A) does not alter the reading frame.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Deamination of 5-methylcytosine (5mC) at CpG dinucleotides produces thymine rather than uracil. If this lesion is not repaired before replication, what is the mutation outcome in the two daughter cells?</p>
+    </div>
+    <ul class="options">
+      <li>A) Both daughter cells carry a C→U transition</li>
+      <li class="correct">B) One daughter cell carries the original G:C pair (from the unmutated strand); the other carries an A:T pair (from the T on the mutated strand templating an A)</li>
+      <li>C) Both daughter cells carry a G:C → A:T transition</li>
+      <li>D) The mutation is corrected automatically because T:G mismatches are repaired by base excision repair before replication</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> When 5mC deaminates to thymine, a G:T mismatch forms in the double helix. During DNA replication, each strand serves as a template independently. The <strong>unmodified G-containing strand</strong> templates a normal C, restoring the original G:C pair in one daughter cell. The <strong>T-containing strand</strong> templates an A (since T pairs with A during replication), producing an A:T pair in the other daughter cell. The net result is a C→T (or equivalently G→A on the other strand) transition mutation in 50% of progeny — one cell is mutant, one is wild-type. This is why CpG sites are mutation hotspots in the genome.</p>
+        <p class="wrong">A is wrong — deamination of 5mC produces thymine (T), not uracil (U). Deamination of unmodified cytosine produces U.</p>
+        <p class="wrong">C is wrong — BOTH daughter cells don't carry the mutation; only the one derived from the T-containing strand does.</p>
+        <p class="wrong">D is wrong — while T:G mismatches can be repaired by thymine-DNA glycosylase (TDG), this is not guaranteed before replication. If replication occurs first, the mutation is fixed and cannot be "corrected."</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <p class="q-text">A patient with xeroderma pigmentosum (XP) has a mutation in XPC, a protein that recognises bulky DNA adducts. Their cells are irradiated with UV light. Which repair pathway is most severely compromised, and what is the resulting consequence?</p>
+    </div>
+    <ul class="options">
+      <li>A) Base excision repair (BER) is compromised; single-strand breaks accumulate</li>
+      <li>B) Mismatch repair (MMR) is compromised; replication errors persist</li>
+      <li class="correct">C) Nucleotide excision repair (NER) is compromised; pyrimidine dimers accumulate and cause C→T transitions at dipyrimidine sites</li>
+      <li>D) Homologous recombination (HR) is compromised; double-strand breaks cannot be repaired</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> XPC is the initial damage-recognition protein for global genome nucleotide excision repair (GG-NER). XPC scans the genome for distortions in the DNA helix caused by bulky adducts — most importantly UV-induced cyclobutane pyrimidine dimers (CPDs) and 6-4 photoproducts. Without XPC, these lesions are not recognised for repair. During replication, when DNA polymerase stalls at a CPD, it may insert an A opposite the thymine dimer (the "A rule"), converting TC or CC codons to TT or CT — classic C→T transitions. Accumulation of such mutations in tumour suppressor genes (e.g., p53) causes the hallmark sunlight-induced skin cancers in XP patients.</p>
+        <p class="wrong">A is wrong — BER (base excision repair) handles small, non-helix-distorting lesions (oxidised bases, single base adducts); XPC is not involved in BER.</p>
+        <p class="wrong">B is wrong — MMR corrects replication errors (mismatches, small indels); it is not responsible for UV damage repair.</p>
+        <p class="wrong">D is wrong — HR repairs double-strand breaks using a homologous template (sister chromatid); UV-induced pyrimidine dimers are single-strand lesions.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Acridine dyes (e.g., acridine orange) intercalate between DNA base pairs. When replication occurs in the presence of an intercalating agent, what type of mutation is most commonly induced?</p>
+    </div>
+    <ul class="options">
+      <li>A) Transitions (purine ↔ purine or pyrimidine ↔ pyrimidine)</li>
+      <li>B) Transversions (purine ↔ pyrimidine)</li>
+      <li class="correct">C) Single base-pair insertions or deletions (frameshift mutations)</li>
+      <li>D) Gross chromosomal rearrangements due to double-strand breaks</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Intercalating agents insert (stack) between adjacent base pairs, physically spacing them apart and distorting the helix. During DNA replication, the polymerase "slips" at the intercalated site — it may skip one template base (deletion) or duplicate one template base (insertion). Since neither +1 nor –1 is a multiple of 3, such mutations shift the reading frame for all downstream codons, typically causing a loss-of-function through a completely altered and usually truncated peptide sequence.</p>
+        <p class="wrong">A is wrong — transitions arise from base analogs (e.g., 5-bromouracil) or chemical modification of specific bases (e.g., deamination of cytosine), not from physical intercalation.</p>
+        <p class="wrong">B is wrong — transversions also arise from chemical mutagens that cause mispairing, not from the slippage mechanism of intercalating agents.</p>
+        <p class="wrong">D is wrong — intercalating agents do not cause double-strand breaks; they cause local helix distortion leading to replication slippage.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <p class="q-text">A gene contains a 3-base deletion that removes one complete codon from the coding sequence. The protein produced is 1 amino acid shorter than wild-type. Which of the following best describes this mutation?</p>
+    </div>
+    <ul class="options">
+      <li>A) Frameshift — the deletion causes a shift in the reading frame</li>
+      <li class="correct">B) In-frame deletion — the reading frame is preserved; only one amino acid is lost</li>
+      <li>C) Nonsense mutation — the deleted codon must have been a stop codon</li>
+      <li>D) Missense — the surrounding codons now code for different amino acids</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> The genetic code is read in triplets. A deletion of exactly 3 nucleotides (= 1 codon) removes one complete codon without altering the reading frame for any downstream codons. The resulting protein lacks only the one amino acid encoded by the deleted codon. This is an <strong>in-frame deletion</strong>. Many in-frame deletions are tolerated (hypomorphic) rather than causing complete loss of function — a famous example is the ΔF508 deletion in CFTR (cystic fibrosis) which deletes phenylalanine 508 (3 bases removed = 1 amino acid lost) while keeping the rest of the reading frame intact.</p>
+        <p class="wrong">A is wrong — a frameshift requires deletion (or insertion) of a number of bases NOT divisible by 3. Three bases divisible by 3 = no frameshift.</p>
+        <p class="wrong">C is wrong — the deleted codon is an internal coding codon, not a stop codon. A stop codon deletion would result in a read-through (longer protein), not a shorter one.</p>
+        <p class="wrong">D is wrong — in an in-frame 3-base deletion, the flanking codons are not altered because the reading frame is preserved throughout.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">BRCA1 is a tumour suppressor involved in homologous recombination repair. A patient inherits one non-functional BRCA1 allele. Years later, they develop breast cancer. Sequencing of the tumour reveals loss of heterozygosity (LOH) at the BRCA1 locus. What molecular event most likely caused LOH?</p>
+    </div>
+    <ul class="options">
+      <li>A) A new point mutation in the remaining wild-type BRCA1 allele</li>
+      <li class="correct">B) Mitotic recombination or deletion of the chromosomal region containing the wild-type allele, leaving only the mutant copy in tumour cells</li>
+      <li>C) Methylation of the BRCA1 promoter silencing both alleles simultaneously</li>
+      <li>D) Nonsense-mediated decay eliminating the wild-type transcript</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Loss of heterozygosity (LOH) refers to the loss of one allele at a locus that was previously heterozygous. The most common mechanisms are: (1) <strong>deletion</strong> of the chromosomal segment containing the wild-type allele; (2) <strong>mitotic recombination</strong> where a crossover during mitosis duplicates the mutant-containing chromosome arm and replaces the wild-type arm; (3) chromosomal non-disjunction. All these produce a cell that has lost the wild-type copy (or carries two copies of the mutant). This is the "second hit" in Knudson's two-hit hypothesis for tumour suppressors: the inherited mutation is hit #1, and LOH (or another somatic mutation) is hit #2.</p>
+        <p class="wrong">A is wrong — a new point mutation in the wild-type allele would cause allelic heterogeneity (two different mutant alleles), not LOH. LOH specifically refers to loss of an allele.</p>
+        <p class="wrong">C is wrong — promoter methylation silences expression but does not cause LOH (which is a DNA sequence-level change detectable by SNP analysis or microsatellite markers).</p>
+        <p class="wrong">D is wrong — NMD degrades aberrant transcripts; it doesn't cause LOH at the DNA level.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <p class="q-text">5-Bromouracil (5-BU) is a mutagenic base analog of thymine that can pair with guanine. Starting from incorporation of 5-BU opposite adenine during replication, trace the mutation that results after two rounds of replication.</p>
+    </div>
+    <ul class="options">
+      <li>A) G:C → T:A transversion</li>
+      <li>B) A:T → T:A transversion</li>
+      <li class="correct">C) A:T → G:C transition</li>
+      <li>D) G:C → A:T transition</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Follow the two-round logic:</p>
+        <p><strong>Round 1:</strong> 5-BU (in its keto form) pairs normally with A. After replication, one daughter has A:5-BU instead of A:T.</p>
+        <p><strong>Round 2:</strong> 5-BU shifts to its enol form and pairs with G instead of A. After this replication, one daughter has G:C.</p>
+        <p>Net result: the original A:T pair becomes a G:C pair — an <strong>A:T → G:C transition</strong> (purine→purine on the A strand, pyrimidine→pyrimidine on the T strand). This is a transition because both original and final base pairs are purine:pyrimidine (just a different set).</p>
+        <p class="wrong">A — transversions swap purines for pyrimidines; here both A and G are purines (no transversion).</p>
+        <p class="wrong">B — A:T → T:A is a transversion (A purine ↔ T pyrimidine); this doesn't match 5-BU mechanism.</p>
+        <p class="wrong">D — G:C → A:T is the reverse direction; 5-BU acting on an A:T pair drives toward G:C, not away from it.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <p class="q-text">A missense mutation changes a buried hydrophobic leucine to a glutamic acid (charged) in the interior of a globular protein. Which outcome is most likely?</p>
+    </div>
+    <ul class="options">
+      <li>A) The protein folds normally because only surface residues affect folding</li>
+      <li class="correct">B) The protein is likely to misfold or unfold because introducing a charged residue into a hydrophobic core disrupts the hydrophobic effect critical for tertiary structure</li>
+      <li>C) The protein gains a new catalytic activity because Glu can act as a general acid-base catalyst</li>
+      <li>D) The mutation is tolerated because Leu and Glu are both non-polar</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> The hydrophobic core of a globular protein is composed of nonpolar residues (Leu, Val, Ile, Phe, etc.) packed together, driven by the hydrophobic effect — water exclusion from nonpolar surfaces. Introducing glutamic acid (charged, hydrophilic) into this core is severely destabilising because: (1) Glu's carboxylate side chain is charged and strongly wants to be solvated by water; (2) it disrupts the tight packing of surrounding hydrophobic residues; (3) the protein may unfold to satisfy Glu's solvation demands or aggregate. Such mutations typically cause protein misfolding, proteasomal degradation, or loss of function.</p>
+        <p class="wrong">A is wrong — buried core residues are critical for thermodynamic stability; surface residues can often tolerate substitutions but the hydrophobic core is not dispensable.</p>
+        <p class="wrong">C is wrong — while Glu is used as a catalytic residue in many enzymes, this requires a precise structural context; randomly placing it in a buried hydrophobic core won't confer catalytic activity.</p>
+        <p class="wrong">D is wrong — Glu (glutamic acid) is charged/polar, not non-polar. Leu is nonpolar; they are chemically very different.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A gain-of-function (GOF) mutation in a proto-oncogene (e.g., constitutively active Ras) and a loss-of-function (LOF) mutation in a tumour suppressor gene (e.g., p53) both promote cancer. How do their dominance patterns typically differ?</p>
+    </div>
+    <ul class="options">
+      <li>A) Both GOF and LOF mutations are typically recessive — both copies of the gene must be mutated</li>
+      <li>B) Both GOF and LOF mutations are typically dominant — one mutated copy is sufficient</li>
+      <li class="correct">C) GOF oncogene mutations are dominant (one mutant allele drives hyperactivation); LOF tumour suppressor mutations are typically recessive (the remaining wild-type copy compensates until it is lost)</li>
+      <li>D) GOF mutations are recessive because the wild-type protein outcompetes the mutant protein</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> This is Knudson's two-hit hypothesis combined with dominance genetics:</p>
+        <p><strong>Oncogene GOF mutations are dominant:</strong> A single mutant Ras allele produces constitutively active Ras protein regardless of what the other allele does — one hyperactive allele is sufficient to drive uncontrolled signalling. This is why oncogene mutations need only one "hit."</p>
+        <p><strong>Tumour suppressor LOF mutations are (classically) recessive:</strong> One functional copy of p53 is enough to maintain normal cell cycle checkpoints. Cancer arises only when <em>both</em> copies are inactivated (two hits: one inherited germline mutation + one somatic "second hit"). This is why inherited LOF mutations in tumour suppressors still require a somatic second hit.</p>
+        <p><em>Exception:</em> Dominant-negative p53 mutations (where mutant p53 tetramerises with and inactivates wild-type p53) can behave as dominant — but this is a special case.</p>
+        <p class="wrong">A is wrong — GOF oncogene mutations are dominant, not recessive.</p>
+        <p class="wrong">B is wrong — while some tumour suppressor mutations are haploinsufficient (dominant), the classic model is that TSG mutations are recessive (require both hits).</p>
+        <p class="wrong">D is wrong — in GOF mutations, the mutant protein is constitutively active independent of the wild-type; the "outcompeting" logic applies to dominant-negative mutations, not GOF.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <p class="q-text">Trinucleotide repeat expansion mutations (e.g., CGG repeats in Fragile X syndrome) show anticipation — the disease becomes more severe and earlier-onset in successive generations. What molecular mechanism causes the repeat to expand between generations?</p>
+    </div>
+    <ul class="options">
+      <li>A) Increased transcription of the repeat region causes copy-number amplification during RNA synthesis</li>
+      <li class="correct">B) Slipped-strand mispairing during DNA replication causes the newly synthesised strand to loop out repeat units, leading to more copies in the daughter strand</li>
+      <li>C) Unequal crossing-over between homologous chromosomes duplicates the repeat in the gamete</li>
+      <li>D) The repeats are transposable elements that self-replicate and insert additional copies</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> During DNA replication at tandem repeat regions, the newly synthesised strand can "slip" and loop out one or more repeat units (forming a hairpin due to intrastrand base pairing between repeating sequences). If replication continues past this loop, the daughter strand acquires <em>more</em> repeat copies than the template — an expansion. Alternatively, the template strand can loop out, leading to fewer copies (contraction). Expansions predominate when repeats are long enough to form stable hairpin structures. This slippage mechanism is responsible for the progressive intergenerational expansion seen in Fragile X (CGG), Huntington's disease (CAG), myotonic dystrophy (CTG), and others.</p>
+        <p class="wrong">A is wrong — repeat expansions are DNA-level events in the genome; transcription does not amplify genomic repeat copy number.</p>
+        <p class="wrong">C is wrong — unequal crossing-over can produce repeat expansions (and is relevant to some large-scale duplications), but it is not the primary mechanism for trinucleotide repeat expansions, which occur during replication via slippage.</p>
+        <p class="wrong">D is wrong — trinucleotide repeats are not transposable elements; they don't encode transposase or use a copy-and-paste mechanism.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A researcher identifies a mutation in a splice acceptor site (the AG at the 3′ end of an intron). This mutation changes AG to AC. What is the most likely outcome for mRNA processing?</p>
+    </div>
+    <ul class="options">
+      <li>A) The exon upstream is silently skipped with no effect on the protein</li>
+      <li>B) The intron is retained in the mRNA but translation proceeds normally because the ribosome can skip non-coding regions</li>
+      <li class="correct">C) Intron retention or use of a cryptic splice acceptor site, likely causing a frameshift or early stop codon in the translated protein</li>
+      <li>D) The mutation activates nonsense-mediated mRNA decay immediately, before the mRNA is exported</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> The invariant AG dinucleotide at the 3′ splice acceptor site is an essential splicing signal recognised by U2AF and the U2 snRNP complex. Mutation of AG to AC abolishes recognition of this splice site. Two outcomes are possible: (1) <strong>Intron retention</strong> — the spliceosome fails to excise the intron, which is included in the mRNA. Intron sequences usually contain stop codons in all reading frames, producing a truncated protein. (2) <strong>Cryptic splice site activation</strong> — the spliceosome uses a nearby AG sequence that is normally suppressed; this may remove a slightly different length of sequence, often causing a frameshift. Both mechanisms generally result in loss of function.</p>
+        <p class="wrong">A is wrong — "silently skipped" implies exon skipping. Mutation of the splice acceptor site disrupts the 3′ end of the intron, which is more likely to cause intron retention or cryptic site use, not clean exon skipping (which typically results from disrupted exonic splicing enhancers).</p>
+        <p class="wrong">B is wrong — ribosomes do not skip non-coding regions. If an intron is retained, the ribosome translates it faithfully, encountering premature stop codons.</p>
+        <p class="wrong">D is wrong — NMD occurs after mRNA export from the nucleus and during translation; the splice site mutation itself does not trigger NMD before export. NMD is triggered when a premature stop codon is recognised during a pioneer round of translation in the cytoplasm.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <p class="q-text">A silent (synonymous) mutation changes the codon AAA (Lys) to AAG (Lys). The amino acid is unchanged. In which scenario could this silent mutation still affect the phenotype?</p>
+    </div>
+    <ul class="options">
+      <li>A) Never — synonymous mutations are always neutral by definition</li>
+      <li>B) Only if the mutation occurs in a non-essential gene</li>
+      <li class="correct">C) If the mutation disrupts a splicing regulatory sequence (exonic splicing enhancer/silencer) or changes mRNA secondary structure affecting translation efficiency or stability</li>
+      <li>D) Only if the codon is in the 5′ UTR of the mRNA</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> "Silent" mutations are not always neutral. Several mechanisms allow synonymous mutations to affect phenotype: (1) <strong>Splicing regulation:</strong> exonic splicing enhancers (ESEs) and silencers (ESSs) are short sequences within exons that recruit SR proteins or hnRNPs to promote or suppress splice site use. A synonymous mutation within an ESE can abolish exon inclusion, causing exon skipping. (2) <strong>Codon usage bias:</strong> different synonymous codons are translated at different speeds depending on the abundance of corresponding tRNAs. "Rare" codons slow the ribosome, which can affect co-translational folding. (3) <strong>mRNA stability/structure:</strong> synonymous changes can alter secondary structures in the mRNA 3′ UTR or coding sequence, affecting mRNA half-life or ribosome binding. A classic example is the MDR1 (ABCB1) synonymous polymorphism that changes P-glycoprotein folding via altered translation kinetics.</p>
+        <p class="wrong">A is wrong — synonymous mutations were once assumed neutral, but this is now known to be an oversimplification; context determines significance.</p>
+        <p class="wrong">B is wrong — essentialness of the gene is irrelevant to whether the mutation is truly synonymous at the molecular level.</p>
+        <p class="wrong">D is wrong — coding sequences contain both ESEs and codon-usage elements that can be affected by synonymous changes anywhere in the CDS, not just the 5′ UTR.</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

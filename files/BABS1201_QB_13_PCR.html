@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — PCR</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 13: PCR (Polymerase Chain Reaction) &nbsp;|&nbsp; 15 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">Which of the following correctly lists the three steps of a standard PCR cycle in order?</p>
+  </div>
+  <ul class="options">
+    <li>A) Annealing → Denaturation → Extension</li>
+    <li>B) Extension → Annealing → Denaturation</li>
+    <li class="correct">C) Denaturation → Annealing → Extension</li>
+    <li>D) Denaturation → Extension → Annealing</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Denaturation → Annealing → Extension</strong></p>
+      <p><strong>Denaturation (~95°C):</strong> High temperature breaks hydrogen bonds between base pairs, separating the double-stranded DNA into two single-stranded templates. <strong>Annealing (~50–65°C):</strong> Temperature is lowered so that the short synthetic oligonucleotide primers can bind (anneal) to their complementary sequences on each template strand. <strong>Extension (~72°C):</strong> Taq polymerase synthesises new DNA from the 3′ end of each primer at its optimal temperature.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">Why is Taq polymerase used in PCR rather than a standard mesophilic DNA polymerase?</p>
+  </div>
+  <ul class="options">
+    <li>A) Taq polymerase has higher fidelity and proofreading ability</li>
+    <li>B) Taq polymerase can synthesise DNA without a primer</li>
+    <li class="correct">C) Taq polymerase is thermostable and remains active after repeated denaturation steps at ~95°C</li>
+    <li>D) Taq polymerase synthesises RNA, which can then be reverse-transcribed</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Taq polymerase is thermostable</strong></p>
+      <p>Taq polymerase is isolated from <em>Thermus aquaticus</em>, a bacterium found in hot springs. Its optimal temperature is ~72°C and it retains activity even after repeated exposures to 95°C denaturation steps. Mesophilic polymerases (like <em>E. coli</em> Pol I) would be irreversibly denatured (unfolded) at these temperatures and would need to be added fresh each cycle — making PCR impractical before thermostable enzymes were discovered. Taq lacks 3′→5′ proofreading (low fidelity); high-fidelity PCR uses Pfu or Phusion polymerase instead.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">After 30 PCR cycles starting from a single double-stranded DNA molecule, what is the theoretical maximum number of DNA copies?</p>
+  </div>
+  <ul class="options">
+    <li>A) 30</li>
+    <li>B) 60</li>
+    <li class="correct">C) 2³⁰ ≈ 1.07 × 10⁹ (approximately one billion copies)</li>
+    <li>D) 30² = 900</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — 2³⁰ ≈ 1.07 × 10⁹</strong></p>
+      <p>In each PCR cycle, the number of double-stranded DNA molecules theoretically doubles (exponential amplification). Starting from n = 1 molecule: after 1 cycle = 2, after 2 cycles = 4, after n cycles = 2ⁿ. After 30 cycles: 2³⁰ = 1,073,741,824 ≈ 10⁹ copies. This is why PCR is so powerful for forensic analysis, diagnostics, and cloning — even a single target molecule can be amplified to detectable quantities. In practice, efficiency is <100% so the actual yield is slightly less.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">Which of the following components is NOT required in a standard PCR reaction mixture?</p>
+  </div>
+  <ul class="options">
+    <li>A) Template DNA</li>
+    <li>B) Two oligonucleotide primers (forward and reverse)</li>
+    <li class="correct">C) RNA polymerase</li>
+    <li>D) dNTPs (deoxyribonucleoside triphosphates)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — RNA polymerase</strong></p>
+      <p>A standard PCR mixture contains: (1) template DNA (the target sequence), (2) two primers flanking the region of interest, (3) Taq (or other thermostable) DNA polymerase, (4) dNTPs (dATP, dTTP, dCTP, dGTP) as building blocks, and (5) a buffer with Mg²⁺ (required for polymerase activity). RNA polymerase is not involved — PCR amplifies DNA using DNA polymerase. RNA polymerase is used in transcription. For RT-PCR (amplifying RNA templates), reverse transcriptase is added first to make cDNA, but this is a modified protocol.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">What determines the specificity of PCR amplification — i.e., why does PCR amplify only the target sequence and not other parts of the genome?</p>
+  </div>
+  <ul class="options">
+    <li>A) Taq polymerase only extends primers with perfect GC base pairs</li>
+    <li class="correct">B) The two primers are designed to be complementary to unique sequences flanking the target; only when both primers anneal to the same double-stranded molecule in opposing orientations will productive amplification occur</li>
+    <li>C) The denaturation temperature selectively melts only the target sequence</li>
+    <li>D) dNTPs are incorporated only at regions with high AT content</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Both primers must anneal to the same molecule in opposing orientations</strong></p>
+      <p>PCR uses two primers: a forward primer complementary to the bottom (antisense) strand and a reverse primer complementary to the top (sense) strand. They flank the target region and face inward. For amplification to occur exponentially, both must bind to the same DNA molecule such that extension from one primer produces a template for the other. If primers anneal at distant or non-opposing locations (or to non-target sequences), extension products do not feed into the exponential amplification cycle. Primer design (length ~18–25 nt, avoiding self-complementarity, matched Tm values) is the primary determinant of specificity.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">In gel electrophoresis used to analyse PCR products, DNA fragments migrate through an agarose gel. Smaller fragments migrate:</p>
+  </div>
+  <ul class="options">
+    <li>A) Slower, because they have less charge per molecule</li>
+    <li>B) Toward the negative electrode (cathode)</li>
+    <li class="correct">C) Faster, toward the positive electrode (anode), because they experience less friction/resistance in the gel matrix</li>
+    <li>D) Faster, toward the negative electrode, because smaller fragments are more negatively charged</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Smaller fragments migrate faster toward the positive electrode</strong></p>
+      <p>DNA is negatively charged (due to phosphate groups) and moves toward the positive electrode (anode) in an electric field — this is consistent regardless of fragment size. Smaller fragments move faster because they experience less steric hindrance passing through the agarose mesh. Fragment size is estimated by comparing band position to a DNA ladder (molecular weight marker) run alongside. The gel is stained with ethidium bromide (EtBr) or SYBR Safe and visualised under UV light.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">A researcher designs PCR primers to amplify a 500 bp region from human genomic DNA. After running PCR and gel electrophoresis, they observe a band at 500 bp AND a second unexpected band at 300 bp. What is the most likely explanation?</p>
+  </div>
+  <ul class="options">
+    <li>A) Taq polymerase degraded part of the 500 bp product to 300 bp</li>
+    <li>B) The template DNA was contaminated with RNA</li>
+    <li class="correct">C) Non-specific primer binding — one or both primers annealed to an off-target site in the genome, producing a second amplicon of 300 bp</li>
+    <li>D) The annealing temperature was too high, producing shorter products</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Non-specific primer binding (off-target amplification)</strong></p>
+      <p>Non-specific bands are a common PCR artefact caused by primers annealing to sequences similar (but not identical) to the intended target, especially when the annealing temperature is too low. The fix is to increase the annealing temperature (increasing stringency) or use gradient PCR to find the optimal temperature. Gradient PCR or touchdown PCR progressively reduces non-specific products. Taq does not degrade double-stranded PCR products. Higher (not lower) annealing temperature would reduce non-specific bands.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">RT-PCR (reverse transcription PCR) is used to detect gene expression. What is the purpose of the reverse transcription step?</p>
+  </div>
+  <ul class="options">
+    <li>A) To convert single-stranded DNA into double-stranded DNA before amplification</li>
+    <li class="correct">B) To convert mRNA into complementary DNA (cDNA) using reverse transcriptase, allowing the mRNA sequence to be amplified by PCR</li>
+    <li>C) To amplify genomic DNA in the reverse (3′→5′) direction</li>
+    <li>D) To digest contaminating DNA before RNA amplification</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Convert mRNA to cDNA using reverse transcriptase</strong></p>
+      <p>Standard Taq polymerase uses DNA as a template. To study which genes are being expressed (i.e., the transcriptome), the mRNA must first be converted to cDNA by reverse transcriptase (an RNA-dependent DNA polymerase, originally discovered in retroviruses). The cDNA then serves as the PCR template. RT-PCR is used to: detect viral RNA (e.g., COVID-19 PCR tests are actually RT-PCR), measure mRNA levels, clone expressed genes without introns. RT-qPCR (quantitative) can precisely measure transcript abundance.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">Which of the following is the best explanation for why PCR requires two primers rather than one?</p>
+  </div>
+  <ul class="options">
+    <li>A) Two primers increase the Mg²⁺ concentration required for polymerase activity</li>
+    <li>B) One primer would cause all DNA in the sample to be amplified non-specifically</li>
+    <li class="correct">C) Two primers define both ends of the target region, enabling exponential amplification of a defined sequence; a single primer would only produce linear amplification of undefined length</li>
+    <li>D) Two primers are needed because Taq polymerase requires both a leading and lagging strand primer</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Two primers define both ends, enabling exponential amplification</strong></p>
+      <p>With a single primer, only one strand can be extended in each cycle. The products of these extensions are of variable length (extending to the end of the template), so no defined-size fragment accumulates. With two flanking primers, extension from one primer generates a template for the other primer. After ~3 cycles, a "short product" of exactly defined length (from primer to primer) begins to accumulate, and after ~10 cycles these short products dominate. This defined fragment is then amplified exponentially (doubles each cycle), producing billions of identical copies of the target region.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">Quantitative PCR (qPCR) differs from standard PCR in that it:</p>
+  </div>
+  <ul class="options">
+    <li>A) Uses RNA polymerase instead of DNA polymerase</li>
+    <li>B) Can amplify target sequences without primers</li>
+    <li class="correct">C) Measures DNA amplification in real time using fluorescent dyes or probes, allowing quantification of the initial template amount</li>
+    <li>D) Only amplifies sequences longer than 1000 bp</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Real-time fluorescent detection for quantification</strong></p>
+      <p>In qPCR (also called real-time PCR), fluorescence is measured after each cycle. Methods include: (1) intercalating dyes like SYBR Green, which fluorescence when bound to double-stranded DNA (non-specific); (2) TaqMan probes — sequence-specific oligonucleotide probes with a fluorophore and quencher that are cleaved by Taq's 5′ exonuclease activity during extension, generating a signal. The cycle at which fluorescence crosses a threshold (Cq or Ct value) is inversely proportional to the starting template amount. Used for gene expression analysis, pathogen detection, and genotyping.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">The Tm (melting temperature) of a primer refers to the temperature at which:</p>
+  </div>
+  <ul class="options">
+    <li>A) The primer begins to denature the template DNA</li>
+    <li>B) Taq polymerase achieves its maximum extension rate</li>
+    <li class="correct">C) 50% of the primer–template duplexes are dissociated (half the primer is single-stranded, half is double-stranded)</li>
+    <li>D) The primer is destroyed by the heat of denaturation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Temperature at which 50% of duplexes are dissociated</strong></p>
+      <p>Tm is the midpoint of the thermal denaturation curve. A rough estimate for short primers: Tm ≈ 4(G+C) + 2(A+T) °C (the "Wallace rule"). G-C pairs (3 hydrogen bonds) are more stable than A-T pairs (2 H-bonds), so higher G+C content = higher Tm. The annealing temperature in PCR is typically set 5°C below the primer Tm to ensure efficient binding while maintaining some specificity. Both primers in a PCR reaction should have similar Tm values to avoid one annealing more efficiently than the other.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">A forensic scientist uses PCR to amplify STR (short tandem repeat) loci from a crime scene DNA sample. After gel electrophoresis, the scientist compares the banding pattern to that from a suspect's DNA. What is the basis of using STRs for forensic identification?</p>
+  </div>
+  <ul class="options">
+    <li>A) STRs are the only regions of the genome that differ between individuals due to mutations</li>
+    <li>B) STRs are always amplified with higher efficiency than other sequences</li>
+    <li class="correct">C) STRs are highly variable between individuals in the number of repeat units, producing different-sized PCR products that can be compared as a genetic fingerprint</li>
+    <li>D) STRs are located in exons and encode variation in protein function between individuals</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — STRs vary in repeat number, producing unique banding patterns</strong></p>
+      <p>Short tandem repeats (STRs), also called microsatellites, are 2–6 bp sequences repeated in tandem (e.g., AGAT repeated 5 times vs 12 times). The number of repeats varies extensively between individuals due to slippage during DNA replication. PCR primers flank the STR region; if the alleles differ in repeat number, the PCR products are different sizes, producing different gel bands. Analysing 13–20 STR loci (CODIS panel) gives a profile with <1 in 10¹⁵ probability of a random match — forensically definitive. STRs are in non-coding regions and do not encode proteins.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">If a PCR reaction contains a template with a single nucleotide polymorphism (SNP) at a primer binding site, what is the most likely outcome?</p>
+  </div>
+  <ul class="options">
+    <li>A) The primer will still anneal perfectly and amplification will be unaffected</li>
+    <li class="correct">B) Amplification efficiency will be reduced, especially if the mismatch is at the 3′ end of the primer, because Taq polymerase cannot efficiently extend from a mismatched 3′ terminus</li>
+    <li>C) Amplification will proceed normally but the product will contain a frameshift mutation</li>
+    <li>D) Taq polymerase will correct the mismatch using its proofreading activity</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Reduced amplification, especially with a 3′-end mismatch</strong></p>
+      <p>A single mismatch within a primer can reduce annealing affinity and extension efficiency. The 3′ end of the primer is most critical: Taq polymerase requires a paired 3′-OH to initiate extension efficiently. A mismatch at the 3′ end significantly impairs or abolishes amplification — this principle is exploited in allele-specific PCR (AS-PCR) for SNP genotyping, where one primer is designed with the SNP at its 3′ end to discriminate between alleles. Taq polymerase lacks 3′→5′ proofreading, so it cannot correct mismatches.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">Why are dNTPs (deoxyribonucleoside triphosphates) used in PCR rather than NTPs (ribonucleoside triphosphates)?</p>
+  </div>
+  <ul class="options">
+    <li>A) dNTPs have higher energy and allow faster extension by Taq</li>
+    <li>B) NTPs would be denatured by the high temperatures in PCR</li>
+    <li class="correct">C) PCR amplifies DNA; Taq polymerase is a DNA polymerase that incorporates deoxyribonucleotides into the new DNA strand</li>
+    <li>D) dNTPs anneal to the template with higher specificity than NTPs</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Taq is a DNA polymerase and incorporates dNTPs into DNA</strong></p>
+      <p>DNA polymerases (including Taq) use dNTPs as substrates — they incorporate deoxyribonucleotides (lacking the 2′-OH present in ribonucleotides) into the growing DNA strand. RNA polymerases use NTPs. Using NTPs in a PCR with Taq would not produce useful products because Taq discriminates strongly against ribonucleotides (the 2′-OH causes steric clash in the active site). The standard four dNTPs used in PCR are: dATP, dTTP, dCTP, and dGTP.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">A researcher wishes to amplify a 3000 bp gene from a genomic DNA sample. After PCR, gel electrophoresis shows no visible band at all. Which of the following is the LEAST likely cause of PCR failure?</p>
+  </div>
+  <ul class="options">
+    <li>A) The primers were designed to bind the same strand (parallel orientation)</li>
+    <li>B) The extension time was too short (Taq typically extends at ~1 kb/min)</li>
+    <li>C) The Mg²⁺ concentration was insufficient to activate Taq polymerase</li>
+    <li class="correct">D) The annealing temperature was slightly too low, causing multiple non-specific bands</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: D — Annealing temperature slightly too low</strong></p>
+      <p>If the annealing temperature is slightly too low (mild non-specificity), the result is usually extra bands — not no band. Option D describes a situation where you would expect to SEE bands (non-specific ones), not an absence of amplification. In contrast: (A) if both primers bind the same strand in the same orientation, no product can form (no exponential amplification) — complete failure. (B) Taq extends at ~1 kb/min; a 60-second extension for a 3 kb target is too short — no full-length product. (C) Mg²⁺ is a Taq cofactor; without it, enzyme activity is severely impaired or abolished.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 09: Photosynthesis</title>
+<style>
+  :root { --primary: #1a3a5c; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: #1a5c2a; color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-card.insta-q { border-left: 4px solid var(--insta); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: #1a5c2a; font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f8f0; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e0f4e0; }
+  .solution-body { background: #f0f8f0; border-left: 4px solid #1a5c2a; padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .insta-header { background: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #721c24; }
+  .insta-header strong { color: var(--insta); }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 09: Photosynthesis &nbsp;|&nbsp; Light Reactions · Calvin Cycle · Photosystems · Pigments · Chloroplast Structure</p>
+</div>
+
+<div class="insta-header">
+  <strong>🐒 Monkey Monday (INSTA)</strong> — Question 1 is from the official BABS1201 INSTA series. Questions 2–17 are original practice questions.
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- INSTA Q1 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 1 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">What is the primary pigment responsible for capturing light during photosynthesis?</div>
+  <ul class="options">
+    <li class="correct">A. Chlorophyll A</li>
+    <li>B. Chlorophyll B</li>
+    <li>C. Carotenoids</li>
+    <li>D. Xanthophylls</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: A — Chlorophyll A</strong></p>
+      <p>Chlorophyll A is the primary (reaction centre) pigment in both Photosystem I (P700) and Photosystem II (P680). It directly participates in the photochemical reaction — when excited by a photon, it donates an electron to the electron transport chain. Chlorophyll A absorbs red light (~680–700 nm) and blue light (~430–450 nm) most strongly; it reflects green light (giving plants their green colour).</p>
+      <p><strong>Accessory pigments</strong> (Chlorophyll B, carotenoids, xanthophylls) absorb other wavelengths of light and transfer the excitation energy to Chlorophyll A — they expand the spectrum of light that can drive photosynthesis. They are part of the antenna complex but do NOT directly perform the photochemical reaction.</p>
+      <p><strong>Why B is wrong:</strong> Chlorophyll B is an accessory pigment — it transfers absorbed light energy to Chlorophyll A but does not directly perform the photochemical reaction in the reaction centre.</p>
+      <p><strong>Why C is wrong:</strong> Carotenoids (β-carotene, lycopene) are accessory pigments that absorb blue and violet light and transfer energy to Chlorophyll A. They also protect the cell from photo-oxidative damage. They are not the primary reaction centre pigment.</p>
+      <p><strong>Why D is wrong:</strong> Xanthophylls are oxygenated carotenoids (e.g., lutein, zeaxanthin) — accessory pigments and photoprotective molecules, not primary reaction centre pigments.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="question-number">Question 2</div>
+  <div class="question-text">The overall equation for photosynthesis is: 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂. Where does the oxygen (O₂) produced come from?</div>
+  <ul class="options">
+    <li>A. From CO₂ molecules that are split in the Calvin cycle</li>
+    <li>B. From glucose molecules that are partially oxidised</li>
+    <li class="correct">C. From water molecules (H₂O) that are split in the light reactions at Photosystem II (photolysis of water)</li>
+    <li>D. From CO₂ molecules that are fixed by RuBisCO and immediately release O₂</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The photolysis (light-dependent splitting) of water occurs at the oxygen-evolving complex (OEC) associated with Photosystem II: 2H₂O → 4H⁺ + 4e⁻ + O₂. This was demonstrated by Ruben & Kamen (1941) using ¹⁸O-labelled water — when plants were given H₂¹⁸O, the labelled oxygen appeared in the O₂ gas produced. When ¹⁸O was in CO₂ instead, the label appeared in glucose. The electrons from water splitting replace the electrons donated by Photosystem II's reaction centre chlorophyll. The H⁺ (protons) from water splitting accumulate in the thylakoid lumen, contributing to the proton gradient that drives ATP synthase (in the light reactions).</p>
+      <p><strong>Why A is wrong:</strong> CO₂ is fixed by RuBisCO in the Calvin cycle — it is incorporated into organic molecules (G3P → glucose), not split to release O₂.</p>
+      <p><strong>Why B is wrong:</strong> Glucose is the PRODUCT of photosynthesis. It is not split during photosynthesis to produce O₂.</p>
+      <p><strong>Why D is wrong:</strong> RuBisCO (ribulose-1,5-bisphosphate carboxylase/oxygenase) fixes CO₂ by adding it to RuBP (5C) to form two molecules of 3-PGA (3C each). No O₂ is released in this step.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">The light-dependent reactions of photosynthesis take place in/on the:</div>
+  <ul class="options">
+    <li>A. Stroma of the chloroplast</li>
+    <li>B. Outer membrane of the chloroplast</li>
+    <li class="correct">C. Thylakoid membranes (particularly the grana stacks)</li>
+    <li>D. Cytoplasm of the cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Chloroplast structure and photosynthesis location:<br>
+      <strong>Thylakoid membranes</strong>: Light-dependent reactions (light reactions) — contain Photosystem I (P700), Photosystem II (P680), electron carriers (plastoquinone, cytochrome b6f complex, plastocyanin), and ATP synthase (CF₀-CF₁). Arranged in stacks called grana.<br>
+      <strong>Thylakoid lumen</strong>: Accumulates H⁺ (from water splitting + proton pumping) → drives ATP synthase in the thylakoid membrane.<br>
+      <strong>Stroma</strong>: Calvin cycle (dark/light-independent reactions) — contains RuBisCO, Calvin cycle enzymes, circular DNA, 70S ribosomes.<br>
+      Products of light reactions: ATP, NADPH, O₂ → used in the Calvin cycle in the stroma to fix CO₂ into G3P.</p>
+      <p><strong>Why A is wrong:</strong> The stroma is where the Calvin cycle (dark reactions) occurs — not the light reactions.</p>
+      <p><strong>Why B is wrong:</strong> The outer membrane of the chloroplast is permeable to small molecules and metabolites — it is not where photosynthetic reactions occur.</p>
+      <p><strong>Why D is wrong:</strong> Photosynthesis occurs in chloroplasts, not the cytoplasm.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">Which of the following correctly describes the difference between Photosystem I (PSI) and Photosystem II (PSII)?</div>
+  <ul class="options">
+    <li>A. PSII absorbs light at 700 nm; PSI absorbs light at 680 nm</li>
+    <li class="correct">B. PSII (P680) absorbs 680 nm light, splits water to release O₂, and transfers electrons to the ETC. PSI (P700) absorbs 700 nm light and uses the electrons (arriving from PSII via the ETC) to reduce NADP⁺ to NADPH</li>
+    <li>C. PSI is directly connected to water-splitting; PSII produces NADPH</li>
+    <li>D. PSII and PSI are identical complexes; their numbering is arbitrary</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The Z-scheme of photosynthesis: (1) <strong>PSII (P680)</strong>: P680 absorbs 680 nm photons → electron excited → donated to pheophytin → plastoquinone (PQ) → cytochrome b6f complex → plastocyanin. The electron "hole" in P680 is filled by electrons from water splitting: 2H₂O → O₂ + 4H⁺ + 4e⁻. (2) Electrons from PSII travel through the thylakoid ETC, pumping H⁺ into the thylakoid lumen (via cytochrome b6f complex) → proton gradient → ATP synthesis by CF₀-CF₁-ATP synthase. (3) <strong>PSI (P700)</strong>: Electrons from plastocyanin arrive at P700 → 700 nm photons excite them further → donated to ferredoxin → NADP⁺ reductase → NADP⁺ + H⁺ → NADPH. The two photosystems are connected in series (the "Z-scheme" because the energy diagram looks like a Z).</p>
+      <p><strong>Why A is wrong:</strong> The wavelengths are swapped. PSII = P680 (680 nm); PSI = P700 (700 nm).</p>
+      <p><strong>Why C is wrong:</strong> Water splitting occurs at PSII (not PSI). NADPH production occurs at PSI (not PSII).</p>
+      <p><strong>Why D is wrong:</strong> They are functionally distinct complexes with different protein compositions, electron donors/acceptors, and wavelength specificities.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">The Calvin cycle uses the products of the light reactions to fix CO₂ into organic molecules. Which enzyme catalyses the first step (carbon fixation) in the Calvin cycle?</div>
+  <ul class="options">
+    <li>A. ATP synthase — it uses ATP to attach CO₂ to RuBP</li>
+    <li>B. NADP⁺ reductase — it uses NADPH to fix CO₂ into G3P</li>
+    <li class="correct">C. RuBisCO (ribulose-1,5-bisphosphate carboxylase/oxygenase) — it catalyses the addition of CO₂ to RuBP (5C) to form two molecules of 3-phosphoglycerate (3-PGA, 3C)</li>
+    <li>D. Pyruvate carboxylase — it attaches CO₂ to pyruvate to form oxaloacetate for carbon fixation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>RuBisCO is the most abundant enzyme on Earth (estimated ~0.7 billion tons), catalysing the key reaction of carbon fixation: RuBP (ribulose-1,5-bisphosphate, 5C) + CO₂ → unstable 6C intermediate → 2 × 3-phosphoglycerate (3-PGA, 3C each). This is the "carboxylation" phase of the Calvin cycle. The products (3-PGA) are then reduced using NADPH and ATP to form glyceraldehyde-3-phosphate (G3P). G3P is used to: (1) Regenerate RuBP (5 of every 6 G3P molecules) using ATP. (2) Build glucose and other organic molecules (1 of every 6 G3P molecules leaves the cycle). Hence: 3 turns of the Calvin cycle to produce 1 net G3P; 6 turns to produce 1 glucose.</p>
+      <p><strong>Why A is wrong:</strong> ATP synthase makes ATP (driven by proton gradient) — it has no role in CO₂ fixation to RuBP.</p>
+      <p><strong>Why B is wrong:</strong> NADP⁺ reductase (ferredoxin-NADP⁺ reductase) produces NADPH in the light reactions — it does not fix CO₂.</p>
+      <p><strong>Why D is wrong:</strong> Pyruvate carboxylase is a mitochondrial enzyme involved in gluconeogenesis and anaplerosis (replenishing Krebs intermediates) — not in photosynthetic carbon fixation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">How many turns of the Calvin cycle are required to produce one molecule of glucose (C₆H₁₂O₆)?</div>
+  <ul class="options">
+    <li>A. 1 turn (each turn produces one glucose)</li>
+    <li>B. 3 turns (producing 3 G3P molecules, which combine to form glucose)</li>
+    <li class="correct">C. 6 turns (each turn fixes 1 CO₂ and nets 1 G3P; 6 G3P needed for glucose — but only 1 per 6 turns is a net output, so 6 CO₂ must be fixed)</li>
+    <li>D. 12 turns (the cycle is very inefficient and requires many repetitions)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Calvin cycle stoichiometry: Per turn: 1 CO₂ fixed → 2 G3P produced, but 5/6 G3P are used to regenerate 3 RuBP (the cycle's CO₂ acceptor). Net: 1/6 G3P per turn exits the cycle. For glucose (6C, equivalent to 2 G3P molecules × 3 carbons each): need 6 G3P to exit the cycle net → 6 turns. Per 6 turns: (1) 6 CO₂ fixed, (2) 18 ATP consumed (3 per turn), (3) 12 NADPH consumed (2 per turn), (4) 6 RuBP regenerated, (5) Net output = 1 glucose (via 2 G3P → glucose). Total cost to make 1 glucose: 18 ATP + 12 NADPH from the light reactions. This is why glucose synthesis is energetically expensive and why photosynthesis requires so much light input.</p>
+      <p><strong>Why A is wrong:</strong> One turn only fixes 1 CO₂ and produces a fractional output of G3P. 1 turn is nowhere near enough to produce glucose (6 carbons).</p>
+      <p><strong>Why B is wrong:</strong> 3 turns fix 3 CO₂ and produce a net of 0.5 glucose (3 G3P worth). Glucose needs 6 carbons and 6 turns.</p>
+      <p><strong>Why D is wrong:</strong> 12 turns is an overcount. 6 turns with 6 CO₂ fixed is the correct stoichiometry for one glucose.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">What is the "proton gradient" in the context of the light reactions of photosynthesis, and how is it used?</div>
+  <ul class="options">
+    <li>A. H⁺ accumulates in the stroma; it flows into the thylakoid lumen through ATP synthase to make ATP</li>
+    <li class="correct">B. H⁺ accumulates in the thylakoid lumen (from water splitting at PSII and from proton pumping via the cytochrome b6f complex); it flows back into the stroma through CF₁-CF₀ ATP synthase, driving ATP synthesis (photophosphorylation)</li>
+    <li>C. H⁺ is used directly to reduce NADP⁺ to NADPH without going through ATP synthase</li>
+    <li>D. The proton gradient in photosynthesis is identical to the proton gradient in mitochondria — both operate in the same direction</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>In the light reactions, the proton gradient (analogous to mitochondrial chemiosmosis) works as follows: (1) Water splitting at PSII: 2H₂O → O₂ + 4H⁺ + 4e⁻ — H⁺ released into the thylakoid LUMEN. (2) Plastoquinone (PQ) picks up 2 electrons from PSII + 2 H⁺ from the STROMA → becomes PQH₂ → delivers electrons to cytochrome b6f → releases H⁺ into the lumen (Q cycle) — H⁺ pumped into LUMEN. (3) Net: H⁺ accumulates inside the thylakoid lumen (high [H⁺]) relative to the stroma (low [H⁺]). (4) H⁺ flows DOWN its gradient from lumen → stroma THROUGH CF₁-CF₀ ATP synthase → ATP synthesis (photophosphorylation). Compare to mitochondria: mitochondrial H⁺ flows from IMS → matrix; chloroplast H⁺ flows from lumen → stroma.</p>
+      <p><strong>Why A is wrong:</strong> The directions are reversed. H⁺ accumulates in the LUMEN (inside thylakoid), not the stroma. It flows FROM lumen TO stroma through ATP synthase.</p>
+      <p><strong>Why C is wrong:</strong> H⁺ drives ATP synthase (not directly reduces NADP⁺). NADPH is produced at PSI by ferredoxin-NADP⁺ reductase using electrons from PSI.</p>
+      <p><strong>Why D is wrong:</strong> The direction of H⁺ flow is opposite: in mitochondria, H⁺ flows from IMS (outside) → matrix (inside) through ATP synthase. In chloroplasts, H⁺ flows from lumen (inside thylakoid) → stroma (outside) through ATP synthase. The principle is the same; the topology is mirrored.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Why are leaves predominantly green?</div>
+  <ul class="options">
+    <li>A. Because leaves absorb green light most efficiently and reflect all other wavelengths</li>
+    <li class="correct">B. Because chlorophyll A and B absorb red and blue light for photosynthesis, but reflect (and transmit) green light — the reflected green wavelengths reach our eyes</li>
+    <li>C. Because leaves have a green pigment (phytol) that actively emits green light</li>
+    <li>D. Because the cellulose cell wall has a natural green colour that dominates leaf appearance</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Colour perception depends on which wavelengths of light are reflected (not absorbed) by an object. Chlorophyll A and B absorption spectra: (1) Chlorophyll A: peak absorption at ~430 nm (violet-blue) and ~680 nm (red). (2) Chlorophyll B: peak absorption at ~453 nm (blue) and ~642 nm (red-orange). Both chlorophylls weakly absorb green light (~500–560 nm) — most green wavelengths are reflected or transmitted. Our eyes perceive these reflected green wavelengths as the green colour of leaves. In autumn, chlorophyll is degraded → green colour lost → underlying carotenoids (yellow/orange) become visible → autumn colours.</p>
+      <p><strong>Why A is wrong:</strong> If leaves absorbed green light most efficiently, they would appear NOT green (they would absorb that colour and reflect other wavelengths). Leaves appear green BECAUSE green is reflected, not absorbed.</p>
+      <p><strong>Why C is wrong:</strong> Chlorophyll does fluoresce (emits red light when isolated and illuminated), but this is not why leaves appear green under normal conditions. Leaves appear green due to reflection.</p>
+      <p><strong>Why D is wrong:</strong> Cellulose is colourless/white. It contributes no green colour to leaves.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">C4 plants (e.g., maize, sugarcane) have evolved a mechanism to prevent photorespiration. Which adaptation allows them to do this?</div>
+  <ul class="options">
+    <li>A. C4 plants use a different form of RuBisCO that can distinguish O₂ from CO₂</li>
+    <li class="correct">B. C4 plants use PEP carboxylase (which has much higher affinity for CO₂ and no oxygenase activity) in mesophyll cells to pre-fix CO₂ as malate, then deliver concentrated CO₂ to bundle sheath cells where RuBisCO operates in a high-CO₂ environment</li>
+    <li>C. C4 plants close their stomata during the day entirely, fixing CO₂ only at night</li>
+    <li>D. C4 plants have evolved RuBisCO that only functions at very low oxygen concentrations</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Photorespiration occurs when RuBisCO adds O₂ instead of CO₂ to RuBP (its oxygenase activity) — wasteful, especially in hot, dry conditions when stomata partially close (CO₂ levels drop, O₂ levels rise). C4 photosynthesis avoids this: (1) <strong>Mesophyll cells</strong> (exposed to air): PEP carboxylase (no oxygenase activity, very high CO₂ affinity) fixes CO₂ to PEP → OAA (4C) → Malate (4C). (2) Malate transported to <strong>bundle sheath cells</strong> → decarboxylated → CO₂ released → concentrates CO₂ around RuBisCO. (3) Bundle sheath RuBisCO operates in a high-CO₂ microenvironment → outcompetes O₂ binding → minimal photorespiration. C4 plants are more efficient in hot, sunny, dry climates — hence sugarcane and maize are highly productive tropical crops.</p>
+      <p><strong>Why A is wrong:</strong> RuBisCO's structure is highly conserved. C4 plants do not use a different type of RuBisCO — they spatially concentrate CO₂ to favour RuBisCO's carboxylase over oxygenase activity.</p>
+      <p><strong>Why C is wrong:</strong> This describes CAM (Crassulacean Acid Metabolism) plants (succulents, cacti) — they fix CO₂ at night (stomata open in cool night) and store it as malate, then use it for Calvin cycle during the day (stomata closed). C4 plants fix CO₂ during the day but use a spatial concentration mechanism.</p>
+      <p><strong>Why D is wrong:</strong> RuBisCO's oxygenase activity increases at high temperatures and low CO₂/high O₂ ratios — it is not eliminated by low O₂. The solution is increasing local CO₂ concentration.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">What are the direct products of the light-dependent reactions used for in the Calvin cycle?</div>
+  <ul class="options">
+    <li>A. ATP is used to split water; NADPH is used to excite chlorophyll</li>
+    <li>B. O₂ is used to oxidise CO₂ in the Calvin cycle; ATP powers the cycle</li>
+    <li class="correct">C. ATP provides energy to regenerate RuBP (from G3P) and to drive the reduction of 3-PGA to G3P; NADPH provides reducing power (electrons and H⁺) to reduce 3-PGA to G3P</li>
+    <li>D. NADPH is used to fix CO₂ onto RuBP; ATP is used to split water</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Calvin cycle uses ATP and NADPH from the light reactions: (1) <strong>Reduction phase</strong>: 3-PGA (3C, from CO₂ fixation) is reduced to G3P (glyceraldehyde-3-phosphate). Step 1: 3-PGA + ATP → 1,3-bisphosphoglycerate + ADP (phosphorylation using ATP). Step 2: 1,3-BPG + NADPH → G3P + NADP⁺ + Pᵢ (reduction using NADPH). (2) <strong>Regeneration phase</strong>: 5 of every 6 G3P molecules are used to regenerate 3 RuBP, consuming ATP (3 ATP per turn). Summary: for every CO₂ fixed, 3 ATP and 2 NADPH are used. The Calvin cycle is sometimes called the "dark reactions" but actually does occur in daylight — it just doesn't directly require light energy, only the ATP and NADPH that the light reactions supply.</p>
+      <p><strong>Why A is wrong:</strong> Water splitting occurs in the light reactions at PSII, powered by light energy — not by ATP from the Calvin cycle.</p>
+      <p><strong>Why B is wrong:</strong> O₂ is not used in the Calvin cycle — it is a byproduct of the light reactions (water splitting). O₂ is released from the chloroplast.</p>
+      <p><strong>Why D is wrong:</strong> RuBisCO fixes CO₂ to RuBP without requiring NADPH — it is a carboxylation reaction, not a reduction. NADPH is used in the reduction of 3-PGA to G3P (a later step).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">Comparing photosynthesis and aerobic cellular respiration — which of the following is correct?</div>
+  <ul class="options">
+    <li>A. Both processes occur exclusively in chloroplasts</li>
+    <li>B. Photosynthesis releases CO₂; cellular respiration absorbs CO₂</li>
+    <li class="correct">C. Photosynthesis uses CO₂ and H₂O to produce glucose and O₂ (driven by light); cellular respiration uses glucose and O₂ to produce CO₂, H₂O, and ATP — they are essentially the reverse of each other</li>
+    <li>D. Both photosynthesis and aerobic respiration produce NADH as a major output</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Photosynthesis: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂ (light energy → chemical energy stored in glucose). Aerobic respiration: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP (chemical energy → ATP + heat). They are essentially the reverse of each other thermodynamically — photosynthesis is endergonic (energy stored); respiration is exergonic (energy released). In a cell or organism that does both (plants): photosynthesis can capture more energy from sunlight than is used in respiration (net carbon gain). The global carbon cycle relies on this balance.</p>
+      <p><strong>Why A is wrong:</strong> Photosynthesis occurs in chloroplasts; aerobic respiration (Krebs cycle, ETC) occurs in mitochondria. Glycolysis occurs in the cytoplasm.</p>
+      <p><strong>Why B is wrong:</strong> Photosynthesis consumes CO₂ (fixes it into glucose); respiration releases CO₂.</p>
+      <p><strong>Why D is wrong:</strong> Photosynthesis produces NADPH (not NADH) for the Calvin cycle. Respiration produces NADH (and a little NADPH in the pentose phosphate pathway). NADPH and NADH are related but different molecules used in different pathways.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">An action spectrum of photosynthesis shows the rate of photosynthesis at different wavelengths of light. How does this compare to the absorption spectrum of chlorophyll?</div>
+  <ul class="options">
+    <li>A. They are opposite — wavelengths absorbed by chlorophyll slow down photosynthesis</li>
+    <li class="correct">B. They closely match — wavelengths that chlorophyll absorbs most (red ~680 nm, blue ~430 nm) are also the wavelengths that drive photosynthesis at the highest rate, confirming chlorophyll as the primary photosynthetic pigment</li>
+    <li>C. They are completely different because action spectra measure temperature, not light absorption</li>
+    <li>D. The action spectrum is broader than the absorption spectrum because some wavelengths bypass chlorophyll entirely</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The action spectrum plots photosynthetic rate (measured by O₂ production or CO₂ uptake) vs wavelength. The absorption spectrum plots light absorbed by a pigment vs wavelength. T.W. Englemann's 1882 experiment (aerobic bacteria clustering along algal filament illuminated by different wavelengths) showed that red and blue light drove the most photosynthesis — matching chlorophyll's absorption peaks. When the action spectrum includes contributions from accessory pigments (carotenoids, chlorophyll B), the action spectrum is slightly broader than chlorophyll A's absorption spectrum alone. The match between action and absorption spectra is compelling evidence that chlorophyll is the photosynthetic pigment.</p>
+      <p><strong>Why A is wrong:</strong> Light absorbed drives photosynthesis — the more absorbed, the higher the rate (up to the light saturation point).</p>
+      <p><strong>Why C is wrong:</strong> Action spectra measure photosynthetic rate at different wavelengths of light — not temperature.</p>
+      <p><strong>Why D is wrong:</strong> The action spectrum for photosynthesis is broader than chlorophyll A's absorption spectrum (because accessory pigments contribute), but all wavelengths that drive photosynthesis must be absorbed by some pigment first.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">What happens to the electrons donated by excited chlorophyll A at Photosystem II?</div>
+  <ul class="options">
+    <li>A. They immediately reduce O₂ to water at the reaction centre</li>
+    <li class="correct">B. They pass to pheophytin → plastoquinone (PQ) → cytochrome b6f complex → plastocyanin → PSI, driving proton pumping and contributing to the proton gradient used for ATP synthesis</li>
+    <li>C. They are directly used to reduce NADP⁺ to NADPH at PSII</li>
+    <li>D. They return directly to P680 after releasing their energy, making the process cyclic</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Electron path from PSII in the Z-scheme: Light excites P680 → electron donated to pheophytin (first electron acceptor in PSII) → plastoquinone (PQ) → cytochrome b6f complex (Q cycle pumps H⁺ into thylakoid lumen) → plastocyanin (mobile electron carrier in thylakoid lumen) → PSI (P700). At PSI: electrons excited again by light → ferredoxin → NADP⁺ reductase → NADPH. The "electron hole" in P680 (after donation) is filled by electrons from water splitting at the oxygen-evolving complex (OEC). This non-cyclic electron flow (Z-scheme) produces both ATP and NADPH. Cyclic electron flow (PSI only → ferredoxin → cytochrome b6f → plastocyanin → PSI) produces only ATP (no NADPH, no water splitting).</p>
+      <p><strong>Why A is wrong:</strong> O₂ reduction to water occurs at Complex IV in the mitochondria (aerobic respiration). In photosynthesis, water is SPLIT at PSII to release O₂ — the opposite reaction.</p>
+      <p><strong>Why C is wrong:</strong> NADPH is produced at PSI (by ferredoxin-NADP⁺ reductase), not PSII. Electrons must travel from PSII through the ETC to PSI before NADPH can be made.</p>
+      <p><strong>Why D is wrong:</strong> In non-cyclic electron flow (which produces NADPH), electrons do NOT return to P680. They proceed all the way to NADP⁺ → NADPH. The "cyclic" option does exist at PSI only (cyclic photophosphorylation), but this is different and is a separate pathway for ATP-only production.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">A plant is placed in a chamber with ¹⁴CO₂ (radioactive carbon-14 labelled CO₂) and illuminated. After a brief period, the lights are turned off. Which molecule would first contain ¹⁴C label immediately after illumination?</div>
+  <ul class="options">
+    <li>A. RuBP — because it is the CO₂ acceptor in the Calvin cycle</li>
+    <li>B. Glucose — because CO₂ is directly converted to glucose by RuBisCO</li>
+    <li class="correct">C. 3-phosphoglycerate (3-PGA) — the immediate product when RuBisCO adds ¹⁴CO₂ to RuBP, forming two 3-PGA molecules (one of which contains the ¹⁴C)</li>
+    <li>D. NADPH — because CO₂ is first incorporated into NADPH before entering the Calvin cycle</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>This question is based on the classic radiotracer experiment by Melvin Calvin and Andrew Benson (Calvin cycle named after them; Nobel Prize 1961). They used ¹⁴CO₂ and stopped the reaction at different time points to identify the first labelled product. The very first molecule to contain ¹⁴C after CO₂ fixation is 3-phosphoglycerate (3-PGA): RuBP (5C) + ¹⁴CO₂ → [unstable 6C intermediate] → 2 × 3-PGA. One of the two 3-PGA molecules contains the ¹⁴C from CO₂ (the other contains carbon from RuBP). 3-PGA was confirmed as the first stable product by detecting ¹⁴C-labelled 3-PGA at the earliest time points. With longer labelling, ¹⁴C appears in G3P, glucose, etc.</p>
+      <p><strong>Why A is wrong:</strong> RuBP is the CO₂ acceptor — it is consumed (not produced) when CO₂ is fixed. ¹⁴C would not appear in RuBP first.</p>
+      <p><strong>Why B is wrong:</strong> Glucose is a downstream product, produced after several Calvin cycle steps. It would not be the FIRST molecule labelled.</p>
+      <p><strong>Why D is wrong:</strong> CO₂ is not incorporated into NADPH. NADPH is produced by PSI in the light reactions and is used as a reductant in the Calvin cycle — it does not accept CO₂.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">Which of the following correctly describes the role of carotenoids in photosynthesis?</div>
+  <ul class="options">
+    <li>A. Carotenoids are the primary reaction centre pigments and directly perform photochemistry</li>
+    <li class="correct">B. Carotenoids are accessory pigments that absorb blue-green and violet light (~400–500 nm), transfer that energy to Chlorophyll A via resonance energy transfer, and protect the photosynthetic apparatus from photo-oxidative damage by quenching excess excitation energy</li>
+    <li>C. Carotenoids absorb red light only, supplementing Chlorophyll A's main absorption peak</li>
+    <li>D. Carotenoids are found exclusively in the thylakoid lumen and have no role in light absorption</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Carotenoids (β-carotene, α-carotene, lycopene, xanthophylls) are accessory pigments with two main functions in photosynthesis: (1) <strong>Light harvesting</strong>: absorb blue and violet light (400–500 nm) that chlorophylls don't absorb well → transfer excitation energy to Chlorophyll A via resonance energy transfer (Förster resonance energy transfer). This extends the usable spectrum of light. (2) <strong>Photoprotection</strong>: excess light energy can excite chlorophyll to a long-lived triplet state → reacts with O₂ → singlet oxygen (¹O₂), a damaging reactive oxygen species. Carotenoids quench triplet chlorophyll and singlet oxygen → protect PSII from oxidative damage. Xanthophylls (zeaxanthin) are specifically involved in the xanthophyll cycle for non-photochemical quenching (NPQ) under high light.</p>
+      <p><strong>Why A is wrong:</strong> Carotenoids are accessory pigments, not primary reaction centre pigments. Only Chlorophyll A (P680, P700) performs the primary photochemical reaction.</p>
+      <p><strong>Why C is wrong:</strong> Carotenoids absorb blue-green and violet light (~400–500 nm). They appear orange-yellow because they reflect these wavelengths. Red light is not their main absorption region.</p>
+      <p><strong>Why D is wrong:</strong> Carotenoids are embedded in the thylakoid membrane (associated with antenna complexes and reaction centres) — not in the thylakoid lumen. They are actively involved in light absorption.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

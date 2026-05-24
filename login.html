@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Mastery Pack — Login</title>
+<script src="passwords.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    background: #f8f6f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+  }
+
+  .brand {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-icon {
+    width: 56px;
+    height: 56px;
+    background: #2c5f2e;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 24px;
+  }
+
+  .brand h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+  }
+
+  .brand p {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 4px;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.06),
+      0 8px 24px rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .card .subtitle {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 28px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #fafaf9;
+    color: #1a1a1a;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    font-family: inherit;
+  }
+
+  input:focus {
+    border-color: #2c5f2e;
+    box-shadow: 0 0 0 3px rgba(44,95,46,0.12);
+    background: #fff;
+  }
+
+  input::placeholder { color: #aaa; }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    background: #2c5f2e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.15s, transform 0.1s;
+    font-family: inherit;
+    letter-spacing: 0.2px;
+  }
+
+  .btn:hover  { background: #245226; }
+  .btn:active { transform: scale(0.99); }
+
+  .error-msg {
+    display: none;
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #842029;
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .hint {
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: #aaa;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: #bbb;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="brand">
+  <div class="brand-icon">📚</div>
+  <h1>BABS1201 Mastery Pack</h1>
+  <p>Molecules, Cells &amp; Genes · UNSW 2026</p>
+</div>
+
+<div class="card">
+  <h2>Sign in to your pack</h2>
+  <p class="subtitle">Your access code was provided at purchase.</p>
+
+  <form id="loginForm" autocomplete="off">
+    <div class="field">
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="code">Access code</label>
+      <input type="password" id="code" placeholder="8-character code" required autocomplete="off" maxlength="8" style="font-family: monospace; letter-spacing: 2px; font-size: 1rem;">
+    </div>
+    <button type="submit" class="btn">Access My Pack →</button>
+    <div class="error-msg" id="errorMsg">
+      ❌ Incorrect code. Check your purchase confirmation email.
+    </div>
+  </form>
+
+  <p class="hint">Purchased on StudentVIP? Your code is in your order confirmation.</p>
+</div>
+
+<footer>HD Student Notes · 94% High Distinction · UNSW 2026</footer>
+
+<script>
+  // If already authenticated, skip login
+  try {
+    var auth = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (auth.ok) window.location.replace('dashboard.html');
+  } catch(e) {}
+
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email  = document.getElementById('email').value.trim();
+    var input  = document.getElementById('code').value.trim().toUpperCase();
+    var errMsg = document.getElementById('errorMsg');
+
+    if (VALID_CODES.indexOf(input) !== -1) {
+      localStorage.setItem('babs1201_auth', JSON.stringify({
+        ok: true,
+        email: email,
+        code: input,
+        ts: Date.now()
+      }));
+      window.location.replace('dashboard.html');
+    } else {
+      errMsg.style.display = 'block';
+      document.getElementById('code').value = '';
+      document.getElementById('code').focus();
+    }
+  });
+
+  // Hide error on new input
+  document.getElementById('code').addEventListener('input', function() {
+    document.getElementById('errorMsg').style.display = 'none';
+  });
+</script>
+</body>
+</html>

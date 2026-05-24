@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Gene Expression</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 12: Gene Expression I &amp; II &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 10 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A gene has the following regulatory elements: a TATA box at −30, an enhancer 10 kb upstream, and a silencer in an intron. A mutation deletes the TATA box. Predict the effect on transcription.</p>
+  </div>
+  <ul class="options">
+    <li>A) Transcription is abolished entirely because the TATA box is required for all eukaryotic genes</li>
+    <li class="correct">B) Basal transcription is severely reduced or shifts to an imprecise start site — the TATA box positions RNA Pol II and the general transcription machinery at the exact transcription start site. Without it, PIC assembly is impaired; however, TATA-less promoters (~70% of human genes) use initiator elements (Inr) and DPE instead. The enhancer may still drive some activator-mediated recruitment of coactivators to the promoter, but overall transcription initiation will be highly reduced and start-site fidelity lost</li>
+    <li>C) Transcription proceeds normally using the enhancer as an alternative TSS</li>
+    <li>D) The silencer overrides all other elements; transcription is silenced regardless</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The TATA box (TATAAA, ~−30) is recognised by TBP (TATA-binding protein), the core subunit of TFIID. TBP binding nucleates pre-initiation complex (PIC) assembly: TFIID → TFIIB → RNA Pol II–TFIIF → TFIIE → TFIIH → TSS. Without the TATA box: (1) TBP cannot bind precisely; (2) PIC assembly is inefficient and imprecise; (3) transcription initiation still occurs at some low level via alternative core promoter elements (Inr element at +1, DPE at +28–34) or by enhancer-driven Mediator recruitment, but start site accuracy is lost (heterogeneous +1 positions) and overall output drops dramatically. Enhancers cannot substitute for the TATA box function — they act through Mediator to stimulate an already-assembled PIC, not to assemble it. The silencer represses transcription but doesn't cause further reduction beyond zero.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Alternative splicing of the same pre-mRNA can generate functionally distinct proteins. The Drosophila DSCAM gene can generate 38,016 isoforms. Why is alternative splicing advantageous compared to having 38,016 separate genes?</p>
+  </div>
+  <ul class="options">
+    <li>A) Alternative splicing is more energy-efficient because the same promoter drives all isoforms</li>
+    <li class="correct">B) Genome economy: 38,016 separate genes would require enormous amounts of regulatory DNA, and the genome would need to encode millions more base pairs. Alternative splicing generates extraordinary protein diversity from compact genetic information. A single gene locus with shared regulatory elements (promoter, enhancer, shared exons) is maintained, while combinatorial exon selection generates diversity. This allows one gene to respond to a single regulatory signal while producing context-specific isoforms (e.g., DSCAM in neural wiring — each neuron expresses a unique combination to allow self-avoidance)</li>
+    <li>C) 38,016 separate genes would overwhelm the mRNA export machinery</li>
+    <li>D) Alternative splicing is impossible in vertebrates, so only invertebrates use it</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — DSCAM (Down Syndrome Cell Adhesion Molecule) in Drosophila has 4 alternatively spliced exon groups: exon 4 (12 choices) × exon 6 (48 choices) × exon 9 (33 choices) × exon 17 (2 choices) = 12 × 48 × 33 × 2 = 38,016 possible combinations. This diversifies the extracellular Ig domain to create unique "barcodes" for neurite self-recognition. Economy arguments: (1) shared promoter and transcription factors control all isoforms; (2) no need for 38,016 × ~1 kb regulatory regions; (3) shared exons encode conserved structural/functional domains; (4) the genome encodes only ~95 total exons with alternate choices rather than 38,016 complete gene copies (~200 Mb would be required). Alternative splicing is ubiquitous in vertebrates — ~95% of human multi-exon genes are alternatively spliced. Vertebrates likely use alternative splicing even more extensively than Drosophila to expand proteome diversity without expanding genome size.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">During the lac operon response, RNA polymerase transcribes the lac genes. But the operon also has a CAP (catabolite activator protein) binding site upstream. If glucose is present AND lactose is absent, what is the state of the operon and why?</p>
+  </div>
+  <ul class="options">
+    <li>A) Maximally transcribed — both glucose and lactose signals are present</li>
+    <li class="correct">B) Fully repressed — two independent mechanisms both inhibit transcription: (1) lac repressor is bound to operator (no allolactose to remove it); (2) high glucose keeps adenylyl cyclase inhibited → low cAMP → CAP cannot bind → RNA Pol cannot bind efficiently. Both negative control (repressor) AND absence of positive control (no CAP-cAMP activation) ensure no transcription. This double-lock makes biological sense: why express lactose-metabolising enzymes when glucose (preferred carbon source) is available?</li>
+    <li>C) Partially transcribed because CAP is active when glucose is present</li>
+    <li>D) Transcription is at basal level because the repressor alone cannot completely prevent transcription</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The lac operon integrates two independent signals: (1) Lactose sensing (negative control via lac repressor): No lactose → no allolactose → repressor binds operator → blocks RNA Pol. (2) Glucose sensing (positive control via CAP-cAMP): Glucose present → adenylyl cyclase inhibited → low cAMP → cAMP-CAP complex cannot form → CAP cannot bind upstream activating site → RNA Pol has weak affinity for lac promoter. Condition: glucose present + lactose absent = repressor ON (blocks) + CAP inactive (no activation) = MAXIMUM repression. The hierarchy: glucose present → low cAMP → weak promoter activation even if repressor were removed; lactose absent → repressor fully blocks. Both mechanisms reinforce each other. This elegant two-input logic circuit ensures bacteria use glucose preferentially and only express lac genes when glucose is exhausted and lactose is the only available carbon source (glucose absent + lactose present = maximum lac transcription).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A patient has a mutation that changes the splice donor site (5' ss: GU) of intron 2 in gene X to AU. What molecular consequence and resulting protein would you predict?</p>
+  </div>
+  <ul class="options">
+    <li>A) The intron is retained in the mRNA but is translated normally as a short peptide insert</li>
+    <li class="correct">B) The mutation abolishes the canonical splice donor — the spliceosome cannot recognise the AU sequence. Likely outcomes: (1) intron 2 retention — intron sequence is included in the mRNA; if intronic sequence contains an in-frame stop codon or causes a frameshift relative to exon 3, the protein is truncated or non-functional; (2) activation of a cryptic splice site nearby that has partial GU-like sequence; (3) exon skipping — exons 2 and 3 are spliced together, skipping intron 2 (but exon 2 may also be lost if it becomes "orphaned"). The resulting protein almost certainly lacks normal function</li>
+    <li>C) The mutation has no effect because the spliceosome uses the 3' splice site as the primary recognition sequence</li>
+    <li>D) The mRNA is exported normally and translated into a longer protein with extra amino acids from the intron</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Splice site mutations are a major cause of genetic disease (~15% of all disease-causing mutations affect splicing). The 5' splice site consensus is GU (nearly invariant) — recognised by U1 snRNA base-pairing. GU→AU destroys U1 snRNA binding. Outcomes depend on context: (1) Intron retention: if the intron is retained, the stop codons within it frequently terminate translation prematurely or the mRNA is degraded by nonsense-mediated decay (NMD); (2) Cryptic splice site activation: nearby GU sequences that are normally ignored may become the splice donor → aberrant exon/intron boundary; (3) Exon skipping (exon 2 may be skipped): if exon 2 definition depends on functional flanking splice sites, losing the 5' ss of intron 2 can trigger exon 2 skipping. All outcomes are likely to be pathogenic. Example: ~70% of β-thalassemia cases in Mediterranean populations involve splice site mutations.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Nonsense-mediated mRNA decay (NMD) degrades mRNAs with premature stop codons. How does the cell distinguish a premature stop from a normal stop codon?</p>
+  </div>
+  <ul class="options">
+    <li>A) Normal stop codons are methylated; premature stops are not</li>
+    <li class="correct">B) During splicing, exon junction complexes (EJCs) are deposited ~20–24 nt upstream of each exon-exon junction. NMD is triggered when a ribosome encounters a stop codon that is more than ~50–55 nt upstream of an EJC. Normal stop codons are in the last exon (no downstream EJC); premature stop codons are upstream of EJCs deposited by downstream splicing events. The ribosome stalls, recruits UPF1 which interacts with EJC-bound UPF2/UPF3, triggering mRNA decapping/deadenylation/endonucleolysis</li>
+    <li>C) Premature stops are detected because they are not followed by a 3' UTR poly-A signal</li>
+    <li>D) The ribosome counts the number of codons and stops any mRNA with fewer than 200 codons</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — NMD is a surveillance mechanism eliminating aberrant mRNAs that would produce dominant-negative or truncated proteins. The EJC model: splicing deposits an EJC on the mRNA ~20–24 nt upstream of each splice junction. During the pioneer round of translation, if the ribosome terminates at a stop codon with a downstream EJC (>50–55 nt downstream), NMD is triggered. UPF1 (helicase/ATPase) is recruited by eRF1/eRF3 (release factors) and interacts with EJC-bound UPF2/UPF3. UPF1 phosphorylation by SMG1 → recruits SMG5/SMG6/SMG7 → mRNA degradation (deadenylation, decapping, endonucleolysis by SMG6). Normal stop codons: in the 3' exon (after the last splice junction), so no downstream EJCs → NMD not triggered. Clinical relevance: NMD protects against some genetic diseases (e.g., if a nonsense mutation would produce a toxic truncated protein, NMD converts it to a null allele instead); but NMD also presents challenges for gene therapy approaches using readthrough compounds.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Chromatin immunoprecipitation (ChIP) is used to identify where a transcription factor binds genome-wide. A researcher performs ChIP for histone H3K4me3 (a mark associated with active promoters) and H3K27me3 (associated with repressed chromatin). Some genomic regions show BOTH marks simultaneously — "bivalent domains." What is the biological significance of bivalent chromatin?</p>
+  </div>
+  <ul class="options">
+    <li>A) Bivalent domains are artefacts of the ChIP procedure — they don't exist in living cells</li>
+    <li class="correct">B) Bivalent domains are found predominantly in embryonic stem cells (ESCs) at developmental gene promoters — they poise genes for rapid activation or silencing during differentiation. The co-presence of active (H3K4me3) and repressive (H3K27me3) marks keeps genes in a "standby" state: not fully active, not fully silenced. Upon differentiation stimulus, genes either lose H3K27me3 (→ activation) or lose H3K4me3 (→ permanent silencing). This allows rapid, coordinated gene expression changes during development</li>
+    <li>C) Bivalent domains are only found in cancer cells as a result of epigenetic dysregulation</li>
+    <li>D) H3K4me3 and H3K27me3 on the same nucleosome cancel each other out, resulting in a neutral state equivalent to no modifications</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Bivalent chromatin was discovered by Bernstein et al. (2006) in ESCs. Key features: H3K4me3 is placed by Set1/MLL complexes (COMPASS) and marks active/poised promoters; H3K27me3 is placed by Polycomb Repressive Complex 2 (PRC2/EZH2) and marks developmentally silenced genes. In ESCs, ~2,200 developmental regulatory genes (e.g., Hox genes, lineage-specifying TFs like GATA1, Neurogenin) have bivalent promoters — they are "on standby" for activation or silencing during lineage commitment. When ESCs differentiate: genes needed in that lineage → H3K27me3 removed (by KDM6A/B demethylases) → gene becomes active; genes not needed → H3K4me3 removed → H3K27me3 maintained → permanent silencing. Bivalency thus provides developmental "plasticity" — the ability to rapidly specify new transcriptional programs. Bivalency is also found at some loci in somatic cells (tissue-specific progenitors). The marks can co-exist on the same nucleosome — they are on different residues (K4 vs K27 of H3).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A ribosome translates the mRNA: 5'-AUG-CAA-UAA-3'. How many amino acids are in the final protein, and what is unusual about this sequence in the context of gene regulation?</p>
+  </div>
+  <ul class="options">
+    <li>A) 3 amino acids — Met-Gln-Stop; nothing unusual</li>
+    <li class="correct">B) 2 amino acids — Met-Gln (UAA is a stop codon). This is an upstream open reading frame (uORF). uORFs in the 5' UTR of eukaryotic mRNAs are important regulatory elements: ribosomes translating the uORF may fail to re-initiate at the main downstream ORF, reducing main protein expression. uORFs regulate many stress-response and oncogene mRNAs (e.g., ATF4, GCN4). The presence of a stop codon at UAA terminates this short ORF</li>
+    <li>C) 1 amino acid — only Met is incorporated before the ribosome stalls at CAA</li>
+    <li>D) 0 amino acids — Met is removed post-translationally in all eukaryotic proteins</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — AUG (Met) — CAA (Gln) — UAA (Stop). The ribosome incorporates Met (from initiator Met-tRNA at AUG) and Gln (from Gln-tRNA at CAA), then encounters UAA (stop codon) → releases the 2-amino acid peptide. In reality, such short peptides (smORFs, small ORFs) may be functional or may simply be regulatory. As a uORF in a 5' UTR: ribosome scans from the 5' cap, finds the AUG, translates the short ORF, terminates at UAA, and may or may not re-initiate at the downstream main ORF depending on: (1) distance between uORF stop and main ORF start (re-initiation efficiency), (2) eIF2α phosphorylation status (stress conditions). Under integrated stress response (eIF2α phosphorylation → reduced global translation), paradoxically some uORF-containing mRNAs (ATF4, GADD34) are actually translated MORE — the uORF becomes leaky under stress, allowing ribosomes to reach the main ORF. This is translational regulation without changing mRNA levels.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">RNA polymerase II (RNA Pol II) has a unique C-terminal domain (CTD) on its largest subunit consisting of multiple repeats of the heptapeptide YSPTSPS. This CTD is heavily phosphorylated during transcription. How does CTD phosphorylation coordinate transcription with co-transcriptional RNA processing?</p>
+  </div>
+  <ul class="options">
+    <li>A) CTD phosphorylation converts RNA Pol II from an RNA polymerase to a DNA repair enzyme</li>
+    <li class="correct">B) The CTD acts as a "landing platform" for RNA processing enzymes: (1) At initiation: hypophosphorylated CTD (Ser5 phosphorylated by TFIIH/CDK7) recruits the 5' capping machinery → m7G cap added co-transcriptionally; (2) During elongation: Ser2 phosphorylation (by CDK9/P-TEFb) recruits splicing factors and cleavage/polyadenylation factors. The CTD thus spatially and temporally couples transcription with capping, splicing, and 3' processing — ensuring each step happens to the nascent RNA in the correct order as Pol II moves along the gene</li>
+    <li>C) CTD phosphorylation decreases RNA Pol II processivity, ensuring gene-by-gene regulation</li>
+    <li>D) The CTD is only phosphorylated in prokaryotes; eukaryotic RNA Pol II uses a different regulatory mechanism</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The CTD code integrates transcription and RNA processing. Human RNA Pol II CTD has 52 YSPTSPS repeats. Phosphorylation states: (1) Ser5-P (added by TFIIH's CDK7 at promoter): recruits capping enzyme (guanylyltransferase) → m7G cap added within seconds of transcription initiation; recruits DSIF and NELF → pausing at ~25–50 nt. (2) Ser2-P (added by CDK9/P-TEFb): releases pausing; recruits: splicing factors (SF3b, spliceosome components), cleavage and polyadenylation specificity factor (CPSF), cleavage stimulation factor (CstF) for 3' processing; SET1/2 for H3K4/K36 methylation. This means: the phosphorylation state of the CTD at any point along a gene dictates which processing factors are recruited at that moment. Elongating Pol II with high Ser2-P recruits splicing factors → splicing occurs co-transcriptionally as introns emerge from the polymerase. This coupling ensures efficient, ordered gene expression and explains why transcription rates affect splicing outcomes (kinetic model of splicing).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A genetic disease is caused by a trinucleotide repeat in the 5' UTR of the FMR1 gene (Fragile X syndrome). The repeat expansion does NOT change the amino acid sequence of FMRP protein, yet causes severe intellectual disability. How?</p>
+  </div>
+  <ul class="options">
+    <li>A) The repeat expansion causes a frameshift in the FMR1 coding sequence</li>
+    <li class="correct">B) In Fragile X syndrome, >200 CGG repeats in the 5' UTR triggers methylation of the nearby FMR1 promoter CpG island by DNMT3A → transcriptional silencing of FMR1. Zero FMRP protein is produced (loss of function, not gain of function). FMRP is an RNA-binding protein that inhibits translation of synaptic proteins; without FMRP, excess synaptic protein synthesis impairs synaptic plasticity and LTP → intellectual disability. The mutation is entirely in the 5' UTR and affects regulation, not coding sequence</li>
+    <li>C) The CGG repeats produce a toxic RNA that binds and sequesters all ribosomes in neurons</li>
+    <li>D) The 5' UTR CGG repeats are translated into a poly-Arg peptide that kills neurons</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Fragile X is the most common inherited intellectual disability. FMR1 5' UTR has (CGG)ₙ repeats: Normal: 5–44 repeats. Premutation: 55–200 repeats (carrier state; causes FXTAS in elderly males — different mechanism). Full mutation: >200 repeats → hypermethylation of the FMR1 CpG island → heterochromatin formation → FMR1 silenced → no FMRP. FMRP function: RNA-binding protein that inhibits translation of dendritic mRNAs (e.g., AMPA receptor subunits, PSD-95, MAP1B) at synapses. Without FMRP: excess translation of these synaptic proteins → imbalanced synaptic strength → impaired mGluR-LTD → exaggerated synaptic protein synthesis → Fragile X phenotype (intellectual disability, autism-like features, macro-orchidism). Note: option D refers to RAN (repeat-associated non-AUG) translation, which is a real phenomenon in some repeat expansion diseases (C9orf72 ALS/FTD) but not the primary mechanism in classic Fragile X (full mutation → gene silencing is the dominant effect).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">CRISPR-Cas9 uses a guide RNA (gRNA) to direct the Cas9 nuclease to a specific genomic sequence for double-strand cutting. How does this system exploit the central dogma of gene expression to enable targeted genome editing?</p>
+  </div>
+  <ul class="options">
+    <li>A) CRISPR-Cas9 modifies the genetic code to insert new codon meanings</li>
+    <li class="correct">B) The gRNA (a ~100 nt RNA molecule) contains a ~20 nt spacer sequence complementary to the target DNA — Watson-Crick base pairing between the gRNA spacer and the target DNA strand (combined with PAM sequence recognition by Cas9) directs the RNP to cut exactly that genomic locus. This exploits the same base-pairing principle underlying DNA replication and transcription. After Cas9 creates a DSB: (1) NHEJ repair → insertions/deletions → gene knockout; (2) HDR with a donor template → precise gene correction. This tool revolutionised genetics by making targeted gene editing accessible</li>
+    <li>C) CRISPR-Cas9 works by inserting the gRNA sequence into the genome at the target locus</li>
+    <li>D) Cas9 reads the gRNA as a ribosome would read mRNA, translating it into a sequence-specific nuclease</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — CRISPR-Cas9 elegantly applies nucleic acid base-pairing rules: the 20 nt protospacer in the gRNA base-pairs with the complementary DNA strand, forming an R-loop. Cas9 then requires a PAM (protospacer adjacent motif, 5'-NGG-3' for SpCas9) on the non-template strand adjacent to the target, activating its two nuclease domains (HNH cuts the strand complementary to the gRNA; RuvC cuts the other strand) → blunt-ended DSB. The base-pairing specificity is the same as DNA replication/transcription complementarity. NHEJ (error-prone): creates indels → frameshifts → knockout. HDR (precise): if a repair template is co-delivered, exact sequence replacement occurs (gene correction, insertion). This is why CRISPR revolutionised biomedicine — the targeting system is simply a programmable RNA molecule, compared to labour-intensive zinc finger nucleases or TALENs. Nobel Prize 2020: Charpentier and Doudna.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

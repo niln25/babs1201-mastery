@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 06: Nutrient &amp; Ion Transport</title>
+<style>
+  :root { --primary: #1a3a5c; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-card.insta-q { border-left: 4px solid var(--insta); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .insta-header { background: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #721c24; }
+  .insta-header strong { color: var(--insta); }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 06: Nutrient &amp; Ion Transport &nbsp;|&nbsp; Passive Diffusion · Facilitated Diffusion · Active Transport · Osmosis · Endocytosis · Exocytosis</p>
+</div>
+
+<div class="insta-header">
+  <strong>🐒 Monkey Monday (INSTA)</strong> — Questions 1, 2, and 3 are from the official BABS1201 INSTA series. Questions 4–18 are original practice questions.
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- INSTA Q1 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 1 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">What is the function of an electrogenic pump?</div>
+  <ul class="options">
+    <li>A. A mode of active transport where ions are pumped across the cell membrane to generate flow of charge</li>
+    <li class="correct">B. An active transport where a protein in the cell membrane uses ATP to transport hydrogen ions out of a cell against their concentration gradient, generating a membrane potential in the process</li>
+    <li>C. A type of endocytosis in which the cell ingests extracellular fluid and its dissolved solute</li>
+    <li>D. The passage of molecules or ions down their gradient across a biological membrane helped along by specific transmembrane transport proteins, requiring no energy expenditure</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>An electrogenic pump is a type of active transport that moves ions across the membrane using ATP hydrolysis AND in doing so creates an electrical charge difference (membrane potential) — hence "electrogenic" (generating electricity). The prime example is the <strong>proton pump (H⁺-ATPase)</strong>: found in plant plasma membranes, tonoplasts, and in certain animal cells (gastric parietal cells). It pumps H⁺ ions OUT of the cell against the concentration gradient. Since protons carry positive charge, pumping them out makes the inside of the cell more negative → membrane potential is established. This membrane potential then drives secondary active transport (co-transporters) of other ions and nutrients. In animal cells, the Na⁺/K⁺-ATPase is also electrogenic (pumps 3 Na⁺ out, 2 K⁺ in per cycle → net loss of 1 positive charge from cell → inside negative).</p>
+      <p><strong>Why A is wrong:</strong> Option A is too vague — it says "ions are pumped to generate charge" but doesn't specify the mechanism (ATP-driven, specific ions). It could describe any active transport pump. The key defining feature of an electrogenic pump is the generation of a membrane potential.</p>
+      <p><strong>Why C is wrong:</strong> This describes pinocytosis (cell drinking) — a form of endocytosis. Not a pump.</p>
+      <p><strong>Why D is wrong:</strong> This describes facilitated diffusion — passive, down the gradient, using protein channels/carriers, no ATP.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q2 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 2 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Which mode of transport across a cell membrane uses specific transmembrane transport proteins, requiring no energy expenditure?</div>
+  <ul class="options">
+    <li>A. Active transport</li>
+    <li class="correct">B. Facilitated diffusion</li>
+    <li>C. Passive diffusion</li>
+    <li>D. Electrogenic transport</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B — Facilitated diffusion</strong></p>
+      <p>Facilitated diffusion moves molecules DOWN their concentration (or electrochemical) gradient — no ATP required — but uses specific transmembrane protein channels or carriers to facilitate passage. This allows polar molecules and ions that cannot pass through the hydrophobic bilayer to cross the membrane passively. Examples: (1) <strong>Aquaporins</strong> — water channels (osmosis facilitation). (2) <strong>GLUT1–4</strong> — glucose transporters (glucose into cells). (3) <strong>Ion channels</strong> — voltage-gated Na⁺ channels (nerve impulse), K⁺ leak channels.</p>
+      <p><strong>Why A (Active transport) is wrong:</strong> Active transport moves molecules AGAINST their gradient and requires energy (ATP), carrier proteins, or a co-transport mechanism.</p>
+      <p><strong>Why C (Passive diffusion) is wrong:</strong> Simple/passive diffusion requires NO proteins — it describes non-polar, small molecules dissolving directly through the lipid bilayer (O₂, CO₂, steroids).</p>
+      <p><strong>Why D (Electrogenic transport) is wrong:</strong> Electrogenic transport is a form of active transport — it uses ATP and generates a membrane potential.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q3 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 3 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">A hypertonic solution refers to one that:</div>
+  <ul class="options">
+    <li>A. Causes a cell to swell with fluid and possibly burst</li>
+    <li>B. Surrounds a cell causing no net movement in/out of cell</li>
+    <li>C. Causes the cell to swell with fluid by disrupting the peripheral proteins</li>
+    <li class="correct">D. Causes the cell to lose water by pulling fluid out of the cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: D — Hypertonic solution causes the cell to lose water</strong></p>
+      <p>A hypertonic solution has a HIGHER solute concentration than the cell's cytoplasm (lower water potential). Therefore, water moves OUT of the cell by osmosis → the cell shrinks. In animal cells: crenation (scalloped edges as membrane crumples). In plant cells: plasmolysis (plasma membrane pulls away from cell wall). <strong>Memory trick — HYPERtonic = HYPERactivates water loss (cell shrinks).</strong> The table: <br>
+      • Hypertonic → cell SHRINKS (water leaves) <br>
+      • Hypotonic → cell SWELLS (water enters, may burst in animal cells) <br>
+      • Isotonic → cell SIZE UNCHANGED (no net water movement)</p>
+      <p><strong>Why A is wrong:</strong> Swelling and bursting occurs in HYPOTONIC solutions (water rushes IN).</p>
+      <p><strong>Why B is wrong:</strong> No net movement describes an ISOTONIC solution.</p>
+      <p><strong>Why C is wrong:</strong> Hypertonic solutions cause water LOSS and cell shrinkage — NOT swelling. Also, peripheral proteins are not "disrupted" by osmotic solutions; they are disrupted by chemical agents (high salt, extreme pH).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">What distinguishes active transport from facilitated diffusion?</div>
+  <ul class="options">
+    <li>A. Active transport uses lipid channels; facilitated diffusion uses protein channels</li>
+    <li>B. Active transport moves water; facilitated diffusion moves solutes</li>
+    <li class="correct">C. Active transport moves molecules AGAINST their concentration or electrochemical gradient, requiring energy (usually ATP); facilitated diffusion moves molecules DOWN their gradient using proteins, with no energy required</li>
+    <li>D. Facilitated diffusion is faster than active transport in all cells</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The key distinction: direction relative to the gradient. (1) <strong>Facilitated diffusion</strong> — high → low concentration (down gradient); uses channels/carriers; no energy. Stops when gradient is abolished. (2) <strong>Active transport</strong> — low → high concentration (against gradient); requires energy: primary AT uses ATP directly (Na⁺/K⁺-ATPase, H⁺-ATPase, Ca²⁺-ATPase); secondary AT uses the gradient established by primary AT to drive co-transport (symport or antiport). Example: Na⁺/glucose symporter in intestinal epithelium — glucose is imported "uphill" using the Na⁺ gradient created by Na⁺/K⁺-ATPase.</p>
+      <p><strong>Why A is wrong:</strong> Both active transport and facilitated diffusion use membrane proteins. Lipid channels are not a real category.</p>
+      <p><strong>Why B is wrong:</strong> Both can move water, solutes, or ions. Osmosis (water) can be facilitated by aquaporins. Ions can be actively transported.</p>
+      <p><strong>Why D is wrong:</strong> Speed depends on concentration gradient and protein kinetics — not whether transport is active or passive. Active transport can be faster than facilitated diffusion in some contexts.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">The sodium-potassium pump (Na⁺/K⁺-ATPase) is crucial for maintaining cellular homeostasis. Which statement about this pump is correct?</div>
+  <ul class="options">
+    <li>A. It pumps 2 Na⁺ out and 3 K⁺ in per ATP hydrolysed, maintaining high extracellular K⁺</li>
+    <li>B. It operates by facilitated diffusion and does not require ATP</li>
+    <li class="correct">C. It pumps 3 Na⁺ out and 2 K⁺ in per ATP hydrolysed, maintaining high intracellular K⁺, low intracellular Na⁺, and a negative membrane potential</li>
+    <li>D. It pumps Na⁺ and K⁺ in the same direction (both out of the cell) to maintain charge balance</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The Na⁺/K⁺-ATPase: (1) Binds 3 intracellular Na⁺ → ATP hydrolysis phosphorylates the pump → conformational change → 3 Na⁺ released extracellularly. (2) Binds 2 extracellular K⁺ → dephosphorylation → 2 K⁺ released into cytoplasm. Net result per cycle: 3 Na⁺ out, 2 K⁺ in, 1 ATP consumed. Effects: (a) Maintains high [K⁺]in (~140 mM) and low [Na⁺]in (~10 mM). (b) Creates a negative membrane potential (~−70 mV in neurons) — electrogenic (unequal charge transfer). (c) The Na⁺ gradient powers secondary active transport of glucose, amino acids, neurotransmitter reuptake. (d) Regulates cell volume (preventing osmotic swelling). Approximately 25–40% of the body's resting ATP production goes to running Na⁺/K⁺-ATPase.</p>
+      <p><strong>Why A is wrong:</strong> The stoichiometry is reversed — it's 3 Na⁺ OUT and 2 K⁺ IN, not 2 out and 3 in.</p>
+      <p><strong>Why B is wrong:</strong> Na⁺/K⁺-ATPase is a primary active transporter — it directly hydrolyses ATP and works against the gradients of both Na⁺ and K⁺.</p>
+      <p><strong>Why D is wrong:</strong> Na⁺ and K⁺ are pumped in OPPOSITE directions (antiport): Na⁺ out and K⁺ in.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">Endocytosis is a process by which cells take up materials from the extracellular environment. Which of the following correctly distinguishes phagocytosis from pinocytosis?</div>
+  <ul class="options">
+    <li>A. Phagocytosis takes up fluid; pinocytosis takes up solid particles</li>
+    <li class="correct">B. Phagocytosis takes up large solid particles (bacteria, cell debris) via large pseudopod-driven vesicles (phagosomes); pinocytosis takes up extracellular fluid and dissolved solutes via small vesicles</li>
+    <li>C. Phagocytosis requires receptor-binding to initiate; pinocytosis never requires receptors</li>
+    <li>D. Both pinocytosis and phagocytosis require ATP for cargo release into the cytoplasm</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Types of endocytosis: (1) <strong>Phagocytosis ("cell eating")</strong> — uptake of large particles (>0.5 μm): bacteria, dead cells, debris. Performed by professional phagocytes (macrophages, neutrophils, dendritic cells). Cell extends pseudopods that engulf the particle into a large phagosome → fuses with lysosome → phagolysosome → digestion. (2) <strong>Pinocytosis ("cell drinking")</strong> — uptake of extracellular fluid and dissolved solutes in small vesicles (~100 nm). Can be non-specific (macropinocytosis) or receptor-mediated (clathrin-coated pits). (3) <strong>Receptor-mediated endocytosis</strong> — specific ligand binds receptor → receptor-ligand complex clusters in clathrin-coated pit → forms coated vesicle → clathrin coat shed → early endosome. Example: LDL cholesterol uptake via LDL receptor.</p>
+      <p><strong>Why A is wrong:</strong> This is reversed — phagocytosis takes up solids; pinocytosis takes up fluids.</p>
+      <p><strong>Why C is wrong:</strong> Receptor-mediated endocytosis is a specific form of pinocytosis that does require receptors. Phagocytosis also involves receptors (Fc receptors, complement receptors).</p>
+      <p><strong>Why D is wrong:</strong> Endocytosis itself uses ATP (membrane fusion is energy-requiring), but the cargo is released into the endosome/lysosome lumen — not the cytoplasm. Lysosomal digestion releases monomers that are then transported out into the cytoplasm by specific carriers.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Secondary active transport (co-transport) differs from primary active transport in that:</div>
+  <ul class="options">
+    <li>A. Secondary active transport always uses ATP directly to move molecules against a gradient</li>
+    <li class="correct">B. Secondary active transport uses the electrochemical gradient of one ion (established by primary active transport) to drive the uphill transport of a second molecule — no direct ATP hydrolysis by the co-transporter itself</li>
+    <li>C. Secondary active transport only moves molecules down their gradient and is therefore a form of facilitated diffusion</li>
+    <li>D. Secondary active transport requires two separate ATP molecules per transport event</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Secondary active transport (co-transport) couples the movement of one molecule (usually going DOWN its gradient) to the movement of another molecule (going UP its gradient). The "engine" is the electrochemical gradient of the first molecule, which was established by a primary active transporter (pump). Types: (1) <strong>Symport (co-transport, same direction)</strong> — e.g., Na⁺/glucose symporter (SGLT1) in intestinal epithelium: Na⁺ flows in down its gradient (created by Na⁺/K⁺-ATPase) → drives glucose in against its gradient. (2) <strong>Antiport (exchange/counter-transport, opposite directions)</strong> — e.g., Na⁺/H⁺ exchanger: Na⁺ in (down gradient) drives H⁺ out (against gradient). The co-transporter uses the energy stored in the Na⁺ gradient, but does NOT directly hydrolyse ATP.</p>
+      <p><strong>Why A is wrong:</strong> Direct ATP hydrolysis is the definition of PRIMARY active transport (e.g., ATPases). Secondary active transport uses a pre-existing gradient, not direct ATP.</p>
+      <p><strong>Why C is wrong:</strong> Secondary active transport DOES move one molecule against its gradient (it is active by thermodynamic definition). It is not facilitated diffusion.</p>
+      <p><strong>Why D is wrong:</strong> Secondary active transporters do not use ATP directly at all — let alone two ATP molecules per event.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Which of the following transport mechanisms is responsible for exporting insulin from pancreatic beta cells after synthesis?</div>
+  <ul class="options">
+    <li>A. Facilitated diffusion via insulin-specific channels in the plasma membrane</li>
+    <li>B. Simple diffusion — insulin is small enough to cross the lipid bilayer directly</li>
+    <li class="correct">C. Exocytosis — insulin is packaged into secretory vesicles at the Golgi apparatus and released when vesicles fuse with the plasma membrane</li>
+    <li>D. Active transport by the Na⁺/K⁺-ATPase, which also exports insulin</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Insulin is a 51-amino acid protein (processed from a larger proinsulin precursor). Its secretory pathway: rER (synthesis + initial folding) → Golgi (processing of proinsulin → insulin + C-peptide) → secretory granules (dense-core vesicles). When blood glucose rises: glucose enters beta cells via GLUT2 → ATP produced by glycolysis/oxidative phosphorylation → K⁺-ATP channels close → membrane depolarisation → voltage-gated Ca²⁺ channels open → Ca²⁺ influx → secretory vesicles fuse with plasma membrane (exocytosis) → insulin released into bloodstream. Exocytosis is the universal mechanism for secreting large, polar proteins from cells — they cannot cross the hydrophobic bilayer by any other means.</p>
+      <p><strong>Why A is wrong:</strong> There are no "insulin-specific channels" for exporting insulin. Channels are for ions and small molecules.</p>
+      <p><strong>Why B is wrong:</strong> Insulin is a large, polar protein — it cannot diffuse through the hydrophobic bilayer.</p>
+      <p><strong>Why D is wrong:</strong> Na⁺/K⁺-ATPase transports Na⁺ and K⁺ ions — it has no capacity to transport large proteins like insulin.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">An ion channel that opens in response to changes in membrane voltage is called:</div>
+  <ul class="options">
+    <li>A. A ligand-gated channel</li>
+    <li>B. A mechanically-gated channel</li>
+    <li class="correct">C. A voltage-gated channel</li>
+    <li>D. A constitutively open (leak) channel</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Ion channels are classified by their gating mechanism — what triggers opening or closing: (1) <strong>Voltage-gated channels</strong> — respond to changes in membrane potential. Example: voltage-gated Na⁺ channels (open at ~−55 mV during action potential), voltage-gated K⁺ channels, voltage-gated Ca²⁺ channels. Critical for nerve impulse propagation and muscle contraction. (2) <strong>Ligand-gated channels</strong> — open when a specific molecule (ligand) binds. Example: acetylcholine receptor at neuromuscular junction (nicotinic receptor); GABA_A receptor. (3) <strong>Mechanically-gated channels</strong> — open in response to mechanical deformation. Example: hair cells in the cochlea (hearing), stretch-sensitive channels in skin. (4) <strong>Leak channels</strong> — always open; main contributor to resting membrane potential (K⁺ leak channels).</p>
+      <p><strong>Why A is wrong:</strong> Ligand-gated channels open in response to specific binding molecules (neurotransmitters, hormones), not voltage changes.</p>
+      <p><strong>Why B is wrong:</strong> Mechanically-gated channels respond to physical deformation (touch, pressure).</p>
+      <p><strong>Why D is wrong:</strong> Constitutively open channels are always open — they do not respond to voltage changes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">In the small intestine, glucose is absorbed from the gut lumen into intestinal epithelial cells. Which transport process is primarily responsible for this uptake?</div>
+  <ul class="options">
+    <li>A. Simple diffusion across the lipid bilayer, as glucose is small</li>
+    <li>B. Passive facilitated diffusion via GLUT2 transporters on the apical surface</li>
+    <li class="correct">C. Secondary active transport via the Na⁺/glucose co-transporter (SGLT1) on the apical membrane, using the Na⁺ gradient established by basolateral Na⁺/K⁺-ATPase</li>
+    <li>D. Endocytosis of glucose molecules in lipid-coated vesicles</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Glucose absorption across intestinal epithelium (transcellular route): (1) <strong>Apical membrane (facing gut lumen)</strong>: SGLT1 (Na⁺/glucose co-transporter, secondary active transport) — Na⁺ flows into the cell down its electrochemical gradient, dragging glucose AGAINST its concentration gradient from the lumen into the cell. (2) <strong>Basolateral membrane (facing blood)</strong>: GLUT2 (facilitated diffusion) — glucose exits the cell down its gradient into the bloodstream. (3) <strong>Maintains Na⁺ gradient</strong>: Na⁺/K⁺-ATPase on the basolateral membrane continuously pumps Na⁺ out, keeping intracellular Na⁺ low (maintaining the driving force for SGLT1). This coupled transport system allows the intestine to absorb glucose even when luminal glucose concentrations are lower than intracellular levels.</p>
+      <p><strong>Why A is wrong:</strong> Glucose is a polar molecule (molecular weight ~180 Da) that cannot cross the hydrophobic bilayer by simple diffusion.</p>
+      <p><strong>Why B is wrong:</strong> GLUT2 is on the BASOLATERAL membrane (not apical) for glucose export. The apical glucose transporter is SGLT1 (active) for absorption against a gradient.</p>
+      <p><strong>Why D is wrong:</strong> Glucose is a small monomer that does not require endocytosis. Endocytosis is for larger particles/molecules.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">Why does the resting membrane potential of a typical animal cell carry a negative charge inside relative to outside?</div>
+  <ul class="options">
+    <li>A. Because all ions are located outside the cell, leaving the inside ion-free and negatively charged</li>
+    <li>B. Because the cell membrane itself carries a negative charge</li>
+    <li class="correct">C. Because K⁺ leak channels allow K⁺ to diffuse out of the cell (down its concentration gradient), leaving behind negatively charged proteins, and the Na⁺/K⁺-ATPase pumps more positive charges out (3 Na⁺) than it brings in (2 K⁺)</li>
+    <li>D. Because Cl⁻ ions are actively pumped into the cell by the Na⁺/K⁺-ATPase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The resting membrane potential (~−70 mV in neurons) arises from: (1) <strong>K⁺ leak channels</strong> — K⁺ is at high concentration inside (~140 mM) and low outside (~5 mM). K⁺ diffuses out through leak channels down its concentration gradient. As positive K⁺ leaves, the inside becomes negative (more negative = more K⁺ leaves until electrical attraction back in balances the chemical diffusion out → equilibrium potential for K⁺ ≈ −90 mV). (2) <strong>Na⁺/K⁺-ATPase</strong> — electrogenic (3 Na⁺ out, 2 K⁺ in) contributes ~−5 to −10 mV to negativity. (3) <strong>Fixed anionic proteins</strong> inside the cell (negatively charged amino acid residues, nucleic acids) that cannot leave contribute to inside negativity. The actual resting potential (−70 mV) reflects the balance of K⁺, Na⁺, and Cl⁻ permeabilities.</p>
+      <p><strong>Why A is wrong:</strong> Ions are present both inside and outside the cell. The difference in permeability and active transport, not absence of ions, creates the potential.</p>
+      <p><strong>Why B is wrong:</strong> The membrane itself doesn't carry a net charge — the charge difference is between the solutions on each side of it.</p>
+      <p><strong>Why D is wrong:</strong> Na⁺/K⁺-ATPase pumps Na⁺ out and K⁺ in — it does not pump Cl⁻. Cl⁻ is generally distributed passively according to the electrical gradient.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">Which of the following would be the consequence of adding ouabain (a specific inhibitor of Na⁺/K⁺-ATPase) to an animal cell?</div>
+  <ul class="options">
+    <li>A. Increased glucose uptake due to enhanced GLUT1 activity</li>
+    <li class="correct">B. Gradual loss of the Na⁺/K⁺ gradient; cell swelling as Na⁺ and water accumulate intracellularly; loss of membrane potential; failure of secondary active transport processes</li>
+    <li>C. Increased rate of mitochondrial ATP production to compensate for the pump's failure</li>
+    <li>D. Immediate cell death due to rapid K⁺ influx overwhelming the cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Na⁺/K⁺-ATPase is essential for: (1) maintaining the Na⁺ gradient (low intracellular Na⁺), (2) maintaining cell volume (pumping out Na⁺ that leaks in, counteracting osmotic water uptake), (3) generating membrane potential, (4) powering secondary active transport. Ouabain blocks the pump → Na⁺ leaks in but cannot be pumped out → intracellular [Na⁺] rises → osmotic water influx → cell swells → if severe, cell lyses. The Na⁺ gradient driving co-transporters (SGLT1, amino acid transporters, neurotransmitter reuptake) also dissipates → secondary active transport fails. Membrane potential collapses → neurons become inexcitable. Note: Cardiac glycosides (digoxin, which works similarly) are used therapeutically — by partially inhibiting Na⁺/K⁺-ATPase in cardiac myocytes, they raise intracellular Na⁺ → less Ca²⁺ exchanged out via Na⁺/Ca²⁺ exchanger → increased intracellular Ca²⁺ → stronger heart contraction.</p>
+      <p><strong>Why A is wrong:</strong> GLUT1 activity depends on glucose concentration gradient, not Na⁺/K⁺-ATPase (GLUT1 is facilitated diffusion). SGLT (Na⁺-linked glucose transport) would FAIL without the Na⁺ gradient.</p>
+      <p><strong>Why C is wrong:</strong> While cells may transiently increase glycolysis, there is no specific compensatory increase in oxidative phosphorylation linked to ouabain.</p>
+      <p><strong>Why D is wrong:</strong> Death is not immediate. K⁺ does leak out (K⁺ moves down its gradient from inside to outside as membrane potential changes), but this is a gradual process, not a rapid K⁺ influx.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Aquaporins are transmembrane proteins that facilitate:</div>
+  <ul class="options">
+    <li>A. Active transport of water ions using ATP</li>
+    <li class="correct">B. Rapid passive movement of water molecules across the membrane — dramatically increasing water permeability while excluding ions and other solutes</li>
+    <li>C. Transport of glucose and other sugars across the membrane via a concentration-dependent mechanism</li>
+    <li>D. The movement of Na⁺ ions in exchange for K⁺ ions to maintain osmotic balance</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Aquaporins (AQPs) are channel proteins (~28 kDa) that form narrow (3 Å) water-selective pores through the membrane. Key features: (1) Water passes single-file through the channel. (2) Electrostatic interactions in the channel exclude ions (especially H⁺/H₃O⁺), maintaining osmotic selectivity. (3) Dramatically increase water permeability: AQP1 increases membrane water permeability ~10-fold. Important tissues: AQP1 (red blood cells, kidney proximal tubule), AQP2 (kidney collecting duct — regulated by vasopressin/ADH to control water reabsorption → key in diabetes insipidus), AQP4 (brain, astrocytes). Peter Agre received the 2003 Nobel Prize in Chemistry for the discovery of aquaporins.</p>
+      <p><strong>Why A is wrong:</strong> Water transport by aquaporins is PASSIVE — no ATP. Water "ions" are not a real category (water is a molecule, not an ion).</p>
+      <p><strong>Why C is wrong:</strong> Aquaporins transport water, not glucose. Glucose transport uses GLUT family carriers (facilitated diffusion) or SGLT (secondary active transport).</p>
+      <p><strong>Why D is wrong:</strong> Na⁺/K⁺ exchange is performed by the Na⁺/K⁺-ATPase (active) and various antiporters — not aquaporins.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">Which of the following correctly distinguishes a symporter from an antiporter?</div>
+  <ul class="options">
+    <li>A. A symporter uses ATP directly; an antiporter uses an ion gradient</li>
+    <li>B. A symporter moves one molecule at a time; an antiporter moves two molecules at a time</li>
+    <li class="correct">C. A symporter moves two different molecules in the SAME direction across the membrane; an antiporter moves two different molecules in OPPOSITE directions</li>
+    <li>D. A symporter is found only in plant cells; an antiporter is found only in animal cells</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Carrier/transporter classifications: (1) <strong>Uniporter</strong> — moves one type of molecule in one direction (e.g., GLUT1). (2) <strong>Symporter (co-transporter)</strong> — moves TWO different molecules in the SAME direction (e.g., Na⁺/glucose via SGLT1 — both Na⁺ and glucose enter the cell). (3) <strong>Antiporter (exchanger)</strong> — moves TWO different molecules in OPPOSITE directions (e.g., Na⁺/H⁺ exchanger — Na⁺ in, H⁺ out; Na⁺/Ca²⁺ exchanger — 3 Na⁺ in, 1 Ca²⁺ out). Symporters and antiporters can be active (if at least one molecule moves against its gradient) or passive (both down gradient — facilitating co-movement).</p>
+      <p><strong>Why A is wrong:</strong> ATP usage doesn't distinguish symporters from antiporters. Both can be involved in secondary active transport (using ion gradients, no direct ATP).</p>
+      <p><strong>Why B is wrong:</strong> Both symporters and antiporters typically move two molecules per transport event — the difference is direction, not number.</p>
+      <p><strong>Why D is wrong:</strong> Both symporters and antiporters are found in all domains of life — they are not restricted to plant or animal cells.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">A scientist discovers that a poison blocks all protein channels in a cell membrane but leaves the lipid bilayer intact. Which of the following would be most affected?</div>
+  <ul class="options">
+    <li>A. Entry of O₂ and exit of CO₂</li>
+    <li>B. Entry of steroid hormones such as cortisol</li>
+    <li class="correct">C. Transport of Na⁺, K⁺, glucose, and amino acids across the membrane</li>
+    <li>D. Movement of ethanol into the cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>If all membrane proteins (channels, carriers, pumps) are blocked: (1) Na⁺, K⁺, Cl⁻ ions — cannot cross the hydrophobic bilayer without ion channels → transport severely impaired. (2) Glucose, amino acids — cannot cross without carrier proteins (GLUT, amino acid transporters) → transport severely impaired. (3) Water — slightly reduced (aquaporins blocked), but water still crosses bilayer slowly by simple diffusion. (4) Na⁺/K⁺-ATPase blocked → gradients dissipate → membrane potential lost → action potentials impossible → cell death inevitable. In contrast, small non-polar molecules are unaffected because they diffuse directly through the lipid bilayer without needing protein channels.</p>
+      <p><strong>Why A is wrong:</strong> O₂ and CO₂ are small, non-polar gases that cross membranes by simple diffusion through the lipid bilayer — no protein channels needed. They would be unaffected.</p>
+      <p><strong>Why B is wrong:</strong> Steroid hormones (cortisol, estrogen, testosterone) are lipid-soluble and diffuse directly through the membrane without needing protein channels.</p>
+      <p><strong>Why D is wrong:</strong> Ethanol is a small, amphipathic molecule that readily crosses membranes by simple diffusion through the lipid bilayer — no protein channels required.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

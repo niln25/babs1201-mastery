@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Cell Integrity</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 4: Cell Integrity &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 11 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Red blood cells placed in 0.9% NaCl (isotonic) maintain their shape. If the same cells are placed in distilled water, which sequence of events occurs?</p>
+  </div>
+  <ul class="options">
+    <li>A) Crenation → cell death</li>
+    <li class="correct">B) Water enters by osmosis (hypotonic solution) → RBC swells → membrane stretches → haemolysis (lysis) as the membrane cannot withstand the turgor pressure</li>
+    <li>C) The cell shrinks due to the absence of solutes in the external environment</li>
+    <li>D) Nothing — RBCs are not affected by osmotic changes because they lack a nucleus</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Distilled water is hypotonic relative to RBC cytoplasm (high intracellular ion and haemoglobin concentration). Water enters by osmosis (down the water potential gradient). Unlike plant cells (which have a rigid cell wall preventing lysis), RBCs have only a plasma membrane — when it stretches beyond its elastic limit, it ruptures (haemolysis), releasing haemoglobin into the surrounding solution (which turns red/pink). This is exploited in the osmotic fragility test. Crenation (option A) occurs in hypertonic solutions (cells lose water and shrivel). The lack of a nucleus is irrelevant to osmosis.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A plant cell is placed in a hypertonic solution. The cell loses water and the plasma membrane pulls away from the cell wall. This is called plasmolysis. Why does the cell wall remain intact while the membrane retracts?</p>
+  </div>
+  <ul class="options">
+    <li>A) The cell wall is made of phospholipids and is not affected by water loss</li>
+    <li class="correct">B) The cell wall is rigid and inextensible (cellulose microfibrils) and does not contract with the protoplast; only the plasma membrane and cytoplasm (the protoplast) shrink as water leaves, leaving a gap between membrane and wall</li>
+    <li>C) The cell wall actively pumps water out faster than the membrane can follow</li>
+    <li>D) Plasmolysis occurs when the cell wall lyses, not when the membrane retracts</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The plant cell wall is a rigid cellulose-hemicellulose-pectin matrix that maintains its shape regardless of water content. The plasma membrane, on the other hand, is fluid and contracts with the protoplast as water exits osmotically. The protoplast (everything inside the cell wall: membrane + cytoplasm + organelles) shrinks, creating a visible gap between the plasma membrane and the cell wall — plasmolysis. At the point of incipient plasmolysis, turgor pressure = 0. Plasmolysis is partially or fully reversible by returning the cell to a hypotonic solution (deplasmolysis). This distinguishes plant cell osmosis from animal cell osmosis (no wall = lysis in hypotonic, crenation in hypertonic).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Cholesterol is an important regulator of membrane fluidity. How does cholesterol have different effects on membrane fluidity at different temperatures?</p>
+  </div>
+  <ul class="options">
+    <li>A) Cholesterol always increases fluidity regardless of temperature</li>
+    <li>B) Cholesterol always decreases fluidity regardless of temperature</li>
+    <li class="correct">C) At high temperatures: cholesterol's rigid ring system reduces excess fluidity (prevents membrane from becoming too fluid). At low temperatures: cholesterol prevents lipids from packing too tightly (interrupts crystallisation), maintaining fluidity</li>
+    <li>D) Cholesterol has no effect at physiological temperature but maximises fluidity at body temperature extremes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Cholesterol is a membrane "fluidity buffer." Its flat steroid ring structure inserts between phospholipid tails: at HIGH temperatures (above membrane Tm), the rigid ring physically restricts the free movement/rotation of fatty acid tails — dampening excess fluidity. At LOW temperatures (below Tm), phospholipids would pack into a crystalline (gel) phase; cholesterol's bulky ring structure disrupts this orderly packing, preventing crystallisation and maintaining fluidity. This dual action explains why cell membranes maintain an appropriate liquid-crystalline state across a range of temperatures. In mammalian plasma membranes, cholesterol comprises ~30–40% of membrane lipids.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Tight junctions seal adjacent epithelial cells together. What functional consequence would occur if tight junctions were disrupted in intestinal epithelial cells?</p>
+  </div>
+  <ul class="options">
+    <li>A) Cells would lose ability to communicate electrically with each other</li>
+    <li>B) Cells would detach from the basement membrane</li>
+    <li class="correct">C) Paracellular leakage would occur — luminal contents (bacteria, undigested food antigens) could pass through the gaps between cells into the bloodstream without being transported through cells; "leaky gut" with systemic inflammation could result</li>
+    <li>D) Vesicular transport within cells would be impaired</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Tight junctions (zonula occludens) form a belt of claudin and occludin proteins around each epithelial cell, sealing the intercellular space. They prevent paracellular transport — forcing all substances to pass THROUGH cells (transcellular route), where selective channels/transporters can control what enters the blood. If disrupted: bacteria, lipopolysaccharide (LPS), food antigens, and other luminal contents can bypass cellular selection and leak directly into subepithelial tissue and the portal circulation, triggering innate immune responses. This "leaky gut" concept is relevant to inflammatory bowel disease (IBD), coeliac disease, and systemic inflammatory conditions. Gap junctions (option A) enable electrical coupling. Integrins connect cells to basement membrane (option B).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The ECM (extracellular matrix) is not simply structural scaffolding — it actively regulates cell behaviour. Which mechanism best demonstrates this active regulatory role?</p>
+  </div>
+  <ul class="options">
+    <li>A) Collagen fibres physically prevent cells from migrating, maintaining tissue architecture</li>
+    <li class="correct">B) Growth factors (e.g., FGF, TGF-β) are sequestered in the ECM by heparan sulphate proteoglycans; ECM remodelling by matrix metalloproteinases (MMPs) releases these factors, triggering cell proliferation, differentiation, or migration — as occurs in wound healing and cancer invasion</li>
+    <li>C) Fibronectin reduces membrane permeability to ions</li>
+    <li>D) Laminin acts as the primary energy source for cells during starvation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The ECM is a dynamic reservoir of signalling molecules. Heparan sulphate proteoglycans (HSPGs) like perlecan bind and protect growth factors (FGF, VEGF, HGF, TGF-β) from degradation while holding them in reserve. When MMPs (released during wound healing or by tumour cells) cleave ECM components, sequestered growth factors are released, stimulating nearby cells. Cancer cells exploit MMP secretion to liberate ECM-bound growth factors and to open migratory paths through the matrix. Additionally, ECM stiffness (mechanosensing via integrins → focal adhesion kinase → Rho GTPases) directly regulates cell fate: stiff matrices promote osteogenic differentiation; soft matrices promote neural differentiation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A researcher measuring osmotic pressure uses a semipermeable membrane that allows passage of water but not sucrose. One chamber contains 0.3 M sucrose; the other contains 0.5 M sucrose. At equilibrium, which of the following is true?</p>
+  </div>
+  <ul class="options">
+    <li>A) Equal volumes of water will be in both chambers at equilibrium</li>
+    <li>B) Sucrose will diffuse from the 0.5 M to the 0.3 M chamber until both are 0.4 M</li>
+    <li class="correct">C) Water will move from the 0.3 M chamber (lower solute, higher water potential) to the 0.5 M chamber (higher solute, lower water potential) until osmotic pressure equalises the water potential across the membrane</li>
+    <li>D) No net movement occurs because water is identical on both sides</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Water moves by osmosis from the region of higher water potential (lower solute concentration = 0.3 M sucrose) to the region of lower water potential (higher solute concentration = 0.5 M sucrose). The semipermeable membrane allows water but not sucrose to pass. Net water flow continues until osmotic equilibrium is reached — the hydrostatic pressure difference generated by unequal water volumes opposes further flow (osmotic pressure = π = iMRT). Sucrose cannot diffuse across (option B is impossible). At equilibrium, water potential on both sides is equal, but sucrose concentration is NOT equalised — there is more water in the 0.5 M chamber but the sucrose itself has not moved.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Gap junctions in cardiac muscle allow small molecules and ions to pass directly between cells. What would happen to cardiac conduction if gap junctions were blocked?</p>
+  </div>
+  <ul class="options">
+    <li>A) The heart would beat faster, as each cell would generate its own independent action potential</li>
+    <li class="correct">B) The coordinated electrical conduction of the action potential across the heart would fail — each cardiomyocyte would become electrically isolated, resulting in uncoordinated contraction (similar to fibrillation) rather than synchronised pumping</li>
+    <li>C) The heart would stop immediately and could not restart</li>
+    <li>D) Calcium would not be released from the sarcoplasmic reticulum, abolishing contraction</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Gap junctions (formed by connexin proteins) allow ions (K⁺, Na⁺, Ca²⁺) and small molecules (<1 kDa) to pass directly between adjacent cells. In the heart, this creates electrical syncytium: an action potential initiated at the SA node spreads rapidly through all atrial cardiomyocytes (via gap junctions) and then through ventricular cells (via the His-Purkinje system, also connected by gap junctions). This coordinated wave ensures synchronous contraction. If gap junctions were blocked: no intercellular electrical coupling; cells cannot coordinate. The result resembles ventricular fibrillation — chaotic, uncoordinated twitching with no net pumping. The heart does not stop completely (option C) because individual cells still generate action potentials.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Membrane asymmetry means the inner and outer leaflets of the plasma membrane have different lipid compositions. Phosphatidylserine (PS) is normally found exclusively on the cytoplasmic (inner) leaflet. What is the significance of PS appearing on the outer leaflet?</p>
+  </div>
+  <ul class="options">
+    <li>A) It increases membrane fluidity to facilitate endocytosis</li>
+    <li>B) It activates voltage-gated ion channels in the membrane</li>
+    <li class="correct">C) PS externalisation (flipping to the outer leaflet) is an "eat-me" signal — it is recognised by phagocyte receptors (e.g., annexin I, TIM-4) during apoptosis, signalling macrophages to engulf and clear the dying cell; it also activates the extrinsic clotting cascade on platelet surfaces</li>
+    <li>D) Externalised PS acts as an energy reserve that can be hydrolysed by membrane lipases</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Normally, flipases (type IV P-type ATPases) actively maintain PS on the inner leaflet. During apoptosis, scramblases are activated and flip PS to the outer leaflet. Macrophages express PS receptors that recognise this "eat-me" signal, enabling non-inflammatory phagocytic clearance of apoptotic cells (efferocytosis) — distinct from pro-inflammatory phagocytosis. On platelets: activation causes PS externalisation, which supports the assembly of the tenase and prothrombinase complexes (clotting factor complexes) — dramatically accelerating clot formation. Some viruses (e.g., SARS-CoV-2) exploit PS-mimicry for cell entry. PS asymmetry is maintained at the cost of ATP (via flippases).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Aquaporins (AQPs) are water channels. AQP2 in kidney collecting duct cells is regulated by antidiuretic hormone (ADH/vasopressin). How does ADH regulate water reabsorption at the cellular level?</p>
+  </div>
+  <ul class="options">
+    <li>A) ADH directly opens AQP2 channels by binding to their extracellular domain</li>
+    <li class="correct">B) ADH binds V2 receptors → cAMP increase → PKA activation → phosphorylation of AQP2 → intracellular AQP2 vesicles fuse with the apical plasma membrane, inserting AQP2 channels, enabling water reabsorption from the tubule lumen</li>
+    <li>C) ADH causes AQP2 synthesis by activating transcription of the AQP2 gene within minutes</li>
+    <li>D) ADH increases Na⁺/K⁺-ATPase activity, creating an osmotic gradient that draws water through existing channels</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — ADH regulation of AQP2 is a classic example of receptor-mediated vesicle trafficking. ADH binds V2R (Gs-coupled receptor) → activates adenylyl cyclase → cAMP → PKA. PKA phosphorylates AQP2 at Ser256, causing intracellular AQP2-containing vesicles to insert into the apical membrane. Water flows from the hypo-osmotic tubule lumen through AQP2 into the cell and exits through constitutive AQP3/AQP4 on the basolateral membrane into the hyperosmotic interstitium. When ADH is removed, AQP2 is internalised by clathrin-mediated endocytosis. This rapid membrane targeting (seconds to minutes) is far faster than new protein synthesis. Mutations in V2R or AQP2 cause nephrogenic diabetes insipidus.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A drug increases the permeability of the plasma membrane to all ions. What effect would this have on a resting neuron's membrane potential?</p>
+  </div>
+  <ul class="options">
+    <li>A) The membrane potential would become more negative (hyperpolarised) due to K⁺ influx</li>
+    <li class="correct">B) The membrane potential would approach 0 mV — all ions would equilibrate down their concentration gradients, collapsing the resting potential that depends on selective permeability (primarily K⁺ via leak channels maintaining ~−70 mV)</li>
+    <li>C) The membrane potential would become more positive (depolarised) due to Na⁺ influx only</li>
+    <li>D) Nothing — membrane potential is set by the Na⁺/K⁺-ATPase pump, not by ion permeability</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The resting membrane potential (~−70 mV in neurons) depends critically on SELECTIVE permeability. At rest, the membrane is mainly permeable to K⁺ (via K⁺ leak channels). K⁺ diffuses out down its concentration gradient, leaving negative charges behind, generating the negative inside potential. The Goldman equation describes how conductances of K⁺, Na⁺, Cl⁻ combine to set the resting potential. If the drug makes the membrane equally permeable to all ions: K⁺ flows out, Na⁺ flows in, Cl⁻ redistributes — eventually all concentration gradients dissipate to 0 mV. This would depolarise the neuron to 0, abolish all signalling, and ultimately kill the cell (as maintaining gradients requires ATP via the Na⁺/K⁺-ATPase). Option D is incorrect — the pump maintains gradients, but potential is set by selective permeability (the pump contributes only ~−3 mV directly).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Integrins link the ECM to the intracellular cytoskeleton and act as bidirectional signalling molecules ("outside-in" and "inside-out" signalling). Which scenario best demonstrates "inside-out" integrin signalling?</p>
+  </div>
+  <ul class="options">
+    <li>A) Fibronectin in the ECM binds an integrin, activating intracellular FAK and Rho GTPases</li>
+    <li class="correct">B) Intracellular signals (e.g., talin binding to the integrin β cytoplasmic tail after platelet activation) cause the extracellular domain to change conformation from low-affinity ("bent") to high-affinity ("extended") for fibrinogen — enabling platelet aggregation</li>
+    <li>C) Integrins transport ECM proteins from the Golgi to the cell surface for secretion</li>
+    <li>D) Integrins sense changes in ECM stiffness and relay mechanical signals to the nucleus via lamins</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — "Inside-out" signalling: intracellular events → change in extracellular domain affinity. Platelet activation (by thrombin, ADP) triggers intracellular signalling cascades that activate talin and kindlin, which bind integrin β3 cytoplasmic tail. This induces a conformational change (headpiece extension) in the αIIbβ3 integrin's extracellular domain — switching from low to high affinity for fibrinogen. High-affinity αIIbβ3 crosslinks platelets via fibrinogen bridges — platelet aggregation. This is pharmacologically exploited by drugs like abciximab (anti-αIIbβ3 antibody) in acute coronary syndromes. Option A demonstrates "outside-in" signalling (ECM → intracellular). Option D is also outside-in (mechanosensing). Integrins don't transport ECM proteins (option C).</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

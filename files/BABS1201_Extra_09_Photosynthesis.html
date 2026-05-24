@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Photosynthesis</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 9: Photosynthesis &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 10 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">An experiment exposes a plant to ¹⁸O-labelled water (H₂¹⁸O) but normal CO₂. Where will the ¹⁸O label appear in the products of photosynthesis?</p>
+  </div>
+  <ul class="options">
+    <li>A) In glucose, because CO₂ is incorporated with O₂ from water</li>
+    <li class="correct">B) In O₂ gas released — water splitting in PSII (photolysis) releases O₂ directly from water; the ¹⁸O label will appear in the released O₂ (and in some intermediates, but the primary gaseous product tracing the water oxygen is O₂)</li>
+    <li>C) In CO₂ released during the Calvin cycle</li>
+    <li>D) The label would be randomly distributed in glucose and O₂</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The classic Ruben and Kamen experiment (1941) established that photosynthetic O₂ comes from water, not CO₂. PSII catalyses water splitting: 2H₂O → 4H⁺ + 4e⁻ + O₂. The oxygen in O₂ derives directly from water molecules. If H₂¹⁸O is used, the ¹⁸O₂ will be released. The oxygen in CO₂ (from C=O bonds) ends up incorporated into glucose (via the Calvin cycle — CO₂ + RuBP → 3-PGA, where the carboxyl oxygens come from CO₂). So: ¹⁸O from H₂¹⁸O → ¹⁸O₂ gas; normal ¹⁶O from CO₂ → incorporated into glucose carbons. If ¹⁸O were in CO₂ instead, it would appear in glucose, not O₂. This experiment elegantly separated the two reactions of photosynthesis and disproved earlier hypotheses about O₂ origin.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">C4 plants like maize spatially separate CO₂ fixation from the Calvin cycle. The CO₂ is first fixed in mesophyll cells (by PEP carboxylase → oxaloacetate) then transferred to bundle sheath cells for the Calvin cycle. What problem does this solve, and why is it relevant in hot, dry conditions?</p>
+  </div>
+  <ul class="options">
+    <li>A) C4 plants can photosynthesize at night when temperatures are cooler</li>
+    <li class="correct">B) RuBisCO has a competing oxygenase activity (photorespiration: O₂ instead of CO₂ is fixed → wasteful). At high temperatures and low CO₂ (when stomata are closed to prevent water loss), photorespiration increases. C4 mechanism: PEP carboxylase (high CO₂ affinity, no oxygenase activity) concentrates CO₂ in bundle sheath cells → high CO₂/O₂ ratio → RuBisCO preferentially fixes CO₂ → photorespiration minimised → efficient photosynthesis with closed stomata</li>
+    <li>C) C4 plants can fix nitrogen from the atmosphere using excess ATP from photosynthesis</li>
+    <li>D) C4 plants avoid producing O₂ during photosynthesis, making them safer for enclosed environments</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Photorespiration is a major problem at high temperatures/low CO₂: RuBisCO's oxygenase activity: RuBP + O₂ → 3-PGA + 2-phosphoglycolate (a 2C compound that requires energy-consuming salvage pathway → releases CO₂ without ATP production — up to 50% of carbon fixed can be lost). In C4 plants: mesophyll cells have high PEP carboxylase (PEPC, Km ≈ 7 μM for CO₂) — 60× higher affinity than RuBisCO. PEPC has no oxygenase activity. PEPC fixes CO₂ even when stomata are partially closed → 4C acids (malate/aspartate) are transported to bundle sheath cells → decarboxylated → CO₂ concentration rises to ~10× atmospheric near RuBisCO → photorespiration essentially eliminated. This is why C4 crops (maize, sugarcane, sorghum) are more productive in hot climates. CAM plants (cacti, pineapple) use temporal rather than spatial separation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The Z-scheme describes non-cyclic electron flow from water to NADP⁺. If only cyclic electron flow occurred (electrons cycle between PSI and the ETC, returning to PSI), which products would be generated and which would NOT be generated?</p>
+  </div>
+  <ul class="options">
+    <li>A) Only NADPH would be generated; no ATP or O₂</li>
+    <li class="correct">B) Only ATP would be generated (via photophosphorylation) — electrons cycle through PSI → ferredoxin → Cyt b6f complex → plastocyanin → PSI, pumping H⁺ to make ATP. NADPH would NOT be generated (no electrons flow to Fd-NADP⁺ reductase). O₂ would NOT be generated (PSII not involved, no water splitting)</li>
+    <li>C) ATP, NADPH, and O₂ would all be generated; cyclic flow is identical to non-cyclic</li>
+    <li>D) Only O₂ would be generated; cyclic flow bypasses ATP and NADPH synthesis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Cyclic electron flow involves only PSI: P700 absorbs light → excited electron → ferredoxin → PQ (plastoquinone) pool → Cyt b6f → plastocyanin → P700 (returns to start). This cyclic flow pumps H⁺ across the thylakoid membrane → proton gradient → ATP synthase → ATP. No electrons are transferred to NADP⁺ (electrons return to PSI instead of going to Fd-NADP⁺ reductase) → no NADPH. No water splitting (PSII not involved) → no O₂. Significance: when the ATP/NADPH ratio drops (e.g., stroma needs more ATP for carbon fixation), cyclic flow increases ATP production without making excess NADPH. Under conditions where NADPH/NADP⁺ ratio is high, cyclic flow is favoured. CAM and C4 plants may use more cyclic flow to generate additional ATP needed for CO₂ concentration mechanisms.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A plant is grown in total darkness for 2 days, then suddenly given light with radioactive ¹⁴CO₂. After 2 seconds, only one labelled compound is detected. After 30 seconds, multiple labelled compounds are detected. What does this experiment demonstrate, and what is the 2-second product?</p>
+  </div>
+  <ul class="options">
+    <li>A) The 2-second product is RuBP; this demonstrates that RuBP is the first stable product</li>
+    <li class="correct">B) The 2-second product is 3-phosphoglycerate (3-PGA) — the first stable product of CO₂ fixation by RuBisCO (6C intermediate → 2 × 3C 3-PGA). This is the Calvin-Benson cycle experiment (1950s); ¹⁴C appears in 3-PGA first; at longer times, labelled carbon spreads into G3P, sugars, amino acids, etc.</li>
+    <li>C) The 2-second product is glucose; this demonstrates the speed of the Calvin cycle</li>
+    <li>D) The 2-second product is NADPH; this demonstrates that carbon fixation requires reducing power</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This describes the Melvin Calvin and Andrew Benson paper-chromatography tracer experiment. After only 2 seconds of ¹⁴CO₂ exposure (brief pulse), the only radioactive compound was 3-phosphoglycerate (3-PGA, a 3-carbon compound). This identified 3-PGA as the immediate product of CO₂ fixation. Mechanism: RuBisCO catalyses: CO₂ + RuBP (5C) → unstable 6C intermediate → 2 × 3-PGA (3C each). 3-PGA is then reduced by ATP + NADPH to G3P. Longer pulses: ¹⁴C spreads into G3P → fructose-6-P → sucrose → amino acids, etc. The plant was dark-adapted: RuBP had accumulated (Calvin cycle was not turning); when light was given, ATP + NADPH were produced immediately, and ¹⁴CO₂ entered the pre-loaded RuBP pool → rapid 3-PGA accumulation. This Nobel Prize work (1961) established the Calvin cycle intermediates and order.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">DCMU (3-(3,4-dichlorophenyl)-1,1-dimethylurea, an herbicide) blocks plastoquinone (PQ) reoxidation by preventing electron flow from PSII to the PQ pool. What would be the effect on photosynthesis?</p>
+  </div>
+  <ul class="options">
+    <li>A) Only O₂ evolution would stop; NADPH and ATP would continue to be produced</li>
+    <li class="correct">B) The entire non-cyclic electron flow would be blocked — PQ cannot be reoxidised → PSII cannot accept more electrons from water → water splitting stops → no O₂ evolution → no electrons reach PSI → no NADPH. Cyclic electron flow (PSI alone) could still produce some ATP. Overall: Calvin cycle would halt (no NADPH, insufficient ATP)</li>
+    <li>C) Only ATP synthesis would stop; NADPH production would continue via alternative pathways</li>
+    <li>D) PSI would be destroyed by excess reducing power from cyclic flow</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — DCMU blocks the Qb binding site of the D1 protein in PSII, preventing PQ from accepting electrons from PSII. Cascade: PSII (water splitting) → PQ pool (BLOCKED by DCMU) → Cyt b6f → PC → PSI → Fd → NADP⁺ reductase → NADPH. With PQ blocked: (1) PSII reaction centre becomes reduced (P680⁺ cannot be reduced by water if electrons cannot leave via PQ) → water splitting stops → no O₂; (2) No electrons reach PSI → no NADPH production from non-cyclic flow; (3) Cyclic flow (PSI only) can still pump some H⁺ → limited ATP; (4) With no NADPH, Calvin cycle stops — CO₂ cannot be reduced. DCMU is a model compound for studying PSII; herbicides like atrazine work by the same mechanism, killing plants by blocking photosynthesis.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The quantum yield of photosynthesis (moles CO₂ fixed per mole photons absorbed) is maximum at wavelengths corresponding to chlorophyll absorption peaks. Why is the quantum yield lower between absorption peaks (e.g., green wavelengths)?</p>
+  </div>
+  <ul class="options">
+    <li>A) Green light contains less energy per photon than red or blue light</li>
+    <li>B) Green light activates only PSI, not PSII</li>
+    <li class="correct">C) Chlorophyll absorbs primarily red and blue light, reflecting/transmitting green wavelengths. At green wavelengths, very few photons are absorbed by the photosystems; most pass through the leaf without being absorbed — so quantum yield (CO₂ fixed per photon incident on the leaf) drops because denominator (photons) includes unabsorbed green photons; carotenoids absorb some green/blue but transfer less efficiently</li>
+    <li>D) Green light denatures the photosynthetic reaction centres</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The action spectrum (photosynthetic rate vs. wavelength) closely follows the absorption spectrum of chlorophyll (peaks at ~430 nm blue and ~680 nm red). At green wavelengths (~550 nm): chlorophyll absorbs very little (reflects/transmits green → leaves appear green). Since few photons are absorbed, very little photosynthesis occurs per incident photon → low quantum yield. Per ABSORBED photon, the quantum yield is relatively constant (~0.1 mol CO₂/mol photons) regardless of wavelength — it's the incident photon quantum yield that drops because most green photons are not absorbed. Energy per photon: blue > green > red — so blue photons have more energy than red, but the excess energy is lost as heat after excitation (internal conversion) — it doesn't increase quantum yield proportionally. This is why green wavelengths are least efficient for driving photosynthesis.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A researcher grows plants under a blue + red light source and compares photosynthesis to plants under white light. Would you expect the blue + red plants to photosynthesize more or less efficiently than the white light plants, and why?</p>
+  </div>
+  <ul class="options">
+    <li>A) Less efficiently, because plants need white light's full spectrum to activate all enzymes</li>
+    <li>B) Less efficiently, because blue light has too much energy and causes chlorophyll photobleaching</li>
+    <li class="correct">C) Similarly or more efficiently — blue + red light targets the absorption peaks of chlorophyll (Chl a: ~430, 680 nm) directly; no photons are "wasted" on green wavelengths that are poorly absorbed. White light includes significant green/yellow light that passes through without driving photosynthesis. Therefore, per watt of light energy, blue + red LEDs are more efficient for plant growth (this is why commercial plant growth facilities use "grow lights" with blue + red LEDs)</li>
+    <li>D) More efficiently only in the first few minutes; then the photosystems photooxidise without green wavelengths to provide a "rest period"</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The action spectrum shows that blue (~430 nm, absorbed by Chl a + b) and red (~680 nm, absorbed by Chl a) are the most effective wavelengths. White light includes photons at green/yellow wavelengths (500–600 nm) that chlorophyll does not absorb well — these photons pass through the leaf without driving photosynthesis. By concentrating light energy at the absorption maxima (blue + red), more energy per watt is converted to photochemistry. This is the scientific basis of LED grow lights used in vertical farming, indoor horticulture, and the ISS (astronauts grew vegetables under red + blue LEDs). Note: carotenoids absorb some blue/green light and transfer energy to chlorophyll, so their contribution must also be considered, but the primary absorbers are still Chl a and Chl b at the blue and red peaks.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Net photosynthesis = gross photosynthesis − cellular respiration. At the light compensation point, net photosynthesis = 0. What does this mean for the plant's carbon balance, and why do shade-adapted plants have a lower compensation point?</p>
+  </div>
+  <ul class="options">
+    <li>A) At the compensation point, the plant dies because it can't produce ATP</li>
+    <li class="correct">B) At the compensation point, CO₂ fixed by photosynthesis exactly equals CO₂ released by respiration — no net carbon gain or loss; the plant is just maintaining itself, not growing. Shade plants have lower compensation points because: they have more chlorophyll per unit area (absorbing more light at low intensities), lower respiration rates, and thinner leaves — so they achieve photosynthesis = respiration at lower light intensities, allowing them to survive in low-light environments</li>
+    <li>C) At the compensation point, the plant maximises glucose production to store as starch</li>
+    <li>D) Shade plants have higher compensation points because they are less efficient at capturing light</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Light compensation point (LCP) is where gross photosynthesis = respiration, so net CO₂ exchange = 0. Above LCP: net carbon gain → growth possible. Below LCP: net carbon loss → plant depletes reserves and eventually dies. Shade-adapted plants (e.g., ferns, understory tropical species) have LCP as low as 1–5 μmol photons/m²/s, while sun plants may have LCP of 20–50 μmol/m²/s. Shade plant adaptations: (1) More antenna pigments and Chl b (broaden absorption spectrum, more efficient light harvesting at low intensities); (2) Larger, thinner leaves with more chloroplasts near the upper surface; (3) Lower respiration rate per unit chlorophyll; (4) Less investment in non-photosynthetic tissue. Sun plants have higher photosynthesis maximum rates but require much more light to exceed their higher LCP.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Photoinhibition occurs when plants receive excess light — photosystems are damaged. The D1 protein of PSII is particularly vulnerable. How does the plant manage photoinhibition damage?</p>
+  </div>
+  <ul class="options">
+    <li>A) The entire thylakoid membrane is replaced daily to remove damaged photosystems</li>
+    <li class="correct">B) D1 protein is the fastest-turning-over protein in nature — it is continuously damaged by excess light (especially singlet oxygen from reaction centre) and continuously replaced. Damaged PSII migrates from grana to stroma lamellae, where FtsH protease degrades D1; new D1 is synthesised (by chloroplast ribosomes, using chloroplast-encoded psbA gene mRNA) and assembled into new PSII. Additionally, non-photochemical quenching (NPQ) dissipates excess excitation energy as heat before it reaches the reaction centre</li>
+    <li>C) The entire chloroplast divides to dilute out damaged D1 proteins</li>
+    <li>D) Photoinhibition damage is irreversible — plants must shed damaged leaves</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — D1 is the core protein of the PSII reaction centre. Its half-life can be as short as 30 minutes under high light. Mechanism of damage: singlet oxygen (¹O₂) generated by triplet Chl in the reaction centre oxidises critical residues in D1. Protection and repair: (1) Non-photochemical quenching (NPQ): PsbS protein and low lumenal pH (from excess proton gradient) trigger conformational changes in antenna complexes (LHCII) → excess excitation energy dissipated as heat rather than photochemistry → less excitation reaches PSII. (2) D1 repair cycle: damaged PSII migrates from appressed (stacked grana) regions → stroma lamellae → FtsH + Deg proteases degrade damaged D1 → new D1 synthesised from psbA mRNA → PSII reassembled. This is why the psbA gene is retained in the chloroplast (not transferred to nucleus) — local synthesis allows rapid replacement at the site of damage. Under chronic excess light (e.g., in plants suddenly exposed to full sun), repair cannot keep pace → net photoinhibition, reduced quantum yield.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Photosynthesis ultimately converts solar energy into chemical energy. What fraction of incident solar energy is typically stored as chemical energy in glucose by C3 plants under optimal conditions?</p>
+  </div>
+  <ul class="options">
+    <li>A) ~90% — photosynthesis is extremely efficient at capturing solar energy</li>
+    <li>B) ~50% — half the incident energy is captured</li>
+    <li class="correct">C) ~1–2% for field-grown C3 plants; theoretical maximum ~11% (considering only PAR — photosynthetically active radiation 400–700 nm). Actual efficiency is limited by: not all wavelengths are absorbed; much energy is lost in photochemical reactions (energy gaps); temperature-dependent losses; photorespiration; CO₂ diffusion limits; respiration consuming ~30–60% of gross photosynthesis</li>
+    <li>D) ~25% — one quarter of solar energy is captured as glucose</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Real-world photosynthetic efficiency is surprisingly low: C3 crops (wheat, rice, soybean): ~0.5–1.5% of total solar radiation stored in biomass under field conditions. C4 crops (maize, sugarcane): ~2–3%. Theoretical maximum for C3: ~11% of PAR (400–700 nm) or ~4.6% of total solar radiation. Losses arise at multiple steps: (1) ~50% of solar spectrum is outside PAR range (>700 nm, <400 nm) and not absorbed; (2) Of PAR, only ~85% is absorbed; (3) Energy gap losses: blue photons lose energy as heat (excess above red photon energy); (4) Each NADPH requires 2 photons (one each at PSII and PSI); 48 photons needed per CO₂ molecule (8 photons × 6 CO₂ for glucose × 2 for each photosystem = ~48); (5) Carbon fixation quantum efficiency; (6) Photorespiration (~25% carbon lost); (7) Respiration (dark + photorespiration). Improving photosynthetic efficiency is a major target for food security research (e.g., introducing C4 features into rice — the IRRI C4 Rice Project).</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

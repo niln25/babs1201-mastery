@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — Mutation</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 14: Mutation &nbsp;|&nbsp; 15 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">A single nucleotide substitution changes the codon GCU (alanine) to GCC. What type of mutation is this?</p>
+  </div>
+  <ul class="options">
+    <li>A) Missense mutation</li>
+    <li>B) Nonsense mutation</li>
+    <li class="correct">C) Silent (synonymous) mutation</li>
+    <li>D) Frameshift mutation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Silent (synonymous) mutation</strong></p>
+      <p>Both GCU and GCC code for alanine — they are synonymous codons. The change in the third codon position does not alter the amino acid incorporated. This is a consequence of the degeneracy (redundancy) of the genetic code, where most amino acids are specified by multiple codons, and variation most often occurs at the third (wobble) position. Silent mutations have no effect on protein sequence but can occasionally affect splicing efficiency or mRNA stability.</p>
+      <p>Missense: amino acid changes. Nonsense: a stop codon is introduced. Frameshift: insertion or deletion of non-multiple-of-3 nucleotides shifts the reading frame.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">A frameshift mutation caused by the insertion of a single nucleotide would have the most severe effect if it occurred:</p>
+  </div>
+  <ul class="options">
+    <li class="correct">A) Near the beginning (5′ end) of the coding sequence</li>
+    <li>B) Near the end (3′ end) of the coding sequence</li>
+    <li>C) In an intron</li>
+    <li>D) In the 5′ UTR</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: A — Near the 5′ end of the coding sequence</strong></p>
+      <p>A frameshift mutation shifts the reading frame for all codons downstream of the insertion. Every amino acid from the insertion site onward will be wrong (or a premature stop codon introduced). If this occurs near the beginning of the protein-coding sequence, almost the entire protein will be altered — essentially a complete loss of function. Near the 3′ end, only the last few amino acids are affected, which may be tolerable. Mutations in introns are usually spliced out (unless they disrupt splice sites). UTR mutations affect regulation/stability, not protein sequence.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">UV radiation causes the formation of thymine dimers in DNA. Which DNA repair pathway specifically removes these bulky adducts?</p>
+  </div>
+  <ul class="options">
+    <li>A) Mismatch repair (MMR)</li>
+    <li>B) Base excision repair (BER)</li>
+    <li class="correct">C) Nucleotide excision repair (NER)</li>
+    <li>D) Homologous recombination repair (HRR)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Nucleotide excision repair (NER)</strong></p>
+      <p>UV-induced thymine dimers (cyclobutane pyrimidine dimers) distort the DNA helix significantly. NER recognises these bulky lesions: endonucleases incise the damaged strand on both sides of the lesion (removing ~25–30 nucleotides in eukaryotes), DNA polymerase fills the gap using the undamaged strand as a template, and DNA ligase seals the nick. Defects in NER cause xeroderma pigmentosum (XP), a syndrome of extreme UV sensitivity and high skin cancer risk.</p>
+      <p>MMR corrects mismatches and small insertions/deletions from replication errors. BER removes small chemically modified bases (e.g., deaminated cytosine → uracil). HRR repairs double-strand breaks using the sister chromatid as template.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">Deamination of cytosine produces uracil in DNA. If not repaired, what mutation will result after DNA replication?</p>
+  </div>
+  <ul class="options">
+    <li>A) C·G → A·T transversion</li>
+    <li class="correct">B) C·G → T·A transition</li>
+    <li>C) Frameshift due to base insertion</li>
+    <li>D) Deletion of the cytosine residue</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — C·G → T·A transition</strong></p>
+      <p>Deamination removes the amino group from cytosine, converting it to uracil. Uracil is chemically equivalent to thymine (it base-pairs with adenine). If the uracil-containing strand is replicated before repair: one daughter has U·A (with adenine correctly paired to the uracil), and further replication of this strand produces T·A. The original C·G pair is permanently changed to T·A — a transition (purine–pyrimidine change preserved). This is the most common spontaneous point mutation in DNA. Uracil-DNA glycosylase (in BER) normally removes uracil from DNA before it can cause this mutation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">A transposon is a mobile genetic element that can move within the genome. Which of the following best describes how a "copy-and-paste" (replicative) transposon causes mutations?</p>
+  </div>
+  <ul class="options">
+    <li>A) It directly excises from one location without creating a copy, leaving a double-strand break</li>
+    <li class="correct">B) It replicates and inserts a copy into a new genomic location, potentially disrupting a gene at the insertion site</li>
+    <li>C) It only inserts into non-coding regions and never disrupts gene function</li>
+    <li>D) It acts as a mutagen by increasing the UV sensitivity of surrounding DNA</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Replicates and inserts a copy into a new location, potentially disrupting a gene</strong></p>
+      <p>Replicative ("copy-and-paste") transposons use transposase to make a copy, which is then inserted into a new site — the original element stays in place. If the new insertion falls within a gene's coding sequence, intron–exon boundaries, or promoter, it can disrupt expression or protein function. Transposable elements make up a large fraction of eukaryotic genomes (e.g., ~45% of the human genome). "Cut-and-paste" (conservative) transposons excise and reinsert but do leave a double-strand break at the donor site, which must be repaired.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">Alkylating agents (e.g., nitrogen mustards used in chemotherapy) are chemical mutagens. How do they primarily damage DNA?</p>
+  </div>
+  <ul class="options">
+    <li>A) They intercalate between base pairs, distorting the helix and causing insertion/deletion mutations</li>
+    <li>B) They form reactive oxygen species that break the phosphodiester backbone</li>
+    <li class="correct">C) They add alkyl groups (e.g., methyl or ethyl) to bases, particularly guanine at N7 and O6, causing mispairing or strand breaks</li>
+    <li>D) They form covalent crosslinks between the two strands exclusively at AT-rich regions</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Add alkyl groups to bases, causing mispairing</strong></p>
+      <p>Alkylating agents transfer alkyl groups onto DNA bases. Common targets include: N7 of guanine (most reactive position, causing depurination), and O6 of guanine. O6-methylguanine is particularly mutagenic because it mispairs with thymine instead of cytosine during replication, causing G·C → A·T transitions. Bifunctional alkylating agents (like nitrogen mustards and cisplatin) form interstrand crosslinks between bases on opposite strands, blocking replication and transcription — the basis of their cytotoxicity in cancer cells. Intercalating agents (e.g., ethidium bromide, acridine dyes) cause frameshift mutations.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">Sickle cell anaemia is caused by a single missense mutation in the β-globin gene (Glu → Val at position 6). How does this single amino acid change cause the disease phenotype?</p>
+  </div>
+  <ul class="options">
+    <li>A) Valine is a charged amino acid that destabilises the haem iron, reducing oxygen binding</li>
+    <li class="correct">B) Valine is a hydrophobic amino acid that causes deoxygenated HbS to polymerise into long fibres, distorting red blood cells into a sickle shape</li>
+    <li>C) The change removes a phosphorylation site, preventing HbS from binding 2,3-BPG</li>
+    <li>D) Valine is larger than glutamate and physically blocks oxygen from entering the haem pocket</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Hydrophobic valine causes deoxygenated HbS polymerisation</strong></p>
+      <p>Glutamate (position 6) is negatively charged and hydrophilic on the surface of the β-globin subunit. The A→T transversion changes codon 6 from GAG (Glu) to GTG (Val). Valine is nonpolar and hydrophobic. In the deoxygenated conformation, this hydrophobic patch on one HbS molecule fits into a complementary hydrophobic pocket on an adjacent deoxygenated HbS — causing polymerisation into rigid fibres. These fibres distort the RBC into rigid, sickle-shaped cells that obstruct capillaries and lyse easily, causing haemolytic anaemia and vaso-occlusive pain crises.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">Which of the following correctly distinguishes a germline mutation from a somatic mutation?</p>
+  </div>
+  <ul class="options">
+    <li>A) Germline mutations cause cancer; somatic mutations cause heritable diseases</li>
+    <li class="correct">B) Germline mutations occur in sperm or egg cells and can be passed to offspring; somatic mutations occur in non-reproductive cells and are not inherited</li>
+    <li>C) Somatic mutations can only occur during meiosis; germline mutations only during mitosis</li>
+    <li>D) Germline mutations are always lethal; somatic mutations are always silent</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Germline mutations are heritable; somatic mutations are not</strong></p>
+      <p>Germline mutations arise in cells that give rise to gametes (sperm or eggs). They are present in every cell of the organism formed from that gamete and can be transmitted to offspring — forming the basis of inherited genetic diseases (e.g., cystic fibrosis, Huntington's). Somatic mutations arise in body (non-reproductive) cells during cell division or from DNA damage. They affect only the lineage of that cell and its descendants, not gametes. Most cancers arise from accumulated somatic mutations. Some inherited cancer syndromes (e.g., BRCA1/2 mutations) involve germline mutations that predispose to somatic mutation accumulation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">The Ames test is used to evaluate whether a chemical is mutagenic. It uses histidine-auxotrophic <em>Salmonella</em> strains. What does a high reversion rate indicate?</p>
+  </div>
+  <ul class="options">
+    <li>A) The chemical is toxic to <em>Salmonella</em> and kills cells, reducing colony count</li>
+    <li>B) The chemical is an antibiotic and causes bacterial lysis</li>
+    <li class="correct">C) The chemical mutates the <em>Salmonella</em> DNA, reverting the histidine mutation and allowing growth on histidine-free medium — indicating mutagenic (and potentially carcinogenic) potential</li>
+    <li>D) The chemical promotes DNA repair, reducing the background mutation rate</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — High reversion rate indicates mutagenic potential</strong></p>
+      <p>The Ames test uses his⁻ <em>Salmonella</em> strains (unable to synthesise histidine) plated on minimal (histidine-free) medium. Spontaneous reversion to his⁺ produces a low background of colonies. Exposing bacteria to a test chemical increases the reversion rate if the chemical is mutagenic. Importantly, rat liver extract (S9 fraction) is added to mimic mammalian metabolic activation — many pro-carcinogens are not mutagenic themselves but are converted to mutagens by cytochrome P450 enzymes in the liver. ~90% of compounds positive in the Ames test are carcinogenic in animals.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">A chromosomal translocation joins a strong promoter from chromosome 8 next to the MYC proto-oncogene on chromosome 14. This is seen in Burkitt's lymphoma. The mechanism by which this drives cancer is best described as:</p>
+  </div>
+  <ul class="options">
+    <li>A) Loss of MYC protein function due to truncation at the fusion point</li>
+    <li>B) Deletion of the tumour suppressor adjacent to MYC on chromosome 14</li>
+    <li class="correct">C) Constitutive overexpression of the MYC oncogene driven by the translocated strong promoter (from immunoglobulin heavy chain locus), promoting uncontrolled cell proliferation</li>
+    <li>D) Inversion of MYC creating a dominant-negative form that blocks wild-type MYC</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Constitutive MYC overexpression from translocated strong promoter</strong></p>
+      <p>In Burkitt's lymphoma, the t(8;14) translocation moves the MYC gene on chromosome 8 adjacent to the immunoglobulin heavy chain locus enhancer/promoter on chromosome 14. MYC is a transcription factor that drives cell cycle progression. Normally tightly regulated, MYC is now constitutively expressed at high levels in B cells (which highly express Ig), driving uncontrolled proliferation. This is an example of a gain-of-function oncogenic mutation through a chromosomal rearrangement rather than a coding sequence mutation. Other translocations: BCR-ABL in CML (t9;22, Philadelphia chromosome) creates a constitutively active tyrosine kinase.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">Base excision repair (BER) removes damaged bases from DNA. What is the first enzymatic step in this pathway?</p>
+  </div>
+  <ul class="options">
+    <li>A) A nuclease cuts the DNA backbone on both sides of the damaged base</li>
+    <li>B) RNA polymerase transcribes a repair patch over the damaged region</li>
+    <li class="correct">C) A DNA glycosylase cleaves the N-glycosidic bond between the damaged base and deoxyribose, leaving an abasic (AP) site</li>
+    <li>D) DNA ligase seals the nick created by the damaged base</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — DNA glycosylase cleaves the N-glycosidic bond, creating an AP site</strong></p>
+      <p>BER is initiated by specific DNA glycosylases that recognise particular damaged bases (e.g., uracil-DNA glycosylase recognises uracil; 8-oxoguanine glycosylase recognises 8-oxoG). The glycosylase flips the damaged base out of the helix and cleaves the N-glycosidic bond, releasing the base and leaving an abasic (apurinic/apyrimidinic, AP) site. AP endonuclease then nicks the backbone at the AP site; DNA polymerase β fills in the gap; DNA ligase seals it. BER handles small, non-helix-distorting lesions — in contrast to NER which handles bulky adducts.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">Trinucleotide repeat expansion mutations (e.g., (CAG)ₙ in Huntington's disease) tend to worsen across generations — a phenomenon called anticipation. What causes the repeat to expand?</p>
+  </div>
+  <ul class="options">
+    <li>A) Increased transcription of the expanded allele in parent cells</li>
+    <li class="correct">B) Slippage (strand slippage) of the DNA polymerase or template strand during replication, allowing extra repeat units to be incorporated</li>
+    <li>C) Crossing over between sister chromatids within the repeat region</li>
+    <li>D) Spontaneous cytosine deamination at every C in the CAG repeat</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Strand slippage during replication</strong></p>
+      <p>During DNA replication of a tandem repeat sequence, the newly synthesised strand can "slip" — looping out extra repeat units — due to misalignment between the newly synthesised strand and the template. This leads to addition of repeat units in subsequent rounds of replication. If slippage occurs in the germline, the next generation may inherit an allele with more repeats. Huntington's disease requires ≥36 CAG repeats in the HTT gene; higher repeat numbers cause earlier onset (anticipation). Fragile X syndrome involves (CGG)ₙ expansion in FMR1.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">Ionising radiation (e.g., X-rays, gamma rays) is highly mutagenic primarily because it:</p>
+  </div>
+  <ul class="options">
+    <li>A) Directly deaminates cytosine to uracil in the DNA helix</li>
+    <li>B) Causes thymine dimer formation, the same mechanism as UV radiation</li>
+    <li class="correct">C) Generates free radicals that can cause double-strand breaks in DNA and oxidative base damage</li>
+    <li>D) Methylates guanine at the O6 position, causing G·C → A·T transitions</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Generates free radicals causing double-strand breaks and oxidative damage</strong></p>
+      <p>Ionising radiation transfers energy to water molecules in cells, producing hydroxyl radicals (·OH) and other reactive oxygen species (ROS). These radicals attack DNA: hydroxyl radicals can cause single-strand and double-strand breaks (DSBs), oxidise bases (producing 8-oxoguanine and other lesions), and cleave the deoxyribose backbone. DSBs are the most dangerous lesion — if misrepaired (e.g., by non-homologous end joining with errors), they cause chromosomal rearrangements, deletions, or translocations. Thymine dimers are UV-specific. Alkylation (O6-methylguanine) is caused by chemical mutagens, not ionising radiation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">A transversion mutation differs from a transition mutation in that a transversion:</p>
+  </div>
+  <ul class="options">
+    <li>A) Changes a purine to a different purine (e.g., A→G)</li>
+    <li>B) Changes a pyrimidine to a different pyrimidine (e.g., C→T)</li>
+    <li class="correct">C) Changes a purine to a pyrimidine (or vice versa), e.g., A→C or G→T</li>
+    <li>D) Involves insertion of an extra base rather than substitution</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Transversions interchange purines and pyrimidines</strong></p>
+      <p>Point mutations are classified by the chemical nature of the substitution: <strong>Transitions:</strong> purine ↔ purine (A↔G) or pyrimidine ↔ pyrimidine (C↔T) — the size class of the base is maintained. <strong>Transversions:</strong> purine ↔ pyrimidine (A or G ↔ C or T) — the size class changes. There are 4 possible transversions (A→C, A→T, G→C, G→T and their reverses) but only 2 transitions (A↔G, C↔T). Transitions are more common spontaneously (e.g., deamination of C→U is a C→T transition). Transversions tend to be more disruptive when they alter amino acids.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">Not all mutations in coding sequences produce an altered phenotype. Which of the following mutations in the coding sequence is MOST likely to have no effect on protein function?</p>
+  </div>
+  <ul class="options">
+    <li>A) A nonsense mutation at codon 10 of a 300-codon gene</li>
+    <li>B) A frameshift mutation at codon 5 of a 300-codon gene</li>
+    <li class="correct">C) A missense mutation that replaces a valine with an isoleucine in a non-conserved region far from the active site</li>
+    <li>D) A deletion of 6 nucleotides that removes 2 amino acids within the catalytic domain</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Valine → isoleucine conservative substitution in non-conserved region</strong></p>
+      <p>Valine (Val) and isoleucine (Ile) are both small, nonpolar aliphatic amino acids with very similar side chains — this is a conservative substitution. If this change occurs in a non-conserved region far from the active site, ligand-binding domain, or structurally critical region, the protein's 3D structure and function are likely preserved. Contrasted with: (A) a nonsense mutation at codon 10 would truncate the protein to <4% of its length — almost certainly non-functional. (B) Frameshift at codon 5 alters all 295 remaining amino acids. (D) Deleting 2 amino acids from the catalytic domain directly disrupts enzyme function.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

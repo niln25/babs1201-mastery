@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Population Genetics</title>
+<style>
+  :root {
+    --primary: #2c5f2e;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: 1rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem 3rem; }
+  .meta-bar { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.8rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: .92rem; color: #495057; }
+  .meta-bar span strong { color: #212529; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; margin-bottom: 1.4rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; font-weight: 700; font-size: .85rem; padding: 3px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; white-space: nowrap; margin-top: 4px; }
+  .q-text { font-size: 1rem; font-weight: 500; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem 0; display: grid; gap: .5rem; }
+  .options li { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: 6px; font-size: .95rem; cursor: default; }
+  
+  
+  details { margin-top: .5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: .95rem; padding: .4rem 0; user-select: none; }
+  summary:hover { text-decoration: underline; }
+  .solution { background: #f1f8ff; border-left: 4px solid var(--primary); border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin-top: .6rem; font-size: .93rem; line-height: 1.7; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  .solution strong { color: #155724; }
+  .solution .wrong { color: #721c24; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice: Population Genetics</h1>
+  <p>Topic 17 · Advanced Application Questions · UNSW 2026</p>
+</header>
+<div class="container">
+  <div class="meta-bar">
+    <span><strong>Questions:</strong> 12</span>
+    <span><strong>Difficulty:</strong> Hard — multi-concept application</span>
+    <span><strong>Format:</strong> MCQ with worked solutions</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <p class="q-text">In a Hardy-Weinberg population at equilibrium, the frequency of a recessive disease allele (a) is 0.02. What is the expected frequency of carriers (Aa) in this population?</p>
+    </div>
+    <ul class="options">
+      <li>A) 0.0004</li>
+      <li>B) 0.02</li>
+      <li class="correct">C) ~0.0392 (approximately 3.92%)</li>
+      <li>D) 0.96</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Under Hardy-Weinberg: q = 0.02 (frequency of a), therefore p = 1 – q = 0.98. Carrier frequency = 2pq = 2 × 0.98 × 0.02 = <strong>0.0392</strong> (3.92%). Key insight: even with a very rare recessive allele (q = 0.02), carriers are surprisingly common (about 1 in 25), because the 2pq term is much larger than q² (= 0.0004, the affected frequency). Carriers are approximately 2/q times more common than affected individuals: 0.0392 / 0.0004 = 98 × more carriers than affected.</p>
+        <p class="wrong">A (0.0004) = q² = frequency of homozygous affected (aa), not carriers.</p>
+        <p class="wrong">B (0.02) = q = frequency of the disease allele itself, not the carrier genotype frequency.</p>
+        <p class="wrong">D (0.96) ≈ p² + 2pq = frequency of <em>all</em> individuals with at least one A allele (normal phenotype), not carriers specifically.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A population with N = 50 individuals experiences random genetic drift. Approximately how many generations does it take for genetic drift to cause substantial changes in allele frequencies?</p>
+    </div>
+    <ul class="options">
+      <li>A) ~500 generations</li>
+      <li>B) ~50 generations</li>
+      <li class="correct">C) ~2N = ~100 generations (heterozygosity halves approximately every 2N generations in a diploid population)</li>
+      <li>D) ~1 generation — small populations diverge instantly</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> In population genetics, the effective timescale of genetic drift is proportional to the effective population size (Ne). For a diploid population of N individuals, expected heterozygosity declines as H_t ≈ H_0 × (1 – 1/(2N))^t. The half-life of heterozygosity (time to halve) ≈ 2N ln(2) ≈ 1.386 × 2N. For N = 50, half-life ≈ 1.386 × 100 ≈ 139 generations. So ~2N = 100 generations is the right order-of-magnitude reference point for when drift becomes substantial in a population of 50. In contrast, large populations (N = 10,000) would take ~20,000 generations for the same effect.</p>
+        <p class="wrong">A (500 generations) — 500 > 2N for N=50; drift would have largely fixed alleles by then.</p>
+        <p class="wrong">B (50 generations) — this is N, not 2N; while drift is occurring, 50 generations represents only half the characteristic timescale.</p>
+        <p class="wrong">D (1 generation) — while drift causes allele frequency changes every generation, "substantial" changes require multiple generations of accumulated sampling error.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <p class="q-text">A cheetah population shows very low genetic diversity despite having thousands of individuals. This is most consistent with which historical event?</p>
+    </div>
+    <ul class="options">
+      <li>A) Strong directional selection favouring specific alleles</li>
+      <li>B) Recent immigration from a diverse population</li>
+      <li class="correct">C) A severe population bottleneck in the past — a dramatic reduction in population size caused most genetic variation to be lost through drift</li>
+      <li>D) High rates of inbreeding that are ongoing in the current large population</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> The cheetah's extreme genetic homogeneity (virtually no MHC diversity, near-identical skin graft acceptance between unrelated individuals) is the classic textbook example of a <strong>population bottleneck</strong>. Fossil and genetic evidence suggest cheetah populations were reduced to tiny numbers ~10,000–12,000 years ago at the end of the last ice age. During this bottleneck, most alleles were lost by genetic drift (rare alleles are easily lost when N is tiny). The current large population expanded from this genetically depleted founding group. This explains why thousands of cheetahs today share remarkable genetic similarity.</p>
+        <p class="wrong">A — directional selection would increase the frequency of specific adaptive alleles but would not reduce overall genome-wide diversity as uniformly as observed.</p>
+        <p class="wrong">B — immigration from a diverse population would <em>increase</em> genetic diversity, not reduce it.</p>
+        <p class="wrong">D — ongoing inbreeding in the current large population would gradually reduce diversity over many generations, but could not explain the uniform genome-wide reduction seen — which must have occurred rapidly during a period of very small population size.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In a population at Hardy-Weinberg equilibrium, genotype frequencies are: AA = 0.36, Aa = 0.48, aa = 0.16. Natural selection acts against aa individuals (fitness of aa = 0.5 relative to AA and Aa = 1.0). After ONE generation of selection, what happens to the frequency of allele a?</p>
+    </div>
+    <ul class="options">
+      <li>A) It increases, because aa individuals still contribute some offspring</li>
+      <li class="correct">B) It decreases, because aa individuals contribute fewer offspring than AA and Aa, reducing their allele frequency contribution to the next generation</li>
+      <li>C) It remains the same because Hardy-Weinberg equilibrium is maintained</li>
+      <li>D) It immediately drops to zero because selection eliminates the aa genotype</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Initial q = 0.4. With selection against aa (fitness w_aa = 0.5), aa individuals contribute only half as many offspring per individual compared to AA and Aa. The mean fitness of the population: w̄ = p²(1) + 2pq(1) + q²(0.5) = 0.36 + 0.48 + 0.16×0.5 = 0.36 + 0.48 + 0.08 = 0.92. New frequency of a after selection: q' = [2pq(1)×(1/2) + q²(0.5)] / (2 × w̄) ... simplified: q' = q(1 – sq) / w̄, where s = 0.5 (selection coefficient). q' = 0.4(1 – 0.5×0.4) / 0.92 = 0.4(0.8)/0.92 = 0.32/0.92 ≈ 0.348. So q decreases from 0.4 to ~0.348 in one generation.</p>
+        <p class="wrong">A — while aa individuals do contribute some offspring (fitness ≠ 0), they contribute proportionally less than AA and Aa, reducing a's frequency.</p>
+        <p class="wrong">C — Hardy-Weinberg equilibrium requires no selection; selection is one of the forces that violates HWE and causes allele frequencies to change.</p>
+        <p class="wrong">D — complete elimination of aa requires lethal selection (fitness = 0) AND many generations; even then, a remains at low frequency in heterozygous carriers.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <p class="q-text">The sickle cell allele (HbS) reaches frequencies of 10–20% in malaria-endemic regions of Africa, despite being lethal when homozygous (HbS HbS). What evolutionary mechanism explains this?</p>
+    </div>
+    <ul class="options">
+      <li>A) Genetic drift has randomly increased HbS frequency</li>
+      <li>B) Mutation pressure continuously creates new HbS alleles</li>
+      <li class="correct">C) Heterozygote advantage (overdominance) — HbA/HbS individuals have higher fitness in malaria-endemic regions than either homozygote</li>
+      <li>D) Frequency-dependent selection maintains HbS at a stable frequency</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> HbA/HbS heterozygotes (carriers of sickle cell trait) are <strong>more resistant to Plasmodium falciparum malaria</strong> than HbA/HbA homozygotes (susceptible to malaria) while avoiding the severe anaemia of HbS/HbS homozygotes. This creates a fitness advantage for heterozygotes over both homozygotes — called <strong>heterozygote advantage</strong> or overdominance. The result is a <strong>balanced polymorphism</strong> where both alleles are maintained in the population at a stable equilibrium frequency determined by the relative fitnesses of all three genotypes. When malaria is absent (as in populations outside Africa), HbS frequency drops because there is no counterbalancing advantage.</p>
+        <p class="wrong">A — drift would not consistently maintain HbS at 10–20% across many different populations in malaria-endemic regions; the consistency argues for deterministic selection.</p>
+        <p class="wrong">B — mutation rates for any specific nucleotide change are ~10⁻⁸ per generation; far too low to maintain q = 0.1–0.2 against strong purifying selection on HbS homozygotes.</p>
+        <p class="wrong">D — frequency-dependent selection occurs when fitness depends on how common/rare an allele is (e.g., mimicry in butterflies); HbS fitness depends on malaria prevalence (environment), not on HbS frequency itself.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A population of island birds was founded by 10 individuals who migrated from a mainland population where allele B had frequency 0.60. In the island founders, by chance, allele B has frequency 0.80. This represents which evolutionary mechanism?</p>
+    </div>
+    <ul class="options">
+      <li>A) Natural selection favouring allele B on the island</li>
+      <li>B) Population bottleneck in the mainland population</li>
+      <li class="correct">C) The founder effect — a small founding population may not represent the allele frequencies of the source population due to sampling error</li>
+      <li>D) Gene flow from a third population with high frequency of allele B</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> The <strong>founder effect</strong> is a special case of genetic drift that occurs when a new population is established by a small number of individuals from a larger source population. The founders are a non-representative random sample of the source population's gene pool. In this case, by chance, the 10 founders carried allele B at frequency 0.80 (vs. 0.60 in the mainland), so the island population starts with a different allele frequency. The smaller the founding group, the greater the potential deviation from the source population. This is why isolated island populations and religious isolates (e.g., Amish, Hutterites) have very different disease allele frequencies from the surrounding populations.</p>
+        <p class="wrong">A — selection occurs after establishment and changes allele frequency over generations in response to fitness differences; the deviation here is observed at the moment of founding, before any selection has acted.</p>
+        <p class="wrong">B — a mainland bottleneck would affect the mainland population's frequencies; here it is the island (founding) population that differs from the mainland.</p>
+        <p class="wrong">D — gene flow from a third population is possible but is not supported by the scenario described, which specifies the population was founded by 10 migrants from a single mainland source.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <p class="q-text">Five conditions must be met for a population to be in Hardy-Weinberg equilibrium. A large island bird population is studied and found to show significant deviation from HWE — specifically, a deficit of heterozygotes compared to expected. Which factor is the MOST likely cause?</p>
+    </div>
+    <ul class="options">
+      <li>A) Migration of birds from a neighbouring island</li>
+      <li class="correct">B) Non-random mating — birds preferentially mate with others of similar phenotype (assortative mating), increasing homozygosity</li>
+      <li>C) High mutation rates converting one allele to another</li>
+      <li>D) Natural selection favouring homozygotes over heterozygotes (underdominance)</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> A deficit of heterozygotes relative to HWE expectations (F > 0, positive inbreeding coefficient) is the hallmark of <strong>non-random mating</strong>, specifically assortative mating or inbreeding. When individuals preferentially mate with similar phenotypes (positive assortative mating), homozygosity increases relative to HWE expectations — heterozygotes are "underproduced" compared to random mating predictions. This doesn't change allele frequencies (p and q stay the same) but changes genotype frequencies. A similar pattern arises from inbreeding.</p>
+        <p class="wrong">A — migration changes allele frequencies (introduces new alleles) but would not specifically cause a deficit of heterozygotes; it could actually increase heterozygosity if immigrants carry different alleles (Wahlund effect involves subdivision, not migration per se).</p>
+        <p class="wrong">C — mutation rates are typically too low (~10⁻⁸) to cause detectable deviations from HWE genotype frequencies within a generation.</p>
+        <p class="wrong">D — selection against heterozygotes (underdominance) would also reduce heterozygote frequency, but is much rarer than assortative mating as a cause; furthermore, underdominance leads to unstable equilibria and rapid fixation of one allele, not a stable deficit of heterozygotes observed in an ongoing population.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Two geographically isolated populations have the following allele frequencies at a neutral locus: Population 1 (p₁ = 0.7, q₁ = 0.3) and Population 2 (p₂ = 0.3, q₂ = 0.7). If they merge into one large random-mating population, what will the new allele frequencies be, assuming equal contribution from each population?</p>
+    </div>
+    <ul class="options">
+      <li>A) p = 0.7, q = 0.3 (Population 1 dominates)</li>
+      <li>B) p = 0.3, q = 0.7 (Population 2 dominates)</li>
+      <li class="correct">C) p = 0.5, q = 0.5 (equal contributions average to 0.5 for each allele)</li>
+      <li>D) p = 0.49, q = 0.51 (Hardy-Weinberg predicts slight asymmetry)</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> When two populations of equal size merge, the combined allele frequency is the average: p_combined = (p₁ + p₂)/2 = (0.7 + 0.3)/2 = <strong>0.5</strong>; q_combined = (0.3 + 0.7)/2 = <strong>0.5</strong>. Note: even though the merged population will immediately show HWE genotype frequencies after one generation of random mating, there will initially be a <em>deficit</em> of heterozygotes compared to the new HWE expectation (the Wahlund effect) — because the two source populations each had their own internal HWE structure but differed from each other. After one generation of random mating in the merged population, HWE is restored.</p>
+        <p class="wrong">A and B — only one population dominates if contributions are unequal; equal contribution produces equal averaging.</p>
+        <p class="wrong">D — Hardy-Weinberg pertains to genotype frequencies from a given set of allele frequencies; it has no influence on what the new combined allele frequencies will be. The allele frequency calculation is purely mathematical averaging.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <p class="q-text">A selectively neutral mutation arises in a population of N = 1000 diploid individuals. The mutation occurs in a single copy. What is the probability that this mutation eventually fixes (reaches frequency 1.0) in the population by genetic drift alone?</p>
+    </div>
+    <ul class="options">
+      <li>A) 0% — neutral mutations are always lost</li>
+      <li>B) 50% — neutral mutations have a 50% chance of fixation</li>
+      <li class="correct">C) 1/(2N) = 1/2000 = 0.05% — the probability of fixation equals the initial frequency</li>
+      <li>D) 100% — given enough time, neutral mutations always fix</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> For a <strong>neutral</strong> allele (no selective advantage or disadvantage), the probability of fixation starting from a single copy in a diploid population of N individuals is exactly equal to its initial frequency: 1/(2N). In a diploid population of 1000 individuals, there are 2N = 2000 gene copies, so one new mutation starts at frequency 1/2000 = 0.0005 (0.05%). This is Kimura's neutral theory result — most neutral mutations are lost by drift, but those that fix do so purely by chance. The expected time to fixation, conditional on fixing, is ~4N generations.</p>
+        <p class="wrong">A — neutral mutations have a small but non-zero probability of fixation; most (~99.95%) are lost, but the 0.05% that fix do so by chance.</p>
+        <p class="wrong">B — 50% fixation probability would apply only if the mutation were at 50% initial frequency (p = 0.5), not at 1/2N.</p>
+        <p class="wrong">D — given infinite time, ANY mutation at non-zero frequency will eventually fix OR be lost; for most neutral mutations (starting at 1/2N), the overwhelmingly likely outcome is loss, not fixation.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Directional selection is acting on a quantitative trait in a population. After many generations, the rate of allele frequency change slows dramatically as the favoured alleles approach fixation. Why does selection become less effective at high allele frequencies?</p>
+    </div>
+    <ul class="options">
+      <li>A) Directional selection always maintains a constant rate of allele frequency change</li>
+      <li>B) Once alleles are common, they become dominant and mask the effects of selection</li>
+      <li class="correct">C) Most copies of the favoured allele are in heterozygotes at low unfavoured-allele frequency; if the favoured allele is dominant, the few remaining unfavoured homozygotes are the only target of selection, slowing progress to fixation</li>
+      <li>D) Natural selection switches to stabilising mode once alleles are above 50% frequency</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> When a dominant favoured allele (A) reaches high frequency, the recessive unfavoured allele (a) exists mostly in Aa heterozygotes (where it is hidden from selection) rather than in aa homozygotes (where it is exposed). At q = 0.01, the ratio of carriers to homozygous recessives is 2pq : q² = 2(0.99)(0.01) : (0.01)² ≈ 0.0198 : 0.0001 = ~200 carriers per affected. Selection can only act on aa homozygotes, so as q decreases, increasingly few aa individuals exist, and the response to selection approaches zero. This is why recessive deleterious alleles are never completely eliminated from populations — they persist at low frequency sheltered in heterozygous carriers.</p>
+        <p class="wrong">A — selection rate is not constant; it follows a sigmoidal (S-shaped) curve, being fastest at intermediate frequencies and slowest at extremes.</p>
+        <p class="wrong">B — dominance relationships don't change with allele frequency; the dominant allele remains dominant at all frequencies.</p>
+        <p class="wrong">D — directional selection continues in the same direction regardless of allele frequency; the mechanism of slowing is about phenotypic target availability, not a mode switch.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">A population geneticist measures FST = 0.25 between two subpopulations. What does this value indicate?</p>
+    </div>
+    <ul class="options">
+      <li>A) 25% of individuals have migrated between the two subpopulations</li>
+      <li class="correct">B) 25% of the total genetic variation exists between subpopulations rather than within them, indicating moderate genetic differentiation</li>
+      <li>C) The subpopulations are 25% genetically identical to each other</li>
+      <li>D) 25% of alleles in subpopulation 1 are also present in subpopulation 2</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> FST (fixation index, Wright's F-statistic) measures the proportion of total genetic variance that is distributed among subpopulations: FST = (H_T – H_S) / H_T, where H_T is total heterozygosity and H_S is mean heterozygosity within subpopulations. FST = 0.25 means 25% of genetic variation exists between (rather than within) subpopulations — indicating <strong>moderate differentiation</strong>. FST ranges from 0 (no differentiation, subpopulations genetically identical) to 1 (complete fixation of different alleles in each subpopulation). As a rule of thumb: FST < 0.05 = little differentiation; 0.05–0.15 = moderate; 0.15–0.25 = great; > 0.25 = very great differentiation.</p>
+        <p class="wrong">A — FST is a variance-partitioning statistic, not a direct measure of migration rate (though high FST implies low gene flow by Nm ≈ (1–FST)/(4FST)).</p>
+        <p class="wrong">C — FST does not measure genetic identity or similarity in the colloquial sense; it measures variance partitioning.</p>
+        <p class="wrong">D — allele sharing is not what FST measures; alleles can be shared but at different frequencies, which FST captures.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <p class="q-text">A rare autosomal recessive disease affects 1 in 10,000 people in a population at Hardy-Weinberg equilibrium. A carrier woman (Aa) mates with a non-carrier man (AA). What is the probability that their first child will be affected?</p>
+    </div>
+    <ul class="options">
+      <li>A) 1/4</li>
+      <li>B) 1/100</li>
+      <li class="correct">C) 0% — the father is AA so no child can be homozygous recessive</li>
+      <li>D) 1/200</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> For a child to be affected (aa), they must receive one a allele from each parent. The father is AA — he cannot contribute an a allele. Therefore, regardless of the mother's genotype, no child can be aa. All children of this couple will be either AA (50%) or Aa (50%) — none will be affected. The HWE disease frequency (1/10,000) and carrier frequency information is a distractor that determines the genotype of a randomly selected partner, but here the father's genotype (AA) is specified.</p>
+        <p class="wrong">A (1/4) — this would be the probability if BOTH parents were Aa carriers (carrier × carrier cross). Here only the mother is a carrier.</p>
+        <p class="wrong">B (1/100) — this would be approximately the probability if the mother's genotype were unknown and a random partner were selected from the population (probability partner is a carrier × 1/4 given two carriers mate); but the father's genotype is specified as AA here.</p>
+        <p class="wrong">D (1/200) — this also incorrectly treats the father's genotype as unknown; his genotype is given as AA.</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

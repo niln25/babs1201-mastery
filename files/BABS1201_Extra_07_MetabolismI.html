@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Metabolism I</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 7: Metabolism I (Glycolysis &amp; Anaerobic) &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 11 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A cell is provided with radioactively labelled ¹⁴C glucose where only carbon-1 is labelled (¹⁴C-1-glucose). After complete aerobic oxidation, where will the ¹⁴C label appear?</p>
+  </div>
+  <ul class="options">
+    <li>A) In H₂O, because H atoms are removed at carbon 1 during glycolysis</li>
+    <li class="correct">B) In CO₂ — through glycolysis (carbon-1 becomes the carboxyl group of pyruvate at C-3 position; tracking through pyruvate decarboxylation and Krebs cycle, carbon-1 of glucose eventually appears as CO₂)</li>
+    <li>C) In ATP — carbon-1 is transferred to the adenosine ring during substrate-level phosphorylation</li>
+    <li>D) The label is lost during the aldol cleavage step of glycolysis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Tracking ¹⁴C-1: In glycolysis, glucose-6-phosphate → fructose-6-phosphate (isomerisation shuffles carbons). After aldol cleavage: C1 of fructose-1,6-bisphosphate becomes C3 of DHAP and ultimately glyceraldehyde-3-phosphate. The carbon at position 1 of glycolysis products eventually enters pyruvate at C-3 (the carboxyl group of pyruvate, which is the one released as CO₂ during pyruvate decarboxylation to acetyl-CoA). In the Krebs cycle, the two carbons of acetyl-CoA are not released as CO₂ in the first turn — they are incorporated into succinate. They eventually emerge as CO₂ in subsequent turns. The detailed fate depends on which stereochemical position is labelled, but the ultimate fate of all glucose carbons in complete aerobic oxidation is CO₂ (and H atoms → H₂O via the ETC). No carbon is transferred to ATP.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Athletes "carb load" before endurance events. This maximises muscle glycogen stores. During a marathon, a runner uses up all glycogen in the first 2 hours and then must switch to fat oxidation ("hitting the wall"). Why does fat oxidation produce the sensation of fatigue even though fat contains more energy per gram than carbohydrate?</p>
+  </div>
+  <ul class="options">
+    <li>A) Fat cannot be oxidised in muscle; it can only be used in the liver</li>
+    <li class="correct">B) Fat oxidation (β-oxidation → Krebs cycle → ETC) has a higher oxygen requirement per ATP produced and produces ATP more slowly than glycolysis; the brain cannot use fatty acids (requires glucose/ketones); the rate of ATP regeneration from fat is insufficient for high-intensity work; also, fatty acid oxidation requires oxaloacetate availability — when glycogen depletes, OAA decreases, slowing the Krebs cycle</li>
+    <li>C) Fat produces lactic acid, which inhibits further fat oxidation</li>
+    <li>D) Fat oxidation requires insulin, which is low during exercise</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — "Hitting the wall" (glycogen depletion) has multiple metabolic bases: (1) Rate of ATP production: glycolysis can produce ATP very rapidly (substrate-level phosphorylation); fat oxidation's maximum flux is slower, limiting high-intensity exercise. (2) Oxygen efficiency: fat requires ~15% more O₂ per ATP than carbohydrate. (3) Oxaloacetate (OAA) depletion: "fat burns in the flame of carbohydrate" — OAA is needed to condense with acetyl-CoA in Krebs cycle; gluconeogenesis during glycogen depletion diverts OAA away from Krebs, slowing fat oxidation. (4) CNS function: the brain is glucose-dependent; hypoglycaemia → impaired focus, coordination, perceived effort. Fat is NOT the same as lactic acid; insulin inhibits lipolysis (not oxidation); muscles CAN oxidise fatty acids.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">PFK-1 (phosphofructokinase-1) is the key regulatory enzyme of glycolysis. It is inhibited by ATP and citrate, and activated by AMP and ADP. How does this regulation match cellular energy needs?</p>
+  </div>
+  <ul class="options">
+    <li>A) High ATP inhibits PFK-1 to prevent excess pyruvate; low ATP activates PFK-1 to generate more pyruvate</li>
+    <li class="correct">B) When energy is plentiful (high ATP, high citrate from Krebs cycle running fast), PFK-1 is inhibited — slowing glycolysis to prevent energy waste. When energy demand is high (high AMP/ADP, low ATP — from rapid ATP consumption), PFK-1 is activated — accelerating glucose breakdown to produce more ATP. Citrate feedback: if Krebs cycle is backed up (citrate accumulating), it signals no more acetyl-CoA is needed, so glycolysis slows</li>
+    <li>C) PFK-1 is only regulated by glucose concentration, not by adenine nucleotides</li>
+    <li>D) ATP activates PFK-1 because ATP is the substrate for the phosphorylation reaction</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — PFK-1 has two distinct sites: catalytic site (binds ATP as substrate for phosphorylation of F6P) and allosteric sites. High ATP: allosteric ATP binds a regulatory site and inhibits PFK-1 (despite ATP also being a substrate — this is an example of substrate inhibition at the regulatory level). AMP/ADP: signal energy deficit → activate PFK-1. Citrate (TCA cycle intermediate): high citrate means plenty of biosynthetic precursors and energy; inhibits PFK-1 to slow the flow of carbon into the cycle. AMP is particularly sensitive — AMP is proportional to (ADP)²/ATP (via adenylate kinase: 2ADP ⇌ ATP + AMP), so even small decreases in ATP cause large increases in AMP, making AMP a highly sensitive energy sensor. This is why PFK-1 is the "pacemaker" of glycolysis — it sets the speed of the entire pathway based on cellular energy status.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Yeast perform alcoholic fermentation: glucose → 2 ethanol + 2 CO₂. Humans perform lactic acid fermentation in skeletal muscle: glucose → 2 lactate. Both regenerate NAD⁺. But yeast fermentation loses carbon as CO₂ gas. What is the net carbon loss per glucose in alcoholic vs. lactic acid fermentation?</p>
+  </div>
+  <ul class="options">
+    <li>A) Alcoholic fermentation: no carbon loss; Lactic acid: 2 carbons lost as CO₂</li>
+    <li>B) Both fermentations lose 2 carbons as CO₂</li>
+    <li class="correct">C) Alcoholic fermentation: 2 carbons lost as 2 CO₂ (from pyruvate decarboxylation: 2 pyruvate → 2 acetaldehyde + 2 CO₂); Lactic acid fermentation: 0 carbons lost — all 6 carbons of glucose remain in the 2 lactate molecules</li>
+    <li>D) Alcoholic fermentation: 4 carbons lost; Lactic acid: 2 carbons lost</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — In alcoholic fermentation: pyruvate → acetaldehyde + CO₂ (pyruvate decarboxylase), then acetaldehyde → ethanol (alcohol dehydrogenase, regenerating NAD⁺). Each CO₂ release loses one carbon. With 2 pyruvates per glucose, 2 CO₂ are released = 2 carbons lost. Ethanol (2-carbon) + 2CO₂ (2 carbons) = total 4 carbons, consistent with 2 pyruvates (3C each = 6C). In lactic acid fermentation: pyruvate + NADH → lactate + NAD⁺ (lactate dehydrogenase). No decarboxylation. Lactate has 3 carbons — same as pyruvate. 2 lactate = 6 carbons = all carbons of glucose retained. This is why lactate accumulates in muscle (cannot be exhaled) and must be transported to the liver for reconversion to glucose (Cori cycle).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A patient has a genetic deficiency of pyruvate kinase (PK) in red blood cells. PK catalyses the last step of glycolysis (PEP → pyruvate + ATP). What would be the metabolic consequence, and why would this cause haemolytic anaemia?</p>
+  </div>
+  <ul class="options">
+    <li>A) Without pyruvate, the Krebs cycle cannot run, starving RBCs of ATP</li>
+    <li class="correct">B) RBCs rely exclusively on glycolysis for ATP (they lack mitochondria — no Krebs or OXPHOS). PK deficiency blocks the final ATP-generating step — RBCs are severely ATP-deficient. Without ATP: Na⁺/K⁺-ATPase fails → osmotic imbalance → RBCs swell and lyse (haemolytic anaemia). Also: upstream glycolytic metabolites including 2,3-BPG accumulate, paradoxically shifting haemoglobin to a low-affinity state for oxygen</li>
+    <li>C) Without pyruvate, red blood cells accumulate toxic levels of glucose-6-phosphate</li>
+    <li>D) PK deficiency causes haemolytic anaemia by blocking the pentose phosphate pathway</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This requires integrating glycolysis with RBC physiology. RBCs are anucleate and lack mitochondria — they rely 100% on glycolysis for ATP. Pyruvate kinase (PK) catalyses step 10 (and step 7 via enolase): PEP + ADP → pyruvate + ATP. This step produces 2 ATP per glucose (substrate-level phosphorylation). In PK deficiency: glycolysis stalls at PEP → only 2 ATP net from glycolysis is not reached; actual ATP yield is ~0 or 2 less than normal → severe ATP depletion. Consequences: Na⁺/K⁺-ATPase fails → Na⁺ influx, K⁺ efflux → osmotic swelling → haemolysis. Also, upstream intermediates (2,3-BPG, generated from 1,3-BPG via BPG mutase, accumulates relative to normal) shift Hb to T-state (right shift of O₂ dissociation curve), reducing O₂ loading. PK deficiency is the second most common RBC enzyme deficiency after G6PD deficiency.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Warburg effect: cancer cells preferentially use aerobic glycolysis (glycolysis even in the presence of O₂, producing lactate). This seems energetically wasteful (only 2 ATP/glucose vs ~30 from OXPHOS). Why might this be advantageous for proliferating cancer cells?</p>
+  </div>
+  <ul class="options">
+    <li>A) Aerobic glycolysis produces ATP faster than OXPHOS — the rate matters more than total yield for rapidly dividing cells</li>
+    <li class="correct">B) Both rate and biosynthesis: fast ATP via glycolysis supports immediate energy needs; glycolytic intermediates (G3P for lipids, 3-PG for serine, ribose-5-P via PPP for nucleotides) provide building blocks for cell growth; also, proliferating cells need to double their biomass, not just produce ATP — OXPHOS maximises ATP but diverts carbon to CO₂ rather than biosynthesis</li>
+    <li>C) Cancer cells lack functional mitochondria, forcing them to use glycolysis</li>
+    <li>D) Aerobic glycolysis avoids reactive oxygen species production, preventing DNA damage in cancer cells</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The Warburg effect is paradoxical if you only consider ATP yield. Key insights: (1) Rate advantage: glycolysis's maximum ATP flux is ~100× faster than OXPHOS in terms of ATP/second under maximal conditions. For rapidly dividing cells, rate > efficiency. (2) Biosynthetic advantage: glycolytic intermediates feed: pentose phosphate pathway (G6P → ribose-5-P for nucleotides, NADPH for biosynthesis); serine/glycine synthesis (3-PG); lipid synthesis (G3P, acetyl-CoA). OXPHOS oxidises everything to CO₂/H₂O — wasting carbon that could become cell mass. (3) Tumour microenvironment: lactate export acidifies surroundings, suppressing immune cells. Option C is wrong — most cancer cells have functional mitochondria; the Warburg effect occurs even with intact mitochondria. ROS (option D) can actually promote pro-growth signalling, so ROS avoidance is not the primary driver.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The free energy (ΔG°') of ATP hydrolysis is −30.5 kJ/mol. Glycolysis produces 2 ATP net from 1 glucose, with a total free energy available from glucose oxidation to pyruvate of approximately −146 kJ/mol. What is the approximate thermodynamic efficiency of glycolysis for ATP synthesis?</p>
+  </div>
+  <ul class="options">
+    <li>A) 100% — all free energy is captured as ATP</li>
+    <li>B) 75% — three-quarters of the energy is captured</li>
+    <li class="correct">C) Approximately 42% — (2 × 30.5 kJ) / 146 kJ × 100 ≈ 42%; the remainder is released as heat</li>
+    <li>D) Approximately 10% — most energy is lost as CO₂</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Efficiency = energy captured in ATP / total energy available. Energy in 2 ATP = 2 × 30.5 kJ/mol = 61 kJ/mol. Total ΔG°' for glucose → 2 pyruvate ≈ −146 kJ/mol. Efficiency = 61/146 × 100 ≈ 42%. The remaining ~58% is lost as heat. This is relatively efficient for a biological process. For context, complete aerobic oxidation (glucose → CO₂ + H₂O, ΔG°' ≈ −2870 kJ/mol): ~30 ATP × 30.5 kJ ≈ 915 kJ captured ≈ 32% efficiency. No energy conversion process is 100% efficient (second law of thermodynamics). The heat released by cellular metabolism contributes to body temperature maintenance in endotherms. Note: no CO₂ is released in glycolysis (only during pyruvate decarboxylation, which is outside glycolysis proper).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">G6PD (glucose-6-phosphate dehydrogenase) deficiency impairs the pentose phosphate pathway (PPP) in red blood cells. The PPP generates NADPH. Why would G6PD deficiency cause haemolysis specifically in the presence of oxidative stress (e.g., antimalarial drugs, fava beans, infections)?</p>
+  </div>
+  <ul class="options">
+    <li>A) G6PD is the enzyme that makes ATP in RBCs — its deficiency reduces energy supply</li>
+    <li class="correct">B) NADPH (from PPP via G6PD) is required to regenerate reduced glutathione (GSH) via glutathione reductase. GSH neutralises H₂O₂ and reactive oxygen species. Without NADPH: glutathione is depleted; oxidative damage accumulates; haemoglobin is oxidised (Heinz body formation); RBC membrane is damaged → haemolysis. Under normal conditions RBCs manage; under oxidative stress (primaquine, fava beans generate ROS), the antioxidant system is overwhelmed</li>
+    <li>C) G6PD makes ribose-5-phosphate for RBC DNA repair — without it, RBCs cannot repair oxidative DNA damage</li>
+    <li>D) G6PD deficiency causes excess glucose-6-phosphate to be toxic to RBC membranes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — NADPH maintains cellular antioxidant defences: NADPH + oxidised glutathione (GSSG) → NADP⁺ + 2 GSH (glutathione reductase). GSH is used by glutathione peroxidase to reduce H₂O₂: 2 GSH + H₂O₂ → GSSG + 2 H₂O. RBCs are especially vulnerable because: (1) they lack mitochondria (cannot generate NADPH via mitochondrial enzymes); (2) they are constantly exposed to O₂ → prone to oxidative stress. G6PD catalyses the first and rate-limiting step of PPP: G6P + NADP⁺ → 6-phosphogluconolactone + NADPH. Without G6PD: no NADPH → glutathione depleted → ROS oxidise Hb → Heinz bodies (denatured Hb precipitates) → splenic removal or osmotic lysis. The malaria connection: G6PD-deficient RBCs are inhospitable to <em>Plasmodium</em> — this explains the high prevalence of G6PD deficiency in malaria-endemic regions (balanced polymorphism). RBCs have no nucleus, so DNA repair (option C) is irrelevant.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The net equation for glycolysis is: Glucose + 2NAD⁺ + 2ADP + 2Pᵢ → 2 pyruvate + 2NADH + 2H⁺ + 2ATP + 2H₂O. Why are there only 2 net ATP despite steps 6-9 producing 4 ATP?</p>
+  </div>
+  <ul class="options">
+    <li>A) Two ATP are consumed making NADH in steps 6 and 7</li>
+    <li class="correct">B) Two ATP are consumed in the investment phase (step 1: glucose → glucose-6-phosphate by hexokinase; step 3: fructose-6-phosphate → fructose-1,6-bisphosphate by PFK-1); the return phase (steps 7 and 10) generates 4 ATP per glucose — net = 4 − 2 = 2 ATP</li>
+    <li>C) Two ATP are lost as heat during glycolysis due to thermodynamic inefficiency</li>
+    <li>D) One ATP is used to split the 6-carbon sugar into two 3-carbon molecules</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Glycolysis has two phases: (1) Energy investment phase (steps 1–5): 2 ATP consumed — hexokinase (step 1) phosphorylates glucose using 1 ATP; PFK-1 (step 3) phosphorylates F6P using 1 ATP. This activates the glucose and enables aldol cleavage. (2) Energy payoff phase (steps 6–10): for each of the two 3-carbon molecules (G3P), 2 ATP are produced (phosphoglycerate kinase at step 7 and pyruvate kinase at step 10) × 2 = 4 ATP total. Net: 4 − 2 = 2 ATP. Also: 2 NADH are produced (GAPDH at step 6 × 2). Note: step 5 (aldolase) splits F1,6-BP into DHAP + G3P; only G3P continues directly; DHAP is isomerised to G3P by TPI. So both 3-carbon products ultimately go through steps 6–10, giving 4 total ATP from the payoff phase.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A sprinter doing a 100 m dash primarily uses which energy systems, in which order?</p>
+  </div>
+  <ul class="options">
+    <li>A) Aerobic respiration → glycolysis → phosphocreatine</li>
+    <li class="correct">B) Phosphocreatine (immediate, first ~3 s) → anaerobic glycolysis (lactic acid fermentation, seconds to ~2 min) → aerobic respiration (only comes online after ~60–90 s, too slow for a 100 m sprint)</li>
+    <li>C) Aerobic respiration only — the heart pumps enough O₂ for any exercise intensity</li>
+    <li>D) Glycolysis only — phosphocreatine and aerobic respiration are only used at rest</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The three energy systems have different maximal rates and durations: (1) Phosphocreatine (PCr) + creatine kinase: PCr + ADP → Cr + ATP — fastest rate, but only ~8–10 seconds of capacity (first 3 s of all-out sprint). (2) Anaerobic glycolysis: glucose → lactate + ATP — fast, no O₂ needed, sustains 10 seconds to ~2 minutes at high intensity; produces lactate and H⁺ (acidosis limits duration). (3) Aerobic respiration (OXPHOS): maximum ATP production, unlimited (glucose + fat), but limited by O₂ delivery rate — takes 60–90 s to reach maximum capacity; primarily important for events >2 minutes. A 100 m sprint (~10 seconds) uses almost entirely PCr + anaerobic glycolysis. The post-exercise "excess post-exercise oxygen consumption" (EPOC) repays the oxygen debt (replenishes PCr, converts lactate to glucose in liver).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A student claims: "Anaerobic fermentation is less efficient than aerobic respiration because it produces less ATP, so cells should never choose fermentation when O₂ is available." Under what biological circumstances would cells perform fermentation even when O₂ IS available?</p>
+  </div>
+  <ul class="options">
+    <li>A) When glucose concentration is too low for aerobic respiration</li>
+    <li class="correct">B) When the rate of ATP demand exceeds the rate at which the aerobic pathway can supply it — e.g., fast-twitch muscle fibres during sprint/explosive movements, cancer cells (Warburg effect), and situations where glycolytic flux generates biosynthetic precursors needed for rapid cell growth even if O₂ is available</li>
+    <li>C) When cells are at low temperature, which inhibits aerobic enzymes</li>
+    <li>D) When the mitochondria are dividing during S phase and temporarily reduce their ATP output</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Fermentation in the presence of O₂ (aerobic fermentation/Warburg effect) occurs when: (1) ATP demand rate exceeds OXPHOS maximum ATP flux: fast-twitch (Type IIb) muscle fibres have high contractile ATPase rates; glycolysis delivers ATP faster than the mitochondrial respiratory chain can match at maximum O₂ utilisation. Even if O₂ is present, glycolysis rate must increase to supplement OXPHOS → pyruvate accumulates faster than it can enter the TCA → LDH converts pyruvate to lactate (regenerating NAD⁺ to continue glycolysis). (2) Rapidly proliferating cells (Warburg effect): cancer cells and activated lymphocytes use aerobic glycolysis to generate biosynthetic precursors. (3) Microorganisms prioritising biomass production over ATP efficiency. Temperature effects (option C) are relevant to poikilotherms but not the primary reason. Mitochondria dividing (option D) is not a recognized cause.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

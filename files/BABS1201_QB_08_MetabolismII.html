@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 08: Metabolism II</title>
+<style>
+  :root { --primary: #1a3a5c; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-card.insta-q { border-left: 4px solid var(--insta); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .insta-header { background: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #721c24; }
+  .insta-header strong { color: var(--insta); }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 08: Metabolism II &nbsp;|&nbsp; Citric Acid Cycle · Electron Transport Chain · Oxidative Phosphorylation · Chemiosmosis · ATP Yield</p>
+</div>
+
+<div class="insta-header">
+  <strong>🐒 Monkey Monday (INSTA)</strong> — Questions 1–4 are from the official BABS1201 INSTA series. Questions 5–18 are original practice questions.
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- INSTA Q1 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 1 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">What is the purpose of NADH and FADH₂ production during the citric acid cycle?</div>
+  <ul class="options">
+    <li class="correct">A. To be later oxidised and provide electrons for use in the electron transport chain</li>
+    <li>B. To be later oxidised and provide H⁺ ions to be pumped out of the mitochondria by the electron transport chain, creating a chemical gradient</li>
+    <li>C. To be later reduced and provide electrons for use in the electron transport chain</li>
+    <li>D. To be later reduced and provide H⁺ ions to be pumped out of the mitochondria by the electron transport chain, creating a chemical gradient</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: A — NADH and FADH₂ are oxidised to donate electrons to the ETC</strong></p>
+      <p>During the citric acid cycle, NAD⁺ and FAD are REDUCED (gain electrons/hydrogen): NAD⁺ → NADH; FAD → FADH₂. In the electron transport chain (ETC) on the inner mitochondrial membrane, NADH and FADH₂ are then OXIDISED: NADH → NAD⁺ (Complex I); FADH₂ → FAD (Complex II). They donate their electrons to the ETC. As these electrons pass through the ETC complexes (I → CoQ → III → Cyt c → IV → O₂), energy is released and used to pump H⁺ (protons) across the inner membrane, creating the proton gradient for ATP synthesis.</p>
+      <p><strong>Why B is wrong:</strong> Option B says NADH/FADH₂ provide H⁺ ions to be pumped out. While H⁺ pumping does occur, the H⁺ pumped out is driven by the energy from electron flow — the NADH itself is oxidised (donates electrons), not dissociated into H⁺ for direct pumping. The ETC uses the electrons from NADH to power conformational changes in pump proteins that pump H⁺.</p>
+      <p><strong>Why C is wrong:</strong> NADH and FADH₂ are OXIDISED in the ETC (they lose electrons/hydrogen), returning to NAD⁺ and FAD. "To be reduced" is incorrect — they are already reduced when they arrive at the ETC.</p>
+      <p><strong>Why D is wrong:</strong> Same error as C — "to be later reduced" is incorrect.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q2 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 2 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Which of the following is a CATABOLIC reaction?</div>
+  <ul class="options">
+    <li>A. The Calvin Cycle</li>
+    <li>B. Reduction of O₂ into water</li>
+    <li class="correct">C. The Citric Acid Cycle</li>
+    <li>D. Synthesis of ATP by ATP Synthase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C — The Citric Acid Cycle is catabolic</strong></p>
+      <p>Catabolism = breakdown of complex molecules releasing energy. The Citric Acid Cycle (Krebs cycle) breaks down the 2-carbon acetyl group (from Acetyl-CoA) by oxidising it completely to 2 CO₂ per turn, releasing electrons captured as NADH and FADH₂. It is the central hub of aerobic catabolism. Per turn: Acetyl-CoA (2C) + Oxaloacetate (4C) → Citrate (6C) → ... → regenerated Oxaloacetate + 2 CO₂ + 3 NADH + 1 FADH₂ + 1 GTP. This is clearly catabolic — breaking down an organic molecule (acetyl group) to CO₂ and capturing energy.</p>
+      <p><strong>Why A is wrong:</strong> The Calvin Cycle (dark reactions of photosynthesis) is ANABOLIC — it uses ATP and NADPH to SYNTHESISE glucose (G3P) from CO₂. Building up, not breaking down.</p>
+      <p><strong>Why B is wrong:</strong> "Reduction of O₂ into water" (O₂ + 4H⁺ + 4e⁻ → 2H₂O) occurs at Complex IV of the ETC. This is a specific redox reaction within catabolism, but it's more precisely the terminal step of electron transport — the question asks for a named "catabolic reaction" and the Citric Acid Cycle is the clearest example.</p>
+      <p><strong>Why D is wrong:</strong> Synthesis of ATP by ATP Synthase is an ANABOLIC reaction — it builds a complex molecule (ATP) from simpler ones (ADP + Pᵢ). The process uses the proton gradient as an energy source, but ATP synthesis itself is constructive.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q3 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 3 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Which of the following statements is the MOST TRUE?</div>
+  <ul class="options">
+    <li>A. The electron transport chain follows the order: Complex I &gt; Complex II &gt; Cytochrome C &gt; Complex III &gt; Q &gt; Complex IV &gt; O₂</li>
+    <li>B. In total, a net of 4 ATP molecules are produced per glucose molecule after glycolysis</li>
+    <li class="correct">C. After glycolysis, oxidation and the Citric Acid Cycle, ONE glucose molecule will end up producing EIGHT NADH molecules</li>
+    <li>D. Pyruvate enters the citric acid cycle to produce TWO ATP molecules</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C — Eight NADH produced after glycolysis (from pyruvate oxidation + Krebs)</strong></p>
+      <p>The EIGHT NADH refers specifically to the NADH produced AFTER glycolysis — in pyruvate oxidation and the Krebs cycle:</p>
+      <p><strong>Pyruvate oxidation</strong> (1 NADH per pyruvate × 2 pyruvates per glucose) = <strong>2 NADH</strong></p>
+      <p><strong>Citric Acid Cycle</strong> (3 NADH per turn × 2 turns per glucose) = <strong>6 NADH</strong></p>
+      <p>Total AFTER glycolysis = 2 + 6 = <strong>8 NADH</strong>. (Glycolysis itself produces an additional 2 NADH, giving 10 NADH total per glucose.)</p>
+      <p><strong>Why A is wrong:</strong> The correct ETC order is: NADH → Complex I → CoQ (ubiquinone/Q) → Complex III → Cytochrome c → Complex IV → O₂. (FADH₂ enters at Complex II → CoQ.) Option A puts Cytochrome C before Complex III and places Q after Complex III — both incorrect.</p>
+      <p><strong>Why B is wrong:</strong> Glycolysis produces a NET of 2 ATP per glucose (4 made − 2 used = 2). After glycolysis (Krebs + ETC), the total is ~30–38 ATP. "4 net ATP from glycolysis" is incorrect.</p>
+      <p><strong>Why D is wrong:</strong> Pyruvate does NOT enter the citric acid cycle directly — it is first converted to Acetyl-CoA by pyruvate oxidation. The Krebs cycle itself produces 1 GTP (≈ 1 ATP) per turn × 2 turns = 2 GTP per glucose — so in that sense "2 ATP" from Krebs is technically correct, but saying "pyruvate enters the citric acid cycle" is wrong.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q4 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 4 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Why would a human cell such as a skeletal muscle cell produce ATP via fermentation rather than oxidative phosphorylation?</div>
+  <ul class="options">
+    <li>A. During periods of intense ATP depletion caused by starvation</li>
+    <li class="correct">B. During periods of intense ATP usage caused by exertion</li>
+    <li>C. During periods of intense glucose excess caused by overeating</li>
+    <li>D. During periods of slow metabolic activity during sleep</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B — During intense exertion (exercise)</strong></p>
+      <p>During intense exercise (sprinting, heavy lifting), skeletal muscle cells demand ATP faster than oxidative phosphorylation can supply it. Why? Because OxPhos is limited by oxygen delivery (blood flow, haemoglobin capacity, cardiac output) and enzyme kinetics. When O₂ supply is outpaced by demand → cells switch to lactic acid fermentation (anaerobic glycolysis). This is faster than OxPhos (glycolysis is a 10-step linear pathway; OxPhos requires electron shuttling across membranes), providing rapid but low-yield ATP. Lactate accumulates → released into blood → liver converts back to glucose (Cori cycle). The "burn" during intense exercise reflects accumulation of H⁺ and metabolic byproducts.</p>
+      <p><strong>Why A is wrong:</strong> Starvation (lack of glucose/ATP depletion from lack of fuel) would cause cells to metabolise fats and proteins — not switch to fermentation, which still requires glucose. Fermentation is a response to lack of O₂, not lack of fuel.</p>
+      <p><strong>Why C is wrong:</strong> Excess glucose from overeating increases glycolysis and fat synthesis. Cells don't preferentially switch to fermentation just because there's excess glucose (in normal cells — cancer cells do this: the Warburg effect).</p>
+      <p><strong>Why D is wrong:</strong> During sleep, metabolic activity is low — cells use oxidative phosphorylation efficiently with plenty of oxygen. No reason to switch to less efficient fermentation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">The citric acid cycle regenerates oxaloacetate at the end of each turn. Why is this regeneration important?</div>
+  <ul class="options">
+    <li>A. Oxaloacetate is secreted from the mitochondria as CO₂</li>
+    <li>B. Oxaloacetate is the direct product that enters the electron transport chain</li>
+    <li class="correct">C. Oxaloacetate must be regenerated to accept the next acetyl group from Acetyl-CoA, allowing the cycle to continue turning — without regeneration, the cycle would halt</li>
+    <li>D. Oxaloacetate regeneration is the step where ATP is produced by substrate-level phosphorylation in the Krebs cycle</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The citric acid cycle is catalytic with respect to oxaloacetate: the 4-carbon OAA acts as an acceptor that condenses with the 2-carbon acetyl group → citrate (6C). As the cycle proceeds, carbons are released as CO₂, regenerating OAA at the end. OAA is not consumed — it is recycled. This allows each molecule of OAA to process many acetyl groups over time. If the cycle were to drain OAA (by diverting it to gluconeogenesis, amino acid synthesis, or other pathways), the cycle would slow or stop. This is why cells maintain adequate OAA concentrations — an important consideration in the biology of fasting (when OAA is pulled into gluconeogenesis, reducing Krebs cycle activity).</p>
+      <p><strong>Why A is wrong:</strong> CO₂ is released from isocitrate (→ α-ketoglutarate) and α-ketoglutarate (→ succinyl-CoA) — not from OAA. OAA remains in the cycle.</p>
+      <p><strong>Why B is wrong:</strong> OAA does not enter the ETC. It is a cycle intermediate that stays in the mitochondrial matrix. NADH and FADH₂ are what enter the ETC.</p>
+      <p><strong>Why D is wrong:</strong> Substrate-level phosphorylation in the Krebs cycle occurs at the succinyl-CoA synthetase step (Succinyl-CoA → Succinate → GTP/ATP), not at the OAA regeneration step.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">How does chemiosmosis drive ATP synthesis in mitochondria?</div>
+  <ul class="options">
+    <li>A. NADH is directly phosphorylated to produce ATP by the mitochondrial matrix enzymes</li>
+    <li>B. Electrons flowing through the ETC directly phosphorylate ADP to ATP via substrate-level phosphorylation</li>
+    <li class="correct">C. Electrons flowing through ETC complexes pump H⁺ into the intermembrane space, creating an electrochemical proton gradient. H⁺ flows back into the matrix through ATP synthase (Complex V), and the rotational energy drives ATP synthesis from ADP + Pᵢ</li>
+    <li>D. CO₂ produced by the Krebs cycle drives H⁺ pumping across the inner membrane, creating the gradient</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Chemiosmosis (Mitchell, 1961; Nobel Prize 1978): (1) ETC complexes I, III, IV use energy from electron flow to pump H⁺ from the matrix → intermembrane space. Each NADH: ~10 H⁺ pumped; each FADH₂: ~6 H⁺ pumped. (2) H⁺ gradient: high concentration outside (IMS), low inside (matrix) + electrical gradient (outside positive relative to inside) = proton motive force (PMF). (3) H⁺ flows back into the matrix THROUGH ATP SYNTHASE (F₀F₁-ATPase, Complex V) — down its electrochemical gradient. The F₀ subunit (transmembrane, rotary) spins as H⁺ passes through. This rotation drives conformational changes in the F₁ subunit (matrix-facing) that catalyse ADP + Pᵢ → ATP. Each full rotation of ATP synthase produces 3 ATP (one per F₁ catalytic site). ~2.5 ATP per NADH; ~1.5 ATP per FADH₂ (updated P/O ratio values).</p>
+      <p><strong>Why A is wrong:</strong> NADH is NOT directly phosphorylated. NADH donates electrons to the ETC; the energy from electron flow drives proton pumping; proton flow through ATP synthase drives ATP synthesis — three steps removed from NADH.</p>
+      <p><strong>Why B is wrong:</strong> ETC electron flow drives proton PUMPING (not substrate-level phosphorylation). Substrate-level phosphorylation is a separate mechanism used in glycolysis and the Krebs cycle.</p>
+      <p><strong>Why D is wrong:</strong> CO₂ is a waste product released from the matrix — it does not drive H⁺ pumping. The ETC complexes powered by electron flow pump H⁺.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Cyanide is a potent poison that blocks Complex IV (cytochrome c oxidase) of the ETC. What would be the cellular consequence?</div>
+  <ul class="options">
+    <li>A. Glycolysis would immediately stop as no ATP is available to start the pathway</li>
+    <li class="correct">B. The ETC would halt — NADH and FADH₂ cannot be re-oxidised — the proton gradient collapses — oxidative phosphorylation stops — cells switch to anaerobic fermentation — ATP production plummets — cells die rapidly due to energy failure</li>
+    <li>C. Cells would compensate by upregulating the Calvin cycle to produce more ATP</li>
+    <li>D. The Krebs cycle would increase speed to compensate for reduced electron flow</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Complex IV (cytochrome c oxidase) is the terminal complex of the ETC — it transfers electrons from cytochrome c to O₂ (the final electron acceptor), producing H₂O. Cyanide (CN⁻) binds tightly to the Fe³⁺ of cytochrome a₃ in Complex IV, blocking electron transfer to O₂. Consequence cascade: (1) Electrons back up through the ETC → all complexes stall. (2) NADH and FADH₂ cannot donate electrons → they accumulate (cannot be re-oxidised). (3) No proton pumping → proton gradient (PMF) collapses. (4) ATP synthase stops → oxidative phosphorylation ceases. (5) NADH backup → Krebs cycle halts (substrates piling up, NAD⁺ exhausted). (6) Cells switch to anaerobic fermentation → only 2 ATP per glucose. (7) High-energy-demand tissues (heart, brain, skeletal muscle) fail rapidly → death. This is why cyanide poisoning causes rapid death in high doses.</p>
+      <p><strong>Why A is wrong:</strong> Glycolysis does NOT require oxygen and is not immediately stopped. It will actually upregulate to try to compensate through anaerobic fermentation. Glycolysis can run as long as glucose and NAD⁺ are available.</p>
+      <p><strong>Why C is wrong:</strong> Animal cells do not perform the Calvin cycle — they have no chloroplasts.</p>
+      <p><strong>Why D is wrong:</strong> The Krebs cycle would actually SLOW DOWN, not speed up — because NAD⁺ becomes depleted (NADH accumulates and cannot be re-oxidised). The Krebs cycle needs NAD⁺ and FAD to accept electrons; with NADH/FADH₂ stuck in their reduced forms, the cycle halts.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Which of the following is the correct per-turn output of the citric acid cycle (per one Acetyl-CoA entering)?</div>
+  <ul class="options">
+    <li>A. 1 ATP, 1 NADH, 1 FADH₂, 4 CO₂</li>
+    <li class="correct">B. 3 NADH, 1 FADH₂, 1 GTP (≈ ATP), 2 CO₂</li>
+    <li>C. 2 ATP, 2 NADH, 2 FADH₂, 1 CO₂</li>
+    <li>D. 4 NADH, 2 FADH₂, 2 GTP, 2 CO₂</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Per turn of the citric acid cycle (one Acetyl-CoA, 2 carbons entering as acetyl group): <br>
+      Step 3: Isocitrate → α-ketoglutarate: <strong>1 NADH</strong> + CO₂ <br>
+      Step 4: α-ketoglutarate → Succinyl-CoA: <strong>1 NADH</strong> + CO₂ <br>
+      Step 5: Succinyl-CoA → Succinate: <strong>1 GTP</strong> (substrate-level phosphorylation) <br>
+      Step 6: Succinate → Fumarate: <strong>1 FADH₂</strong> <br>
+      Step 8: Malate → Oxaloacetate: <strong>1 NADH</strong> <br>
+      <strong>Total per turn: 3 NADH + 1 FADH₂ + 1 GTP + 2 CO₂</strong>. For one glucose: ×2 turns = 6 NADH + 2 FADH₂ + 2 GTP + 4 CO₂. The 4 CO₂ from Krebs plus 2 CO₂ from pyruvate oxidation = 6 CO₂ total from the mitochondria per glucose (glycolysis produces no CO₂). This accounts for the 6 carbons in glucose being fully oxidised to CO₂.</p>
+      <p><strong>Why A is wrong:</strong> Only 1 NADH and 1 FADH₂ is a massive undercount. CO₂: 2 per turn, not 4.</p>
+      <p><strong>Why C is wrong:</strong> There is no ATP directly — it's a GTP (equivalent). 2 NADH per turn is incorrect (it's 3).</p>
+      <p><strong>Why D is wrong:</strong> 4 NADH and 2 FADH₂ and 2 GTP per turn is an overcount — this would be the total for 2 turns (per glucose), not per turn.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">FADH₂ enters the electron transport chain at Complex II rather than Complex I. Why does this result in less ATP being produced compared to NADH?</div>
+  <ul class="options">
+    <li>A. FADH₂ has more electrons to donate than NADH, causing overloading of the ETC</li>
+    <li class="correct">B. By entering at Complex II (which does not pump protons), FADH₂ bypasses the proton pumping at Complex I — resulting in fewer protons pumped per electron pair (~6 H⁺ vs ~10 H⁺ for NADH) and therefore less ATP produced (~1.5 ATP vs ~2.5 ATP per NADH)</li>
+    <li>C. FADH₂ is less stable than NADH and releases fewer electrons to the ETC</li>
+    <li>D. FADH₂ is produced only in the cytoplasm and must be actively transported into the mitochondria, losing energy in transit</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The ETC complexes that pump H⁺: Complex I (pumps ~4 H⁺ per electron pair), Complex III (~4 H⁺), Complex IV (~2 H⁺) = ~10 H⁺ per NADH. FADH₂ enters at CoQ (ubiquinone) after Complex II. Complex II does NOT pump H⁺ — it just transfers electrons from FADH₂ to CoQ. So electrons from FADH₂ only pass through Complexes III and IV (~6 H⁺ total). Since ATP synthase requires ~4 H⁺ per ATP: NADH ≈ 10/4 = 2.5 ATP; FADH₂ ≈ 6/4 = 1.5 ATP. This is why carbohydrates are more energetically efficient than the succinate step (which produces FADH₂ via succinate dehydrogenase = Complex II).</p>
+      <p><strong>Why A is wrong:</strong> FADH₂ and NADH both transfer 2 electrons (one electron pair) to the ETC. There is no "overloading."</p>
+      <p><strong>Why C is wrong:</strong> FADH₂ is stable and releases its electrons efficiently. The issue is entry point (bypassing Complex I proton pumping), not electron release efficiency.</p>
+      <p><strong>Why D is wrong:</strong> FADH₂ is produced in the mitochondrial matrix (by the Krebs cycle and β-oxidation) and directly donates electrons to Complex II in the inner membrane — no active transport needed.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">Dinitrophenol (DNP) is an "uncoupler" of oxidative phosphorylation that makes the inner mitochondrial membrane leaky to protons. What would be the metabolic effect in a cell treated with DNP?</div>
+  <ul class="options">
+    <li>A. The Krebs cycle would produce more ATP directly to compensate</li>
+    <li>B. The ETC would stop running because it has no reason to pump protons</li>
+    <li class="correct">C. Protons leak back across the inner membrane without passing through ATP synthase — the proton gradient is dissipated as heat rather than ATP synthesis. The ETC runs faster (to try to maintain the gradient), and cells consume more oxygen and glucose but produce less ATP — energy is "wasted" as heat</li>
+    <li>D. The cell membrane would also become leaky, killing cells immediately by osmotic lysis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>DNP is a lipid-soluble weak acid that shuttles H⁺ across the inner mitochondrial membrane in both directions (picks up H⁺ in the intermembrane space, carries it into the matrix). This "uncouples" electron transport from ATP synthesis: (1) The proton gradient is dissipated as H⁺ leak back without going through ATP synthase → less ATP per O₂ consumed. (2) The ETC runs FASTER (more uncoupled → faster electron flow trying to restore gradient). (3) More O₂ consumed, more NADH/FADH₂ oxidised, more heat generated. DNP was infamously used as a weight loss drug in the 1930s — it caused weight loss by increasing metabolic rate and heat production, but toxic overdose caused hyperthermia (uncontrolled fever) and death. A natural example: brown adipose tissue (BAT) uses uncoupling protein 1 (UCP1/thermogenin) to uncouple OxPhos → generates heat for newborn thermoregulation.</p>
+      <p><strong>Why A is wrong:</strong> The Krebs cycle produces GTP (≈ ATP) via substrate-level phosphorylation — it cannot increase this to compensate for lost OxPhos ATP.</p>
+      <p><strong>Why B is wrong:</strong> The ETC continues running (even faster) because the backpressure from the proton gradient is relieved by the leak — electrons can flow more freely.</p>
+      <p><strong>Why D is wrong:</strong> DNP specifically crosses the inner mitochondrial membrane — it does not affect the plasma membrane. Cells experience metabolic crisis due to ATP loss, not osmotic lysis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">Where in the mitochondrion are the following processes located: (a) Citric acid cycle, (b) Electron transport chain, (c) ATP synthase?</div>
+  <ul class="options">
+    <li>A. (a) Inner membrane; (b) Matrix; (c) Intermembrane space</li>
+    <li>B. (a) Intermembrane space; (b) Inner membrane; (c) Outer membrane</li>
+    <li class="correct">C. (a) Matrix; (b) Inner mitochondrial membrane; (c) Inner mitochondrial membrane (F₁ subunit projects into the matrix)</li>
+    <li>D. (a) Outer membrane; (b) Matrix; (c) Matrix</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Mitochondrial compartments and their metabolic roles: <br>
+      <strong>Outer membrane</strong>: permeable to small molecules via porins (VDAC). <br>
+      <strong>Intermembrane space (IMS)</strong>: accumulates H⁺ pumped out by ETC; contains cytochrome c; high H⁺ concentration. Apoptotic proteins (cytochrome c release triggers apoptosis). <br>
+      <strong>Inner mitochondrial membrane (IMM)</strong>: highly impermeable to ions (creates the proton barrier); embedded with ETC complexes I–IV, CoQ, cytochrome c, ATP synthase (Complex V). Folded into cristae (increases surface area). <br>
+      <strong>Matrix</strong>: contains pyruvate dehydrogenase complex, citric acid cycle enzymes, β-oxidation enzymes, mitochondrial DNA, 70S ribosomes, tRNAs. The F₁ portion of ATP synthase protrudes into the matrix (where ATP is synthesised); the F₀ portion spans the IMM.</p>
+      <p><strong>Why A is wrong:</strong> Citric acid cycle enzymes are soluble enzymes in the matrix, not membrane-bound.</p>
+      <p><strong>Why B is wrong:</strong> ETC complexes are in the inner membrane, not the intermembrane space. ATP synthase spans the inner membrane.</p>
+      <p><strong>Why D is wrong:</strong> The outer membrane has limited metabolic function. Krebs and ETC are not on the outer membrane or in the matrix.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">Complete glucose oxidation releases 2,870 kJ/mol, yet aerobic respiration only produces ~30–38 ATP per glucose (each ATP ≈ 30.5 kJ/mol). What does this thermodynamic analysis reveal?</div>
+  <ul class="options">
+    <li>A. Aerobic respiration is 100% thermodynamically efficient — all energy is captured as ATP</li>
+    <li>B. Cells waste most of their energy; a more efficient process should have been evolved</li>
+    <li class="correct">C. Aerobic respiration captures approximately 30–40% of the available free energy as ATP; the remainder (~60–70%) is released as heat — this heat helps maintain body temperature in endotherms and is thermodynamically unavoidable due to entropy</li>
+    <li>D. The remaining energy (~1,800 kJ/mol) is stored as glycogen for later use</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Efficiency calculation: ~36 ATP × 30.5 kJ/mol = ~1,098 kJ captured as ATP. Efficiency ≈ 1,098/2,870 ≈ 38%. This is actually remarkably high for a biological machine — far higher than most mechanical engines (cars ≈ 20–25%). The remaining ~62% is released as heat. This is not "wasteful" in the biological sense: (1) Heat is thermodynamically unavoidable (second law — all energy conversions produce entropy/heat). (2) In endothermic animals (mammals, birds), this heat maintains body temperature (~37°C for humans). (3) The heat generated by cellular respiration is part of the body's thermoregulatory budget. Evolution maximised the efficiency within thermodynamic constraints — and 38% is impressive.</p>
+      <p><strong>Why A is wrong:</strong> 100% efficiency would violate the second law of thermodynamics. All real processes generate entropy (heat).</p>
+      <p><strong>Why B is wrong:</strong> ~38% efficiency is actually very high for a biochemical process. The "waste" heat is thermodynamically necessary and biologically useful (thermoregulation).</p>
+      <p><strong>Why D is wrong:</strong> The uncaptured energy is released as heat — it is not stored as glycogen. Glycogen synthesis is a separate anabolic process that uses ATP.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Which of the following correctly describes the role of CoQ (ubiquinone) in the electron transport chain?</div>
+  <ul class="options">
+    <li>A. CoQ is a protein that spans the inner mitochondrial membrane and pumps protons</li>
+    <li class="correct">B. CoQ is a lipid-soluble electron carrier (quinone) that accepts electrons from both Complex I and Complex II and transfers them to Complex III — it is mobile within the inner membrane lipid bilayer</li>
+    <li>C. CoQ is the terminal electron acceptor that reduces O₂ to H₂O at Complex IV</li>
+    <li>D. CoQ directly synthesises ATP by coupling electron transfer to ADP phosphorylation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Coenzyme Q (CoQ, ubiquinone) is a small, lipid-soluble quinone molecule that is freely mobile in the hydrophobic core of the inner mitochondrial membrane. It accepts 2 electrons + 2 H⁺ to become ubiquinol (CoQH₂). Electron sources: Complex I (from NADH) and Complex II (from FADH₂). CoQH₂ then donates electrons to Complex III (cytochrome bc₁ complex). CoQ's mobility allows it to shuttle electrons between fixed complexes. Cytochrome c (in the IMS) plays an analogous role between Complexes III and IV — it's a water-soluble mobile carrier.</p>
+      <p><strong>Why A is wrong:</strong> CoQ is a small lipid molecule (~863 Da), not a protein. It does not pump protons directly — it carries electrons; Complex I, III, and IV are the proton pumps.</p>
+      <p><strong>Why C is wrong:</strong> O₂ reduction to H₂O occurs at Complex IV (cytochrome c oxidase). CoQ is upstream of Complex IV and never directly contacts O₂.</p>
+      <p><strong>Why D is wrong:</strong> CoQ does not synthesise ATP. Only ATP synthase (Complex V) synthesises ATP, driven by the proton gradient.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">In the complete oxidation of one glucose molecule through aerobic respiration, what is the final fate of all 6 carbon atoms?</div>
+  <ul class="options">
+    <li>A. All 6 carbons are incorporated into ATP molecules</li>
+    <li>B. All 6 carbons are expelled as lactic acid</li>
+    <li class="correct">C. All 6 carbons are released as 6 CO₂ molecules — 2 from pyruvate oxidation (1 per pyruvate × 2) and 4 from the citric acid cycle (2 per turn × 2 turns)</li>
+    <li>D. All 6 carbons end up in water molecules (H₂O) as the final product</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Carbon tracking through aerobic respiration: Glucose (6C) → 2 Pyruvate (3C each). <strong>Pyruvate oxidation:</strong> Each pyruvate loses 1 carbon as CO₂ → Acetyl-CoA (2C). 2 CO₂ total from this step. <strong>Krebs cycle</strong> (per turn): Acetyl-CoA (2C) enters; 2 CO₂ are released per turn (at isocitrate dehydrogenase and α-ketoglutarate dehydrogenase steps). For 2 turns: 4 CO₂. <strong>Total: 2 + 4 = 6 CO₂</strong>. These CO₂ molecules are exhaled in animals. Note: glycolysis does NOT release CO₂ — both 3-carbon pyruvates retain their carbons. Also note: the carbons released as CO₂ in the first turn of Krebs are NOT the same 2 carbons that just entered as acetyl-CoA (they are originally from the oxaloacetate) — the actual acetyl carbons take a few more turns to be released.</p>
+      <p><strong>Why A is wrong:</strong> Carbon atoms are not incorporated into ATP. ATP is adenosine triphosphate — it contains carbon in the adenine + ribose components, but these come from biosynthetic precursors, not from glucose oxidation.</p>
+      <p><strong>Why B is wrong:</strong> Lactic acid fermentation does occur in anaerobic conditions, but in aerobic respiration all carbons are released as CO₂.</p>
+      <p><strong>Why D is wrong:</strong> H₂O is formed at Complex IV when O₂ is reduced (O₂ + 4H⁺ + 4e⁻ → 2H₂O). The hydrogen comes from NADH/FADH₂ and the oxygen from O₂ — NOT from the carbon skeleton of glucose.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">The inner mitochondrial membrane is described as "highly impermeable." Why is this essential for oxidative phosphorylation?</div>
+  <ul class="options">
+    <li>A. To prevent Krebs cycle enzymes from diffusing out of the mitochondrial matrix</li>
+    <li class="correct">B. To maintain the proton gradient (H⁺ concentration difference) across the inner membrane — if H⁺ could freely diffuse back in, the electrochemical gradient would collapse and ATP synthase would have no driving force for ATP synthesis</li>
+    <li>C. To prevent ADP from leaving the mitochondria before it is phosphorylated</li>
+    <li>D. To ensure that glucose cannot enter the mitochondria and interfere with the citric acid cycle</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The proton motive force (PMF) across the inner mitochondrial membrane is the immediate energy source for ATP synthesis. For the PMF to exist, the membrane must be highly impermeable to H⁺ — otherwise protons would leak back immediately, dissipating the gradient before ATP synthase can use it. The inner membrane is uniquely impermeable due to: (1) Absence of pores (unlike the outer membrane which has VDAC porins). (2) Special lipid composition with cardiolipin (a mitochondria-specific lipid that reduces membrane permeability to protons). (3) Very few non-specific channels. All specific transport across the inner membrane is mediated by proteins: ATP/ADP translocase (exchanges ADP in for ATP out), pyruvate carrier, phosphate carrier, etc. This tight control makes the PMF a concentrated store of potential energy.</p>
+      <p><strong>Why A is wrong:</strong> Krebs cycle enzymes are soluble enzymes in the matrix — the inner membrane is not what keeps them there (they are water-soluble and cannot cross membranes). The outer membrane separates the matrix from the cytoplasm.</p>
+      <p><strong>Why C is wrong:</strong> ADP is transported across the inner membrane by the ATP/ADP translocase (antiporter) — this is a regulated process, not a barrier. And ATP exits via the same translocase.</p>
+      <p><strong>Why D is wrong:</strong> Glucose does not enter mitochondria. It is metabolised in the cytoplasm by glycolysis. The inner membrane's impermeability is about ions/protons, not glucose.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

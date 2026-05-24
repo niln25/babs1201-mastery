@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Cells</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 2: Cells I &amp; II &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 12 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A researcher treats cells with a drug that disrupts the proton gradient across the inner mitochondrial membrane. Which two organellar functions, beyond ATP synthesis, would also be compromised?</p>
+  </div>
+  <ul class="options">
+    <li>A) Lysosome pH maintenance and nuclear import</li>
+    <li class="correct">B) Import of mitochondrial matrix proteins (which requires membrane potential) and mitochondrial ribosome function (which requires ATP for translation of mitochondrially encoded proteins)</li>
+    <li>C) Endoplasmic reticulum protein folding and Golgi vesicle budding</li>
+    <li>D) Peroxisomal fatty acid oxidation and cytoskeletal polymerisation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — The mitochondrial membrane potential (Δψ) drives not only ATP synthesis via ATP synthase but also: (1) protein import — most mitochondrial proteins are nuclear-encoded and imported through TIM/TOM complexes using the electrical gradient to pull positively charged presequences into the matrix; (2) without ATP (from disrupted chemiosmosis), mitochondrial ribosomes cannot translate the 13 mitochondrially encoded OXPHOS subunits. ER folding (BiP/GRP78) uses luminal ATP, but this is cytoplasmic ATP, not directly dependent on the mitochondrial gradient. Peroxisomal oxidation and cytoskeletal dynamics are indirectly ATP-dependent but are not mitochondrial functions.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The surface area-to-volume ratio decreases as a cell grows. A spherical cell doubles its diameter. By what factor does the SA:V ratio change?</p>
+  </div>
+  <ul class="options">
+    <li>A) It decreases by a factor of 4</li>
+    <li>B) It decreases by a factor of 8</li>
+    <li class="correct">C) It decreases by a factor of 2</li>
+    <li>D) It increases by a factor of 4</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — For a sphere with diameter d: SA = πd², V = πd³/6. SA:V = πd²/(πd³/6) = 6/d. When diameter doubles (d → 2d): SA:V = 6/(2d) = half the original. The SA:V ratio decreases by a factor of 2. Key insight: SA scales with d², V scales with d³ — V grows faster. This constraint explains why cells divide rather than grow indefinitely: as cells enlarge, their volume (metabolic demand) grows faster than surface area (nutrient/waste exchange capacity), causing inefficiency. This is why large organisms have many small cells rather than a few giant ones.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Endosymbiotic theory holds that mitochondria and chloroplasts originated from engulfed prokaryotes. A critic argues, "If mitochondria originated from bacteria, they should respond to antibiotics targeting bacterial ribosomes." Which observation supports this prediction?</p>
+  </div>
+  <ul class="options">
+    <li>A) Chloramphenicol inhibits cytoplasmic (80S) ribosomes of eukaryotic cells</li>
+    <li class="correct">B) Chloramphenicol inhibits mitochondrial (70S) protein synthesis in eukaryotes, just as it inhibits bacterial (70S) ribosomes — and can cause mitochondrial toxicity clinically</li>
+    <li>C) Streptomycin targets the 60S subunit of both bacterial and mitochondrial ribosomes</li>
+    <li>D) Antibiotics cannot cross the inner mitochondrial membrane, so they never affect mitochondrial translation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This is direct evidence for endosymbiotic theory. Mitochondrial ribosomes are 70S (like prokaryotes), distinct from cytoplasmic 80S ribosomes. Chloramphenicol blocks peptidyl transferase on the 50S subunit — it inhibits bacterial AND mitochondrial translation but NOT cytoplasmic (80S) translation. Clinically, chloramphenicol's "grey baby syndrome" and aplastic anaemia result partly from mitochondrial toxicity (inhibiting mitochondrial protein synthesis). This demonstrates the prokaryotic evolutionary heritage of mitochondria. Streptomycin targets the 30S subunit (not 60S). Many antibiotics can access mitochondria; inner membrane impermeability is not absolute for small molecules.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Fluorescence microscopy shows that a GFP-tagged protein that normally localises to the endoplasmic reticulum is now found throughout the cytoplasm following a specific mutation. The most likely explanation is that the mutation:</p>
+  </div>
+  <ul class="options">
+    <li>A) Prevents post-translational glycosylation in the ER lumen</li>
+    <li>B) Disrupts the protein's hydrophobic transmembrane domain, causing it to be degraded by the proteasome</li>
+    <li class="correct">C) Eliminates the signal sequence (or ER retention signal) that normally targets the protein co-translationally to the ER membrane, causing ribosomes to synthesise it into the cytoplasm instead</li>
+    <li>D) Increases the protein's molecular weight beyond the size limit for ER import</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — ER targeting requires a hydrophobic N-terminal signal sequence recognised co-translationally by the signal recognition particle (SRP). The SRP docks the ribosome to the SRP receptor on the ER, and translation continues into the ER lumen via the translocon. If the signal sequence is mutated/deleted, SRP cannot recognise it; the ribosome translates the protein into the cytoplasm instead. ER-resident proteins also have retention signals (KDEL for soluble luminal proteins, dilysine motifs for membrane proteins). Loss of these causes the protein to traffic out. Glycosylation occurs after ER targeting — disrupting it wouldn't mislocalize the protein. There's no size limit for ER import per se.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A cell biologist uses electron microscopy to examine two cell types: Cell A has abundant rough ER and Golgi, while Cell B has abundant smooth ER and lipid droplets. Based solely on ultrastructure, what are the most likely functions of Cells A and B?</p>
+  </div>
+  <ul class="options">
+    <li>A) Cell A: photosynthesis; Cell B: cellular respiration</li>
+    <li class="correct">B) Cell A: secretory protein production (e.g., antibody-secreting plasma cell or pancreatic acinar cell); Cell B: steroid hormone synthesis or lipid metabolism (e.g., adrenal cortex or hepatocyte)</li>
+    <li>C) Cell A: DNA replication; Cell B: ATP synthesis</li>
+    <li>D) Cell A: phagocytosis of bacteria; Cell B: cell division</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Organelle abundance reflects function. Abundant rough ER (with ribosomes) + Golgi = heavy protein secretion. Proteins destined for secretion are synthesised into the rER lumen, processed through the Golgi, and exocytosed. Examples: plasma cells (antibody secretion), pancreatic acinar cells (digestive enzymes), goblet cells (mucus). Abundant smooth ER = steroid hormone synthesis (steroidogenesis uses cholesterol in the sER) or lipid/drug metabolism (hepatocytes with extensive sER detoxify drugs via cytochrome P450). Lipid droplets confirm lipid storage/metabolism. Photosynthesis requires chloroplasts; ATP synthesis requires mitochondria — neither is described.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Cilia and flagella share a common ultrastructural core — the axoneme (9+2 microtubule arrangement). Primary cilia lack the central pair (9+0 arrangement) and are immotile. Kartagener's syndrome involves immotile cilia due to absent dynein arms. Why would immotile respiratory cilia cause lung infections?</p>
+  </div>
+  <ul class="options">
+    <li>A) Immotile cilia produce excess mucus that blocks airways</li>
+    <li>B) Immotile cilia are more susceptible to viral infection than motile cilia</li>
+    <li class="correct">C) Normally, dynein-powered ciliary beating sweeps mucus and trapped pathogens upward (mucociliary escalator) — without dynein, mucus stagnates, allowing bacteria to colonise the lower airways</li>
+    <li>D) Without cilia, the immune cells cannot reach the site of infection in the lungs</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — This integrates cell biology with physiology. The mucociliary escalator in the respiratory tract is driven by billions of airway epithelial cilia beating coordinately to move mucus (and trapped pathogens) upward to the oropharynx where it is swallowed. Dynein motor proteins power the sliding of outer doublet microtubules, converting ATP hydrolysis into bending. Without functional dynein (Kartagener's), cilia cannot beat. Mucus accumulates in the lower airways — bacteria (especially <em>Pseudomonas aeruginosa</em>, <em>Haemophilus influenzae</em>) grow unchecked, causing recurrent pneumonias. Kartagener's also causes situs inversus (due to absent nodal cilia that normally direct left-right body axis determination) and male infertility (immotile sperm flagella).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">The endomembrane system forms a functional continuum. A protein synthesised by free ribosomes in the cytoplasm versus one synthesised by ribosomes on the rough ER will have fundamentally different properties. Which property CANNOT be acquired by a cytoplasmic protein?</p>
+  </div>
+  <ul class="options">
+    <li>A) Phosphorylation by cytoplasmic kinases</li>
+    <li>B) Ubiquitination targeting it for proteasomal degradation</li>
+    <li class="correct">C) N-linked glycosylation (addition of oligosaccharide chains to asparagine residues), which occurs co-translationally in the ER lumen</li>
+    <li>D) Acetylation of the N-terminal methionine</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — N-linked glycosylation is catalysed by oligosaccharyltransferase (OST) in the ER lumen, acting co-translationally as the growing peptide emerges from the translocon. It adds a 14-sugar oligosaccharide to Asn-X-Ser/Thr sequons. This modification is impossible for cytoplasmic proteins because they never enter the ER lumen. O-linked glycosylation can occur in the cytoplasm/nucleus (by O-GlcNAc transferase) but not the complex N-glycosylation seen on secreted and membrane proteins. Phosphorylation, ubiquitination, and N-terminal acetylation all occur in the cytoplasm and can modify proteins synthesised by free ribosomes.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A student claims all cells with a nucleus are eukaryotic. A classmate argues some eukaryotic cells lack a nucleus. Who is correct and why?</p>
+  </div>
+  <ul class="options">
+    <li>A) The first student is correct — all eukaryotic cells have a nucleus by definition</li>
+    <li>B) The classmate is wrong — enucleation only occurs in artificial laboratory conditions</li>
+    <li class="correct">C) The classmate is correct — mature human red blood cells (erythrocytes) and platelets are derived from eukaryotic lineages but lose their nucleus during differentiation; they are still eukaryotic cells by origin and membrane composition</li>
+    <li>D) Both are wrong — prokaryotes can also contain DNA in a membrane-bound organelle under stress conditions</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Mature mammalian red blood cells undergo enucleation during erythropoiesis — the nucleus and most organelles are extruded as the cell matures. The resulting erythrocyte maximises haemoglobin content (and thus oxygen-carrying capacity) and is flexible enough to squeeze through capillaries narrower than its diameter. Platelets (thrombocytes) are nuclear-free fragments of megakaryocytes. These are definitively eukaryotic cells (derived from eukaryotic progenitors) that have lost their nucleus. Prokaryotes do not have true membrane-bound nuclei under any condition — option D is incorrect.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">In a fluorescence recovery after photobleaching (FRAP) experiment, a GFP-tagged membrane protein in a living cell is bleached in a small region. Fluorescence recovers in ~10 seconds. A second protein bleached in the same area shows no recovery after 5 minutes. What can be concluded about each protein?</p>
+  </div>
+  <ul class="options">
+    <li>A) The first protein is membrane-anchored; the second protein is soluble and cytoplasmic</li>
+    <li class="correct">C) The first protein is mobile within the membrane (consistent with the fluid mosaic model); the second protein is immobile — possibly anchored to the cytoskeleton or in a lipid raft, restricting its lateral diffusion</li>
+    <li>C) Both proteins are equally mobile; the difference reflects different fluorophore bleaching rates</li>
+    <li>D) The first protein is degraded and replaced by new synthesis; the second protein has a longer half-life</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B (labelled C in options)</strong> — FRAP directly measures membrane protein lateral mobility. Recovery of fluorescence means unbleached fluorescent proteins from surrounding membrane diffused into the bleached region — demonstrating lateral mobility (fluid mosaic model). No recovery means the protein is immobile. Causes of immobility: (1) anchoring to the cortical actin cytoskeleton via linker proteins (like spectrin-ankyrin complex for band 3 in RBCs); (2) confinement in lipid rafts (ordered sphingolipid-cholesterol microdomains that move as coherent units); (3) interaction with extracellular matrix or neighbouring cell surface proteins. FRAP was instrumental in demonstrating membrane fluidity (Singer and Nicolson, 1972). New synthesis would restore ALL fluorescence, not just fluorescence from the edges inward.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A researcher disrupts lysosome function using bafilomycin A1 (a V-ATPase inhibitor that prevents lysosomal acidification). What downstream effects on cellular protein homeostasis would be expected?</p>
+  </div>
+  <ul class="options">
+    <li>A) Increased proteasome activity to compensate for reduced autophagy</li>
+    <li class="correct">B) Accumulation of undegraded autophagosomes, damaged organelles, and misfolded proteins — as autophagy/lysosomal degradation is blocked; this resembles lysosomal storage diseases</li>
+    <li>C) Increased secretion of lysosomal enzymes into the extracellular space to compensate</li>
+    <li>D) Immediate cell death due to loss of ATP production from lysosomal substrates</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Lysosomes require an acidic pH (~4.5–5.0) maintained by V-type H⁺-ATPases. This acidity is essential for the ~60 hydrolytic enzymes within (acid phosphatase, cathepsins, etc.) that digest macromolecules delivered by autophagy, endocytosis, and phagocytosis. Without acidification: lysosomal enzymes are inactive; autophagosomes that fuse with lysosomes cannot complete digestion; damaged mitochondria (cleared by mitophagy) accumulate; misfolded proteins that normally enter autophagosomes persist. This mirrors lysosomal storage diseases (e.g., Gaucher's, Tay-Sachs) where specific lysosomal enzyme deficiencies cause substrate accumulation in lysosomes. Proteasome (option A) and lysosomal pathways are partially redundant but not sufficient to compensate for complete lysosomal failure. ATP production (option D) is not directly a lysosomal function.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Confocal microscopy of a secretory cell shows GFP-tagged protein moving sequentially through the ER, cis-Golgi, medial Golgi, and trans-Golgi before reaching the plasma membrane. If the researcher adds brefeldin A (which collapses the Golgi into the ER), what would happen to secretion of this protein?</p>
+  </div>
+  <ul class="options">
+    <li>A) Secretion would be accelerated because the Golgi transit step is bypassed</li>
+    <li>B) Proteins would accumulate in the cytoplasm as free polysomes</li>
+    <li class="correct">C) Secretion would be blocked — proteins can enter the ER but cannot transit through a functional Golgi for sorting, processing, and packaging into secretory vesicles</li>
+    <li>D) Proteins would be secreted directly from the ER surface via exocytosis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Brefeldin A inhibits ARF1 (ADP ribosylation factor 1), a GTPase required for COPI coat assembly and COP1-mediated vesicle budding from the Golgi. Without functional vesicle budding, the Golgi cannot maintain itself and its membranes fuse back with the ER. Proteins continue to enter the ER (signal sequence-dependent targeting is unaffected) but cannot exit through normal Golgi-mediated vesicular transport. Many post-translational modifications (complex glycosylation, sulfation, proteolytic cleavage of proproteins) are Golgi-dependent and would also be absent. The ER does not normally support direct exocytosis (option D) — it lacks the fusion machinery for plasma membrane docking used by secretory vesicles.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">12</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A mutant yeast strain lacks functional peroxisomes. Which of the following metabolic pathways would be MOST directly impaired in this strain?</p>
+  </div>
+  <ul class="options">
+    <li>A) Glycolysis</li>
+    <li>B) Oxidative phosphorylation</li>
+    <li class="correct">C) β-oxidation of very-long-chain fatty acids (VLCFAs), which is initiated in peroxisomes in humans/yeast</li>
+    <li>D) Protein synthesis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Peroxisomes are specialised for oxidative reactions, particularly the β-oxidation of VLCFAs (>C22) and branched-chain fatty acids (phytanic acid). Unlike mitochondria (which handle shorter-chain fatty acids), peroxisomal β-oxidation produces H₂O₂ as a byproduct, which is degraded by catalase within the same organelle. In Zellweger syndrome (absence of functional peroxisomes), VLCFAs accumulate to toxic levels in the brain and liver. Yeast lacking peroxisomes similarly cannot grow on fatty acid carbon sources. Glycolysis (cytoplasmic), oxidative phosphorylation (mitochondrial), and protein synthesis (ribosomes) are peroxisome-independent.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

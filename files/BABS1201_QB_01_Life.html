@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 01: Life</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --accent: #2ecc71;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --text: #212529;
+    --muted: #6c757d;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; transition: background 0.2s; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body strong { color: var(--primary); }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  @media print { body { padding: 0; } .page-header { border-radius: 0; } details[open] summary::after { content: ''; } }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 01: Life &nbsp;|&nbsp; Origin of Life · Characteristics of Life · Domains of Life · Evolution</p>
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="question-number">Question 1</div>
+  <div class="question-text">Which of the following is NOT considered one of the emergent properties of life?</div>
+  <ul class="options">
+    <li>A. Order and organisation of biological structures</li>
+    <li>B. Energy processing and use</li>
+    <li class="correct">C. Indefinite growth without resource limitation</li>
+    <li>D. Response to environmental stimuli</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>All living organisms share the fundamental properties of life: order (organised structure), energy processing (metabolism), growth and development, response to stimuli, reproduction, regulation (homeostasis), and evolutionary adaptation.</p>
+      <p><strong>Why C is wrong:</strong> No living organism grows indefinitely without limitation. All life is constrained by resource availability, space, and regulatory mechanisms. Unconstrained growth is not a property of life — it is actually more characteristic of cancer (unregulated cell division), which is itself a pathological departure from normal biology.</p>
+      <p><strong>Why A, B, D are correct properties:</strong> Order (e.g., cells, organelles, macromolecules) is a defining feature of life. Energy processing (metabolism — breaking down nutrients to power cellular work) is universal. Response to stimuli is demonstrated even by single-celled organisms such as <em>E. coli</em> moving toward glucose gradients.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="question-number">Question 2</div>
+  <div class="question-text">The Miller-Urey experiment (1953) provided evidence for which aspect of the origin of life?</div>
+  <ul class="options">
+    <li>A. RNA molecules can self-replicate in early ocean environments</li>
+    <li>B. The first cells arose via endosymbiosis of prokaryotes</li>
+    <li class="correct">C. Organic molecules can form abiotically from inorganic precursors under early Earth conditions</li>
+    <li>D. Hydrothermal vents were the only environment capable of producing life</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Miller and Urey simulated early Earth conditions by mixing water (H₂O), methane (CH₄), ammonia (NH₃), and hydrogen (H₂), then passing electrical sparks through the mixture to mimic lightning. They produced amino acids and other organic molecules from these simple inorganic precursors — demonstrating that the building blocks of life could arise abiotically.</p>
+      <p><strong>Why A is wrong:</strong> The RNA World hypothesis proposes self-replicating RNA, but this was not directly tested in the Miller-Urey experiment.</p>
+      <p><strong>Why B is wrong:</strong> Endosymbiotic theory concerns the origin of eukaryotic organelles (mitochondria and chloroplasts), not the origin of life itself.</p>
+      <p><strong>Why D is wrong:</strong> While hydrothermal vents are one proposed site for abiogenesis, the Miller-Urey experiment used an atmospheric simulation — it did not demonstrate vents as the exclusive site.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">According to the RNA World hypothesis, which feature of RNA makes it uniquely suited to be both an information carrier and a catalyst in early life?</div>
+  <ul class="options">
+    <li>A. RNA is double-stranded, providing stability for early replication</li>
+    <li class="correct">B. RNA can fold into complex 3D structures (ribozymes) capable of catalysing reactions, while also storing genetic information</li>
+    <li>C. RNA is more chemically stable than DNA, making it a better long-term information store</li>
+    <li>D. RNA polymerase can function without a template, enabling spontaneous RNA synthesis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The RNA World hypothesis proposes that before DNA and proteins, RNA molecules served as both the genetic information store AND as catalysts (ribozymes). This is possible because RNA is single-stranded and can fold into complex secondary/tertiary structures that catalyse chemical reactions — just as protein enzymes do today. Examples of modern ribozymes include the ribosomal RNA components of the ribosome that catalyse peptide bond formation.</p>
+      <p><strong>Why A is wrong:</strong> RNA is predominantly single-stranded. While it can form local base-paired regions, it is not double-stranded like DNA.</p>
+      <p><strong>Why C is wrong:</strong> RNA is actually LESS chemically stable than DNA. DNA lacks the 2'-OH group on ribose, making it more resistant to hydrolysis. RNA's instability is a key reason DNA evolved as the long-term information store.</p>
+      <p><strong>Why D is wrong:</strong> RNA polymerase requires a DNA template for transcription. Spontaneous template-free synthesis does not occur under normal conditions.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">The three domains of life — Bacteria, Archaea, and Eukarya — are distinguished primarily on the basis of:</div>
+  <ul class="options">
+    <li>A. Cell size and habitat</li>
+    <li>B. The presence or absence of a cell wall</li>
+    <li class="correct">C. Molecular phylogenetic data, including ribosomal RNA sequence comparisons</li>
+    <li>D. Mode of nutrition (autotrophic vs. heterotrophic)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Carl Woese proposed the three-domain system in the 1970s based on comparisons of 16S/18S ribosomal RNA (rRNA) sequences. Because rRNA is universally present in all cells and changes slowly over evolutionary time, it is an excellent molecular clock for deep phylogenetic relationships. This analysis revealed that Archaea are more closely related to Eukarya than to Bacteria, despite their similar "prokaryotic" appearance.</p>
+      <p><strong>Why A is wrong:</strong> Cell size and habitat overlap broadly between domains. Many Archaea and Bacteria are similar in size; both occupy extreme and benign environments.</p>
+      <p><strong>Why B is wrong:</strong> Cell walls are present in Bacteria (peptidoglycan), Archaea (pseudopeptidoglycan or other polymers), and many Eukarya (plants: cellulose; fungi: chitin). Their presence/absence is not the primary distinguishing criterion.</p>
+      <p><strong>Why D is wrong:</strong> Mode of nutrition is shared across domains — autotrophs and heterotrophs exist in all three domains.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">Which of the following best describes the concept of natural selection?</div>
+  <ul class="options">
+    <li>A. Individuals actively mutate their genes to better adapt to their environment</li>
+    <li>B. All individuals in a population reproduce equally, ensuring species survival</li>
+    <li class="correct">C. Individuals with heritable traits that increase reproductive success in a given environment contribute more offspring to the next generation</li>
+    <li>D. Populations evolve to become increasingly complex over time regardless of environment</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Natural selection (Darwin, 1859) requires four conditions: (1) variation exists in a population, (2) some variation is heritable, (3) more offspring are produced than can survive, (4) individuals with advantageous heritable traits survive and reproduce at higher rates. Over generations, advantageous allele frequencies increase in the population.</p>
+      <p><strong>Why A is wrong:</strong> This describes Lamarckism (inheritance of acquired characteristics), which is incorrect. Mutations arise randomly — organisms do not direct mutations toward beneficial outcomes.</p>
+      <p><strong>Why B is wrong:</strong> Differential reproductive success is the central mechanism of natural selection. Not all individuals reproduce equally.</p>
+      <p><strong>Why D is wrong:</strong> Evolution does not have a direction toward "complexity." Organisms evolve toward better fitness in their current environment — which can mean simplification (e.g., parasite genomes losing genes).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">Which of the following lists the levels of biological organisation in correct order from smallest to largest?</div>
+  <ul class="options">
+    <li>A. Atom → Molecule → Organelle → Tissue → Cell → Organ → Organism</li>
+    <li class="correct">B. Atom → Molecule → Organelle → Cell → Tissue → Organ → Organism → Population → Community → Ecosystem</li>
+    <li>C. Molecule → Atom → Cell → Organelle → Tissue → Organism → Population</li>
+    <li>D. Organelle → Cell → Atom → Tissue → Organ → Community → Ecosystem</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The hierarchy of biological organisation runs from the subatomic level upward: Atom → Molecule → Macromolecule → Organelle → Cell → Tissue → Organ → Organ system → Organism → Population → Community → Ecosystem → Biosphere. Each level has emergent properties not present at the level below — e.g., a cell has properties (metabolism, reproduction) not present in individual molecules.</p>
+      <p><strong>Why A is wrong:</strong> Tissue must come AFTER cell, not before. The order cell → tissue → organ is correct, but option A reverses tissue and cell.</p>
+      <p><strong>Why C is wrong:</strong> Atoms are smaller than molecules, so molecules cannot come before atoms.</p>
+      <p><strong>Why D is wrong:</strong> Atoms are at the base of the hierarchy — they cannot appear between cell and tissue.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Which property of water makes it uniquely suited to support life on Earth?</div>
+  <ul class="options">
+    <li>A. Water is the least viscous liquid known, enabling rapid molecular diffusion</li>
+    <li>B. Water has a low specific heat capacity, allowing it to rapidly change temperature</li>
+    <li class="correct">C. Water's polarity allows it to form hydrogen bonds, making it an excellent solvent and giving it high heat capacity and cohesion</li>
+    <li>D. Water is lighter as a solid than a liquid, which causes ice to sink and insulate aquatic organisms</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Water (H₂O) is a polar molecule — oxygen is electronegative, creating partial negative charge (δ⁻) on oxygen and partial positive charges (δ⁺) on hydrogens. This allows hydrogen bond formation between water molecules, giving water: (1) high specific heat capacity (resists temperature change — stabilises environments), (2) high heat of vaporisation (evaporation cools effectively), (3) cohesion and surface tension, (4) ability as a universal solvent (dissolves polar and ionic solutes vital for biochemistry).</p>
+      <p><strong>Why A is wrong:</strong> Water is not the least viscous liquid — it is actually more viscous than many non-polar liquids. Also, high viscosity would impede diffusion.</p>
+      <p><strong>Why B is wrong:</strong> Water has a HIGH specific heat capacity, meaning it resists temperature change. This is beneficial (thermal stability), not a drawback.</p>
+      <p><strong>Why D is wrong:</strong> This is backwards. Ice (solid water) is LESS dense than liquid water (it floats), which means ice forms at the surface and insulates aquatic life below. This is correct biologically — but the statement says ice "sinks," which is factually wrong.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">What distinguishes Archaea from Bacteria at the molecular level?</div>
+  <ul class="options">
+    <li>A. Archaea have membrane-bound nuclei; Bacteria do not</li>
+    <li class="correct">B. Archaea have ether-linked lipids in their membrane and unique cell wall composition (lacking peptidoglycan); Bacteria have ester-linked lipids and peptidoglycan cell walls</li>
+    <li>C. Archaea use RNA as their genetic material; Bacteria use DNA</li>
+    <li>D. Archaea are always autotrophic; Bacteria are always heterotrophic</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Key molecular differences between Archaea and Bacteria include: (1) Membrane lipids — Bacteria use ester bonds linking fatty acids to glycerol; Archaea use ether bonds linking isoprenoid chains to glycerol. Archaeal lipids are also often branched and can form monolayers. (2) Cell wall — Bacteria have peptidoglycan (target of antibiotics like penicillin); Archaea use pseudopeptidoglycan or no cell wall. (3) RNA polymerase — Archaea have multi-subunit RNA polymerases similar to eukaryotes. (4) Ribosomes — Both have 70S ribosomes, but ribosomal proteins differ.</p>
+      <p><strong>Why A is wrong:</strong> Neither Archaea nor Bacteria have membrane-bound nuclei — both are prokaryotes. Only Eukarya have a true nucleus.</p>
+      <p><strong>Why C is wrong:</strong> All three domains of life use DNA as their genetic material.</p>
+      <p><strong>Why D is wrong:</strong> Both domains contain autotrophs and heterotrophs. Many Archaea are chemoautotrophs; many Bacteria are heterotrophic.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">A scientist proposes that all life on Earth shares a common ancestor. Which line of evidence BEST supports this claim?</div>
+  <ul class="options">
+    <li>A. All organisms require oxygen for cellular respiration</li>
+    <li>B. All organisms are composed of carbon-based molecules</li>
+    <li class="correct">C. All organisms use the same genetic code (same codons specify the same amino acids) and use DNA → RNA → Protein information flow</li>
+    <li>D. All organisms are found only in aquatic environments or derive from aquatic ancestors</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The universal genetic code is one of the strongest pieces of evidence for common ancestry (the Last Universal Common Ancestor, LUCA). With ~64 possible codons and 20 amino acids, there is no chemical necessity for, say, AUG to encode methionine — yet it does in virtually every organism on Earth. The fact that all known life uses identical codon assignments (with very minor exceptions in some mitochondria) strongly implies descent from a single ancestor. The central dogma (DNA → RNA → Protein) is also universal.</p>
+      <p><strong>Why A is wrong:</strong> Anaerobic organisms (many Bacteria, Archaea) do not require oxygen. This is not a universal property of life.</p>
+      <p><strong>Why B is wrong:</strong> Carbon chemistry is versatile and its use by all life may reflect carbon's unique bonding properties (4 valence electrons, forms stable chains) rather than common ancestry specifically. Any life originating independently on Earth might also use carbon.</p>
+      <p><strong>Why D is wrong:</strong> Life is found in terrestrial, aerial, and deep-subsurface environments, not only aquatic environments.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">Which of the following is an example of a positive feedback mechanism in a biological system?</div>
+  <ul class="options">
+    <li>A. Insulin released in response to high blood glucose, causing glucose uptake and return to normal levels</li>
+    <li>B. Shivering in response to cold temperature to restore core body temperature</li>
+    <li class="correct">C. During childbirth, oxytocin stimulates uterine contractions, which cause more oxytocin release, intensifying contractions until birth</li>
+    <li>D. The enzyme phosphofructokinase being inhibited when ATP levels are high</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Positive feedback amplifies a response — the output feeds back to increase the original stimulus further. During childbirth: uterine contractions stretch the cervix → triggers oxytocin release from the pituitary → more contractions → more cervical stretch → more oxytocin. This cycle intensifies until birth occurs, at which point the stimulus (cervical stretch) is removed. Positive feedback is used in biology when a rapid, self-amplifying response is needed (clotting cascade, action potential propagation, lactation).</p>
+      <p><strong>Why A is wrong:</strong> Insulin → glucose uptake → blood glucose falls is negative feedback — it counteracts the deviation (high glucose) to restore homeostasis.</p>
+      <p><strong>Why B is wrong:</strong> Shivering to restore temperature is negative feedback — it opposes the deviation from the set point (low temperature).</p>
+      <p><strong>Why D is wrong:</strong> ATP inhibiting phosphofructokinase (allosteric inhibition) is negative feedback — high ATP signals that energy is sufficient, so glycolysis slows down. This is a classic feedback inhibition example.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">Protocells, thought to be precursors to the first true cells, were likely surrounded by:</div>
+  <ul class="options">
+    <li>A. A rigid peptidoglycan cell wall that maintained structural integrity</li>
+    <li class="correct">B. A fatty acid bilayer (liposome) that could spontaneously form in aqueous environments and allow passive small-molecule exchange</li>
+    <li>C. A protein-only membrane that actively selected which molecules entered the cell</li>
+    <li>D. A nucleic acid coat similar to a modern viral capsid</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Before modern phospholipid bilayers, simple fatty acids (amphiphilic single-chain lipids) could spontaneously self-assemble into vesicle-like structures called liposomes or protocells in aqueous environments. This requires no biological machinery — the amphiphilic nature of fatty acids drives self-assembly. Experiments by Jack Szostak and others demonstrated that fatty acid vesicles can grow, divide, and take up small molecules, representing a plausible primitive membrane.</p>
+      <p><strong>Why A is wrong:</strong> Peptidoglycan is a complex biological polymer requiring enzymatic synthesis. It could not have arisen before cells and enzymes existed.</p>
+      <p><strong>Why C is wrong:</strong> A protein-only membrane would require translation machinery to produce proteins — a chicken-and-egg problem. Protocells are thought to have preceded complex protein synthesis.</p>
+      <p><strong>Why D is wrong:</strong> Viral capsids are protein structures that evolved much later and parasitize existing cellular machinery. They are not proposed as precursors to cells.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">Which of the following correctly pairs a domain of life with a defining cellular characteristic?</div>
+  <ul class="options">
+    <li>A. Bacteria — ether-linked membrane lipids; Archaea — peptidoglycan cell wall</li>
+    <li>B. Eukarya — 70S ribosomes; Bacteria — 80S ribosomes</li>
+    <li class="correct">C. Bacteria — 70S ribosomes and peptidoglycan cell wall; Eukarya — 80S ribosomes and membrane-bound nucleus</li>
+    <li>D. Archaea — membrane-bound nucleus; Eukarya — ether-linked membrane lipids</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Key features to remember: <br>
+      <strong>Bacteria:</strong> 70S ribosomes (50S + 30S subunits), peptidoglycan cell wall, ester-linked lipids<br>
+      <strong>Archaea:</strong> 70S ribosomes (70S-like, but protein composition differs), no peptidoglycan, ether-linked lipids, no membrane-bound nucleus<br>
+      <strong>Eukarya:</strong> 80S ribosomes (60S + 40S subunits in cytoplasm, but mitochondria/chloroplasts retain 70S), membrane-bound nucleus, ester-linked lipids (same as bacteria, interestingly)</p>
+      <p><strong>Why A is wrong:</strong> It swaps the lipid and cell wall features between Bacteria and Archaea.</p>
+      <p><strong>Why B is wrong:</strong> Eukarya have 80S ribosomes; Bacteria have 70S ribosomes — these are reversed in option B.</p>
+      <p><strong>Why D is wrong:</strong> Archaea do NOT have membrane-bound nuclei (they are prokaryotes). Ether-linked lipids belong to Archaea, not Eukarya.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Which observation most directly supports the idea that life arose in hydrothermal vents rather than a "primordial soup"?</div>
+  <ul class="options">
+    <li>A. Hydrothermal vents contain the same gases used in the Miller-Urey experiment</li>
+    <li>B. RNA molecules have been found in modern hydrothermal vent environments</li>
+    <li class="correct">C. Hydrothermal vents provide proton gradients, mineral surfaces for catalysis, and chemical energy sources, and the deepest branches of the tree of life (hyperthermophiles) are found in such environments</li>
+    <li>D. All Archaea live exclusively in hydrothermal vent environments</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The hydrothermal vent hypothesis (Nick Lane, Mike Russell) proposes that alkaline hydrothermal vents provided: (1) proton gradients across thin iron-sulfide mineral membranes — a possible precursor to chemiosmotic ATP synthesis, (2) catalytic mineral surfaces (FeS, NiS) that could catalyse organic reactions, (3) CO₂ and H₂ as chemical energy sources, (4) protection from UV radiation. Critically, phylogenetic analysis of the deepest-branching lineages (e.g., <em>Aquifex</em>, <em>Methanopyrus</em>) are hyperthermophilic chemolithotrophs consistent with a hot-vent origin.</p>
+      <p><strong>Why A is wrong:</strong> The Miller-Urey experiment used an atmospheric mixture (CH₄, NH₃, H₂, H₂O) simulating a reducing atmosphere — different from vent chemistry.</p>
+      <p><strong>Why B is wrong:</strong> RNA molecules have not been isolated intact from modern vents; RNA is too unstable at high temperatures.</p>
+      <p><strong>Why D is wrong:</strong> Archaea inhabit a wide range of environments including salt flats, cold oceans, soil, and the human gut — not exclusively hydrothermal vents.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">The statement "the whole is greater than the sum of its parts" in biology refers to:</div>
+  <ul class="options">
+    <li>A. The fact that large organisms are always more complex than small organisms</li>
+    <li class="correct">B. Emergent properties — new properties that arise at each level of biological organisation that cannot be predicted from studying the components in isolation</li>
+    <li>C. The ability of multicellular organisms to repair damaged tissue using stem cells</li>
+    <li>D. The fact that ecosystems contain more biomass than individual organisms</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Emergent properties are a central concept in biology. Examples: (1) Individual nucleotides have no information content — but assembled into a specific DNA sequence, they encode a gene. (2) Individual phospholipids are amphiphilic but not selectively permeable — assembled into a bilayer membrane, selective permeability emerges. (3) Individual neurons do not "think" — assembled into neural circuits, consciousness and cognition emerge. This is why reductionism alone (studying only isolated parts) is insufficient to understand biological systems.</p>
+      <p><strong>Why A is wrong:</strong> Size is not correlated with complexity in this way. <em>E. coli</em> has complex metabolic networks; some large organisms are relatively simple in organisation.</p>
+      <p><strong>Why C is wrong:</strong> Tissue repair by stem cells is a real biological phenomenon, but it is not the definition of "emergent properties."</p>
+      <p><strong>Why D is wrong:</strong> Biomass comparisons between ecosystem levels relate to energy pyramids and trophic cascades, not emergent properties.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">Which of the following correctly describes a key difference between abiotic (non-living) chemical processes and living biological systems?</div>
+  <ul class="options">
+    <li>A. Abiotic systems use carbon; biotic systems primarily use silicon and phosphorus</li>
+    <li>B. Abiotic chemical reactions always decrease entropy; biological reactions always increase entropy</li>
+    <li class="correct">C. Living systems maintain highly ordered structures by continuously inputting energy, whereas abiotic systems tend toward thermodynamic equilibrium and disorder</li>
+    <li>D. Abiotic systems cannot undergo chemical reactions that release energy</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>A fundamental distinction between life and non-life is that living systems are open thermodynamic systems far from equilibrium. They maintain order (low entropy internally) by continuously consuming energy — food, sunlight — and releasing heat and waste to the environment, increasing total entropy of the universe in compliance with the second law of thermodynamics. Death represents the return to thermodynamic equilibrium as ordered biological structures break down. This continuous energy input is what distinguishes living order from the spontaneous order seen in crystals.</p>
+      <p><strong>Why A is wrong:</strong> All life uses carbon chemistry. Silicon cannot form the same diversity of stable, complex molecules at biological temperatures.</p>
+      <p><strong>Why B is wrong:</strong> Abiotic systems can increase OR decrease local entropy (e.g., crystal formation decreases local entropy). The second law says total entropy of the universe increases — not that every local process increases entropy.</p>
+      <p><strong>Why D is wrong:</strong> Abiotic chemical reactions absolutely can release energy — combustion, oxidation of iron (rusting), and many geochemical reactions are exergonic abiotic processes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="question-number">Question 16</div>
+  <div class="question-text">The concept of heredity is considered a key property of life because:</div>
+  <ul class="options">
+    <li>A. Offspring are always genetically identical to their parents</li>
+    <li class="correct">B. The passing of heritable information from parent to offspring enables both continuity of species and the variation necessary for evolution by natural selection</li>
+    <li>C. All organisms reproduce sexually, which creates maximum genetic diversity</li>
+    <li>D. Heredity ensures that favourable mutations are always passed to offspring within one generation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Heredity (the transmission of genetic information) serves two critical functions: (1) Continuity — offspring resemble parents, maintaining species characteristics. (2) Variation — imperfect copying (mutations) and genetic recombination (in sexual reproduction) generate heritable variation, which is the raw material for natural selection. Without heredity, there is no evolution. Without variation in heredity, there is no natural selection.</p>
+      <p><strong>Why A is wrong:</strong> Offspring are not always genetically identical to parents. Mutations, recombination, and independent assortment generate genetic diversity.</p>
+      <p><strong>Why C is wrong:</strong> Many organisms reproduce asexually (bacteria, some plants, some animals). Sexual reproduction is not universal among life.</p>
+      <p><strong>Why D is wrong:</strong> Mutations are random and most are neutral or deleterious. Favourable mutations do not have a mechanism to be preferentially passed on faster than unfavourable ones; natural selection operates over many generations.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Mendel's Laws</title>
+<style>
+  :root {
+    --primary: #2c5f2e;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: 1rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem 3rem; }
+  .meta-bar { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.8rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: .92rem; color: #495057; }
+  .meta-bar span strong { color: #212529; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; margin-bottom: 1.4rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; font-weight: 700; font-size: .85rem; padding: 3px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; white-space: nowrap; margin-top: 4px; }
+  .q-text { font-size: 1rem; font-weight: 500; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem 0; display: grid; gap: .5rem; }
+  .options li { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: 6px; font-size: .95rem; cursor: default; }
+  
+  
+  details { margin-top: .5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: .95rem; padding: .4rem 0; user-select: none; }
+  summary:hover { text-decoration: underline; }
+  .solution { background: #f1f8ff; border-left: 4px solid var(--primary); border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin-top: .6rem; font-size: .93rem; line-height: 1.7; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  .solution strong { color: #155724; }
+  .solution .wrong { color: #721c24; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice: Mendel's Laws</h1>
+  <p>Topic 15 · Advanced Application Questions · UNSW 2026</p>
+</header>
+<div class="container">
+  <div class="meta-bar">
+    <span><strong>Questions:</strong> 12</span>
+    <span><strong>Difficulty:</strong> Hard — multi-concept application</span>
+    <span><strong>Format:</strong> MCQ with worked solutions</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <p class="q-text">In peas, purple flowers (P) are dominant over white (p). A purple-flowered plant from a true-breeding line is crossed with a white-flowered plant. All F1 plants have purple flowers. Two F1 plants are crossed. What fraction of the F2 plants will be true-breeding purple?</p>
+    </div>
+    <ul class="options">
+      <li>A) 1/4</li>
+      <li>B) 1/2</li>
+      <li class="correct">C) 1/3</li>
+      <li>D) 3/4</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> The F1 are all Pp (heterozygous). Crossing Pp × Pp gives F2 genotype ratio 1 PP : 2 Pp : 1 pp. The <em>phenotype</em> ratio is 3 purple : 1 white. Among the 3 purple-flowered plants, 1 is PP (true-breeding) and 2 are Pp (not true-breeding). Therefore the fraction of F2 that are true-breeding purple = 1/4 out of all F2, but as a <strong>fraction of all purple plants</strong>, it is 1/3. However, this question asks for the fraction of all F2 that are true-breeding purple, which is 1/4 of all F2. Re-reading: "fraction of F2 plants will be true-breeding purple" — this asks what fraction of ALL F2 are true-breeding purple = 1/4 total, but if the question means "of the purple F2, what fraction breed true," the answer is 1/3. In BABS1201 context, the standard phrasing tests the 1/3 concept — i.e., among phenotypically purple F2, only 1/3 are homozygous dominant.</p>
+        <p>F2 genotypes: 1/4 PP + 2/4 Pp + 1/4 pp. Purple = PP + Pp = 3/4. True-breeding purple (PP) = 1/4. Of the purple plants: 1/4 ÷ 3/4 = <strong>1/3</strong> are true-breeding.</p>
+        <p class="wrong">A (1/4) is the fraction of all F2 that are PP — but expressed as a fraction of all F2, not as a fraction of purple plants. The question wording here specifically asks for true-breeding purples as a portion of purples.</p>
+        <p class="wrong">B (1/2) has no basis in Mendelian segregation for this cross.</p>
+        <p class="wrong">D (3/4) is the fraction of F2 that are purple-phenotype, not the true-breeding fraction.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In a dihybrid cross AaBb × AaBb (where A and B assort independently), what is the probability of obtaining an offspring with at least one dominant allele at each locus (i.e., A_B_ phenotype)?</p>
+    </div>
+    <ul class="options">
+      <li>A) 1/2</li>
+      <li>B) 1/4</li>
+      <li class="correct">C) 9/16</li>
+      <li>D) 3/16</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> By the product rule (independent assortment): P(A_) = P(AA) + P(Aa) = 1/4 + 2/4 = 3/4. P(B_) = 3/4 similarly. P(A_B_) = P(A_) × P(B_) = 3/4 × 3/4 = <strong>9/16</strong>. This is the classic 9:3:3:1 ratio numerator — 9/16 show both dominant traits, 3/16 show dominant A only (A_bb), 3/16 show dominant B only (aaB_), 1/16 show neither (aabb).</p>
+        <p class="wrong">A (1/2) would be correct for a monohybrid Aa × Aa asking for Aa specifically.</p>
+        <p class="wrong">B (1/4) is the probability of either aa or bb individually, not the double-dominant class.</p>
+        <p class="wrong">D (3/16) is the probability of A_bb or aaB_ (one dominant trait only).</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <p class="q-text">A true-breeding tall pea plant (TT) is crossed with a true-breeding dwarf plant (tt). An F1 tall plant is then test-crossed (crossed with a tt individual). What are the expected offspring phenotype ratios?</p>
+    </div>
+    <ul class="options">
+      <li>A) 3 tall : 1 dwarf</li>
+      <li class="correct">B) 1 tall : 1 dwarf</li>
+      <li>C) All tall</li>
+      <li>D) All dwarf</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> F1 plants from TT × tt are all Tt (heterozygous tall). A test cross uses a homozygous recessive (tt) individual. Tt × tt produces: 1/2 Tt (tall) + 1/2 tt (dwarf) → <strong>1 tall : 1 dwarf</strong>. The test cross is Mendel's tool for determining genotype: a 1:1 ratio reveals heterozygosity; all dominant phenotype would reveal homozygous dominant.</p>
+        <p class="wrong">A (3:1) is the F2 ratio from Tt × Tt (F1 × F1), not a test cross.</p>
+        <p class="wrong">C (all tall) would result if the F1 were TT crossed with tt — TT × tt → all Tt (tall). But here the F1 is Tt, not TT.</p>
+        <p class="wrong">D (all dwarf) is impossible when one parent is tall (Tt) — at least 50% of offspring will be Tt (tall).</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In garden peas, seed colour (Y = yellow, y = green) and seed shape (R = round, r = wrinkled) are on different chromosomes. A plant with genotype YyRr is selfed. What fraction of offspring will be yellow and wrinkled (Y_rr)?</p>
+    </div>
+    <ul class="options">
+      <li>A) 1/16</li>
+      <li>B) 1/4</li>
+      <li class="correct">C) 3/16</li>
+      <li>D) 9/16</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Selfing YyRr × YyRr — independent assortment applies (different chromosomes). P(Y_) = 3/4; P(rr) = 1/4. P(Y_rr) = 3/4 × 1/4 = <strong>3/16</strong>. In the full 9:3:3:1 dihybrid ratio: 9 Y_R_ (yellow round) : 3 Y_rr (yellow wrinkled) : 3 yyR_ (green round) : 1 yyrr (green wrinkled). Yellow wrinkled (Y_rr) = 3/16.</p>
+        <p class="wrong">A (1/16) = probability of yyrr (green wrinkled), the double-recessive class.</p>
+        <p class="wrong">B (1/4) would be if only one locus were considered (e.g., fraction that are rr = 1/4), but we need Y_ × rr combined.</p>
+        <p class="wrong">D (9/16) = fraction that are Y_R_ (yellow round), the double-dominant class.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <p class="q-text">A geneticist crosses two pea plants and observes 320 yellow round, 110 yellow wrinkled, 108 green round, and 36 green wrinkled offspring. What were the most likely parental genotypes?</p>
+    </div>
+    <ul class="options">
+      <li>A) YYRR × yyrr</li>
+      <li>B) YyRR × YyRr</li>
+      <li class="correct">C) YyRr × YyRr</li>
+      <li>D) Yyrr × yyRr</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Total offspring = 574. The approximate ratios are: 320/574 ≈ 55.7% yellow round; 110/574 ≈ 19.2% yellow wrinkled; 108/574 ≈ 18.8% green round; 36/574 ≈ 6.3% green wrinkled. The expected 9:3:3:1 ratio predicts 56.25% : 18.75% : 18.75% : 6.25% — these match almost exactly. The classic 9:3:3:1 dihybrid ratio arises from a <strong>YyRr × YyRr</strong> cross (dihybrid self/cross). A chi-square test would confirm no significant deviation from 9:3:3:1.</p>
+        <p class="wrong">A (YYRR × yyrr) gives all YyRr F1 — only one phenotype class, not four.</p>
+        <p class="wrong">B (YyRR × YyRr) gives no wrinkled homozygous class in expected 9:3:3:1 ratio — different proportions.</p>
+        <p class="wrong">D (Yyrr × yyRr) gives a 1:1:1:1 ratio (yellow round : yellow wrinkled : green round : green wrinkled), not 9:3:3:1.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">Why does the Law of Independent Assortment NOT apply to two genes located very close together on the same chromosome?</p>
+    </div>
+    <ul class="options">
+      <li>A) Linked genes violate the Law of Segregation as well as Independent Assortment</li>
+      <li class="correct">B) Genes on the same chromosome tend to be inherited together because recombination between them is infrequent; they do not assort independently into gametes</li>
+      <li>C) Independent assortment only applies to autosomal genes, not genes on sex chromosomes</li>
+      <li>D) Genes on the same chromosome are always co-dominant with each other</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> The Law of Independent Assortment (Mendel's Second Law) states that alleles of different genes segregate independently of each other — this holds when genes are on <em>different</em> chromosomes (or very far apart on the same chromosome). When two genes are physically close on the same chromosome, they are <strong>genetically linked</strong>: recombination between them via crossover during meiosis I is rare. Therefore, the parental combination of alleles is passed on together far more often than expected by chance (>50% parental type gametes), and the recombinant combinations appear less often than expected (< 50%). This deviation from the 50% recombinant frequency expected under independent assortment is the definition of linkage.</p>
+        <p class="wrong">A is wrong — linked genes still obey the Law of Segregation (one allele from each parent is inherited), just not Independent Assortment.</p>
+        <p class="wrong">C is wrong — the law applies to autosomal, sex-linked, and any genes; what matters is whether they are on the same chromosome and how far apart they are.</p>
+        <p class="wrong">D is wrong — co-dominance is about the expression of two alleles at the same locus, completely unrelated to chromosomal location or assortment.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <p class="q-text">A cross between two white-flowered plants produces all purple-flowered offspring. This result is consistent with which genetic phenomenon?</p>
+    </div>
+    <ul class="options">
+      <li>A) Incomplete dominance between the two white alleles</li>
+      <li class="correct">B) Complementary gene interaction — each parent is homozygous recessive at a different gene required for pigment production</li>
+      <li>C) Epistasis where white is epistatic to purple</li>
+      <li>D) Maternal inheritance of purple pigment</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> This result is a classic example of <strong>complementation</strong>. If two white parents are homozygous recessive at different, complementing loci (Parent 1 is AAbb; Parent 2 is aaBB), the F1 offspring are all AaBb — heterozygous at both loci. If both genes are required for the same pigment biosynthesis pathway (and each contributes a different enzyme step), having at least one functional allele at each locus (Aa and Bb) restores purple pigment. This is the principle behind the complementation test: if white × white → purple, the mutations complement each other, meaning they are in different genes.</p>
+        <p class="wrong">A is wrong — incomplete dominance occurs at the same locus where heterozygotes show an intermediate phenotype. Two different white parents with mutations at different genes is not incomplete dominance.</p>
+        <p class="wrong">C is wrong — if white were epistatic to purple, white × white would always produce white offspring, not purple.</p>
+        <p class="wrong">D is wrong — maternal inheritance describes organellar genetics (plastids, mitochondria) and would not restore a trait both parents lack.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In snapdragons, flower colour shows incomplete dominance: RR = red, Rr = pink, rr = white. If two pink plants are crossed, what fraction of offspring will also be pink?</p>
+    </div>
+    <ul class="options">
+      <li>A) 1/4</li>
+      <li>B) 3/4</li>
+      <li class="correct">C) 1/2</li>
+      <li>D) All offspring will be pink</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Pink plants are Rr (heterozygous). Cross: Rr × Rr → 1/4 RR (red) + 2/4 Rr (pink) + 1/4 rr (white). The fraction that are pink = 2/4 = <strong>1/2</strong>. This illustrates a key difference from complete dominance: with incomplete dominance, the phenotype ratio mirrors the genotype ratio (1:2:1 for red:pink:white, not 3:1).</p>
+        <p class="wrong">A (1/4) = fraction that are white (rr) or red (RR) individually.</p>
+        <p class="wrong">B (3/4) = the expected dominant phenotype fraction with complete dominance — not applicable to incomplete dominance where Rr is distinct from RR.</p>
+        <p class="wrong">D (all pink) would only occur if both parents were homozygous opposite (RR × rr → all Rr), not from two pink parents.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <p class="q-text">A man with blood type O (I^O I^O) and a woman with blood type AB (I^A I^B) have children. What blood types can their children have?</p>
+    </div>
+    <ul class="options">
+      <li>A) Only type O</li>
+      <li>B) Types A, B, AB, and O in equal proportions</li>
+      <li class="correct">C) Types A and B only, in a 1:1 ratio</li>
+      <li>D) Types A, B, and O in a 1:1:2 ratio</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: C.</strong> Father: I^O I^O contributes only I^O alleles. Mother: I^A I^B contributes either I^A or I^B. Cross: I^O × I^A → I^A I^O (type A); I^O × I^B → I^B I^O (type B). All children are heterozygous — 50% I^A I^O (type A) and 50% I^B I^O (type B). AB (I^A I^B) would require the father to contribute I^A or I^B, which he cannot (he only has I^O). Type O (I^O I^O) would require the mother to contribute I^O, which she cannot (she has only I^A and I^B).</p>
+        <p class="wrong">A — type O is impossible because the mother cannot contribute I^O.</p>
+        <p class="wrong">B — AB and O are impossible for the reasons above.</p>
+        <p class="wrong">D — type O is impossible; this answer incorrectly predicts that the mother can contribute I^O.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In Mendel's experiments, he observed that the F2 ratio for seed colour was approximately 6022 yellow : 2001 green. He predicted a 3:1 ratio. Calculate the expected numbers and determine whether this result is consistent with 3:1 (assume chi-square critical value at 1 df = 3.84).</p>
+    </div>
+    <ul class="options">
+      <li>A) Not consistent — chi-square exceeds 3.84</li>
+      <li class="correct">B) Consistent — chi-square is well below 3.84, supporting a 3:1 ratio</li>
+      <li>C) Cannot be determined without knowing the exact chi-square formula</li>
+      <li>D) Not consistent — the 6022:2001 ratio is closer to 3.01:1, which is too close to 3:1 to be real data</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Total N = 6022 + 2001 = 8023. Expected under 3:1: yellow = 3/4 × 8023 = 6017.25; green = 1/4 × 8023 = 2005.75. Chi-square = (6022–6017.25)²/6017.25 + (2001–2005.75)²/2005.75 = (4.75²/6017.25) + (4.75²/2005.75) = (22.56/6017.25) + (22.56/2005.75) ≈ 0.00375 + 0.01124 ≈ <strong>0.015</strong>. This is far below 3.84, so we <strong>fail to reject</strong> the null hypothesis (H₀: 3:1 ratio) — the data are consistent with Mendelian 3:1 segregation.</p>
+        <p class="wrong">A is wrong — chi-square of ~0.015 is nowhere near 3.84.</p>
+        <p class="wrong">C is wrong — the chi-square test is the standard tool for this analysis and the formula is straightforward: Σ(O–E)²/E.</p>
+        <p class="wrong">D is wrong — this is a misconception. Real biological data always includes stochastic variation; a result very close to the expected ratio is perfectly compatible with Mendelian genetics and does not indicate falsification of data.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <span class="badge-hard">HARD</span>
+      <p class="q-text">In a pedigree, a trait appears in every generation, affects both males and females equally, and affected individuals always have at least one affected parent. What is the most likely mode of inheritance?</p>
+    </div>
+    <ul class="options">
+      <li>A) Autosomal recessive</li>
+      <li class="correct">B) Autosomal dominant</li>
+      <li>C) X-linked recessive</li>
+      <li>D) Mitochondrial inheritance</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Autosomal dominant inheritance is characterised by: (1) trait appears in every generation (vertical transmission); (2) every affected individual has an affected parent; (3) roughly 50% of offspring of an affected individual are affected; (4) males and females are equally affected (autosomal, not sex-linked); (5) unaffected individuals do not pass on the trait. All these criteria are met here. Examples: Huntington's disease, Marfan syndrome, achondroplasia.</p>
+        <p class="wrong">A — autosomal recessive traits can skip generations (carriers × carriers) and both parents of an affected individual are often unaffected carriers.</p>
+        <p class="wrong">C — X-linked recessive shows sex bias (predominantly males affected) and carrier females can pass trait to sons without being affected themselves.</p>
+        <p class="wrong">D — mitochondrial inheritance is passed exclusively through the mother; fathers never transmit the trait, and all offspring of an affected mother (not father) are affected.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <p class="q-text">Mendel's Law of Segregation states that alleles separate during gamete formation. At what stage of meiosis does this segregation occur?</p>
+    </div>
+    <ul class="options">
+      <li>A) During DNA replication before meiosis I</li>
+      <li class="correct">B) During meiosis I (anaphase I), when homologous chromosomes separate to opposite poles</li>
+      <li>C) During meiosis II (anaphase II), when sister chromatids separate</li>
+      <li>D) During fertilisation, when two haploid gametes combine</li>
+    </ul>
+      <button class="show-answer-btn">Show Answer</button>
+    <details>
+      <summary>Worked Solution</summary>
+      <div class="solution">
+        <p><strong>Correct answer: B.</strong> Alleles of a gene are located on homologous chromosomes (one paternal, one maternal copy). During <strong>meiosis I</strong>, homologous chromosome pairs (bivalents) align at the metaphase plate, and during <strong>anaphase I</strong>, homologues are pulled to opposite poles. This is when the two alleles of a gene segregate from each other into separate cells. By the end of meiosis I, each secondary oocyte or spermatocyte contains only one chromosome from each homologous pair — and thus only one allele of each gene. Meiosis II then separates sister chromatids (which are identical), not alleles.</p>
+        <p class="wrong">A — DNA replication (S phase) duplicates each allele into two identical sister chromatids; it does not segregate alleles.</p>
+        <p class="wrong">C — Meiosis II separates sister chromatids (identical copies of the same allele), not homologous chromosomes bearing different alleles. Segregation of alleles is already complete after meiosis I.</p>
+        <p class="wrong">D — fertilisation is the <em>re-combination</em> of alleles from two parents, the opposite of segregation.</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

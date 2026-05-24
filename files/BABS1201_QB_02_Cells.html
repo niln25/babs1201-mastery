@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 02: Cells I & II</title>
+<style>
+  :root { --primary: #1a3a5c; --accent: #2ecc71; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .badge-insta { display: inline-block; background: var(--insta); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-card.insta-q { border-left: 4px solid var(--insta); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .insta-header { background: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #721c24; }
+  .insta-header strong { color: var(--insta); }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 02: Cells I &amp; II &nbsp;|&nbsp; Prokaryotes · Eukaryotes · Organelles · Endosymbiotic Theory · Cell Microscopy</p>
+</div>
+
+<div class="insta-header">
+  <strong>🐒 Monkey Monday (INSTA)</strong> — Questions 1–2 are from the official BABS1201 INSTA series. Questions 3–18 are original practice questions.
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- INSTA Q1 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 1 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Thylakoids, DNA and ribosomes are all components found in:</div>
+  <ul class="options">
+    <li>A. mitochondria</li>
+    <li>B. nucleus</li>
+    <li class="correct">C. chloroplast</li>
+    <li>D. bacterial cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C — chloroplast</strong></p>
+      <p>Chloroplasts contain all three of these components: (1) <strong>Thylakoids</strong> — flattened membrane sacs arranged in grana (stacks) where the light-dependent reactions of photosynthesis occur; (2) <strong>DNA</strong> — chloroplasts have their own circular DNA (supporting endosymbiotic theory), encoding some of their own proteins; (3) <strong>Ribosomes</strong> — chloroplasts have their own 70S-type ribosomes for translating chloroplast-encoded proteins.</p>
+      <p><strong>Why A (mitochondria) is wrong:</strong> Mitochondria have their own DNA and 70S-like ribosomes (endosymbiotic evidence), but they do NOT contain thylakoids. Their inner membrane forms cristae, not thylakoids.</p>
+      <p><strong>Why B (nucleus) is wrong:</strong> The nucleus contains DNA and can contain ribosomes in transit, but it has no thylakoids.</p>
+      <p><strong>Why D (bacterial cell) is wrong:</strong> Bacteria do have DNA and 70S ribosomes, but most bacteria do not have thylakoids. Some photosynthetic bacteria (cyanobacteria) do have thylakoid-like membranes, but the question asks about bacterial cells in general — and crucially, all three features together most precisely identify a chloroplast.</p>
+    </div>
+  </details>
+</div>
+
+<!-- INSTA Q2 -->
+<div class="question-card insta-q">
+  <div class="question-number">Question 2 <span class="badge-insta">Monkey Monday</span></div>
+  <div class="question-text">Which of the following does endosymbiotic theory describe?</div>
+  <ul class="options">
+    <li>A. The synthesis of organic molecules may have formed abiotically.</li>
+    <li>B. The duplication of cells</li>
+    <li>C. Prokaryotes and eukaryotes exist in a harmonious relationship</li>
+    <li class="correct">D. The origin of modern eukaryotes from prokaryotes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: D — The origin of modern eukaryotes from prokaryotes</strong></p>
+      <p>Endosymbiotic theory (Lynn Margulis, 1967) proposes that mitochondria and chloroplasts in eukaryotic cells originated as free-living prokaryotes that were engulfed by a host cell. Over time, these became permanently integrated as organelles. Evidence includes: (1) Mitochondria and chloroplasts have their own circular DNA (prokaryote-like). (2) Both divide by binary fission. (3) Both have 70S ribosomes (prokaryotic type). (4) Both are enclosed in a double membrane (inner = original prokaryote membrane; outer = engulfment membrane). (5) Both are similar in size to bacteria.</p>
+      <p><strong>Why A is wrong:</strong> This describes the Miller-Urey/abiogenesis hypothesis, not endosymbiotic theory.</p>
+      <p><strong>Why B is wrong:</strong> Cell duplication describes mitosis or binary fission — not endosymbiotic theory.</p>
+      <p><strong>Why C is wrong:</strong> While endosymbiosis does involve a relationship between prokaryotes and the host, it specifically describes an engulfment event leading to the ORIGIN of eukaryotic organelles — not a harmonious co-existence between separate free-living cells.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">Which of the following is a feature shared by BOTH prokaryotic and eukaryotic cells?</div>
+  <ul class="options">
+    <li>A. Membrane-bound nucleus</li>
+    <li>B. Linear chromosomes with histone proteins</li>
+    <li class="correct">C. Plasma membrane and ribosomes</li>
+    <li>D. Endomembrane system including the endoplasmic reticulum</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>All cells — prokaryotic and eukaryotic — share: (1) a plasma membrane (phospholipid bilayer with embedded proteins), (2) ribosomes (although different sizes: 70S in prokaryotes; 80S in eukaryotic cytoplasm), and (3) cytoplasm, and (4) DNA as genetic material.</p>
+      <p><strong>Why A is wrong:</strong> A membrane-bound nucleus is the defining feature of eukaryotes. Prokaryotes have a nucleoid region — DNA associated with the cytoplasm without a surrounding membrane.</p>
+      <p><strong>Why B is wrong:</strong> Prokaryotes have circular chromosomes (usually one) with no histones (they use histone-like proteins, HU and H-NS). Linear chromosomes and true histones are eukaryotic features.</p>
+      <p><strong>Why D is wrong:</strong> The endomembrane system (ER, Golgi, vesicles, lysosomes) is exclusively found in eukaryotic cells.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">The rough endoplasmic reticulum (rER) is distinct from the smooth endoplasmic reticulum (sER) because the rER:</div>
+  <ul class="options">
+    <li>A. Is involved in lipid synthesis and detoxification of drugs</li>
+    <li>B. Is found only in animal cells, not plant cells</li>
+    <li class="correct">C. Is studded with ribosomes and is the site of synthesis for membrane-bound and secretory proteins</li>
+    <li>D. Produces ATP through the proton gradient across its membrane</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The rough ER gets its "rough" appearance from membrane-bound ribosomes on its cytoplasmic surface. These ribosomes synthesise proteins destined for: (1) secretion from the cell (secretory proteins), (2) insertion into a membrane (transmembrane proteins), (3) delivery to organelles (lysosomes, Golgi). Proteins are co-translationally threaded into the rER lumen where they undergo initial folding and N-linked glycosylation.</p>
+      <p><strong>Why A is wrong:</strong> These functions (lipid synthesis, drug detoxification via cytochrome P450 enzymes) belong to the smooth ER (sER), which lacks ribosomes.</p>
+      <p><strong>Why B is wrong:</strong> Both rER and sER are present in plant and animal cells, though the proportions vary by cell type.</p>
+      <p><strong>Why D is wrong:</strong> ATP production via proton gradients occurs in mitochondria (inner membrane) and chloroplasts (thylakoid membrane), not the ER.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">A student examines a cell under an electron microscope and observes: no membrane-bound nucleus, a single circular chromosome in a nucleoid region, 70S ribosomes, and a cell wall containing peptidoglycan. This cell is BEST classified as:</div>
+  <ul class="options">
+    <li>A. A fungal cell</li>
+    <li>B. An archaeal cell</li>
+    <li class="correct">C. A bacterial cell</li>
+    <li>D. A plant cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The combination of features — no membrane-bound nucleus (prokaryote), circular chromosome, 70S ribosomes, AND peptidoglycan cell wall — is diagnostic for a bacterial cell. Peptidoglycan is the key distinguishing feature here because it is found exclusively in Bacteria, not Archaea.</p>
+      <p><strong>Why B (Archaea) is wrong:</strong> Archaea are also prokaryotes with circular chromosomes and 70S-like ribosomes, BUT they do not have peptidoglycan cell walls. They use pseudopeptidoglycan or other polymers (or have no cell wall).</p>
+      <p><strong>Why A (Fungi) is wrong:</strong> Fungi are eukaryotes — they have a membrane-bound nucleus, 80S ribosomes, and no peptidoglycan (their cell wall is made of chitin).</p>
+      <p><strong>Why D (Plant) is wrong:</strong> Plants are eukaryotes with a membrane-bound nucleus. Plant cell walls are made of cellulose, not peptidoglycan.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">The fluid mosaic model of the plasma membrane describes the membrane as:</div>
+  <ul class="options">
+    <li>A. A rigid, static bilayer of proteins with embedded lipids</li>
+    <li class="correct">B. A dynamic bilayer of phospholipids in which proteins are embedded and can move laterally</li>
+    <li>C. A single layer of phospholipids with proteins on the outer surface only</li>
+    <li>D. A solid crystalline array of lipids that provides structural rigidity to the cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The Fluid Mosaic Model (Singer and Nicolson, 1972) describes the membrane as a dynamic, two-dimensional fluid of phospholipids with proteins embedded throughout (transmembrane proteins) or attached to the surface (peripheral proteins). Key points: (1) Phospholipids can move laterally (flip-flop is rare without flippases), giving fluidity. (2) The "mosaic" refers to the varied protein components distributed throughout. (3) Fluidity is regulated by cholesterol (in animal cells — acts as a "buffer" preventing both excessive rigidity and excessive fluidity) and fatty acid saturation (unsaturated = more fluid).</p>
+      <p><strong>Why A is wrong:</strong> The description inverts the roles of proteins and lipids. The bilayer is lipid, with proteins embedded — not the other way around.</p>
+      <p><strong>Why C is wrong:</strong> The membrane is a bilayer (two layers of phospholipids). Proteins can be on either surface or span the entire bilayer as transmembrane proteins.</p>
+      <p><strong>Why D is wrong:</strong> A solid crystalline arrangement would prevent lateral movement of proteins, disabling cell signalling, transport, and other membrane functions. Membranes are fluid, not crystalline.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Which of the following organelles would be most abundant in a cell that secretes large amounts of protein, such as a pancreatic acinar cell?</div>
+  <ul class="options">
+    <li>A. Smooth endoplasmic reticulum and mitochondria</li>
+    <li class="correct">B. Rough endoplasmic reticulum and Golgi apparatus</li>
+    <li>C. Vacuoles and chloroplasts</li>
+    <li>D. Lysosomes and peroxisomes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The secretory pathway for proteins is: Ribosome on rER → protein enters rER lumen → transport vesicle to Golgi cis face → processing through Golgi stacks → secretory vesicle from trans face → exocytosis. Cells specialised in secreting large amounts of protein (digestive enzymes from pancreatic acinar cells, antibodies from plasma cells, insulin from β-cells) would have abundant rough ER (for synthesis) and Golgi apparatus (for processing, sorting, and packaging).</p>
+      <p><strong>Why A is wrong:</strong> Smooth ER is for lipid synthesis and drug metabolism — not protein secretion. While mitochondria would also be abundant (energy for secretion), sER is not specifically linked to protein secretion.</p>
+      <p><strong>Why C is wrong:</strong> Vacuoles are storage organelles; chloroplasts are plant organelles for photosynthesis. Neither is linked to protein secretion.</p>
+      <p><strong>Why D is wrong:</strong> Lysosomes are for intracellular digestion; peroxisomes break down fatty acids and H₂O₂. These are not the organelles of the secretory pathway.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">How do the sizes of prokaryotic and eukaryotic cells generally compare, and why does this matter for cellular function?</div>
+  <ul class="options">
+    <li>A. Eukaryotic cells are smaller; smaller cells have a higher surface area-to-volume ratio enabling faster metabolism</li>
+    <li>B. Prokaryotic cells are larger; larger cells import nutrients more efficiently through their larger surface area</li>
+    <li class="correct">C. Prokaryotic cells are generally smaller (1–10 μm); smaller size gives a high surface area-to-volume ratio, enabling efficient nutrient and waste exchange across the membrane</li>
+    <li>D. Both cell types are the same size; the difference in complexity is entirely at the organelle level</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Prokaryotic cells: typically 1–10 μm in diameter. Eukaryotic cells: typically 10–100 μm. The surface area-to-volume (SA:V) ratio decreases as cell size increases. Smaller prokaryotic cells have a high SA:V ratio, meaning: (1) a large membrane surface relative to the cytoplasmic volume that needs to be served, (2) efficient passive and facilitated diffusion of nutrients in and waste out. As eukaryotic cells grew larger in evolution, they needed internal membrane compartmentalisation (organelles) to compensate for the reduced SA:V ratio and maintain metabolic efficiency.</p>
+      <p><strong>Why A is wrong:</strong> The cell sizes are reversed — eukaryotic cells are larger, not smaller.</p>
+      <p><strong>Why B is wrong:</strong> Prokaryotic cells are smaller than eukaryotic cells. Larger surface area does not necessarily mean more efficient nutrient import — the ratio relative to volume matters.</p>
+      <p><strong>Why D is wrong:</strong> Cell sizes differ significantly between prokaryotes and eukaryotes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">Which of the following provides the STRONGEST evidence that mitochondria were once free-living prokaryotes?</div>
+  <ul class="options">
+    <li>A. Mitochondria are found in both plant and animal cells</li>
+    <li>B. Mitochondria produce ATP, just as some bacteria do</li>
+    <li class="correct">C. Mitochondria have their own circular DNA, 70S-type ribosomes, divide by binary fission, and are bounded by a double membrane</li>
+    <li>D. Mitochondria are approximately the same size as eukaryotic cells</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Multiple independent lines of evidence point to a prokaryotic origin of mitochondria: (1) <strong>Circular DNA</strong> — like bacterial chromosomes, not linear like eukaryotic. (2) <strong>70S ribosomes</strong> — prokaryotic type; inhibited by antibiotics (e.g., chloramphenicol, erythromycin) that target bacterial ribosomes. (3) <strong>Binary fission</strong> — mitochondria divide by a process similar to bacterial binary fission, not mitosis. (4) <strong>Double membrane</strong> — inner membrane = original prokaryote membrane; outer = engulfment/phagocytosis membrane. (5) The closest living relative is thought to be the alpha-proteobacterium <em>Rickettsia</em>.</p>
+      <p><strong>Why A is wrong:</strong> The presence in both plant and animal cells doesn't tell us about their prokaryotic origin — it tells us endosymbiosis occurred before the plant-animal divergence.</p>
+      <p><strong>Why B is wrong:</strong> ATP production is a shared metabolic function but is insufficient evidence on its own for common ancestry.</p>
+      <p><strong>Why D is wrong:</strong> Mitochondria are similar in size to bacteria (1–10 μm), not to eukaryotic cells (~10–100 μm).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">A cell is observed to have a large central vacuole occupying most of the cell volume, a cell wall made of cellulose, chloroplasts, and no centrioles. This cell is MOST LIKELY:</div>
+  <ul class="options">
+    <li>A. An animal cell</li>
+    <li>B. A fungal cell</li>
+    <li>C. A bacterial cell</li>
+    <li class="correct">D. A plant cell</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: D</strong></p>
+      <p>All four features are characteristic of mature plant cells: (1) Large central vacuole (maintains turgor pressure, stores metabolites); (2) Cellulose cell wall (provides structural support); (3) Chloroplasts (photosynthesis); (4) No centrioles (plant cells organise spindle fibres differently using a "polar cap" rather than centrioles). The combination of all four unambiguously identifies this as a plant cell.</p>
+      <p><strong>Why A (animal) is wrong:</strong> Animal cells have centrioles, no cell wall, no chloroplasts, and only small vacuoles (not a large central vacuole).</p>
+      <p><strong>Why B (fungal) is wrong:</strong> Fungi have cell walls (chitin, not cellulose), no chloroplasts, vacuoles present but not the large central type, and centrioles are present in some fungi.</p>
+      <p><strong>Why C (bacterial) is wrong:</strong> Bacteria are prokaryotes — no nucleus, no chloroplasts (in most), no vacuoles, and cell walls made of peptidoglycan, not cellulose.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">What is the primary function of the Golgi apparatus?</div>
+  <ul class="options">
+    <li>A. To transcribe DNA into mRNA for export to the cytoplasm</li>
+    <li>B. To generate ATP via oxidative phosphorylation</li>
+    <li class="correct">C. To receive proteins from the rER, modify them (e.g., glycosylation), sort them, and package them into vesicles for delivery to their final destinations</li>
+    <li>D. To break down worn-out organelles and foreign particles via hydrolytic enzymes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The Golgi apparatus (named after Camillo Golgi) functions as the cell's "post office." It has two faces: cis (receiving face, near the rER) and trans (shipping face). Proteins from the rER arrive via vesicles at the cis face, move through the Golgi cisternae, and undergo: (1) modification of N-linked oligosaccharides added in the rER, (2) addition of O-linked glycans, (3) proteolytic cleavage of some proteins. At the trans face, proteins are sorted into vesicles destined for lysosomes, the plasma membrane (for secretion), or for retention within the Golgi.</p>
+      <p><strong>Why A is wrong:</strong> Transcription occurs in the nucleus. The Golgi has no transcriptional function.</p>
+      <p><strong>Why B is wrong:</strong> ATP production by oxidative phosphorylation occurs in the mitochondria (inner membrane/cristae).</p>
+      <p><strong>Why D is wrong:</strong> This describes lysosomes, which receive hydrolytic enzymes from the Golgi but are distinct organelles responsible for intracellular digestion.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">In light microscopy, the maximum resolution (ability to distinguish two closely spaced objects as separate) is limited by the wavelength of visible light to approximately:</div>
+  <ul class="options">
+    <li>A. 0.1 nm (allowing visualisation of individual atoms)</li>
+    <li>B. 10 nm (allowing visualisation of large protein complexes)</li>
+    <li class="correct">C. ~200 nm (0.2 μm), allowing visualisation of organelles but not most individual proteins or ribosomes</li>
+    <li>D. 10 μm (allowing visualisation of whole cells only, not internal structures)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>The Abbe diffraction limit for light microscopy: resolution limit ≈ λ/(2·NA), where λ is wavelength and NA is numerical aperture. Visible light (400–700 nm) limits resolution to ~200 nm (0.2 μm). This allows visualisation of: cell nucleus, mitochondria, chloroplasts, and other large organelles. It cannot resolve: individual ribosomes (~25 nm), individual proteins, DNA double helix (2 nm). Electron microscopy (uses electrons with much shorter wavelengths) achieves ~0.1–2 nm resolution, allowing visualisation of ribosomes, membranes, and macromolecular complexes.</p>
+      <p><strong>Why A (0.1 nm) is wrong:</strong> This is the resolution of transmission electron microscopy (TEM) at best. Light microscopy cannot resolve objects at the atomic scale.</p>
+      <p><strong>Why B (10 nm) is wrong:</strong> This is beyond the diffraction limit of light. Super-resolution microscopy techniques (STORM, PALM) can approach ~20 nm, but conventional light microscopy cannot.</p>
+      <p><strong>Why D (10 μm) is wrong:</strong> Light microscopy can certainly resolve internal structures of cells — organelles like mitochondria (1–10 μm) and nuclei are readily visible with light microscopy.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">Which of the following is a function of the cytoskeleton in eukaryotic cells?</div>
+  <ul class="options">
+    <li>A. Synthesising proteins for export via the secretory pathway</li>
+    <li class="correct">B. Providing structural support, enabling cell motility, and facilitating intracellular transport of organelles and vesicles</li>
+    <li>C. Storing genetic information as a backup to the nucleus</li>
+    <li>D. Generating ATP through substrate-level phosphorylation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The cytoskeleton is composed of three main filament types: (1) <strong>Microfilaments (actin filaments, 7 nm)</strong> — cell shape, motility (pseudopodia, cleavage furrow in cell division), muscle contraction. (2) <strong>Intermediate filaments (8–12 nm)</strong> — structural support, anchoring the nucleus. (3) <strong>Microtubules (25 nm, made of tubulin)</strong> — chromosome segregation (mitotic spindle), intracellular transport (with motor proteins kinesin/dynein), cilia and flagella structure. Together these give cells their shape, allow movement, and organise the interior.</p>
+      <p><strong>Why A is wrong:</strong> Protein synthesis for the secretory pathway is performed by ribosomes on the rough ER, not the cytoskeleton.</p>
+      <p><strong>Why C is wrong:</strong> Genetic information is stored in DNA in the nucleus (and in mitochondria/chloroplasts). The cytoskeleton has no role in storing genetic information.</p>
+      <p><strong>Why D is wrong:</strong> Substrate-level phosphorylation occurs during glycolysis (cytoplasm) and the citric acid cycle (mitochondrial matrix). The cytoskeleton is not involved in ATP synthesis.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">Lysosomes are involved in which of the following processes?</div>
+  <ul class="options">
+    <li>A. Synthesis of steroid hormones from cholesterol</li>
+    <li>B. Oxidation of fatty acids to generate acetyl-CoA for the citric acid cycle</li>
+    <li class="correct">C. Intracellular digestion of macromolecules, damaged organelles (autophagy), and pathogens ingested by phagocytosis</li>
+    <li>D. Detoxification of hydrogen peroxide using catalase</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Lysosomes are membrane-bound organelles containing ~50 acid hydrolases (proteases, lipases, nucleases, glycosidases) that function optimally at pH ~5 (maintained by a proton pump). Functions: (1) <strong>Phagocytosis</strong> — fusing with phagosomes containing engulfed bacteria or particles. (2) <strong>Autophagy</strong> — degrading damaged organelles (autophagolysosomes). (3) <strong>Endocytosis</strong> — processing molecules taken up from outside the cell. Products of digestion (amino acids, sugars, nucleotides) are recycled back to the cytoplasm.</p>
+      <p><strong>Why A is wrong:</strong> Steroid hormone synthesis from cholesterol occurs in the smooth ER and mitochondria of steroidogenic cells (adrenal cortex, gonads).</p>
+      <p><strong>Why B is wrong:</strong> β-oxidation of fatty acids occurs in the mitochondrial matrix, not in lysosomes.</p>
+      <p><strong>Why D is wrong:</strong> Catalase decomposition of H₂O₂ (2H₂O₂ → 2H₂O + O₂) is the function of peroxisomes, not lysosomes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">Which microscopy technique would be MOST APPROPRIATE for visualising the internal ultrastructure of a mitochondrion at high resolution?</div>
+  <ul class="options">
+    <li>A. Light microscopy with haematoxylin and eosin stain</li>
+    <li>B. Phase contrast microscopy</li>
+    <li class="correct">C. Transmission electron microscopy (TEM)</li>
+    <li>D. Scanning electron microscopy (SEM)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>TEM passes electrons through ultra-thin (60–90 nm) sections of fixed, stained cells, producing images of internal structure with ~0.1 nm resolution. TEM is ideal for: cristae of mitochondria, membrane double-bilayer structure, ribosome detail, nuclear pore complexes. The heavy metal stains (osmium tetroxide, uranyl acetate) absorb electrons differentially to create contrast.</p>
+      <p><strong>Why A is wrong:</strong> H&E staining with light microscopy shows cell and tissue morphology but cannot resolve organelle ultrastructure — resolution limit is ~200 nm, larger than many mitochondrial features.</p>
+      <p><strong>Why B is wrong:</strong> Phase contrast microscopy enhances contrast in live unstained cells, useful for seeing organelle movement, but has the same resolution limit as light microscopy.</p>
+      <p><strong>Why D is wrong:</strong> SEM images the SURFACE of specimens (a 3D exterior view) by detecting secondary electrons. It cannot show internal structure. SEM is excellent for surface topology of cells and tissues (e.g., red blood cell shape, pollen surface).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="question-number">Question 16</div>
+  <div class="question-text">The nuclear envelope has what structural feature that distinguishes it from other cellular membranes?</div>
+  <ul class="options">
+    <li>A. It is a single lipid bilayer, making it thinner than the plasma membrane</li>
+    <li class="correct">B. It is a double membrane (two lipid bilayers) perforated by nuclear pore complexes that regulate transport between nucleus and cytoplasm</li>
+    <li>C. It contains no proteins, allowing free diffusion of all molecules including DNA</li>
+    <li>D. It is connected directly to the outer plasma membrane, bypassing the endomembrane system</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The nuclear envelope consists of: (1) an outer nuclear membrane (continuous with the rER, studded with ribosomes), (2) an inner nuclear membrane (lined with the nuclear lamina — a network of intermediate filaments that provide structural support), and (3) nuclear pore complexes (NPCs) — ~120 MDa protein assemblies (~120 nm diameter) that perforate both membranes. NPCs regulate bidirectional transport: proteins (like transcription factors, histones, RNA polymerases) import into the nucleus; mRNA, tRNA, ribosomal subunits export from the nucleus.</p>
+      <p><strong>Why A is wrong:</strong> The nuclear envelope has TWO lipid bilayers (double membrane), not one. This is similar to mitochondria and chloroplasts.</p>
+      <p><strong>Why C is wrong:</strong> The nuclear envelope is rich in proteins (lamins, nucleoporins) that are critical for its function. Free diffusion of DNA through the nuclear envelope does not occur.</p>
+      <p><strong>Why D is wrong:</strong> The outer nuclear membrane is continuous with the rER (part of the endomembrane system), not the plasma membrane.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q17 -->
+<div class="question-card">
+  <div class="question-number">Question 17</div>
+  <div class="question-text">Which of the following best explains why prokaryotic cells can survive without a cytoskeleton similar to that of eukaryotes?</div>
+  <ul class="options">
+    <li>A. Prokaryotic cells are autotrophic and do not need active transport</li>
+    <li>B. The high surface area-to-volume ratio of bacteria means diffusion alone is sufficient for all intracellular processes</li>
+    <li class="correct">C. Prokaryotes have homologous proteins (e.g., MreB, FtsZ) that perform similar functions, and their small size means complex internal organisation is less critical</li>
+    <li>D. Prokaryotic DNA is not transcribed, so there is no need to transport molecules between compartments</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Prokaryotes do have cytoskeletal-like proteins: (1) <strong>MreB</strong> (actin homologue) — maintains rod-cell shape and assists in chromosome segregation; (2) <strong>FtsZ</strong> (tubulin homologue) — forms the Z-ring at the division plane during binary fission; (3) <strong>CreS (crescentin)</strong> (intermediate filament homologue) — determines curved cell shape in <em>Caulobacter</em>. Additionally, the small size of prokaryotes (~1–5 μm) means diffusion distances are short, reducing the need for active motor-protein-driven transport systems.</p>
+      <p><strong>Why A is wrong:</strong> Many bacteria are heterotrophic. Autotrophy is irrelevant to cytoskeletal need.</p>
+      <p><strong>Why B is wrong:</strong> Diffusion alone handles many processes but prokaryotes still have chromosomal segregation to perform — hence FtsZ and MreB are essential.</p>
+      <p><strong>Why D is wrong:</strong> Prokaryotic DNA is actively transcribed. The statement is factually wrong.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q18 -->
+<div class="question-card">
+  <div class="question-number">Question 18</div>
+  <div class="question-text">A student claims that chloroplasts are more evolutionarily derived than mitochondria because plants evolved after animals. What evidence BEST refutes this claim?</div>
+  <ul class="options">
+    <li>A. Chloroplasts are larger than mitochondria in plant cells</li>
+    <li class="correct">B. Phylogenetic analysis shows cyanobacteria (the ancestors of chloroplasts) evolved roughly 2.7–3 billion years ago — before complex eukaryotes — and the secondary endosymbiosis of chloroplasts occurred independently in multiple eukaryotic lineages</li>
+    <li>C. Chloroplasts produce oxygen which is needed by mitochondria, proving they must have come first</li>
+    <li>D. Mitochondria have more DNA than chloroplasts, indicating greater evolutionary complexity</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The cyanobacterial origin of chloroplasts is ancient (primary endosymbiosis ~1.5 billion years ago in the ancestor of red and green algae/plants). Cyanobacteria themselves evolved ~2.7–3 billion years ago and are responsible for the Great Oxidation Event (~2.4 bya). Importantly, chloroplast evolution was not sequential with mitochondria — both endosymbioses occurred in early eukaryote history, and the ancestral alpha-proteobacterium (mitochondrion) and cyanobacterium (chloroplast) both predate complex eukaryotes.</p>
+      <p><strong>Why A is wrong:</strong> Size comparison between chloroplasts and mitochondria says nothing about evolutionary derivation or timing.</p>
+      <p><strong>Why C is wrong:</strong> While it's true cyanobacteria oxygenated the atmosphere before mitochondria-containing aerobic eukaryotes could evolve, this is a circumstantial argument about sequence, not direct evidence about chloroplast origin.</p>
+      <p><strong>Why D is wrong:</strong> Human mitochondrial DNA is only ~16,569 bp. Chloroplast genomes are typically larger (~150,000 bp). More DNA does not equate to greater complexity, and the comparison is not a valid measure of evolutionary derivation.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

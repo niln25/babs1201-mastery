@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 QB — Gene Expression I &amp; II</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --insta: #e74c3c;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dee2e6;
+    --correct-bg: #d4edda;
+    --correct-border: #28a745;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .question-card.insta { border-left: 4px solid var(--insta); }
+  .q-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .badge-insta { background: var(--insta); color: white; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: 0.5rem 0 1rem 0; }
+  .options li { padding: 0.55rem 0.9rem; margin: 0.35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: 0.9rem; padding: 0.4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: 0.5rem; font-size: 0.92rem; }
+  .solution p { margin-bottom: 0.5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 12: Gene Expression I &amp; II (Transcription &amp; Translation) &nbsp;|&nbsp; 17 Questions</p>
+</header>
+<div class="container">
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <p class="q-text">During transcription in eukaryotes, RNA polymerase II synthesises mRNA. In which direction does it read the template strand and synthesise the new RNA strand?</p>
+  </div>
+  <ul class="options">
+    <li>A) Reads 5′→3′; synthesises 3′→5′</li>
+    <li>B) Reads 3′→5′; synthesises 3′→5′</li>
+    <li class="correct">C) Reads 3′→5′; synthesises 5′→3′</li>
+    <li>D) Reads 5′→3′; synthesises 5′→3′</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Reads 3′→5′; synthesises 5′→3′</strong></p>
+      <p>All nucleic acid polymerases synthesise in the 5′→3′ direction, adding nucleotides to the 3′-OH of the growing strand. The template is read antiparallel (3′→5′). This is identical in principle to DNA replication. The new RNA strand is therefore antiparallel and complementary to the template (antisense) strand.</p>
+      <p>The coding (sense/non-template) strand has the same sequence as the mRNA (with T replaced by U). Transcription does not run in both directions from a promoter simultaneously.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <p class="q-text">What is the function of the 5′ 7-methylguanosine (m7G) cap added to eukaryotic mRNA?</p>
+  </div>
+  <ul class="options">
+    <li>A) It signals the ribosome to terminate translation</li>
+    <li>B) It is recognised by spliceosomes for intron removal</li>
+    <li class="correct">C) It protects the mRNA from 5′ exonuclease degradation and is required for ribosome binding and initiation of translation</li>
+    <li>D) It marks the mRNA for export from the nucleus via the nuclear pore</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Protects from degradation and facilitates ribosome binding and translation initiation</strong></p>
+      <p>The 5′ cap is added co-transcriptionally. It serves two major roles: (1) protection — it blocks 5′ exonucleases that would otherwise rapidly degrade the mRNA; (2) translation initiation — eIF4E binds the cap, recruiting the 43S pre-initiation complex and the small (40S) ribosomal subunit, which then scans along the 5′ UTR for the start codon (AUG).</p>
+      <p>Nuclear export does involve a cap-binding complex (CBC) but this is a secondary function. Spliceosomes recognise splice site sequences (GU…AG), not the cap. Termination signals are within the mRNA sequence (stop codons), not the cap.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <p class="q-text">Pre-mRNA splicing removes introns and joins exons. Which molecular machine catalyses this reaction?</p>
+  </div>
+  <ul class="options">
+    <li>A) Ribosome</li>
+    <li>B) Proteasome</li>
+    <li class="correct">C) Spliceosome</li>
+    <li>D) Signal recognition particle (SRP)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Spliceosome</strong></p>
+      <p>The spliceosome is a large ribonucleoprotein (RNP) complex composed of five snRNPs (U1, U2, U4, U5, U6). It recognises the 5′ splice site (GU), branch point (adenosine), and 3′ splice site (AG). The intron is excised as a lasso-shaped (lariat) intermediate, and the flanking exons are ligated. Alternative splicing by the same machinery can produce different proteins from one gene.</p>
+      <p>Ribosomes translate mRNA. The proteasome degrades ubiquitinated proteins. SRP targets nascent peptides to the ER.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <p class="q-text">Which of the following best describes the role of transfer RNA (tRNA) in translation?</p>
+  </div>
+  <ul class="options">
+    <li>A) tRNA carries amino acids from the nucleus to the ribosome</li>
+    <li>B) tRNA acts as the catalytic subunit of the ribosome</li>
+    <li class="correct">C) tRNA bridges codon–anticodon recognition and delivers specific amino acids to the ribosome</li>
+    <li>D) tRNA synthesises the peptide bond between adjacent amino acids</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Bridges codon–anticodon recognition and delivers specific amino acids</strong></p>
+      <p>tRNA molecules are "adaptor" molecules. Each has two functional regions: (1) the anticodon loop, which base-pairs with the complementary codon on the mRNA; (2) the 3′ CCA acceptor stem, where the cognate amino acid is attached by aminoacyl-tRNA synthetase. The ribosome has three tRNA sites: A (aminoacyl), P (peptidyl), and E (exit). The ribosome uses rRNA as the peptidyl transferase ribozyme — not tRNA.</p>
+      <p>Aminoacyl-tRNA synthetases work in the cytoplasm, not the nucleus. The peptidyl transferase activity resides in the 23S/28S rRNA of the large subunit.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <p class="q-text">The genetic code has 64 codons but only 20 amino acids. This means the code is:</p>
+  </div>
+  <ul class="options">
+    <li>A) Ambiguous — one amino acid is encoded by multiple codons that differ in meaning</li>
+    <li>B) Non-overlapping and linear, with each nucleotide read in two different codons simultaneously</li>
+    <li class="correct">C) Degenerate (redundant) — most amino acids are encoded by more than one codon</li>
+    <li>D) Wobble — the first two bases of a codon are flexible and the third is fixed</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Degenerate (redundant)</strong></p>
+      <p>With 4³ = 64 possible codons but only 20 amino acids + 3 stop codons, most amino acids are specified by multiple synonymous codons. For example, leucine has 6 codons; methionine (AUG) and tryptophan (UGG) each have only one. Degeneracy most often occurs at the third codon position — "wobble position" — where multiple bases can pair with the same anticodon without changing the amino acid.</p>
+      <p>"Ambiguous" would mean the same codon encodes different amino acids — this is essentially absent in the standard code. Wobble refers to the flexibility at the third codon position, not the first two as stated in option D (which is inverted).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <p class="q-text">In prokaryotes, the lac operon is repressed when glucose is present and lactose is absent. Which molecules are involved in releasing this repression?</p>
+  </div>
+  <ul class="options">
+    <li>A) Lactose binds RNA polymerase, allowing transcription to begin</li>
+    <li>B) Glucose activates the lac repressor, which binds the operator</li>
+    <li class="correct">C) Allolactose (a lactose isomer) binds the lac repressor, causing a conformational change that releases it from the operator</li>
+    <li>D) cAMP binds the lac repressor and activates it</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Allolactose binds the lac repressor, releasing it from the operator</strong></p>
+      <p>When lactose is present, β-galactosidase converts a small amount to allolactose, an inducer. Allolactose binds the lac repressor (LacI), causing a conformational change that reduces its affinity for the operator DNA. The repressor dissociates, allowing RNA polymerase to transcribe lacZ, lacY, and lacA. Note: full activation also requires glucose absence (catabolite repression via cAMP-CAP at the promoter).</p>
+      <p>cAMP binds CAP (catabolite activator protein), not the repressor. Glucose depletion raises cAMP, which promotes transcription via CAP — but this is a separate regulatory layer from repressor-based control.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <p class="q-text">A protein destined for the lumen of the endoplasmic reticulum contains a signal sequence at its N-terminus. What happens to this signal sequence after the protein is inserted into the ER?</p>
+  </div>
+  <ul class="options">
+    <li>A) It remains and helps fold the protein in the ER lumen</li>
+    <li>B) It is exported with the protein to the Golgi apparatus</li>
+    <li class="correct">C) It is cleaved by signal peptidase in the ER membrane</li>
+    <li>D) It is recycled back to the ribosome for translation of the next protein</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Cleaved by signal peptidase in the ER membrane</strong></p>
+      <p>The signal sequence (typically 16–30 hydrophobic amino acids at the N-terminus) is recognised co-translationally by the signal recognition particle (SRP). The SRP docks the ribosome to the SRP receptor on the ER membrane, and the growing polypeptide is threaded through the translocon (Sec61 complex) into the ER lumen. Signal peptidase, located on the ER luminal face, cleaves the signal sequence from the mature protein. The signal peptide is then degraded.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <p class="q-text">Which of the following correctly describes the difference between a promoter and an enhancer in eukaryotic gene regulation?</p>
+  </div>
+  <ul class="options">
+    <li>A) Promoters are found only upstream of the transcription start site; enhancers are always downstream</li>
+    <li>B) Enhancers directly bind RNA polymerase II; promoters bind transcription factors</li>
+    <li class="correct">C) Promoters are fixed-position elements at the transcription start site; enhancers can act at variable distances and orientations, looping to contact the promoter through DNA bending</li>
+    <li>D) Promoters are only in prokaryotes; enhancers are the eukaryotic equivalent</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Promoters are position-fixed; enhancers are distance- and orientation-independent</strong></p>
+      <p>Promoters (including the TATA box and initiator elements) are located at defined positions near the transcription start site and serve as docking platforms for the general transcription machinery (TFIID, TFIIB, etc.). Enhancers bind activator proteins (transcription factors) and can be located many kilobases away — upstream, downstream, or even within introns. They act by looping the DNA (via cohesin/Mediator complexes) to contact the promoter and stimulate RNA Pol II activity.</p>
+      <p>Enhancers can be in any orientation and still function. Both promoters and enhancers exist in eukaryotes (prokaryotes have upstream regulatory sites, not true enhancers).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <p class="q-text">What structural feature of RNA polymerase II (and not DNA polymerase) makes a primer unnecessary for transcription?</p>
+  </div>
+  <ul class="options">
+    <li>A) RNA Pol II has both 5′→3′ and 3′→5′ polymerase activity</li>
+    <li class="correct">B) RNA Pol II can initiate a new polynucleotide chain de novo by forming the first phosphodiester bond without a free 3′-OH</li>
+    <li>C) RNA Pol II uses ribonucleotides rather than deoxyribonucleotides</li>
+    <li>D) RNA Pol II has a helicase domain that unwinds DNA ahead of the transcription bubble</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — RNA Pol II can initiate de novo without a primer</strong></p>
+      <p>DNA polymerases require a pre-existing 3′-OH (supplied by a primer) because they can only extend an existing chain. RNA polymerases have a fundamentally different active site architecture that allows them to position two NTPs opposite a template and catalyse formation of the first phosphodiester bond between them, creating a 5′-ppp end. No primer is needed. This de novo initiation capacity is unique to RNA polymerases (and is also used by primase — itself an RNA polymerase — to make primers for DNA replication).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <p class="q-text">Consider the template strand: 3′-TACGGTACCTTAG-5′. What is the sequence of the mRNA transcribed from this strand?</p>
+  </div>
+  <ul class="options">
+    <li>A) 3′-ATGCCATGGAATC-5′</li>
+    <li class="correct">B) 5′-AUGCCAUGGAAUC-3′</li>
+    <li>C) 5′-TACGGTACCTTAG-3′</li>
+    <li>D) 3′-AUGCCAUGGAAUC-5′</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — 5′-AUGCCAUGGAAUC-3′</strong></p>
+      <p>The mRNA is complementary and antiparallel to the template strand, with U replacing T. Reading the template 3′→5′: T→A, A→U, C→G, G→C, G→C, T→A, A→U, C→G, C→G, T→A, T→A, A→U, G→C. The mRNA is synthesised 5′→3′: 5′-AUG-CCA-UGG-AAU-C-3′. Note that AUG at the 5′ end represents a start codon — this encodes Met.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <p class="q-text">Which of the following RNA molecules has catalytic activity (is a ribozyme)?</p>
+  </div>
+  <ul class="options">
+    <li>A) mRNA</li>
+    <li>B) tRNA</li>
+    <li class="correct">C) rRNA (in the large ribosomal subunit)</li>
+    <li>D) snRNA (in the spliceosome)</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — rRNA in the large subunit</strong></p>
+      <p>The peptidyl transferase activity of the ribosome — which forms the peptide bond between the growing chain and the incoming amino acid — is catalysed by the 23S rRNA (prokaryotes) or 28S rRNA (eukaryotes) in the large subunit. This was a Nobel Prize-winning discovery demonstrating that the ribosome is fundamentally a ribozyme (RNA catalyst).</p>
+      <p>snRNA in the spliceosome also has ribozyme-like activity (it catalyses splicing reactions), making D a reasonable distractor. However, the ribosomal peptidyl transferase is the canonical textbook example of an rRNA ribozyme, and this is what UNSW BABS1201 emphasises. mRNA and tRNA are not catalytic.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <p class="q-text">Histones are positively charged proteins. Why does this charge facilitate chromatin structure?</p>
+  </div>
+  <ul class="options">
+    <li>A) Positive charges attract RNA polymerase to the promoter</li>
+    <li>B) Positive charges cause histones to repel each other, spreading the DNA out</li>
+    <li class="correct">C) Positive charges (from lysine and arginine residues) form electrostatic interactions with the negatively charged phosphate backbone of DNA</li>
+    <li>D) Positive charges allow histones to form disulfide bonds with zinc-finger transcription factors</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Electrostatic attraction to DNA's negative phosphate backbone</strong></p>
+      <p>DNA is a polyanion — its phosphate groups carry negative charges. Histone proteins (H2A, H2B, H3, H4 in the octamer core) are rich in positively charged amino acids (lysine and arginine). These opposite charges drive the electrostatic attraction that wraps ~147 bp of DNA around the histone octamer to form the nucleosome. This packaging compacts DNA ~7-fold at the nucleosome level and ~10,000-fold overall in a metaphase chromosome.</p>
+      <p>Histone acetylation (by HATs) neutralises the positive charge, reducing DNA binding affinity and facilitating transcription — a critical concept in gene regulation.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <p class="q-text">A mutation changes the codon UAC (tyrosine) to UAA. What type of mutation is this, and what is its effect on the polypeptide?</p>
+  </div>
+  <ul class="options">
+    <li>A) Missense mutation; tyrosine is replaced by a different amino acid</li>
+    <li>B) Silent mutation; protein sequence is unchanged</li>
+    <li class="correct">C) Nonsense mutation; a premature stop codon is introduced, truncating the polypeptide</li>
+    <li>D) Frameshift mutation; all downstream codons are shifted by one base</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Nonsense mutation; premature stop codon</strong></p>
+      <p>UAA is one of the three stop codons (UAA, UAG, UGA — the "ochre," "amber," and "opal" stops). A single nucleotide change converting an amino acid codon to a stop codon is a nonsense mutation. The ribosome stalls and releases the incomplete (truncated) polypeptide, which is usually non-functional and rapidly degraded. The severity depends on how early in the sequence the stop occurs.</p>
+      <p>Missense: amino acid codon → different amino acid codon. Silent (synonymous): codon change with no amino acid change. Frameshift: insertion/deletion of non-multiple-of-3 nucleotides shifts the reading frame.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <p class="q-text">Which of the following is a key difference between transcription in prokaryotes versus eukaryotes?</p>
+  </div>
+  <ul class="options">
+    <li>A) Prokaryotes use three types of RNA polymerase; eukaryotes use only one</li>
+    <li class="correct">B) Prokaryotes can begin translation before transcription is complete (coupled transcription-translation); eukaryotes cannot because transcription occurs in the nucleus and translation in the cytoplasm</li>
+    <li>C) Eukaryotic mRNA is polycistronic; prokaryotic mRNA is monocistronic</li>
+    <li>D) Only prokaryotes add a poly-A tail to their mRNA</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Prokaryotes undergo coupled transcription-translation; eukaryotes cannot</strong></p>
+      <p>In prokaryotes (no nucleus), ribosomes can begin translating the 5′ end of an mRNA while RNA polymerase is still synthesising the 3′ end — this is called coupled transcription-translation (or "co-transcriptional translation"). In eukaryotes, transcription occurs in the nucleus and the mRNA must be processed (capped, spliced, polyadenylated) and exported through the nuclear pore before cytoplasmic ribosomes can access it.</p>
+      <p>Prokaryotes use one main RNA polymerase (with different sigma factors). Prokaryotic mRNA is often polycistronic; eukaryotic mRNA is typically monocistronic. Only eukaryotes add a poly-A tail (though some archaea do).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <p class="q-text">DNA methylation at CpG islands in promoter regions is generally associated with which outcome?</p>
+  </div>
+  <ul class="options">
+    <li>A) Increased transcription due to enhanced RNA polymerase binding</li>
+    <li>B) Structural destabilisation of the double helix</li>
+    <li class="correct">C) Gene silencing via recruitment of methyl-CpG binding proteins and histone deacetylases, leading to chromatin compaction</li>
+    <li>D) Alternative splicing of the downstream pre-mRNA</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Gene silencing via chromatin compaction</strong></p>
+      <p>CpG islands are GC-rich sequences near promoters. Methylation of cytosine (→ 5-methylcytosine) at CpGs by DNA methyltransferases is an epigenetic mark of transcriptional repression. Methyl-CpG binding domain (MBD) proteins recognise the methylated CpGs and recruit histone deacetylases (HDACs), which remove acetyl groups from histone tails. This restores positive charges, tightening DNA–histone interactions and compacting chromatin into a transcriptionally silent heterochromatin state. Key in X-chromosome inactivation, genomic imprinting, and cancer (silencing of tumour suppressors).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q16 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">16</div>
+    <p class="q-text">The polysome (polyribosome) is a structure observed in actively translated mRNAs. Which of the following best explains the advantage of polysome formation?</p>
+  </div>
+  <ul class="options">
+    <li>A) Multiple mRNAs are translated by a single ribosome, increasing efficiency</li>
+    <li class="correct">B) Multiple ribosomes simultaneously translate a single mRNA, increasing the rate of protein production per mRNA molecule</li>
+    <li>C) Polysome formation protects the mRNA from degradation by RNases in the cytoplasm</li>
+    <li>D) Polysomes allow ribosomes to re-use the same tRNA molecules without needing aminoacyl-tRNA synthetases</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B — Multiple ribosomes translate a single mRNA simultaneously</strong></p>
+      <p>A polysome (polyribosome) consists of a single mRNA threaded through multiple ribosomes at the same time, spaced ~80–300 nt apart. Each ribosome independently translates the mRNA from 5′ to 3′, so one mRNA can be producing many protein copies simultaneously. This dramatically amplifies protein output from a single transcript and is visible in electron micrographs as a string-of-beads pattern.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q17 -->
+<div class="question-card">
+  <div class="q-header">
+    <div class="q-num">17</div>
+    <p class="q-text">MicroRNAs (miRNAs) regulate gene expression post-transcriptionally. What is their primary mechanism of action?</p>
+  </div>
+  <ul class="options">
+    <li>A) They methylate CpG islands to silence gene promoters</li>
+    <li>B) They act as alternative sigma factors to redirect RNA polymerase</li>
+    <li class="correct">C) They base-pair with the 3′ UTR of target mRNAs, leading to translational repression or mRNA degradation via the RISC complex</li>
+    <li>D) They bind the 5′ cap to block ribosome scanning and initiation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C — Base-pair with 3′ UTR of target mRNAs via RISC</strong></p>
+      <p>miRNAs (~22 nt) are processed from longer precursors by Drosha (in the nucleus) and Dicer (in the cytoplasm). The mature miRNA strand is loaded into the RNA-induced silencing complex (RISC), which contains Argonaute (AGO) proteins. The miRNA guides RISC to complementary sequences in the 3′ UTR of target mRNAs. Imperfect complementarity (common in animals) causes translational repression and mRNA deadenylation/decay; perfect complementarity (common in plants) triggers endonucleolytic cleavage. Each miRNA can regulate hundreds of different mRNA targets, making miRNAs major regulators of development, differentiation, and disease.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Original questions for study purposes</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

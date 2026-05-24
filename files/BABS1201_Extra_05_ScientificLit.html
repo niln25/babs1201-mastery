@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Extra Practice — Scientific Literature</title>
+<style>
+  :root { --primary: #2c5f2e; --bg: #f8f9fa; --card: #fff; --border: #dee2e6; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #212529; line-height: 1.6; }
+  header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+  header h1 { font-size: 1.8rem; margin-bottom: .4rem; }
+  header p { opacity: .85; font-size: .95rem; }
+  .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.8rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+  .q-header { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+  .q-num { background: var(--primary); color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+  .badge-hard { background: #e67e22; color: white; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
+  .q-text { font-weight: 600; font-size: 1rem; flex: 1; }
+  .options { list-style: none; margin: .5rem 0 1rem; }
+  .options li { padding: .55rem .9rem; margin: .35rem 0; border-radius: 6px; border: 1px solid var(--border); font-size: .95rem; }
+  
+  
+  details { margin-top: .6rem; }
+  summary { cursor: pointer; font-weight: 700; color: var(--primary); font-size: .9rem; padding: .4rem 0; }
+  .solution { background: #f0f4f8; border-left: 3px solid var(--primary); padding: 1rem; border-radius: 0 6px 6px 0; margin-top: .5rem; font-size: .92rem; }
+  .solution p { margin-bottom: .5rem; }
+  .solution p:last-child { margin-bottom: 0; }
+  footer { text-align: center; padding: 2rem; color: #6c757d; font-size: .85rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+<header>
+  <h1>BABS1201 — Extra Practice</h1>
+  <p>Topic 5: Scientific Literature &nbsp;|&nbsp; Application-Based Questions &nbsp;|&nbsp; 11 Questions</p>
+</header>
+<div class="container">
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">1</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A study reports: "People who eat breakfast daily have a 30% lower risk of heart disease (OR = 0.70, 95% CI: 0.68–0.72, p &lt; 0.001)." A health journalist headlines this: "Eating breakfast PREVENTS heart disease." What is the most critical flaw in the journalist's interpretation?</p>
+  </div>
+  <ul class="options">
+    <li>A) The p-value is too small to be meaningful</li>
+    <li>B) The confidence interval is too narrow to be reliable</li>
+    <li class="correct">C) The study shows an association (correlation) not causation — breakfast eaters may differ from non-breakfast-eaters in many confounding ways (healthier lifestyle, higher socioeconomic status, regular exercise) that independently reduce heart disease risk</li>
+    <li>D) The odds ratio should be greater than 1 to show a protective effect</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — This is the classic correlation vs. causation fallacy. An observational study cannot establish that breakfast eating causes the reduction in heart disease. Confounders (variables associated with both the exposure and the outcome) are the central problem: people who eat breakfast regularly may also exercise more, smoke less, have better diet overall, or have higher socioeconomic status — all independently protective against heart disease. Only a properly randomised controlled trial (RCT) — where participants are randomly assigned to eat/skip breakfast — could control confounders and establish causation. The statistical results (OR, CI, p-value) are correctly interpreted for association, but the causal leap is unwarranted from observational data.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">2</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A researcher reports p = 0.049 in a study of 10,000 subjects. A second researcher reports p = 0.04 in a study of 50 subjects. Which result is more scientifically important, and why?</p>
+  </div>
+  <ul class="options">
+    <li>A) The first (n=10,000) because larger sample sizes are always more reliable</li>
+    <li>B) Both are equally important because both are statistically significant (p &lt; 0.05)</li>
+    <li class="correct">C) The second (n=50) provides stronger evidence for a real effect — with 10,000 subjects, even a trivially small, clinically meaningless difference will be statistically significant; effect size and clinical significance must be considered alongside p-values</li>
+    <li>D) Neither — a p-value of 0.049 is too close to the significance threshold to be meaningful</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — This tests understanding of statistical vs. practical significance. With 10,000 subjects, statistical power is enormous — even an effect size of 0.01% will yield p &lt; 0.05. The statistically significant result might be scientifically/clinically trivial. With only 50 subjects and still achieving p = 0.04, the effect must be substantially larger to reach significance — suggesting a more meaningful real-world effect. The critical question is always: what is the effect size (Cohen's d, relative risk, etc.) and is it clinically relevant? p-values alone say nothing about the magnitude or importance of an effect. "Statistical significance" ≠ "practical significance." This is why journals now require reporting of effect sizes and confidence intervals alongside p-values.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">3</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A clinical trial tests a new cancer drug. The trial is "double-blind, randomised, and placebo-controlled." Why is EACH of these three design elements essential?</p>
+  </div>
+  <ul class="options">
+    <li>A) Randomisation prevents placebo effects; blinding prevents bias; placebo control measures the natural rate of improvement</li>
+    <li class="correct">B) Randomisation eliminates selection bias (ensures comparable groups); blinding prevents performance/detection/reporting bias (both participants and assessors are unaware of allocation); placebo control distinguishes drug effect from the placebo response and natural disease progression</li>
+    <li>C) All three together are required only for cancer trials — observational studies of other diseases do not need controls</li>
+    <li>D) Randomisation is the least important; placebo control alone is sufficient to establish causation</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Each element serves a distinct purpose: (1) <strong>Randomisation:</strong> randomly assigning participants to treatment/control groups ensures both groups are similar in known AND unknown confounders at baseline — eliminating selection bias. (2) <strong>Double-blind:</strong> participants don't know their allocation (eliminating placebo response in reporting), AND assessors don't know (eliminating observer bias in measuring/recording outcomes). Single-blind would control only one. (3) <strong>Placebo control:</strong> the placebo group controls for: the act of being treated (placebo effect), natural history of the disease, and regression to the mean. Without a placebo, you cannot distinguish whether improvement was due to the drug or would have occurred anyway. Together these three features define the gold standard RCT design.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">4</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A graph shows enzyme velocity (y-axis) vs. substrate concentration (x-axis). The curve reaches a plateau at high [S]. A second curve with a competitive inhibitor shows the same plateau but the initial slope is shallower. What does this pattern tell you about competitive inhibitors?</p>
+  </div>
+  <ul class="options">
+    <li>A) Competitive inhibitors permanently inactivate the enzyme at all substrate concentrations</li>
+    <li>B) Competitive inhibitors reduce Vmax and increase Km equally</li>
+    <li class="correct">C) The same Vmax confirms competitive inhibitors are reversible and can be outcompeted at high [S]; the right-shifted curve (increased apparent Km, same Vmax) shows the inhibitor makes the enzyme appear to have lower affinity for substrate, but excess substrate displaces the inhibitor</li>
+    <li>D) Competitive inhibitors act at an allosteric site and only affect Km</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — The hallmark of competitive inhibition: Vmax unchanged, apparent Km increased. The same Vmax plateau means at sufficiently high [S], all enzyme active sites are occupied by substrate — the competitive inhibitor is completely displaced. This demonstrates reversibility and competition at the same active site. The right-shifted curve means more substrate is needed to achieve half-maximal velocity (apparent Km is higher) — the inhibitor reduces apparent substrate affinity. Lineweaver-Burk plots (double-reciprocal) show lines intersecting on the y-axis (same Vmax, 1/Vmax intercept) with different x-intercepts (different Km). Classic competitive inhibitor: methotrexate (DHFR), statins (HMG-CoA reductase).</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">5</div><span class="badge-hard">Hard</span>
+    <p class="q-text">Error bars on a graph represent ±1 standard deviation (SD). A student concludes: "The error bars of Groups A and B overlap, therefore there is no significant difference between them." Is this reasoning valid?</p>
+  </div>
+  <ul class="options">
+    <li>A) Yes — overlapping error bars always mean the groups are not significantly different</li>
+    <li class="correct">B) No — overlapping SD error bars do NOT indicate statistical significance; SD describes the spread of data around the mean, not the precision of the mean estimate; proper statistical testing (t-test) is needed; SEM error bars that barely overlap can still be significantly different, and widely overlapping SD bars may or may not be significant</li>
+    <li>C) Yes — SD bars that overlap by more than 50% guarantee p > 0.05</li>
+    <li>D) Yes — SD bars are equivalent to 95% confidence intervals for determining significance</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — This is a common misinterpretation. Standard deviation describes the distribution of individual data points around the mean — it reflects variability, not the certainty of the mean estimate. Two groups can have overlapping SD bars and still be statistically significantly different (depending on sample size, variance, and the magnitude of difference). To assess significance, you need either: (1) formal statistical testing (t-test, ANOVA); (2) confidence intervals (CIs) — if 95% CIs do NOT overlap, p < 0.05 is implied; however, if 95% CIs DO overlap, significance depends on the degree of overlap. SE (SEM) bars are more informative for comparing means — non-overlapping SE bars at the gap of approximately 1 SE suggest significance. SD ≠ SE = CI/1.96. This distinction is critical for critically appraising graphs in papers.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">6</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A research group cannot reproduce the results of a high-profile paper despite following the published methods exactly. Which of the following is the LEAST likely explanation for this failure?</p>
+  </div>
+  <ul class="options">
+    <li>A) The original study had undisclosed additional steps or reagent specifications not reported in the methods</li>
+    <li>B) The original result was a statistical anomaly (Type I error — a false positive) that passed p &lt; 0.05 by chance</li>
+    <li class="correct">C) The peer review process failed to detect the original error before publication</li>
+    <li>D) Subtle differences in cell line passages, reagent batches, or laboratory conditions affected outcomes</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — This is the least likely explanation because peer review failure is not really an explanation for non-reproducibility — it is a contributing factor to how false results get published, but it doesn't explain WHY the results fail to reproduce. The actual causes of non-reproducibility are: incomplete methods reporting (option A — "hidden knowledge" or tacit expertise), statistical errors/p-hacking/Type I errors (option B), and experimental variation (option D — different cell passages, reagent lots, antibody batches, humidity, contamination). The "replication crisis" in biology/psychology has demonstrated that as many as 50–60% of published findings in some fields fail to replicate. This motivates pre-registration, open data, and larger sample sizes.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">7</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A student designs an experiment to test whether a new fertiliser increases crop yield. They apply the fertiliser to a 10-hectare field and compare yield to a neighbouring farmer's unfertilised field. Identify the two most significant methodological problems.</p>
+  </div>
+  <ul class="options">
+    <li>A) Sample size is too small; the experiment needs a control group</li>
+    <li class="correct">B) Lack of randomisation (systematic differences between the two fields — soil type, drainage, sunlight — confound the comparison); lack of replication within a single experiment (n=1 field for each condition — no way to assess variability or significance)</li>
+    <li>C) The independent variable is not clearly defined; the dependent variable cannot be measured objectively</li>
+    <li>D) The experiment is unethical because it does not have informed consent from the crops</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Two critical flaws: (1) <strong>No randomisation/proper control</strong>: Comparing a treated field with a different farmer's untreated field is not a valid control. The two fields differ in countless ways (soil composition, microbiome, historical use, drainage, sunlight exposure, pest history, seed variety) — all potential confounders. A proper control would be subplots within the same field, randomly assigned to treatment or control. (2) <strong>No replication</strong>: n=1 per group means you have no estimate of variability. A single yield measurement per condition cannot be subjected to statistical testing. You need multiple independent replicates. The IV (fertiliser) and DV (crop yield) are actually clear (option C is wrong). Option A mentions control but misidentifies the main problem as sample size.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">8</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A meta-analysis combines the results of 20 individual studies of the same drug. The pooled result shows a significant benefit. However, 15 of the 20 individual studies were unpublished. This illustrates:</p>
+  </div>
+  <ul class="options">
+    <li>A) Confirmation bias — all 20 studies were designed to confirm the same hypothesis</li>
+    <li class="correct">B) Publication bias — studies showing no effect or negative results are less likely to be published ("file drawer problem"), so including only published studies overestimates the true effect size; the 15 unpublished studies likely showed no effect or harm</li>
+    <li>C) Selection bias — participants in the unpublished studies were systematically different</li>
+    <li>D) Measurement bias — the outcome measure was different in the unpublished studies</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Publication bias (also called "file drawer problem"): journals preferentially publish positive results (statistically significant, showing an effect). Studies finding no effect or adverse effects are less likely to be submitted or accepted. If only the 5 positive studies are published and 15 null/negative studies sit in researchers' file drawers, any meta-analysis based on published literature only will overestimate the benefit. A funnel plot asymmetry is used to detect publication bias — if small studies systematically show larger effects than large studies, bias is suspected. Alltrials.net and prospero.nihr.ac.uk try to address this by requiring pre-registration of trials, making it impossible to hide null results.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">9</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A study uses a positive control that shows NO response and a negative control that DOES show a response. How should the researcher interpret their experimental results?</p>
+  </div>
+  <ul class="options">
+    <li>A) Proceed normally — positive and negative controls are just formalities</li>
+    <li class="correct">B) The experiment is invalid and must be repeated — the controls indicate something went wrong with the experimental setup, reagents, or technique; results cannot be interpreted until controls behave as expected</li>
+    <li>C) Reverse the interpretation of all experimental results — the conditions are simply labelled incorrectly</li>
+    <li>D) Report the results as-is but note the control anomalies in the limitations section</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — Controls are the validation system for experiments. A positive control that fails to respond indicates the experimental conditions, reagents, or assay are not working — perhaps reagents are degraded, the assay protocol is incorrect, or the sample was handled improperly. A negative control that responds indicates contamination or non-specific background. When controls fail, ALL results from that experiment are uninterpretable — you cannot know whether your experimental results are genuine or also artefacts of whatever technical failure affected the controls. The experiment must be repeated with fresh reagents and corrected protocol. Reporting invalid experiments without repeating them (option D) is poor scientific practice and can mislead other researchers.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">10</div><span class="badge-hard">Hard</span>
+    <p class="q-text">A researcher finds that cells treated with Drug X show 40% more apoptosis than controls (p = 0.03, n = 3). They plan to submit this for publication. What is the most important limitation that should be addressed before publication?</p>
+  </div>
+  <ul class="options">
+    <li>A) The drug's chemical structure should be determined before publishing biological effects</li>
+    <li class="correct">B) n = 3 biological replicates is low — the result may be statistically significant but power is limited; independent replication, larger n, and potentially rescue experiments (showing reversal of the effect) would greatly strengthen the claim</li>
+    <li>C) Apoptosis should not be measured in cells — only in whole animals</li>
+    <li>D) A p-value of 0.03 is too high to demonstrate a meaningful effect</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: B</strong> — n=3 is the minimum commonly reported in cell biology but is considered underpowered by modern standards. With n=3, small deviations in any single replicate can swing the result. A p=0.03 with n=3 from a t-test has wide confidence intervals. Key improvements: (1) Increase n to ≥6 biological replicates; (2) Perform independent replication (different passage, different day); (3) Rescue experiment — add inhibitor of apoptosis and show it reverses the Drug X effect, confirming specificity; (4) Show dose-response relationship; (5) Test in multiple cell lines. p=0.03 is below the conventional threshold (option D is incorrect). Cell-based experiments are standard and valid as a starting point (option C is wrong). p=0.03 from underpowered studies is often not reproduced — a major contributor to the replication crisis.</p>
+    </div>
+  </details>
+</div>
+
+<div class="question-card">
+  <div class="q-header"><div class="q-num">11</div><span class="badge-hard">Hard</span>
+    <p class="q-text">In a research paper's abstract, the authors write: "Our results suggest that protein X is the master regulator of pathway Y." In the methods, n=2 for western blots and no statistical analysis is reported. What is your critical assessment?</p>
+  </div>
+  <ul class="options">
+    <li>A) The conclusion is valid — western blots are qualitative and don't require statistics</li>
+    <li>B) The conclusion is valid if the journal accepted the paper after peer review</li>
+    <li class="correct">C) The conclusion is overstated given the methods — n=2 provides almost no statistical power, the claim of "master regulator" requires much more rigorous evidence (knockouts, rescues, genetic interaction mapping), and publication after peer review does not guarantee correctness</li>
+    <li>D) The lack of statistical analysis is acceptable because western blots show clear bands</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details><summary>Worked Solution</summary>
+    <div class="solution">
+      <p><strong>Answer: C</strong> — Critical appraisal requires matching conclusion strength to evidence strength. "Master regulator" is a strong claim requiring: multiple lines of evidence (genetic knockouts, overexpression, rescue, epistasis analysis, interaction screens). n=2 is insufficient for any statistical testing — you cannot know if results are reproducible. Peer review does not guarantee correctness — it is a screening process with known limitations (reviewers are unpaid, overloaded, and cannot replicate experiments; high-profile retractions are common). Visual "clearness" of bands does not replace quantification and statistical analysis. Quantitative western blots (densitometry) with appropriate loading controls, n ≥ 3, and statistical analysis are the minimum standard. This question exemplifies critical appraisal skills essential for reading primary scientific literature.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>BABS1201 Mastery Pack — UNSW 2026 &nbsp;|&nbsp; Extra Practice — Application Level</footer>
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>

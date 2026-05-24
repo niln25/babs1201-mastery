@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  try {
+    var a = JSON.parse(localStorage.getItem('babs1201_auth') || '{}');
+    if (!a.ok) { window.location.replace('../login.html'); }
+  } catch(e) { window.location.replace('../login.html'); }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABS1201 Question Bank — Topic 04: Cell Integrity</title>
+<style>
+  :root { --primary: #1a3a5c; --insta: #e74c3c; --bg: #f8f9fa; --card: #ffffff; --border: #dee2e6; --text: #212529; --muted: #6c757d; --correct-bg: #d4edda; --correct-border: #28a745; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .page-header { background: var(--primary); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 700; }
+  .page-header p { opacity: 0.85; margin-top: 0.4rem; font-size: 0.95rem; }
+  .question-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .question-number { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+  .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.2rem; }
+  .options { list-style: none; margin-bottom: 1rem; }
+  .options li { padding: 0.6rem 0.8rem; border-radius: 6px; margin-bottom: 0.4rem; border: 1px solid var(--border); font-size: 0.95rem; }
+  
+  
+  details { margin-top: 1rem; }
+  details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 0.9rem; padding: 0.5rem 0.8rem; background: #f0f4f8; border-radius: 6px; user-select: none; }
+  details summary:hover { background: #e2ebf4; }
+  .solution-body { background: #f0f4f8; border-left: 4px solid var(--primary); padding: 1rem 1rem 1rem 1.2rem; border-radius: 0 6px 6px 6px; font-size: 0.92rem; margin-top: 2px; }
+  .solution-body p { margin-bottom: 0.5rem; }
+  .solution-body p:last-child { margin-bottom: 0; }
+  h2.section-title { font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+  .show-answer-btn {
+    display: inline-block;
+    margin: .2rem 0 .8rem 0;
+    padding: .45rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .show-answer-btn:hover { opacity: .85; }
+  .options li.correct { }
+  .question-card.revealed .options li.correct { background: var(--correct-bg); border-color: var(--correct-border); font-weight: 600; }
+  .question-card.revealed .options li.correct::after { content: ' \2713'; color: var(--correct-border); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>BABS1201 — Question Bank</h1>
+  <p>Topic 04: Cell Integrity &nbsp;|&nbsp; Plasma Membrane · Osmosis · Tonicity · Cell Junctions · Cell Wall</p>
+</div>
+
+<h2 class="section-title">Questions</h2>
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="question-number">Question 1</div>
+  <div class="question-text">Osmosis is best defined as:</div>
+  <ul class="options">
+    <li>A. The movement of solute molecules from a region of high concentration to a region of low concentration</li>
+    <li>B. The active transport of water across a membrane using ATP</li>
+    <li class="correct">C. The net movement of water molecules across a selectively permeable membrane from a region of lower solute concentration (higher water potential) to a region of higher solute concentration (lower water potential)</li>
+    <li>D. The movement of any molecule down its concentration gradient across any biological membrane</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Osmosis is the passive movement of WATER across a selectively permeable membrane. Water moves from where solute concentration is lower (higher water concentration/water potential) to where solute concentration is higher (lower water potential). No energy (ATP) is required — it is driven by the water concentration gradient. The membrane is semipermeable: it allows water through but not (or at a much lower rate) the solute. Aquaporin channels (membrane proteins) facilitate rapid water movement in cells where fast osmosis is needed (e.g., kidney tubules).</p>
+      <p><strong>Why A is wrong:</strong> This describes diffusion of solute, not osmosis of water.</p>
+      <p><strong>Why B is wrong:</strong> Osmosis is passive — no ATP required. (Aquaporins facilitate it but don't use ATP.)</p>
+      <p><strong>Why D is wrong:</strong> Osmosis specifically refers to water movement across a semipermeable membrane. "Any molecule" down its gradient is simple diffusion.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="question-number">Question 2</div>
+  <div class="question-text">A red blood cell is placed in a hypotonic solution. What will happen?</div>
+  <ul class="options">
+    <li>A. The cell will shrink (crenate) as water leaves by osmosis</li>
+    <li>B. There will be no net movement of water; the cell size remains unchanged</li>
+    <li class="correct">C. Water will enter the cell by osmosis, causing the cell to swell and potentially lyse (burst)</li>
+    <li>D. Solute will enter the cell until equilibrium is reached, causing the cell to shrink</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>A hypotonic solution has a lower solute concentration (higher water potential) than the cell's cytoplasm. Water therefore moves into the cell by osmosis (down its water potential gradient). Red blood cells lack a cell wall, so they cannot resist this influx — they swell and can lyse (haemolysis). This is why intravenous fluids must be isotonic (0.9% NaCl or 5% glucose) to prevent red blood cell damage.</p>
+      <p><strong>Why A is wrong:</strong> Crenation (cell shrinkage) occurs in hyPERtonic solutions (higher solute outside → water leaves).</p>
+      <p><strong>Why B is wrong:</strong> No net movement occurs in an ISOtonic solution, where solute concentration is equal inside and outside the cell.</p>
+      <p><strong>Why D is wrong:</strong> The membrane is selectively permeable — solute does not freely move across the membrane in the same way water does. Movement of solute would require specific transport proteins.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="question-number">Question 3</div>
+  <div class="question-text">A plant cell is placed in a hypertonic solution. What is the expected outcome?</div>
+  <ul class="options">
+    <li>A. The cell swells and the cell wall breaks apart</li>
+    <li>B. The cell takes in water and becomes turgid, creating turgor pressure against the cell wall</li>
+    <li class="correct">C. Water leaves the cell by osmosis; the cell membrane pulls away from the cell wall — a process called plasmolysis</li>
+    <li>D. Solute molecules enter the cell, equalising concentration across the membrane</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>In a hypertonic solution, solute concentration outside the cell exceeds that inside, so water leaves the cell by osmosis. In a plant cell: the central vacuole shrinks → the cytoplasm contracts → the plasma membrane pulls away from the rigid cellulose cell wall → plasmolysis. If plasmolysis is severe, the cell dies (it cannot recover normal osmotic balance without being returned to a less hypertonic environment). This is why salting plants kills them (osmotic stress → plasmolysis). Turgid plant cells have the plasma membrane pressed against the cell wall, creating turgor pressure — this is the normal healthy state in a hypotonic or isotonic environment.</p>
+      <p><strong>Why A is wrong:</strong> Cell wall breakage occurs if a plant cell takes in too much water (in hypotonic conditions) — but the cell wall is strong enough to resist this in most cases (it generates wall pressure that counteracts osmotic pressure). Hypertonic solution causes water LOSS, not gain.</p>
+      <p><strong>Why B is wrong:</strong> Turgidity (water intake, turgor pressure) occurs in hypotonic solutions, not hypertonic ones.</p>
+      <p><strong>Why D is wrong:</strong> The membrane is selectively permeable — solute does not freely enter. Osmosis refers specifically to water movement.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="question-number">Question 4</div>
+  <div class="question-text">Cholesterol in animal cell membranes serves which function?</div>
+  <ul class="options">
+    <li>A. It replaces phospholipids as the main bilayer-forming molecule</li>
+    <li>B. It actively pumps ions across the membrane using hydrolysis of ATP</li>
+    <li class="correct">C. It inserts between phospholipids and acts as a fluidity buffer — preventing membranes from being too rigid at low temperatures and too fluid at high temperatures</li>
+    <li>D. It forms the glycocalyx on the cell surface for cell-to-cell recognition</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Cholesterol is a sterol lipid that intercalates between phospholipids in the bilayer (its hydroxyl group associates with the hydrophilic head group region; its hydrophobic ring structure and hydrocarbon tail associate with the fatty acid tails). Its effect on fluidity: (1) At LOW temperatures — cholesterol prevents tight packing of saturated fatty acids, preventing membrane gelling/solidification. (2) At HIGH temperatures — cholesterol restricts lateral movement of phospholipids, preventing the membrane from becoming too fluid. This "bidirectional buffering" is why animals with only one body temperature (homeotherms) have a consistent cholesterol content in membranes.</p>
+      <p><strong>Why A is wrong:</strong> Phospholipids are the primary bilayer-forming molecules; cholesterol is a modifier.</p>
+      <p><strong>Why B is wrong:</strong> Cholesterol is not an enzyme or pump — it cannot hydrolyse ATP. Ion pumps are proteins (e.g., Na⁺/K⁺-ATPase).</p>
+      <p><strong>Why D is wrong:</strong> The glycocalyx is formed by carbohydrate chains attached to membrane proteins (glycoproteins) and lipids (glycolipids) — not by cholesterol.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="question-number">Question 5</div>
+  <div class="question-text">Integral membrane proteins differ from peripheral membrane proteins in that integral proteins:</div>
+  <ul class="options">
+    <li>A. Are only found on the extracellular face of the membrane</li>
+    <li class="correct">B. Are embedded within the lipid bilayer (often spanning the entire membrane as transmembrane proteins) and cannot be removed without disrupting the bilayer (require detergent for extraction)</li>
+    <li>C. Are attached to the surface of the membrane via non-covalent interactions and can be removed by changing salt concentration or pH</li>
+    <li>D. Function exclusively as structural proteins and do not participate in signal transduction</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p><strong>Integral (intrinsic) membrane proteins</strong> are embedded within the hydrophobic core of the bilayer. Many are transmembrane proteins with one or more hydrophobic α-helical segments that span the membrane. They can only be extracted by detergents (which disrupt the lipid bilayer). Functions: channels, transporters, receptors, enzymes. Examples: Na⁺/K⁺-ATPase, glucose transporter (GLUT), G-protein coupled receptors.</p>
+      <p><strong>Peripheral (extrinsic) membrane proteins</strong> are attached to the surface of the bilayer (inner or outer leaflet) through non-covalent interactions with integral proteins or with lipid head groups. They can be removed by gentle treatments (high salt, extreme pH, chelating agents) without disrupting the bilayer. Examples: spectrin (inner surface of red blood cell membrane), cytochrome c (mitochondrial outer membrane surface).</p>
+      <p><strong>Why A is wrong:</strong> Integral proteins can be on either face or span both faces of the membrane. Many integral proteins are on the cytoplasmic face.</p>
+      <p><strong>Why C is wrong:</strong> This describes peripheral membrane proteins, not integral ones.</p>
+      <p><strong>Why D is wrong:</strong> Many integral membrane proteins are key signal transduction components (receptor tyrosine kinases, GPCRs, ion channels).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q6 -->
+<div class="question-card">
+  <div class="question-number">Question 6</div>
+  <div class="question-text">Which of the following correctly describes turgor pressure in plant cells?</div>
+  <ul class="options">
+    <li>A. Turgor pressure is the osmotic pressure that drives water out of turgid cells</li>
+    <li>B. Turgor pressure is generated when a plant cell is in a hypertonic environment and the cell wall contracts</li>
+    <li class="correct">C. Turgor pressure is the pressure exerted by the cell contents against the cell wall when a plant cell absorbs water in a hypotonic environment — it provides rigidity to plant tissues</li>
+    <li>D. Turgor pressure is only found in root hair cells and is responsible for water uptake from the soil</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>When a plant cell is in a hypotonic environment, water enters by osmosis → the central vacuole expands → the protoplast presses against the rigid cellulose cell wall → the cell wall generates an inward wall pressure (turgor pressure) that opposes further water influx. At equilibrium, osmotic pressure = turgor pressure. Turgor pressure: (1) gives plants structural rigidity (non-woody plants wilt when they lose turgor); (2) drives cell expansion during growth; (3) powers stomatal opening (guard cells swell and bow apart when turgid); (4) drives phloem loading and movement of solutes in the phloem.</p>
+      <p><strong>Why A is wrong:</strong> Turgor pressure is not osmotic pressure. Osmotic pressure drives water INTO the cell; turgor pressure is the physical pressure that builds up as the cell wall resists expansion.</p>
+      <p><strong>Why B is wrong:</strong> Hypertonic environments cause water to LEAVE, producing plasmolysis (loss of turgor), not turgor pressure.</p>
+      <p><strong>Why D is wrong:</strong> Turgor pressure exists in virtually all living plant cells, not just root hair cells.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q7 -->
+<div class="question-card">
+  <div class="question-number">Question 7</div>
+  <div class="question-text">Gap junctions in animal cells serve which of the following functions?</div>
+  <ul class="options">
+    <li>A. They seal adjacent cells together, preventing the passage of molecules between cells through the extracellular space</li>
+    <li>B. They anchor adjacent cells together via cytoskeletal connections but do not allow molecular communication</li>
+    <li class="correct">C. They form channels (connexons) that directly connect the cytoplasm of adjacent cells, allowing direct passage of small molecules, ions, and electrical signals between cells</li>
+    <li>D. They are found in plant cells and form cytoplasmic connections through cell wall pores</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Gap junctions (in animal cells) are formed by connexin proteins that oligomerise into hexameric channels called connexons (hemichannels). Two connexons from adjacent cells align to form a continuous channel (~1.5 nm pore diameter) linking the cytoplasm of both cells. This allows direct passage of: ions (electrical coupling — important in cardiac muscle synchrony, nerve gap junctions), small molecules (<1 kDa: cAMP, IP₃, glucose, amino acids). Gap junctions allow coordinated electrical and metabolic responses across tissues without going through the extracellular space.</p>
+      <p><strong>Why A is wrong:</strong> This describes tight junctions (zonula occludens), which seal the paracellular space between epithelial cells to prevent molecules from leaking between cells.</p>
+      <p><strong>Why B is wrong:</strong> This describes desmosomes (maculae adherentes) — button-like junctions that mechanically link adjacent cells via intermediate filaments (desmin, keratin), but do not form channels for molecular communication.</p>
+      <p><strong>Why D is wrong:</strong> Plasmodesmata are the plant equivalent of gap junctions — cytoplasmic channels through plant cell walls (not the same structure as animal gap junctions).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q8 -->
+<div class="question-card">
+  <div class="question-number">Question 8</div>
+  <div class="question-text">Which of the following correctly describes what happens to a cell in an isotonic solution?</div>
+  <ul class="options">
+    <li>A. The cell swells because water enters by osmosis</li>
+    <li>B. The cell shrinks because water leaves by osmosis</li>
+    <li class="correct">C. There is no net movement of water; osmotic water flux in = osmotic water flux out, so cell volume is maintained</li>
+    <li>D. Ions freely enter the cell because there is no concentration gradient to drive osmosis</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>An isotonic solution has the same solute concentration (osmolarity) as the cell's cytoplasm. Therefore, the water potential is equal on both sides of the membrane — no net osmotic driving force exists. Water molecules still cross the membrane in both directions, but the rate in = rate out, so there is no net volume change. For red blood cells: isotonic = 0.9% NaCl (~300 mOsm/L). For plant cells: isotonic = incipient plasmolysis (turgor pressure = 0, the plasma membrane just touches the cell wall without pressing against it).</p>
+      <p><strong>Why A is wrong:</strong> Swelling occurs in hypotonic solutions.</p>
+      <p><strong>Why B is wrong:</strong> Shrinkage/crenation occurs in hypertonic solutions.</p>
+      <p><strong>Why D is wrong:</strong> An isotonic solution refers to solute (not ion) equilibrium — ions cannot freely enter as the membrane is selectively permeable, and ion gradients still exist even in isotonic solutions.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q9 -->
+<div class="question-card">
+  <div class="question-number">Question 9</div>
+  <div class="question-text">The extracellular matrix (ECM) of animal cells primarily consists of which components?</div>
+  <ul class="options">
+    <li>A. Phospholipids and sterols forming a gel-like layer outside the plasma membrane</li>
+    <li class="correct">B. Proteoglycans (protein + glycosaminoglycan chains), collagen fibres, and glycoproteins such as fibronectin and laminin</li>
+    <li>C. Cellulose microfibrils cross-linked by hemicelluloses and pectins</li>
+    <li>D. Chitin and β-glucan polymers secreted by animal cells</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The animal ECM is a complex network secreted by cells. Key components: (1) <strong>Collagen</strong> — most abundant ECM protein; forms triple helices that provide tensile strength (tendons, bone matrix, skin). (2) <strong>Proteoglycans</strong> — core protein + glycosaminoglycan (GAG) chains (heparan sulfate, chondroitin sulfate); highly hydrated, providing compressive resistance (cartilage). (3) <strong>Glycoproteins</strong> — fibronectin (connects cells to ECM via integrin receptors), laminin (basement membrane). ECM-cell communication through integrins (transmembrane proteins linking ECM to cytoskeleton) influences cell migration, differentiation, and survival.</p>
+      <p><strong>Why A is wrong:</strong> Phospholipids and sterols form the cell membrane, not an ECM layer.</p>
+      <p><strong>Why C is wrong:</strong> Cellulose + hemicellulose + pectin describes the plant cell wall — not animal ECM.</p>
+      <p><strong>Why D is wrong:</strong> Chitin is found in fungal cell walls and arthropod exoskeletons — not in animal ECM.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q10 -->
+<div class="question-card">
+  <div class="question-number">Question 10</div>
+  <div class="question-text">Why can small non-polar molecules such as O₂, CO₂, and steroid hormones cross biological membranes freely, while large polar molecules and ions cannot?</div>
+  <ul class="options">
+    <li>A. Non-polar molecules are repelled by the hydrophilic head groups and therefore move around the membrane, not through it</li>
+    <li class="correct">B. Non-polar molecules are soluble in the hydrophobic lipid core of the bilayer and can dissolve through it; polar molecules and ions are excluded from the hydrophobic core and require protein channels or transporters</li>
+    <li>C. Large polar molecules can cross membranes freely, but only if there is a concentration gradient</li>
+    <li>D. O₂ and CO₂ are actively transported by special membrane proteins using ATP</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The hydrophobic core of the phospholipid bilayer (~3–4 nm thick) acts as an extremely effective barrier to polar and charged molecules. The key principle: "like dissolves like." Non-polar molecules (O₂, CO₂, N₂, steroid hormones, ethanol, anaesthetics) readily partition into the hydrophobic lipid environment and diffuse through. Polar molecules (glucose, amino acids, ATP), ions (Na⁺, K⁺, Cl⁻, H⁺), and charged molecules cannot pass through the hydrophobic core — their transfer would be enormously energetically costly (removing their hydration shell). These require: channels (ion channels), carriers (glucose transporter GLUT), or pumps (Na⁺/K⁺-ATPase).</p>
+      <p><strong>Why A is wrong:</strong> Non-polar molecules are not "repelled" by head groups — they simply dissolve directly into the hydrocarbon tails region and diffuse across.</p>
+      <p><strong>Why C is wrong:</strong> Large polar molecules (glucose, amino acids) cannot freely cross even down a gradient — they need protein transporters.</p>
+      <p><strong>Why D is wrong:</strong> O₂ and CO₂ diffuse passively across membranes (though aquaporins can also facilitate CO₂ transport). No ATP is required.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q11 -->
+<div class="question-card">
+  <div class="question-number">Question 11</div>
+  <div class="question-text">Which of the following provides the BEST explanation for why the plasma membrane is described as "selectively permeable"?</div>
+  <ul class="options">
+    <li>A. The membrane uses ATP to select which molecules are allowed to enter or exit</li>
+    <li>B. Only molecules smaller than 0.5 nm can pass through the lipid bilayer</li>
+    <li class="correct">C. The physical and chemical properties of the lipid bilayer and its embedded proteins determine which substances can cross the membrane — some by simple diffusion, others requiring specific transport proteins</li>
+    <li>D. The cell actively destroys unwanted molecules approaching the membrane surface</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>"Selectively permeable" means the membrane allows some substances to pass more readily than others. This selectivity arises from two mechanisms: (1) <strong>Physical properties of the lipid bilayer</strong> — hydrophobic core allows passage of non-polar, small lipid-soluble molecules; excludes charged and large polar molecules. (2) <strong>Membrane transport proteins</strong> — integral proteins that provide regulated pathways: ion channels (selective for specific ions, can be gated by voltage/ligand), carrier proteins (e.g., GLUT1 for glucose, by facilitated diffusion), and pumps (active transport). The combination creates a membrane that is permeable to some substances (non-polar, small) and impermeable to others (ions, large polar) unless specific proteins are present.</p>
+      <p><strong>Why A is wrong:</strong> Simple diffusion of O₂, CO₂, etc., requires no ATP. Selective permeability is not purely an active process.</p>
+      <p><strong>Why B is wrong:</strong> Size alone does not determine permeability. H₂O (small, 0.28 nm) crosses slowly by simple diffusion but rapidly via aquaporins; ions (e.g., Na⁺, 0.19 nm) cannot cross the lipid bilayer despite being small, due to charge.</p>
+      <p><strong>Why D is wrong:</strong> Cells do not "destroy" molecules approaching the membrane. Selectivity is a physical and chemical property.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q12 -->
+<div class="question-card">
+  <div class="question-number">Question 12</div>
+  <div class="question-text">Tight junctions (zonula occludens) in epithelial cells are important for:</div>
+  <ul class="options">
+    <li>A. Allowing direct cytoplasmic communication between adjacent cells</li>
+    <li>B. Mechanically linking adjacent cells via cytoskeletal connections</li>
+    <li class="correct">C. Sealing the paracellular space between adjacent epithelial cells, forcing all molecules to pass through cells (transcellularly) rather than between them — essential for regulated transport across epithelial barriers</li>
+    <li>D. Connecting epithelial cells to the underlying extracellular matrix</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Tight junctions are formed by transmembrane proteins (claudins, occludins, JAM) that form a seal between adjacent epithelial cells near their apical surfaces. By sealing the paracellular space, tight junctions: (1) Force selective transcellular transport (molecules must enter one side of the epithelial cell and be transported out the other side), enabling regulated absorption and secretion. (2) Maintain cell polarity (apical vs. basolateral faces can have different protein compositions). (3) Examples: blood-brain barrier (astrocyte tight junctions prevent most blood-borne molecules from entering the brain), intestinal epithelium, kidney tubules.</p>
+      <p><strong>Why A is wrong:</strong> Direct cytoplasmic communication describes gap junctions.</p>
+      <p><strong>Why B is wrong:</strong> Mechanical linking via cytoskeletal connections describes desmosomes and adherens junctions.</p>
+      <p><strong>Why D is wrong:</strong> Connection of cells to the ECM describes hemidesmosomes and focal adhesions (on the basal surface of epithelial cells).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q13 -->
+<div class="question-card">
+  <div class="question-number">Question 13</div>
+  <div class="question-text">In a standard osmosis experiment, a potato cylinder is submerged in concentrated sucrose solution. After 30 minutes, the potato cylinder becomes flaccid (soft and bendable). What does this indicate?</div>
+  <ul class="options">
+    <li>A. Sucrose entered the potato cells, increasing their solute concentration and causing them to swell</li>
+    <li class="correct">B. Water moved out of the potato cells by osmosis into the hypertonic sucrose solution, causing plasmolysis and loss of turgor pressure — making the tissue flaccid</li>
+    <li>C. Sucrose broke down the cell walls of the potato, releasing their structural integrity</li>
+    <li>D. Oxygen diffused out of the potato cells into the sucrose solution, causing the cells to collapse</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>Potato cells are normally turgid (filled with water, pressing against cell walls). When placed in concentrated (hypertonic) sucrose solution: sucrose concentration outside > cytoplasm → water potential outside < water potential inside → water exits potato cells by osmosis. Cells lose turgor pressure → cell contents pull away from cell wall (plasmolysis) → tissue becomes flaccid. Quantitative osmosis experiments use different concentrations of sucrose and measure mass change: cells gain mass in hypotonic solutions (water in), lose mass in hypertonic solutions (water out), no mass change at the isotonic point.</p>
+      <p><strong>Why A is wrong:</strong> Sucrose molecules are large polar molecules that cannot freely cross the plasma membrane. They do not enter potato cells by diffusion.</p>
+      <p><strong>Why C is wrong:</strong> Sucrose does not break down cellulose cell walls. Cell walls are degraded by cellulases (enzymes), not sugars.</p>
+      <p><strong>Why D is wrong:</strong> Oxygen diffusion has no effect on cell volume or turgor. Cell volume changes are driven by water movement (osmosis), not gas exchange.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q14 -->
+<div class="question-card">
+  <div class="question-number">Question 14</div>
+  <div class="question-text">Which of the following is an example of membrane asymmetry in the plasma membrane?</div>
+  <ul class="options">
+    <li>A. Equal numbers of phospholipids in both leaflets of the bilayer</li>
+    <li class="correct">B. Phosphatidylserine (negatively charged) is concentrated in the inner (cytoplasmic) leaflet; glycolipids and glycoproteins are found exclusively on the outer (extracellular) leaflet</li>
+    <li>C. Proteins are distributed equally across both faces of the membrane</li>
+    <li>D. Both leaflets contain equal amounts of cholesterol, creating symmetrical fluidity</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: B</strong></p>
+      <p>The two leaflets of the plasma membrane are asymmetric in lipid and protein composition: <strong>Outer (extracellular) leaflet:</strong> phosphatidylcholine (PC), sphingomyelin, glycolipids, glycoproteins (the "glycocalyx"). <strong>Inner (cytoplasmic) leaflet:</strong> phosphatidylserine (PS) — negatively charged, important for cell signalling and apoptosis recognition; phosphatidylinositol (PI) — substrate for second messengers (IP₃, PIP₂, PIP₃); phosphatidylethanolamine (PE). This asymmetry is established and maintained by flippases (P4-ATPases), floppases, and scramblases. During apoptosis, PS is "flipped" to the outer leaflet — a signal for phagocytes to engulf the dying cell.</p>
+      <p><strong>Why A, C, D are wrong:</strong> All three options describe symmetry — exactly the opposite of what is true. Membrane asymmetry is a fundamental, actively maintained feature of all biological membranes.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Q15 -->
+<div class="question-card">
+  <div class="question-number">Question 15</div>
+  <div class="question-text">Which type of cell junction would be most important in tissues that experience mechanical stress, such as cardiac muscle or skin epidermis?</div>
+  <ul class="options">
+    <li>A. Gap junctions — they allow electrical coupling between cells under stress</li>
+    <li>B. Tight junctions — they seal cells together to prevent damage from fluid flow</li>
+    <li class="correct">C. Desmosomes — they mechanically link adjacent cells via intermediate filaments (keratin or desmin), distributing mechanical force across the tissue</li>
+    <li>D. Plasmodesmata — they connect cells directly to allow rapid ionic communication during contraction</li>
+  </ul>
+      <button class="show-answer-btn">Show Answer</button>
+  <details>
+    <summary>Show Worked Solution</summary>
+    <div class="solution-body">
+      <p><strong>Correct Answer: C</strong></p>
+      <p>Desmosomes are rivet-like junctions that use cadherins (desmoglein, desmocollin — calcium-dependent adhesion proteins) to link adjacent cells. On the cytoplasmic side, they anchor to intermediate filaments (keratin in epithelial cells; desmin in cardiac muscle) via desmoplakin and other plaque proteins. This creates a continuous cytoskeletal network across the tissue that distributes tensile and shear stress. Loss of desmosome function: (1) Pemphigus vulgaris — autoantibodies against desmoglein cause skin blistering. (2) Arrhythmogenic right ventricular cardiomyopathy (ARVC) — mutations in desmosome proteins cause cardiac dysfunction.</p>
+      <p><strong>Why A is wrong:</strong> Gap junctions provide electrical/chemical communication but minimal mechanical strength.</p>
+      <p><strong>Why B is wrong:</strong> Tight junctions seal paracellular spaces (important in epithelial barriers) but do not provide the strong mechanical coupling needed in high-stress tissues.</p>
+      <p><strong>Why D is wrong:</strong> Plasmodesmata are PLANT structures (cytoplasmic channels through plant cell walls). Cardiac muscle cells communicate via gap junctions (intercalated discs).</p>
+    </div>
+  </details>
+</div>
+
+<script>
+document.querySelectorAll('.show-answer-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = this.closest('.question-card');
+    card.classList.toggle('revealed');
+    this.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+  });
+});
+</script>
+</body>
+</html>
