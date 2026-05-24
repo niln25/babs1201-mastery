@@ -157,6 +157,7 @@
 
   .icon-qb    { background: #e8f4ea; }
   .icon-extra { background: #fff3e0; }
+  .icon-anki  { background: #ede9ff; }
 
   .section-header-text h3 {
     font-size: 0.95rem;
@@ -239,6 +240,92 @@
     flex-shrink: 0;
   }
 
+  /* ── Anki download ── */
+  .anki-section {
+    margin-top: 24px;
+  }
+
+  .anki-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #e8e4dc;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    gap: 20px;
+  }
+
+  .anki-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .anki-text h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+
+  .anki-text p {
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .anki-meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .anki-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #ede9ff;
+    color: #5b21b6;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    background: #1a1a1a;
+    color: #f8f6f1;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+
+  .btn-download:hover { background: #2c5f2e; }
+
+  .btn-download svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 560px) {
+    .anki-card { flex-direction: column; align-items: flex-start; }
+    .btn-download { width: 100%; justify-content: center; }
+  }
+
   /* ── Footer ── */
   .footer {
     text-align: center;
@@ -272,16 +359,42 @@
 
 <div class="hero">
   <h2>Your Question Bank</h2>
-  <p>All 34 files unlocked · 17 Topic Question Banks · 17 Extra Practice Sets</p>
+  <p>All 34 files unlocked · 17 Topic Question Banks · 17 Extra Practice Sets · Anki Deck</p>
   <div class="hero-pills">
     <span class="pill">📝 17 × Question Banks</span>
     <span class="pill">🔥 17 × Extra Practice</span>
     <span class="pill">✅ Worked Solutions</span>
+    <span class="pill">🃏 Anki Deck</span>
     <span class="pill">94% HD Notes</span>
   </div>
 </div>
 
 <div class="main">
+
+  <!-- ── Anki Download ── -->
+  <div class="anki-section">
+    <div class="anki-card">
+      <div class="anki-left">
+        <div class="section-header-icon icon-anki" style="width:40px;height:40px;border-radius:10px;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">🃏</div>
+        <div class="anki-text">
+          <h3>Anki Flashcard Deck</h3>
+          <p>Every key concept from Weeks 1–10, ready to import into Anki.</p>
+          <div class="anki-meta">
+            <span class="anki-pill">CSV · Import-ready</span>
+            <span class="anki-pill">Weeks 1–10</span>
+            <span class="anki-pill">Both sides written</span>
+          </div>
+        </div>
+      </div>
+      <a href="files/BABS1201_Anki.csv" download="BABS1201_Anki.csv" class="btn-download" id="ankiDownloadBtn">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12l-4.5-4.5 1.06-1.06L7 9.88V2h2v7.88l2.44-3.44 1.06 1.06L8 12zM2 14h12v-2H2v2z"/>
+        </svg>
+        Download Deck
+      </a>
+    </div>
+  </div>
+
   <div class="section-row">
 
     <!-- ── Question Bank ── -->
@@ -447,6 +560,7 @@
     </div>
 
   </div><!-- /section-row -->
+
 </div><!-- /main -->
 
 <div class="footer">
@@ -468,6 +582,16 @@
     localStorage.removeItem('babs1201_auth');
     window.location.replace('login.html');
   }
+
+  // ── Anki card: move to bottom after download ────────────────────────────
+  document.getElementById('ankiDownloadBtn').addEventListener('click', function() {
+    var anki   = document.querySelector('.anki-section');
+    var main   = document.querySelector('.main');
+    // Small delay so the download triggers before the DOM moves
+    setTimeout(function() {
+      main.appendChild(anki);
+    }, 300);
+  });
 </script>
 </body>
 </html>
